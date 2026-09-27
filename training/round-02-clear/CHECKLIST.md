@@ -24,7 +24,7 @@
 
 ## Gate 5 — 실제 수행
 - [x] 실행 위치·환경 확인
-- [ ] Preflight 완료
+- [x] Preflight 완료
 - [x] 한 단계씩 실행
 - [x] 실제 출력 확인
 - [ ] 오류 발생 시 최소 수정 후 재검증
@@ -38,8 +38,9 @@
 - Package manager: `/usr/bin/apt`
 - `sudo` 그룹 포함
 - Git: 설치 완료 — `2.43.0` (`/usr/bin/git`)
-- B1-1 로컬 Repository: 없음
-- 다음 단계: B1-1 Repository clone 및 원격/브랜치 상태 검증
+- B1-1 로컬 Repository: clone 완료 — `/home/metastudy9997479/projects/codyssey-basic-web-portfolio`
+- Repository clone/원격/브랜치/clean 상태 검증: PASS
+- 다음 단계: Git 작성자 설정 상태 확인
 - 상세 재현 기록: `environment/README.md`
 
 ## Gate 6 — 검증·증빙
