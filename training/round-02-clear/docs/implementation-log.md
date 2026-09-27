@@ -157,3 +157,60 @@ FOUND
 ## 다음 단계
 
 CSS 변수, Mobile First, Flexbox, Grid, Dark Theme 기본 스타일을 작성한다.
+
+
+## Step 3 — CSS 기본 스타일 및 반응형 구조
+
+### 목적
+
+B1-1 공식 요구에 맞게 CSS 변수, 다크 테마, Mobile First, Flexbox, Grid, 768px/1024px breakpoint를 구성한다.
+
+### 실제 검증 결과
+
+```text
+=== ROOT VARIABLES ===
+:root
+
+=== DARK THEME ===
+[data-theme="dark"]
+
+=== FLEXBOX NAV ===
+display: flex
+
+=== PROJECT GRID ===
+grid-template-columns
+
+=== BREAKPOINTS ===
+@media (min-width: 768px)
+@media (min-width: 1024px)
+
+=== MOBILE HAMBURGER ===
+.menu-toggle
+
+=== INLINE STYLE CHECK ===
+NO_INLINE_STYLE
+
+=== GIT STATUS ===
+?? css/
+?? images/
+?? index.html
+?? js/
+```
+
+### 판정
+
+**PASS**
+
+- CSS 변수 `:root` 확인
+- 다크 테마 변수 `[data-theme="dark"]` 확인
+- Flexbox 사용 확인
+- Projects Grid 구조 확인
+- 768px / 1024px 반응형 breakpoint 확인
+- 모바일 햄버거 관련 스타일 확인
+- HTML inline style 없음 확인
+- 파일은 아직 Git 추적 전이며 오류가 아님
+- 실제 viewport Runtime 검증은 아직 수행하지 않았으므로 반응형 Runtime PASS는 아님
+
+## 다음 단계
+
+JavaScript에서 Event → State → Render → DOM 흐름을 구현한다.
