@@ -139,4 +139,4 @@
 
 
 - README Runtime Thresholds: PASS (Navigation 60px / Scroll Top 300px / IntersectionObserver 0.2)
-- Gate 6 code+README remediation commit/push: PENDING
+- Gate 6 code+README remediation commit/push: PASS (`841ce91`)
