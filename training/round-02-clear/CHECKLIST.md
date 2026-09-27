@@ -63,6 +63,7 @@
 - Local HTTP Server Runtime: PASS (`/`, CSS, JS 모두 HTTP 200)
 - Browser Initial Runtime: PASS (주요 섹션/CSS/GitHub API success 카드 표시 정상)
 - Dark Mode + localStorage Runtime: PASS (토글/새로고침 유지/버튼 라벨/라이트 복귀)
+- Mobile Hamburger Runtime: PASS (표시/열기/닫기/anchor 이동/자동 닫힘)
 - 구현 로그: `docs/implementation-log.md`
 - 다음 단계: GitHub API 상태 흐름 구현
 - 상세 재현 기록: `environment/README.md`
