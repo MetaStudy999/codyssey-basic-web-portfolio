@@ -93,13 +93,19 @@ Click Event
 
 ### 3.3 Scroll UI
 
-- 스크롤 시 Header 상태 변경
-- 300px 이상 스크롤 시 Scroll Top 버튼 표시
-- 버튼 클릭 시 페이지 상단으로 Smooth Scroll
+현재 구현 기준값:
+
+- Navigation Header 상태 변경: **60px 이상**
+- Scroll Top 버튼 표시: **300px 이상**
+- Scroll Top 클릭 시 페이지 상단으로 Smooth Scroll
 
 ### 3.4 Scroll Reveal
 
 `IntersectionObserver`를 사용하여 Section이 화면에 진입할 때 한 번만 나타나는 애니메이션을 구현했습니다.
+
+현재 Observer 기준값:
+
+- `threshold`: **0.2**
 
 ### 3.5 Contact Form Validation
 

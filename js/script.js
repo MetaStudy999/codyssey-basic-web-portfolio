@@ -322,8 +322,8 @@ const renderProjects = () => {
   }
 
   if (status === "success") {
-    projectsStatus.textContent =
-      `${items.length}개의 공개 프로젝트를 불러왔습니다.`;
+    projectsStatus.innerHTML =
+      `<span><strong>${items.length}</strong>개의 공개 프로젝트를 불러왔습니다.</span>`;
 
     const cards = items
       .slice(0, 8)
