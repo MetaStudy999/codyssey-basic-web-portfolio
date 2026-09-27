@@ -387,3 +387,78 @@ Python 3.12.3
 3. CSS에는 결과 상태 class만 추가
 4. 정적 검증 재수행
 
+
+
+## Step 5-2 — Contact Form 재적용 및 재검증 — PASS
+
+### 실제 검증 결과
+
+```text
+=== FORM STATE ===
+state.form
+
+=== VALIDATION ===
+EMAIL_PATTERN
+validateForm
+
+=== ERROR RENDER ===
+renderFormErrors
+
+=== INPUT EVENTS ===
+handleFormInput
+
+=== SUBMIT EVENT ===
+handleFormSubmit
+
+=== CONTACT LISTENER ===
+contactForm.addEventListener
+
+=== RESULT CLASSES ===
+.form-result.is-error
+.form-result.is-success
+
+=== PREVENT DEFAULT ===
+smooth-scroll preventDefault
+contact submit preventDefault
+
+=== STATUS ===
+?? css/
+?? images/
+?? index.html
+?? js/
+```
+
+### 판정
+
+**정적 재검증 PASS**
+
+- Contact Form 상태 객체 확인
+- 이메일 정규식 및 검증 함수 확인
+- 필드별 오류 렌더 함수 확인
+- `input` 이벤트 처리 확인
+- `submit` 이벤트 처리 확인
+- `event.preventDefault()` 제출 처리 확인
+- 성공/실패 CSS 상태 class 확인
+- 1차 FAIL 이후 원인 진단 → 최소 수정 → 재검증 PASS 흐름 완료
+- 아직 실제 브라우저에서 invalid/valid 입력을 수행하지 않았으므로 Form Runtime PASS는 아님
+
+### 평가 연결
+
+```text
+input Event
+→ updateFormState()
+→ state.form 변경
+→ validateForm()
+→ state.form.errors 변경
+→ renderFormErrors()
+→ DOM 오류 메시지 변경
+
+submit Event
+→ preventDefault()
+→ validateForm()
+→ error 또는 success 결과 렌더
+```
+
+## 다음 단계
+
+GitHub API의 loading / success / error / empty 상태와 재시도 흐름을 구현한다.
