@@ -306,15 +306,24 @@ Deployment URL: https://metastudy999.github.io/codyssey-basic-web-portfolio/
 
 ---
 
-## 11. 최종 제출 전 추가 Evidence
+## 11. Screenshot Evidence
 
-최종 제출 전 실제 브라우저에서 다음 Screenshot Evidence를 확보합니다.
+실제 GitHub Pages 배포 화면에서 다음 Screenshot Evidence를 확보했습니다.
 
-- Desktop
-- Mobile
-- Dark Mode
+### Desktop — Light Mode
 
-예상 이미지나 과거 Round 01 Screenshot을 현재 Evidence로 사용하지 않습니다.
+![B1-1 Desktop Light](training/round-02-clear/evidence/b1-1-pages-desktop-light.png)
+
+### Mobile — 375px
+
+![B1-1 Mobile 375px](training/round-02-clear/evidence/b1-1-pages-mobile-375.png)
+
+### Desktop — Dark Mode
+
+![B1-1 Desktop Dark](training/round-02-clear/evidence/b1-1-pages-desktop-dark.png)
+
+세 이미지는 실제 배포 페이지를 기준으로 촬영했으며,
+Round 01 자료나 예상 이미지를 Round 02 Evidence로 사용하지 않았습니다.
 
 ---
 
