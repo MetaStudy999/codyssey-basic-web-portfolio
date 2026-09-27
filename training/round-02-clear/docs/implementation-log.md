@@ -1191,3 +1191,40 @@ Git 상태에서 세 파일은 아직 untracked 상태임을 확인했다.
 - Git add/commit: PENDING
 
 `file` 패키지를 즉시 재설치하지 않고, Python 표준 라이브러리로 PNG Signature/IHDR을 확인하는 최소 검증으로 진행한다.
+
+
+## Step 26-3 — Screenshot PNG Verification — PASS
+
+### 사용자 실제 확인 결과
+
+Python 표준 라이브러리로 PNG Signature와 IHDR을 검증했다.
+
+```text
+PASS b1-1-pages-desktop-light.png
+format=PNG
+width=2324
+height=2280
+
+PASS b1-1-pages-mobile-375.png
+format=PNG
+width=752
+height=2044
+
+PASS b1-1-pages-desktop-dark.png
+format=PNG
+width=2334
+height=2380
+
+PNG_VERIFY=PASS
+```
+
+### 판정
+
+**PASS**
+
+- Desktop Light: PNG 형식 정상
+- Mobile 375px: PNG 형식 정상
+- Desktop Dark: PNG 형식 정상
+- 세 파일 모두 PNG Signature 및 IHDR 검증 완료
+- Screenshot Evidence 파일은 아직 Git untracked 상태
+- 다음 단계: Screenshot Evidence 3개를 Git add / commit / push
