@@ -586,9 +586,10 @@ button[aria-selected="true"]
   justify-content: center;
   align-items: center;
   gap: 0.45rem;
-  min-height: 24px;
+  min-height: 32px;
   margin-top: auto;
   padding-top: var(--space-md);
+  padding-bottom: 0.5rem;
   text-align: center;
 }
 
