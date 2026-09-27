@@ -317,9 +317,12 @@ button {
 }
 
 .projects-categories button {
+  display: inline-flex;
   flex: 0 0 auto;
+  align-items: center;
+  gap: 0.45rem;
   min-height: 40px;
-  padding: 0.55rem 0.85rem;
+  padding: 0.5rem 0.8rem;
   border: 1px solid var(--color-border);
   border-radius: 999px;
   background: var(--color-surface);
@@ -330,6 +333,19 @@ button {
     border-color var(--transition),
     background-color var(--transition),
     color var(--transition);
+}
+
+.project-category-number {
+  display: inline-grid;
+  width: 1.65rem;
+  height: 1.65rem;
+  place-items: center;
+  flex: 0 0 1.65rem;
+  border: 1px solid currentColor;
+  border-radius: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .projects-categories button:hover {
