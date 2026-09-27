@@ -178,3 +178,7 @@ git log -1 --oneline
 - Mobile 375px: 촬영 완료
 - Desktop Dark: 촬영 완료
 - Evidence 디렉터리 복사 및 Git 기록: **PENDING**
+
+
+- Screenshot Source Path Discovery: **PASS**
+- Mac Desktop → OrbStack mount: `/mnt/mac/Users/metastudy9997479/Desktop/`
