@@ -123,3 +123,7 @@
 
 - GitHub Pages HTTP Deployment: PASS (`main:/`, HTML/CSS/JS HTTP 200)
 - GitHub Pages Browser Runtime Recheck: PASS (기본 화면 / Dark persistence / API reload / 375px / Contact-Scroll-Reveal)
+
+
+- Screenshot Capture: PASS (Desktop Light / Mobile 375px / Desktop Dark)
+- Screenshot Evidence Import: PENDING
