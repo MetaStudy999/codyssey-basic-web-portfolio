@@ -116,8 +116,34 @@
         <h2>Projects</h2>
 
         <p>
-          GitHub API를 통해 공개 저장소를 불러와 페이지별로 표시합니다.
+          코디세이 학습 단계별 Repository를 분류하여 확인합니다.
         </p>
+
+        <div
+          class="projects-categories"
+          id="projects-categories"
+          role="tablist"
+          aria-label="코디세이 프로젝트 카테고리"
+        >
+          <button type="button" role="tab" data-project-category="all" aria-selected="true">
+            전체
+          </button>
+          <button type="button" role="tab" data-project-category="admission" aria-selected="false">
+            입학 연수
+          </button>
+          <button type="button" role="tab" data-project-category="tools" aria-selected="false">
+            AI 도구 학습
+          </button>
+          <button type="button" role="tab" data-project-category="advanced" aria-selected="false">
+            AI 심화 학습
+          </button>
+          <button type="button" role="tab" data-project-category="applied" aria-selected="false">
+            AI 응용 학습
+          </button>
+          <button type="button" role="tab" data-project-category="final" aria-selected="false">
+            파이널 프로젝트
+          </button>
+        </div>
 
         <div
           class="projects-status"
@@ -135,6 +161,13 @@
         >
           프로젝트 다시 불러오기
         </button>
+
+        <div
+          class="projects-category-message"
+          id="projects-category-message"
+          role="status"
+          hidden
+        ></div>
 
         <div
           class="projects-grid"

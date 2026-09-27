@@ -307,6 +307,70 @@ button {
    Projects
 ------------------------------ */
 
+.projects-categories {
+  display: flex;
+  gap: var(--space-xs);
+  margin: var(--space-lg) 0;
+  padding-bottom: 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.projects-categories button {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-muted);
+  font-weight: 700;
+  white-space: nowrap;
+  transition:
+    border-color var(--transition),
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.projects-categories button:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.projects-categories button[aria-selected="true"] {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.projects-category-message {
+  display: grid;
+  min-height: 180px;
+  margin-top: var(--space-lg);
+  place-items: center;
+  padding: var(--space-xl);
+  text-align: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.projects-category-message[hidden] {
+  display: none;
+}
+
+.projects-category-message strong {
+  display: block;
+  margin-bottom: var(--space-xs);
+  color: var(--color-text);
+  font-size: 1.15rem;
+}
+
+.projects-category-message span {
+  color: var(--color-muted);
+}
+
 .projects-status {
   padding: var(--space-lg);
   color: var(--color-muted);
@@ -613,6 +677,12 @@ button {
     grid-template-columns:
       minmax(180px, 260px) 1fr;
     align-items: center;
+  }
+
+  .projects-categories {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: visible;
   }
 
   .projects-grid {

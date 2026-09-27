@@ -124,7 +124,24 @@ Click Event
 
 ### 3.6 GitHub API Projects
 
-GitHub REST API를 이용해 `MetaStudy999` 계정의 공개 Repository를 Projects Section에 표시합니다.
+Projects는 코디세이 학습 단계별 카테고리로 구성합니다.
+
+```text
+전체 | 입학 연수 | AI 도구 학습 | AI 심화 학습 | AI 응용 학습 | 파이널 프로젝트
+```
+
+현재 카테고리 정책:
+
+- **전체**: 현재 공개된 과정 Repository 표시
+- **입학 연수**: `레포 준비중`
+- **AI 도구 학습**: Repository 이름이 `codyssey-basic`으로 시작하는 공개 Repository만 표시
+- **AI 심화 학습**: `예정`
+- **AI 응용 학습**: `예정`
+- **파이널 프로젝트**: `예정`
+
+현재 실제 Repository가 연결된 과정은 AI 도구 학습이므로, `전체`도 현재는 동일한 `codyssey-basic*` Repository 집합을 보여 줍니다.
+
+GitHub REST API를 이용해 `MetaStudy999` 계정의 공개 Repository를 불러온 뒤 카테고리에 맞게 필터링합니다.
 
 처리 상태:
 

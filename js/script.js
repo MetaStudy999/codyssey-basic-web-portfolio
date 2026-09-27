@@ -215,8 +215,21 @@ const handleResize = () => {
 
 const GITHUB_USERNAME = "MetaStudy999";
 
+const projectsCategories =
+  document.querySelector("#projects-categories");
+
+const projectCategoryButtons =
+  document.querySelectorAll(
+    "[data-project-category]",
+  );
+
 const projectsStatus =
   document.querySelector("#projects-status");
+
+const projectsCategoryMessage =
+  document.querySelector(
+    "#projects-category-message",
+  );
 
 const projectsGrid =
   document.querySelector("#projects-grid");
@@ -233,7 +246,94 @@ state.projects = {
   items: [],
   error: "",
   page: 1,
+  category: "all",
 };
+
+const PROJECT_CATEGORY_CONFIG = {
+  all: {
+    label: "전체",
+    mode: "repositories",
+  },
+  admission: {
+    label: "입학 연수",
+    mode: "message",
+    message: "레포 준비중",
+  },
+  tools: {
+    label: "AI 도구 학습",
+    mode: "repositories",
+  },
+  advanced: {
+    label: "AI 심화 학습",
+    mode: "message",
+    message: "예정",
+  },
+  applied: {
+    label: "AI 응용 학습",
+    mode: "message",
+    message: "예정",
+  },
+  final: {
+    label: "파이널 프로젝트",
+    mode: "message",
+    message: "예정",
+  },
+};
+
+const isToolLearningRepository =
+  (repository) =>
+    repository.name
+      .toLowerCase()
+      .startsWith("codyssey-basic");
+
+const getProjectsForCategory = () => {
+  const { items, category } =
+    state.projects;
+
+  if (
+    category === "all" ||
+    category === "tools"
+  ) {
+    return items.filter(
+      isToolLearningRepository,
+    );
+  }
+
+  return [];
+};
+
+const renderProjectCategoryTabs = () => {
+  projectCategoryButtons.forEach(
+    (button) => {
+      const isActive =
+        button.dataset.projectCategory ===
+        state.projects.category;
+
+      button.setAttribute(
+        "aria-selected",
+        String(isActive),
+      );
+    },
+  );
+};
+
+const setProjectCategory = (category) => {
+  if (!PROJECT_CATEGORY_CONFIG[category]) {
+    return;
+  }
+
+  state.projects.category = category;
+  state.projects.page = 1;
+  renderProjects();
+};
+
+const handleProjectCategoryClick =
+  (event) => {
+    setProjectCategory(
+      event.currentTarget.dataset
+        .projectCategory,
+    );
+  };
 
 const getProjectsPerPage = () => {
   if (window.innerWidth >= 1024) {
@@ -487,13 +587,57 @@ const renderProjects = () => {
     status,
     items,
     error,
+    category,
   } = state.projects;
+
+  const categoryConfig =
+    PROJECT_CATEGORY_CONFIG[category];
+
+  renderProjectCategoryTabs();
 
   projectsGrid.replaceChildren();
   projectsPagination.replaceChildren();
+  projectsCategoryMessage.hidden = true;
+  projectsCategoryMessage
+    .replaceChildren();
+
+  reloadProjectsButton.hidden =
+    categoryConfig.mode !== "repositories";
 
   reloadProjectsButton.disabled =
     status === "loading";
+
+  if (categoryConfig.mode === "message") {
+    projectsStatus.innerHTML =
+      `<span><strong>${categoryConfig.label}</strong> · ${categoryConfig.message}</span>`;
+
+    const content =
+      document.createElement("div");
+
+    const title =
+      document.createElement("strong");
+
+    title.textContent =
+      categoryConfig.label;
+
+    const message =
+      document.createElement("span");
+
+    message.textContent =
+      categoryConfig.message;
+
+    content.append(
+      title,
+      message,
+    );
+
+    projectsCategoryMessage.append(
+      content,
+    );
+
+    projectsCategoryMessage.hidden = false;
+    return;
+  }
 
   if (status === "loading") {
     projectsStatus.textContent =
@@ -526,12 +670,23 @@ const renderProjects = () => {
   }
 
   if (status === "success") {
+    const categoryItems =
+      getProjectsForCategory();
+
+    if (categoryItems.length === 0) {
+      projectsStatus.innerHTML =
+        `<span><strong>${categoryConfig.label}</strong> · 표시할 레포가 없습니다.</span>`;
+      return;
+    }
+
     const perPage = getProjectsPerPage();
 
     const totalPages =
       Math.max(
         1,
-        Math.ceil(items.length / perPage),
+        Math.ceil(
+          categoryItems.length / perPage,
+        ),
       );
 
     const currentPage =
@@ -548,17 +703,17 @@ const renderProjects = () => {
     const endIndex =
       Math.min(
         startIndex + perPage,
-        items.length,
+        categoryItems.length,
       );
 
     const visibleItems =
-      items.slice(
+      categoryItems.slice(
         startIndex,
         endIndex,
       );
 
     projectsStatus.innerHTML =
-      `<span><strong>${items.length}</strong>개의 공개 프로젝트 중 <strong>${startIndex + 1}–${endIndex}</strong>번째를 표시했습니다. (${currentPage}/${totalPages} 페이지)</span>`;
+      `<span><strong>${categoryConfig.label}</strong> · <strong>${categoryItems.length}</strong>개 레포 중 <strong>${startIndex + 1}–${endIndex}</strong>번째를 표시했습니다. (${currentPage}/${totalPages} 페이지)</span>`;
 
     const cards = visibleItems
       .map((repository) =>
@@ -806,6 +961,15 @@ const initializeApp = () => {
     renderScrollUi,
   );
 
+
+  projectCategoryButtons.forEach(
+    (button) => {
+      button.addEventListener(
+        "click",
+        handleProjectCategoryClick,
+      );
+    },
+  );
 
   reloadProjectsButton.addEventListener(
     "click",
