@@ -49,7 +49,9 @@
 - 원격 Round 02 브랜치 tracking/fast-forward/clean 검증: PASS
 - Gate 2 연결표: `docs/requirements-mapping.md`
 - Gate 3 최소 통과 경로: `docs/minimum-passing-path.md`
-- 다음 단계: Gate 4 적시 학습 후 실제 구현 위치 확정
+- Gate 3 문서 로컬 동기화: PASS
+- Gate 4 학습자료: `docs/jit-learning.md`
+- 다음 단계: 핵심 개념 자기 말 설명 확인 후 실제 구현 위치 확정
 - 상세 재현 기록: `environment/README.md`
 
 ## Gate 6 — 검증·증빙
