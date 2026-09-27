@@ -1313,3 +1313,43 @@ GitHub 원격 main에서도 README의 Screenshot Evidence 링크 3개를 확인�
 - Local HEAD = Remote HEAD
 - ahead / behind 없음
 - Commit: `0d80901`
+
+
+## Step 28-1 — innerHTML Dynamic HTML Static Verification — PASS
+
+### 사용자 실제 실행 결과
+
+```text
+PASS source updated
+
+=== INNERHTML ===
+325: projectsStatus.innerHTML =
+
+=== TEMPLATE HTML ===
+326: `<span><strong>${items.length}</strong>개의 공개 프로젝트를 불러왔습니다.</span>`
+
+=== MAP / FILTER / FOREACH ===
+forEach / map / filter 확인
+
+=== DIFF CHECK ===
+출력 없음
+
+=== STATUS ===
+ M js/script.js
+```
+
+### 판정
+
+**PASS — 정적 검증**
+
+- `innerHTML` 사용 확인
+- 템플릿 리터럴 기반 동적 HTML 생성 확인
+- 동적 값은 외부 Repository 문자열이 아니라 `items.length` 숫자만 삽입
+- 기존 `map()`, `filter()`, `forEach()` 유지
+- `git diff --check` 오류 없음
+- 현재 수정 파일은 `js/script.js` 1개
+- 실제 Browser Runtime 재검증은 아직 PENDING
+
+### 다음 단계
+
+로컬 브라우저에서 GitHub Projects success / reload 상태가 기존처럼 정상인지 확인한다.
