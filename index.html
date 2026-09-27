@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="B1-1 미션으로 제작한 개인 포트폴리오 웹사이트입니다."
+  >
+
+  <title>My Portfolio | B1-1</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header" id="top">
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a class="logo" href="#home" aria-label="홈으로 이동">
+        My Portfolio
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="메뉴 열기"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+      >
+        ☰
+      </button>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="다크 모드 전환"
+      >
+        Theme
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="section-inner">
+        <p class="eyebrow">B1-1 · Web Portfolio</p>
+
+        <h1>
+          안녕하세요.<br>
+          웹의 기본 원리를 직접 배우고 있습니다.
+        </h1>
+
+        <p>
+          HTML, CSS, JavaScript를 이용해
+          반응형 포트폴리오 웹사이트를 제작합니다.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects">프로젝트 보기</a>
+          <a href="#contact">연락하기</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="section-inner">
+        <h2>About Me</h2>
+
+        <article class="about-card">
+          <img
+            src="images/profile-placeholder.svg"
+            alt="포트폴리오 프로필 이미지 자리 표시"
+          >
+
+          <div>
+            <h3>웹 기술을 학습하는 개발자</h3>
+
+            <p>
+              사용자에게 정보를 명확하게 전달하고
+              실제로 동작하는 웹 서비스를 만드는 과정을 학습하고 있습니다.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="skills section" id="skills">
+      <div class="section-inner">
+        <h2>Skills</h2>
+
+        <article class="skills-card">
+          <h3>현재 학습 기술</h3>
+
+          <ul>
+            <li>HTML — 문서 구조와 시맨틱 마크업</li>
+            <li>CSS — 레이아웃과 반응형 디자인</li>
+            <li>JavaScript — DOM, 이벤트, 상태 관리</li>
+            <li>Git & GitHub — 버전 관리와 배포</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="projects section" id="projects">
+      <div class="section-inner">
+        <h2>Projects</h2>
+
+        <p>
+          GitHub API를 통해 공개 저장소를 불러와 표시할 예정입니다.
+        </p>
+
+        <div
+          class="projects-status"
+          id="projects-status"
+          role="status"
+          aria-live="polite"
+        >
+          프로젝트를 준비하고 있습니다.
+        </div>
+
+        <button
+          class="projects-reload"
+          id="reload-projects"
+          type="button"
+        >
+          프로젝트 다시 불러오기
+        </button>
+
+        <div
+          class="projects-grid"
+          id="projects-grid"
+          aria-label="GitHub 프로젝트 목록"
+        ></div>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="section-inner">
+        <h2>Contact</h2>
+
+        <form id="contact-form" novalidate>
+          <div class="form-field">
+            <label for="name">이름</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              autocomplete="name"
+              required
+            >
+            <p class="field-error" id="name-error"></p>
+          </div>
+
+          <div class="form-field">
+            <label for="email">이메일</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+            >
+            <p class="field-error" id="email-error"></p>
+          </div>
+
+          <div class="form-field">
+            <label for="message">메시지</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+            ></textarea>
+            <p class="field-error" id="message-error"></p>
+          </div>
+
+          <button type="submit">
+            보내기
+          </button>
+
+          <p
+            class="form-result"
+            id="form-result"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      &copy; 2026 My Portfolio
+    </p>
+
+    <a
+      href="https://github.com/MetaStudy999"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      GitHub
+    </a>
+  </footer>
+
+  <button
+    class="scroll-top"
+    id="scroll-top"
+    type="button"
+    aria-label="페이지 맨 위로 이동"
+  >
+    ↑
+  </button>
+</body>
+</html>

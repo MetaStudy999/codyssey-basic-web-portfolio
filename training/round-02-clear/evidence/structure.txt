@@ -1,0 +1,15 @@
+B1-1 Round 02 — Structure Evidence
+Generated: 2026-09-27T23:49:41+09:00
+
+=== BRANCH ===
+round-02/b1-1-web-portfolio
+
+=== FILE STRUCTURE ===
+css
+css/style.css
+images
+images/.gitkeep
+images/profile-placeholder.svg
+index.html
+js
+js/script.js
