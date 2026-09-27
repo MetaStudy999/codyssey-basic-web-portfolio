@@ -1139,3 +1139,55 @@ OrbStack Ubuntu에서 Mac Desktop의 실제 Screenshot 파일 3개를 확인했�
 - Mobile 375px 원본 확인
 - Desktop Dark 원본 확인
 - 다음 단계에서 Round 02 Evidence 디렉터리로 복사하고 파일 크기/형식/해시를 검증한다.
+
+
+## Step 26-2 — Screenshot Evidence Import — PARTIAL PASS
+
+### 사용자 실제 확인 결과
+
+Round 02 Evidence 디렉터리에 Screenshot 3개를 복사했다.
+
+```text
+PASS training/round-02-clear/evidence/b1-1-pages-desktop-light.png
+PASS training/round-02-clear/evidence/b1-1-pages-mobile-375.png
+PASS training/round-02-clear/evidence/b1-1-pages-desktop-dark.png
+```
+
+파일 크기:
+
+```text
+desktop-dark.png  531K
+desktop-light.png 240K
+mobile-375.png    186K
+```
+
+SHA-256:
+
+```text
+dc34ebbe3890e19c89f57ae02e6008e7f400b0ce61b0bc7c900f6498c4e12641  desktop-light
+0bfee5124c093dd307058908479fa2b5ababadbbeb94904949debe3ce4930f17  mobile-375
+6d8f260d06b84c0b36456a55e633c7a2df24fc8c870cd751c079a100d55f198b  desktop-dark
+```
+
+Git 상태에서 세 파일은 아직 untracked 상태임을 확인했다.
+
+### 오류
+
+`file` 명령 실행 결과:
+
+```text
+-bash: file: command not found
+```
+
+### 판정
+
+**PARTIAL PASS**
+
+- 파일 존재: PASS
+- 비어 있지 않음: PASS
+- 파일 크기 확인: PASS
+- SHA-256 확인: PASS
+- PNG 형식 검증: PENDING
+- Git add/commit: PENDING
+
+`file` 패키지를 즉시 재설치하지 않고, Python 표준 라이브러리로 PNG Signature/IHDR을 확인하는 최소 검증으로 진행한다.
