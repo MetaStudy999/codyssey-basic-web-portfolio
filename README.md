@@ -296,13 +296,13 @@ Password, Token, Personal Access Token(PAT) 등의 Secret은 Repository와 Evide
 
 ## 10. GitHub Pages
 
-GitHub Pages 배포는 다음 단계에서 진행합니다.
+GitHub Pages에 실제 배포되었습니다.
 
 ```text
-Deployment URL: PENDING
+Deployment URL: https://metastudy999.github.io/codyssey-basic-web-portfolio/
 ```
 
-배포 완료 후 실제 GitHub Pages URL에서 다시 Runtime을 검증합니다.
+실제 GitHub Pages URL에서 Browser Runtime 재검증을 진행합니다.
 
 ---
 
