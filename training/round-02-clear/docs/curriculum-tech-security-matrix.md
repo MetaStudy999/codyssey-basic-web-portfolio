@@ -32,6 +32,25 @@
 - AI 응용 학습: 7대 산업 도메인, End-to-End 서비스, MVP, 사업화
 - Final: 자율 주제 AI 서비스, 시장·고객 검증, 비즈니스 모델, Demo Day/IR
 
+## 2.1 실습 개발환경
+
+| 구분 | iMac 환경 | Windows 환경 | 공통 목적 |
+|---|---|---|---|
+| Host | iMac / macOS | Windows 11 Pro | 개발 호스트 |
+| Linux Runtime | OrbStack Ubuntu | WSL2 Ubuntu | Mission 실행환경 통일 |
+| Backend | FastAPI + Uvicorn | FastAPI + Uvicorn | API / SSR / AI 서비스 |
+| ORM | SQLAlchemy | SQLAlchemy | 데이터 접근 계층 |
+| Local DB | SQLite / PostgreSQL / MySQL / H2 | SQLite / PostgreSQL / MySQL / H2 | B6 계열과 로컬 검증 |
+| Cloud DB | Supabase PostgreSQL | Supabase PostgreSQL | 서비스 확장 |
+| DB Tool | TablePlus / DBeaver / DataGrip / CLI | DBeaver / DataGrip / CLI | SQL·스키마·데이터 검증 |
+
+Database 보안 기본선:
+- 관리자 계정과 애플리케이션 계정 분리
+- 최소권한 Role 사용
+- 외부 포트 공개 최소화
+- SQLAlchemy ORM 또는 파라미터 바인딩 사용
+- 중요 변경 전 백업과 복구 절차 확인
+
 ## 3. 2026 최신 확장 — 공식 Mission 필수 아님
 
 ### Local AI
