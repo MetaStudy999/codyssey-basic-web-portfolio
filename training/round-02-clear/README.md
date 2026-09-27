@@ -53,7 +53,7 @@
 ## 현재 진행 상태
 
 - Gate 1 — 기준 확정: **완료**
-- Gate 2 — 평가항목 연결: **대기**
+- Gate 2 — 평가항목 연결: **완료**
 - Gate 5 — 실행환경 Preflight: **진행 중**
 - 실제 개발 환경: **학교 iMac → OrbStack → Ubuntu 24.04.5 LTS**
 - 현재 사용자: `metastudy9997479`
@@ -77,7 +77,7 @@
 
 ## 다음 작업
 
-현재 환경 확인, Git 설치/검증, B1-1 Repository clone 및 원격·브랜치·작업트리 상태 확인까지 완료했다. Git 작성자 전역 설정은 둘 다 UNSET이었고, 학교 공유 환경을 고려하여 현재 B1-1 Repository에만 로컬 작성자 정보를 설정했다. `user.name`과 `user.email` 모두 SET이며 실제 값은 기록하지 않았다. 원격 `main` 동기화와 `round-02/b1-1-web-portfolio` 작업 브랜치 생성까지 완료했다. 원격에도 동일한 Round 02 작업 브랜치를 준비했다. 다음 실제 단계는 **Gate 2 — 공식 요구사항과 기존 Evaluation을 연결해 평가 기준을 먼저 확정**하는 것이다.
+현재 환경 확인, Git 설치/검증, B1-1 Repository clone 및 원격·브랜치·작업트리 상태 확인까지 완료했다. Git 작성자 전역 설정은 둘 다 UNSET이었고, 학교 공유 환경을 고려하여 현재 B1-1 Repository에만 로컬 작성자 정보를 설정했다. `user.name`과 `user.email` 모두 SET이며 실제 값은 기록하지 않았다. 원격 `main` 동기화와 `round-02/b1-1-web-portfolio` 작업 브랜치 생성까지 완료했다. 원격에도 동일한 Round 02 작업 브랜치를 준비했다. Gate 2에서 공식 요구사항과 기존 Evaluation을 비교하고 `docs/requirements-mapping.md`에 Requirement → Implementation → Verification → Evidence → Evaluation 연결을 정리했다. 다음 실제 단계는 **Gate 3 — Minimum Passing Path(최소 통과 경로) 확정**이다.
 
 ```bash
 cd "$HOME/projects/codyssey-basic-web-portfolio"
