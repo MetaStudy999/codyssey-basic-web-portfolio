@@ -167,7 +167,19 @@ Repository 이름과 설명 길이가 달라도 카드가 흔들리지 않도록
 - 긴 Repository 이름은 자연스럽게 줄바꿈
 - 링크 영역은 카드 하단에 고정
 
-각 카드에는 **GitHub 링크**를 기본 제공하고, Repository의 `homepage` 또는 GitHub Pages(`has_pages`) 정보가 있으면 **웹페이지 보기** 링크를 추가합니다. 존재하지 않는 Website URL을 임의로 만들어 링크하지 않습니다.
+각 카드의 하단에는 항상 같은 위치와 같은 크기의 두 액션을 표시합니다.
+
+```text
+[ 웹페이지 ] [ GitHub ]
+```
+
+- 실제 Website URL이 있으면 `웹페이지` 활성
+- Website URL이 없으면 `웹페이지` 비활성
+- GitHub Repository URL이 있으면 `GitHub` 활성
+- URL이 없으면 해당 액션 비활성
+- 비활성 상태는 `aria-disabled="true"`와 낮은 대비로 명확하게 구분
+
+이렇게 하면 카드마다 링크 개수가 달라도 버튼 위치가 흔들리지 않습니다.
 
 ### Pagination UX
 

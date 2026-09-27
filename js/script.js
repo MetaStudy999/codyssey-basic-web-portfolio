@@ -392,15 +392,6 @@ const createProjectCard = (repository) => {
 
   actions.classList.add("project-actions");
 
-  const githubLink =
-    document.createElement("a");
-
-  githubLink.classList.add("project-link");
-  githubLink.href = url;
-  githubLink.target = "_blank";
-  githubLink.rel = "noopener noreferrer";
-  githubLink.textContent = "GitHub에서 보기";
-
   const ownerLogin =
     owner?.login ?? GITHUB_USERNAME;
 
@@ -417,28 +408,58 @@ const createProjectCard = (repository) => {
   const websiteUrl =
     homepage?.trim() || pagesUrl;
 
-  if (
-    websiteUrl &&
-    /^https?:\/\//i.test(websiteUrl)
-  ) {
-    const websiteLink =
+  const createProjectAction = ({
+    label,
+    href,
+  }) => {
+    const isAvailable =
+      Boolean(href) &&
+      /^https?:\/\//i.test(href);
+
+    if (!isAvailable) {
+      const disabledAction =
+        document.createElement("span");
+
+      disabledAction.classList.add(
+        "project-action",
+        "is-disabled",
+      );
+
+      disabledAction.textContent = label;
+      disabledAction.setAttribute(
+        "aria-disabled",
+        "true",
+      );
+
+      return disabledAction;
+    }
+
+    const actionLink =
       document.createElement("a");
 
-    websiteLink.classList.add(
-      "project-site-link",
+    actionLink.classList.add(
+      "project-action",
     );
 
-    websiteLink.href = websiteUrl;
-    websiteLink.target = "_blank";
-    websiteLink.rel =
+    actionLink.href = href;
+    actionLink.target = "_blank";
+    actionLink.rel =
       "noopener noreferrer";
-    websiteLink.textContent =
-      "웹페이지 보기";
+    actionLink.textContent = label;
 
-    actions.append(websiteLink);
-  }
+    return actionLink;
+  };
 
-  actions.append(githubLink);
+  actions.append(
+    createProjectAction({
+      label: "웹페이지",
+      href: websiteUrl,
+    }),
+    createProjectAction({
+      label: "GitHub",
+      href: url,
+    }),
+  );
 
   article.append(
     title,

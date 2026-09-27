@@ -276,4 +276,4 @@ GitHub Pages
 
 ### GitHub 링크와 웹페이지 링크는 어떻게 구분했나?
 
-> GitHub 저장소 링크는 항상 보여 줍니다. 실제 서비스 링크는 GitHub API의 homepage 값이 있거나 has_pages가 true인 Repository에만 “웹페이지 보기”를 추가합니다. 존재 여부를 확인하지 않고 추정 URL을 보여 주는 것은 피했습니다.
+> 카드 하단에는 항상 [웹페이지] [GitHub] 두 액션을 같은 위치에 둡니다. GitHub API의 homepage 값이나 has_pages 정보로 실제 웹페이지 URL을 확인할 수 있으면 웹페이지를 활성화하고, 없으면 비활성화합니다. GitHub도 URL이 있을 때만 활성화합니다. 링크 존재 여부 때문에 카드 레이아웃이 흔들리지 않도록 한 것입니다.

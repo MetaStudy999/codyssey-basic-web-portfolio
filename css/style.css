@@ -376,24 +376,37 @@ button {
   padding-top: var(--space-md);
 }
 
-.project-link,
-.project-site-link {
+.project-action {
   display: inline-flex;
   align-items: center;
-  min-height: 36px;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.project-site-link {
-  padding: 0.45rem 0.7rem;
+  justify-content: center;
+  min-width: 88px;
+  min-height: 38px;
+  padding: 0.5rem 0.8rem;
   border: 1px solid var(--color-primary);
   border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-primary);
+  font-weight: 700;
+  line-height: 1.2;
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    opacity var(--transition);
 }
 
-.project-site-link:hover {
+a.project-action:hover {
   background: var(--color-primary);
   color: #ffffff;
+}
+
+.project-action.is-disabled {
+  cursor: not-allowed;
+  border-color: var(--color-border);
+  color: var(--color-muted);
+  opacity: 0.5;
+  user-select: none;
 }
 
 .project-card-placeholder {
