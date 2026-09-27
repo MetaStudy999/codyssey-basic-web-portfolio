@@ -126,4 +126,5 @@
 
 
 - Screenshot Capture: PASS (Desktop Light / Mobile 375px / Desktop Dark)
+- Screenshot Source Path Discovery: PASS (`/mnt/mac/.../Desktop`)
 - Screenshot Evidence Import: PENDING
