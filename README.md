@@ -172,6 +172,50 @@ GitHub API 결과는 **페이지네이션(Pagination)** 으로 여러 페이지�
 
 `30개의 공개 프로젝트 중 1–9번째를 표시했습니다. (1/4 페이지)`
 
+### Mission Number & Manual Progress
+
+AI 도구 학습 Repository는 현재 제2기 Mission ID를 수동 매핑하여 표시합니다.
+
+정렬 순서:
+
+```text
+B1-1 → B1-2 → B2-1 → B2-2 → ... → B7-2 → 공통
+```
+
+현재 미션:
+
+```text
+B1-1 · 진행
+```
+
+각 카드에는 Mission 번호와 진행 상태를 표시합니다.
+
+```text
+B1-1  진행
+B1-2  준비
+...
+```
+
+진행 상태는 자동으로 판단하지 않고 `js/script.js`의 `MISSION_PROGRESS`를 직접 수정합니다.
+
+사용 가능한 값:
+
+```text
+준비 | 진행 | 완료
+```
+
+예:
+
+```js
+const MISSION_PROGRESS = {
+  "B1-1": "진행",
+  "B1-2": "준비",
+  "B2-1": "준비",
+};
+```
+
+현재 B1-1은 최종 CLEAR 전이므로 `진행`으로 두고, 이후 실제 완료 시 수동으로 `완료`로 변경합니다. 상태 자동화는 후속 고도화로 미룹니다.
+
 ### Project Card Typography & Links
 
 Repository 이름과 설명 길이가 달라도 카드가 흔들리지 않도록 Typography 규칙을 고정했습니다.
