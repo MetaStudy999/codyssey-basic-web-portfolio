@@ -343,3 +343,47 @@ Contact Form의 입력 → 검증 상태 → 에러/성공 렌더 흐름을 구�
 ### 다음 진단
 
 재설치/전체 파일 교체를 하지 않고, 현재 `js/script.js`의 Initialization 주변 실제 구조를 먼저 확인한 뒤 최소 수정한다.
+
+
+## Step 5-1 — Contact Form 삽입 실패 원인 진단
+
+### 실제 확인 결과
+
+```text
+=== INITIALIZATION AREA ===
+Initialization marker 존재
+initializeApp() 존재
+
+=== RESIZE AREA ===
+window.addEventListener("resize", handleResize) 존재
+
+=== CONTACT SYMBOLS ===
+NO_CONTACT_FORM_CODE
+
+=== PYTHON ===
+Python 3.12.3
+
+=== STATUS ===
+?? css/
+?? images/
+?? index.html
+?? js/
+```
+
+### 판정
+
+- `Initialization` marker는 실제 파일에 존재함
+- `resize` 이벤트 구간도 실제 파일에 존재함
+- Python 3.12.3 사용 가능
+- Contact Form 관련 심볼은 전혀 없음
+- 따라서 현재 파일 구조 자체가 삽입을 방해한 것은 아님
+- 이전 Contact Form 삽입 단계가 실제 파일에 반영되지 않은 상태로 확인됨
+
+### 최소 수정 원칙
+
+전체 `script.js`를 덮어쓰지 않고,
+1. Contact Form 로직 블록을 `Initialization` 직전에 삽입
+2. Contact 이벤트 연결을 `resize` 이벤트 직전에 삽입
+3. CSS에는 결과 상태 class만 추가
+4. 정적 검증 재수행
+
