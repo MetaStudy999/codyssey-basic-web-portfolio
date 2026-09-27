@@ -77,7 +77,7 @@
 
 ## 다음 작업
 
-현재 환경 확인, Git 설치/검증, B1-1 Repository clone 및 원격·브랜치·작업트리 상태 확인까지 완료했다. 다음 실제 단계는 **Git 작성자 설정 상태를 확인**하는 것이다.
+현재 환경 확인, Git 설치/검증, B1-1 Repository clone 및 원격·브랜치·작업트리 상태 확인까지 완료했다. Git 작성자 전역 설정이 둘 다 UNSET임을 확인했다. 학교 공유 환경을 고려하여 다음 실제 단계는 **현재 B1-1 Repository에만 작성자 정보를 설정**하는 것이다.
 
 ```bash
 cd "$HOME/projects/codyssey-basic-web-portfolio"
