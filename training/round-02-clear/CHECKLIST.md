@@ -68,6 +68,8 @@
 - Contact Form Runtime: PASS (빈 값/이메일 형식/필드별 오류/정상 성공 메시지)
 - GitHub API Success/Reload Runtime: PASS (카드/상태문구/loading/재로딩 success)
 - GitHub API Error/Retry Runtime: PASS (Offline error / retry label / Online recovery / card re-render)
+- GitHub API Empty Runtime: PASS (empty message / cards hidden / reload / success recovery)
+- GitHub API 전체 상태 Runtime: PASS (loading / success / error / empty / retry)
 - 구현 로그: `docs/implementation-log.md`
 - 다음 단계: GitHub API 상태 흐름 구현
 - 상세 재현 기록: `environment/README.md`
