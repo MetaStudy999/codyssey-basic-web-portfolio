@@ -1,12 +1,12 @@
 # B1-1 Round 02 Checklist
 
 ## Gate 1 — 기준 확정
-- [ ] 제2기 현재 Mission PDF에서 ID·제목 확인
-- [ ] 공식 요구사항·산출물 확인
-- [ ] 제2기 오리엔테이션에서 학습 분야·필수/선택·목표 확인
-- [ ] 현재 Repository와 과거 Mission ID 확인
-- [ ] 기존 Mission/Evaluation 확인
-- [ ] `training/round-01-clear/` 참고자료 확인
+- [x] 제2기 현재 Mission PDF에서 ID·제목 확인
+- [x] 공식 요구사항·산출물 확인
+- [x] 제2기 오리엔테이션에서 학습 분야·필수/선택·목표 확인
+- [x] 현재 Repository와 과거 Mission ID 확인
+- [x] 기존 Mission/Evaluation 확인
+- [x] `training/round-01-clear/` 참고자료 확인
 
 ## Gate 2 — 평가항목 먼저
 - [ ] 공식 요구사항과 기존 Evaluation 비교
@@ -23,11 +23,24 @@
 - [ ] 핵심 개념을 자기 말로 설명 가능
 
 ## Gate 5 — 실제 수행
-- [ ] 실행 위치·환경 확인
+- [x] 실행 위치·환경 확인
 - [ ] Preflight 완료
 - [ ] 한 단계씩 실행
-- [ ] 실제 출력 확인
+- [x] 실제 출력 확인
 - [ ] 오류 발생 시 최소 수정 후 재검증
+
+### Gate 5 현재 메모
+- 학교 iMac 호스트에서 OrbStack Linux 환경 사용 확인
+- Guest OS: Ubuntu 24.04.5 LTS (Noble Numbat)
+- Kernel: Linux 6.17.8-orbstack-00308-g8f9c941121b1, x86_64
+- Shell: `/bin/bash`
+- User/Home: `metastudy9997479` / `/home/metastudy9997479`
+- Package manager: `/usr/bin/apt`
+- `sudo` 그룹 포함
+- Git: 미설치
+- B1-1 로컬 Repository: 없음
+- 다음 단계: Git 설치 및 검증
+- 상세 재현 기록: `environment/README.md`
 
 ## Gate 6 — 검증·증빙
 - [ ] 공식 요구사항별 실제 검증
@@ -50,7 +63,6 @@
 - [ ] 대안과 한계 설명 가능
 - [ ] 공식 요구 + Runtime + Verification + Evidence + Evaluation 설명 충족
 - [ ] 조건 충족 후에만 **B1-1 CLEAR**
-
 
 ## Gate 9 — 발표자료
 - [ ] `presentation/README.md` 기준 확인
