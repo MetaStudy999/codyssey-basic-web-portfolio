@@ -214,3 +214,96 @@ NO_INLINE_STYLE
 ## 다음 단계
 
 JavaScript에서 Event → State → Render → DOM 흐름을 구현한다.
+
+
+## Step 4 — JavaScript Event → State → Render 구조
+
+### 목적
+
+B1-1 핵심 학습 목표인 사용자 이벤트 → 상태 변경 → 렌더 → DOM 업데이트 흐름을 JavaScript로 구성한다.
+
+구현 범위:
+- 모바일 메뉴 상태
+- 다크/라이트 테마 상태
+- `localStorage` 테마 유지
+- smooth scroll
+- 60px 스크롤 시 header 상태 변경
+- 300px 스크롤 시 scroll-top 버튼 표시
+- `IntersectionObserver` 기반 reveal
+- `resize` 시 모바일 메뉴 상태 정리
+
+### 실제 정적 검증 결과
+
+```text
+=== STATE ===
+const state = {
+
+=== EVENT LISTENERS ===
+menuToggle.addEventListener
+themeToggle.addEventListener
+scrollTopButton.addEventListener
+link.addEventListener
+window.addEventListener
+
+=== LOCAL STORAGE ===
+localStorage.getItem
+localStorage.setItem
+
+=== RENDER FUNCTIONS ===
+const renderTheme
+const renderMenu
+const renderScrollUi
+
+=== SCROLL THRESHOLDS ===
+NAV_SCROLL_THRESHOLD = 60
+SCROLL_TOP_THRESHOLD = 300
+
+=== OBSERVER ===
+OBSERVER_THRESHOLD = 0.2
+IntersectionObserver
+
+=== NO VAR ===
+NO_VAR
+
+=== NO INLINE ONCLICK ===
+NO_INLINE_ONCLICK
+
+=== GIT STATUS ===
+?? css/
+?? images/
+?? index.html
+?? js/
+```
+
+### 판정
+
+**정적 검증 PASS**
+
+- 명시적 상태 객체 존재
+- `addEventListener` 기반 이벤트 연결 확인
+- `localStorage` get/set 확인
+- Theme/Menu/Scroll 렌더 함수 확인
+- 공식 기준값 60px / 300px 확인
+- IntersectionObserver threshold 0.2 확인
+- `var` 미사용 확인
+- inline `onclick` 미사용 확인
+- 파일은 아직 Git 추적 전
+- 브라우저 Runtime 검증 전이므로 햄버거/테마/스크롤 기능 자체는 아직 Runtime PASS가 아님
+
+### 평가 연결
+
+다크 모드 기준 코드 흐름:
+
+```text
+click Event
+→ toggleTheme()
+→ state.theme 변경
+→ setTheme()
+→ renderTheme()
+→ DOM(data-theme) 변경
+→ localStorage 저장
+```
+
+## 다음 단계
+
+Contact Form의 입력 → 검증 상태 → 에러/성공 렌더 흐름을 구현한다.
