@@ -204,7 +204,63 @@ git version 2.43.0
 
 아직 실제 clone 결과가 없으므로 이 단계는 PASS 처리하지 않는다.
 
-## 6. 재현 기록 규칙
+
+
+## 6. B1-1 Repository Clone 및 상태 검증 — PASS
+
+### 실제 실행 위치
+
+```text
+/home/metastudy9997479/projects
+```
+
+### 실제 실행 결과 요약
+
+```text
+Repository:
+  /home/metastudy9997479/projects/codyssey-basic-web-portfolio
+
+Branch:
+  main
+
+Remote:
+  origin -> https://github.com/MetaStudy999/codyssey-basic-web-portfolio.git
+
+Status:
+  Your branch is up to date with 'origin/main'.
+  nothing to commit, working tree clean
+```
+
+### 실제 최근 커밋
+
+```text
+42d9aab HEAD -> main, origin/main, origin/HEAD
+         docs: advance B1-1 next step to repository clone
+af00184  docs: mark B1-1 Git setup progress
+7665ac1  docs: record Git install verification for B1-1
+008487d  docs: add reproducible B1-1 environment log
+5175c52  docs: update B1-1 round 02 checklist
+```
+
+### 판정
+
+**PASS**
+
+- GitHub Repository clone 완료
+- 로컬 Repository 경로 확인
+- `origin` fetch/push URL 확인
+- 현재 브랜치 `main` 확인
+- `origin/main`과 동기화 확인
+- 작업 트리 clean 확인
+- Round 02 문서화 커밋이 로컬 clone에 포함된 것 확인
+
+## 7. 다음 재현 단계 — Git 작성자 설정 상태 확인
+
+다음 단계에서는 Git 커밋에 기록되는 작성자 이름/이메일 설정이 이미 존재하는지 **값을 노출하지 않고 설정 여부만 확인**한다.
+
+아직 실제 결과가 없으므로 PASS 처리하지 않는다.
+
+## 8. 재현 기록 규칙
 
 앞으로 각 단계는 이 문서 또는 관련 Evidence 문서에 다음 형식으로 누적한다.
 
