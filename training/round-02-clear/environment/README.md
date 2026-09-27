@@ -387,3 +387,38 @@ Requirement
 ```
 
 이 단계가 끝나기 전에는 본 구현을 시작하지 않는다.
+
+
+## 12. 원격 Round 02 브랜치 추적 동기화 — PASS
+
+### 실제 결과
+
+```text
+[new branch] round-02/b1-1-web-portfolio -> origin/round-02/b1-1-web-portfolio
+branch 'round-02/b1-1-web-portfolio' set up to track 'origin/round-02/b1-1-web-portfolio'.
+Updating 2506903..7f7fd84
+Fast-forward
+
+=== CURRENT BRANCH ===
+round-02/b1-1-web-portfolio
+
+=== STATUS ===
+On branch round-02/b1-1-web-portfolio
+Your branch is up to date with 'origin/round-02/b1-1-web-portfolio'.
+
+nothing to commit, working tree clean
+
+=== RECENT COMMITS ===
+7f7fd84 docs: advance B1-1 to evaluation mapping
+6f05176 docs: mark B1-1 round 02 branch pass
+4046898 docs: record B1-1 round 02 branch creation
+```
+
+### 판정
+
+**PASS**
+
+- 로컬 Round 02 브랜치가 원격 동일 브랜치를 추적
+- fast-forward 동기화 성공
+- 작업 트리 clean
+- 구현 시작 전 로컬/원격 기준점 일치 확인
