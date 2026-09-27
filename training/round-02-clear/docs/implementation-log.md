@@ -987,3 +987,33 @@ remote branch head = c204364
 ## 다음 단계
 
 Repository 루트 `README.md`를 현재 B1-1 결과에 맞게 정리한 뒤 GitHub Pages 배포 준비를 진행한다.
+
+
+## Step 20 — Root README Update/Push — PASS
+
+### 사용자 실제 확인 결과
+
+```text
+=== LOCAL HEAD ===
+07f3b03
+
+=== REMOTE HEAD ===
+07f3b03
+
+=== STATUS ===
+## round-02/b1-1-web-portfolio...origin/round-02/b1-1-web-portfolio
+
+=== LATEST COMMIT ===
+07f3b03 docs: update README for B1-1 round 02
+```
+
+### 판정
+
+**PASS**
+
+- Root `README.md`를 현재 제2기 B1-1 기준으로 전환
+- Legacy B4-1 / Round 01 자료는 참고자료로 보존
+- README 커밋 생성 완료
+- Local HEAD와 Remote HEAD 동일
+- ahead / behind 없음
+- 다음 단계: GitHub Pages 현재 상태 확인 후 배포 설정
