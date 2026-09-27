@@ -221,3 +221,23 @@ git log -1 --oneline
   - Scroll Top: `300px`
   - IntersectionObserver threshold: `0.2`
 - Gate 6 remediation commit/push: **PASS** (`841ce91`)
+
+
+## 최종 평가 준비 상태
+
+- Repository 구현: **READY**
+- GitHub Pages 배포: **PASS**
+- 실제 Browser Runtime: **PASS**
+- Screenshot Evidence: **PASS**
+- 공식 요구사항 ↔ 구현 ↔ 검증 ↔ Evidence 연결: **COMPLETE**
+- 평가 설명 자료: **READY**
+- 사용자 전체 훑어보기/구두 설명: **PENDING**
+
+바로가기:
+
+- `docs/final-verification.md`
+- `docs/evaluation-prep.md`
+- `docs/requirements-mapping.md`
+- `CHECKLIST.md`
+
+> 사용자 구두 설명과 모의평가가 끝나기 전에는 최종 CLEAR로 표시하지 않는다.

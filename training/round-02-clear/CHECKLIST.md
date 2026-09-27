@@ -19,8 +19,8 @@
 - [x] 실행 순서 확정
 
 ## Gate 4 — 적시 학습
-- [ ] 현재 구현에 필요한 핵심 용어 이해
-- [ ] 핵심 개념을 자기 말로 설명 가능
+- [x] 현재 구현에 필요한 핵심 용어 학습자료 준비
+- [ ] 핵심 개념을 자기 말로 설명 가능 — **사용자 최종 훑어보기에서 확인**
 
 ## Gate 5 — 실제 수행
 - [x] 실행 위치·환경 확인
@@ -79,28 +79,42 @@
 - 상세 재현 기록: `environment/README.md`
 
 ## Gate 6 — 검증·증빙
-- [ ] 공식 요구사항별 실제 검증
-- [ ] 실제 Evidence 수집
-- [ ] Round 01 과거 결과를 현재 Evidence로 대체하지 않음
-- [ ] Secret 노출 없음
+- [x] 공식 요구사항별 실제 검증
+- [x] 실제 Evidence 수집
+- [x] Round 01 과거 결과를 현재 Evidence로 대체하지 않음
+- [x] Secret 노출 없음
+
+**Gate 6 판정: COMPLETE**
+
+- 최종 정리: `docs/final-verification.md`
+- Screenshot Evidence: Desktop Light / Mobile 375px / Desktop Dark
+- GitHub Pages 실제 배포 및 Browser Runtime 확인 완료
 
 ## Gate 7 — 평가 준비
-- [ ] 구현 파일/함수/설정과 평가항목 연결
-- [ ] 시연 방법 준비
-- [ ] 10초 답변 준비
-- [ ] 30초 답변 준비
-- [ ] 1분 답변 준비
-- [ ] WHY 질문 대비
+- [x] 구현 파일/함수/설정과 평가항목 연결
+- [x] 시연 방법 준비
+- [x] 10초 답변 준비
+- [x] 30초 답변 준비
+- [x] 1분 답변 준비
+- [x] WHY 질문 대비
+
+**Gate 7 자료 준비: COMPLETE**
+
+- 평가 준비 문서: `docs/evaluation-prep.md`
+- 사용자의 자기 말 설명 확인은 Gate 8에서 진행
 
 ## Gate 8 — 최종 점검
+- [ ] 10~15분 전체 훑어보기 완료
 - [ ] 모의평가 완료
 - [ ] 코드·명령 설명 가능
 - [ ] 오류 상황 설명 가능
 - [ ] 대안과 한계 설명 가능
-- [ ] 공식 요구 + Runtime + Verification + Evidence + Evaluation 설명 충족
+- [x] 공식 요구 + Runtime + Verification + Evidence 자료 연결 완료
 - [ ] 조건 충족 후에만 **B1-1 CLEAR**
 
-## Gate 9 — 발표자료
+**현재 상태: REPOSITORY READY / USER ORAL REVIEW PENDING**
+
+## Gate 9 — 발표자료 (현재 B1-1 공식 필수 제출물 아님)
 - [ ] `presentation/README.md` 기준 확인
 - [ ] 실제 Evidence 기반 OUTLINE 작성
 - [ ] Slide ↔ Requirement ↔ Implementation ↔ Evidence 연결

@@ -13,7 +13,9 @@
 - 분야: **AI/SW 기초 — 웹 기초와 프론트엔드**
 - 구현 방식: **HTML + CSS + Vanilla JavaScript**
 - 현재 작업 Round: **`training/round-02-clear/`**
-- 작업 브랜치: **`round-02/b1-1-web-portfolio`**
+- Round 02 작업 브랜치: **`round-02/b1-1-web-portfolio`**
+- 현재 배포 브랜치: **`main`**
+- GitHub Pages Source: **`main:/`**
 
 ---
 
@@ -139,6 +141,12 @@ Repository가 없는 경우를 위한 `empty` 상태도 처리합니다.
 
 네트워크 오류 발생 시 오류 메시지와 다시 시도 기능을 제공합니다.
 
+GitHub API에서 가져온 공개 저장소 중 **최대 8개 카드**를 화면에 표시합니다. 상태 문구에는 API에서 불러온 전체 공개 저장소 수와 실제 화면에 표시한 개수를 함께 보여 줍니다.
+
+예: `30개의 공개 프로젝트 중 8개를 표시했습니다.`
+
+인증 없는 GitHub API는 시간당 요청 제한이 있으므로, HTTP 403도 공통 error 상태로 처리합니다.
+
 ---
 
 ## 4. Event → State → Render
@@ -211,21 +219,29 @@ fetch()
 
 ---
 
-## 6. 로컬 실행
+## 6. 개발 환경과 로컬 실행
 
-Repository로 이동합니다.
+### VS Code + Live Server
+
+Repository에는 Live Server 권장 확장과 Workspace 설정을 포함합니다.
+
+```text
+.vscode/extensions.json
+.vscode/settings.json
+```
+
+VS Code에서 Repository를 열고 `index.html`을 **Open with Live Server**로 실행할 수 있습니다. 기본 Live Server 포트는 `5500`으로 설정합니다.
+
+### 독립 검증용 Python HTTP Server
+
+Round 02 실제 Runtime 검증에서는 정적 서버를 독립적으로 확인하기 위해 Python HTTP Server도 사용했습니다.
 
 ```bash
 cd "$HOME/projects/codyssey-basic-web-portfolio"
-```
-
-HTTP Server를 실행합니다.
-
-```bash
 python3 -m http.server 8000
 ```
 
-브라우저에서 접속합니다.
+브라우저:
 
 ```text
 http://localhost:8000
@@ -308,7 +324,7 @@ GitHub Pages에 실제 배포되었습니다.
 Deployment URL: https://metastudy999.github.io/codyssey-basic-web-portfolio/
 ```
 
-실제 GitHub Pages URL에서 Browser Runtime 재검증을 진행합니다.
+실제 GitHub Pages URL에서 기본 화면, Dark Mode persistence, GitHub API, Mobile 375px, Contact/Scroll/Reveal Runtime을 재검증했습니다.
 
 ---
 
@@ -368,10 +384,15 @@ training/round-02-clear/
 + Secret 노출 없음
 ```
 
-현재 남은 주요 단계:
+## 평가 준비 바로가기
 
-1. GitHub Pages 배포
-2. 배포 URL Runtime 재검증
-3. Desktop / Mobile / Dark Mode Screenshot Evidence
-4. 평가 설명 준비
-5. 최종 CHECKLIST 점검
+- [최종 요구사항/검증 상태](training/round-02-clear/docs/final-verification.md)
+- [평가 설명 준비](training/round-02-clear/docs/evaluation-prep.md)
+- [요구사항 연결표](training/round-02-clear/docs/requirements-mapping.md)
+- [Round 02 Checklist](training/round-02-clear/CHECKLIST.md)
+
+### 현재 상태
+
+**Repository 구현·배포·Evidence·평가자료: READY**
+
+남은 것은 사용자가 평가 전에 전체 흐름을 빠르게 훑고 자기 말로 설명하는 단계입니다. 사용자 구두 설명/모의평가 전에는 최종 `B1-1 CLEAR`로 표시하지 않습니다.
