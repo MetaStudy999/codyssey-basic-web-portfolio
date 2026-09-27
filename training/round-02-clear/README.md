@@ -77,19 +77,25 @@
 
 ## 다음 작업
 
-현재 환경 확인, Git 설치/검증, B1-1 Repository clone 및 원격·브랜치·작업트리 상태 확인까지 완료했다. Git 작성자 전역 설정이 둘 다 UNSET임을 확인했다. 학교 공유 환경을 고려하여 다음 실제 단계는 **현재 B1-1 Repository에만 작성자 정보를 설정**하는 것이다.
+현재 환경 확인, Git 설치/검증, B1-1 Repository clone 및 원격·브랜치·작업트리 상태 확인까지 완료했다. Git 작성자 전역 설정은 둘 다 UNSET이었고, 학교 공유 환경을 고려하여 현재 B1-1 Repository에만 로컬 작성자 정보를 설정했다. `user.name`과 `user.email` 모두 SET이며 실제 값은 기록하지 않았다. 다음 실제 단계는 **원격 `main` 최신 문서를 동기화한 뒤 Round 02 작업 브랜치를 생성**하는 것이다.
 
 ```bash
 cd "$HOME/projects/codyssey-basic-web-portfolio"
 
-echo "=== GIT USER NAME CONFIGURED ==="
-git config --global --get user.name >/dev/null 2>&1 && echo "SET" || echo "UNSET"
+git switch main
+git fetch origin
+git pull --ff-only origin main
 
-echo "=== GIT USER EMAIL CONFIGURED ==="
-git config --global --get user.email >/dev/null 2>&1 && echo "SET" || echo "UNSET"
+git switch -c round-02/b1-1-web-portfolio
 
-echo "=== REPO STATUS ==="
+echo "=== CURRENT BRANCH ==="
+git branch --show-current
+
+echo "=== STATUS ==="
 git status --short
+
+echo "=== HEAD ==="
+git log -1 --oneline
 ```
 
-이 단계는 이름/이메일 실제 값을 출력하지 않고 설정 여부만 확인한다. 아직 실행 결과가 없으므로 PASS 처리하지 않는다.
+위 동기화 및 브랜치 생성은 아직 실제 결과가 없으므로 PASS 처리하지 않는다.
