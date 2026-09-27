@@ -512,6 +512,8 @@ button[aria-selected="true"]
   min-width: 0;
   height: 100%;
   padding: var(--space-lg);
+  padding-bottom:
+    calc(var(--space-lg) + 0.75rem);
   overflow: hidden;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -586,10 +588,9 @@ button[aria-selected="true"]
   justify-content: center;
   align-items: center;
   gap: 0.45rem;
-  min-height: 32px;
+  min-height: 24px;
   margin-top: auto;
   padding-top: var(--space-md);
-  padding-bottom: 0.5rem;
   text-align: center;
 }
 
