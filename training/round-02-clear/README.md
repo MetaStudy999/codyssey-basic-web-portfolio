@@ -10,7 +10,7 @@
 - 현재 제목: **나를 소개하는 웹페이지 처음부터 만들기**
 - Repository: `MetaStudy999/codyssey-basic-web-portfolio`
 - 과거 Mission ID: `B4-1`
-- 기존 평가자료: 기존 b4-1-evaluation.md 참고
+- 기존 평가자료: 기존 `b4-1-evaluation.md` 참고
 
 현재 번호·제목·공식 요구사항은 **제2기 현재 Mission PDF**를 최우선으로 사용한다. Repository의 과거 번호 파일은 동일 주제의 1기 참고자료로 사용한다.
 
@@ -50,6 +50,22 @@
 8. 모의평가 후 최종 CLEAR 점검
 ```
 
+## 현재 진행 상태
+
+- Gate 1 — 기준 확정: **완료**
+- Gate 2 — 평가항목 연결: **대기**
+- Gate 5 — 실행환경 Preflight: **진행 중**
+- 실제 개발 환경: **학교 iMac → OrbStack → Ubuntu 24.04.5 LTS**
+- 현재 사용자: `metastudy9997479`
+- 셸: `/bin/bash`
+- 패키지 관리자: `apt`
+- Git: **미설치 상태 확인**
+- B1-1 로컬 Repository: **아직 없음**
+- 코드 구현/수정: **아직 시작하지 않음**
+- Runtime/Evidence: **아직 없음**
+
+실행환경의 실제 확인 명령과 출력은 [environment/README.md](environment/README.md)에 누적 기록한다.
+
 ## Round 02 원칙
 
 - Round 01을 삭제·덮어쓰기하지 않는다.
@@ -59,6 +75,16 @@
 - 평가 답변은 `WHAT → WHY → HOW → VERIFY → LIMITATION` 구조로 준비한다.
 - Secret, Token, Password, Private Key는 Repository·Chat·Evidence에 남기지 않는다.
 
-## 시작
+## 다음 작업
 
-첫 작업은 [CHECKLIST.md](CHECKLIST.md)의 **Gate 1 — 기준 확정**부터 진행한다.
+현재 환경 확인까지 완료했다. 다음 실제 단계는 **Ubuntu에 Git 설치 후 설치 결과 검증**이다.
+
+```bash
+sudo apt update
+sudo apt install -y git
+
+git --version
+command -v git
+```
+
+위 명령은 아직 실행 결과가 확인되지 않았으므로 PASS 처리하지 않는다.
