@@ -295,12 +295,84 @@ button {
   border-radius: var(--radius-md);
 }
 
-.skills-card ul {
+.section-heading {
+  max-width: 780px;
+  margin-bottom: var(--space-xl);
+}
+
+.section-heading h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.section-description {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.skills-roadmap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.skill-stage-card {
+  padding: var(--space-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.skill-stage-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.skill-stage-number {
+  display: inline-grid;
+  width: 2.35rem;
+  height: 2.35rem;
+  place-items: center;
+  flex: 0 0 2.35rem;
+  border-radius: 0.7rem;
+  background:
+    color-mix(
+      in srgb,
+      var(--color-primary) 12%,
+      transparent
+    );
+  color: var(--color-primary);
+  font-weight: 900;
+}
+
+.skill-stage-kicker {
+  margin: 0 0 0.15rem;
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.skill-stage-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.skill-list {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
   padding-left: 1.2rem;
 }
 
-.skills-card li + li {
-  margin-top: var(--space-sm);
+.skill-list li {
+  line-height: 1.55;
+}
+
+.skill-list li::marker {
+  color: var(--color-primary);
 }
 
 /* ------------------------------
@@ -829,6 +901,11 @@ button[aria-selected="true"]
     align-items: center;
   }
 
+  .skills-roadmap {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
   .projects-categories {
     flex-wrap: wrap;
     justify-content: center;
@@ -857,6 +934,11 @@ button[aria-selected="true"]
 
   .hero p {
     font-size: 1.15rem;
+  }
+
+  .skills-roadmap {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
   }
 
   .projects-grid {

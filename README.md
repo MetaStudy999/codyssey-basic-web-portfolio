@@ -122,6 +122,18 @@ Click Event
 
 현재 Contact Form은 **입력 검증 UI 범위**이며 실제 이메일 전송 기능은 포함하지 않습니다.
 
+### Skills Roadmap
+
+Skills 섹션은 제2기 공식 오리엔테이션/콘텐츠 소개 PDF를 기준으로 5단계 학습 역량을 정리합니다.
+
+중복을 줄이기 위해 같은 기술이 여러 단계에서 반복되더라도 **처음 본격적으로 습득하는 단계**에 배치했습니다.
+
+- 1. 입학 연수 — AI 도구 적응, 개발환경, Python 기초, Peer Review, 자기주도 학습, 문제 정의
+- 2. AI 도구 학습 — 웹/React, Python 협업, Linux/OS, 자료구조·알고리즘, SQL/FastAPI, API, Cloud/AI 서비스
+- 3. AI 심화 학습 — 데이터 분석, AI 수학, CV, NLP, ML/XAI, 딥러닝, 멀티모달
+- 4. AI 응용 학습 — 산업 도메인 문제 구조화, KPI, End-to-End 아키텍처, MVP, 사업화 가설
+- 5. 파이널 프로젝트 — 제품 완성, 시장·고객 검증, 비즈니스 모델, 운영성, 발표·Demo Day·IR
+
 ### 3.6 GitHub API Projects
 
 Projects는 코디세이 학습 단계별 카테고리로 구성합니다.
