@@ -9,9 +9,9 @@
 - [x] `training/round-01-clear/` 참고자료 확인
 
 ## Gate 2 — 평가항목 먼저
-- [ ] 공식 요구사항과 기존 Evaluation 비교
-- [ ] 공식 요구 / 기존 평가 / AI 예상 질문 구분
-- [ ] Requirement → Implementation → Verification → Evidence → Evaluation 연결 초안 작성
+- [x] 공식 요구사항과 기존 Evaluation 비교
+- [x] 공식 요구 / 기존 평가 / AI 예상 질문 구분
+- [x] Requirement → Implementation → Verification → Evidence → Evaluation 연결 초안 작성
 
 ## Gate 3 — 최소 통과 경로
 - [ ] 필수 구현 목록 확정
@@ -46,7 +46,9 @@
 - 작업 트리: clean
 - `main` 동기화 및 `round-02/b1-1-web-portfolio` 작업 브랜치 생성: PASS
 - 원격 Round 02 작업 브랜치 생성: 완료
-- 다음 단계: Gate 2 평가항목 연결표 작성
+- 원격 Round 02 브랜치 tracking/fast-forward/clean 검증: PASS
+- Gate 2 연결표: `docs/requirements-mapping.md`
+- 다음 단계: Gate 3 최소 통과 경로 확정
 - 상세 재현 기록: `environment/README.md`
 
 ## Gate 6 — 검증·증빙
