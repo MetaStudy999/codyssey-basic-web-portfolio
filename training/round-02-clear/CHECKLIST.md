@@ -53,6 +53,7 @@
 - Gate 4 학습자료: `docs/jit-learning.md`
 - Gate 4 학습자료 로컬 동기화: PASS
 - 기본 웹 구조 생성: PASS (`index.html`, `css/`, `js/`, `images/`)
+- 시맨틱 HTML 구조 작성: PASS (`header/nav/main/section/article/footer`, 필수 섹션, CSS/JS 연결)
 - 구현 로그: `docs/implementation-log.md`
 - 다음 단계: `index.html` 시맨틱 구조 작성
 - 상세 재현 기록: `environment/README.md`
