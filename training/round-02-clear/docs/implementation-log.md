@@ -1228,3 +1228,55 @@ PNG_VERIFY=PASS
 - 세 파일 모두 PNG Signature 및 IHDR 검증 완료
 - Screenshot Evidence 파일은 아직 Git untracked 상태
 - 다음 단계: Screenshot Evidence 3개를 Git add / commit / push
+
+
+## Step 26-4 — Screenshot Evidence Git Commit/Push — PASS
+
+### 사용자 실제 확인 결과
+
+```text
+=== LOCAL HEAD ===
+c77217c
+
+=== REMOTE HEAD ===
+c77217c
+
+=== STATUS ===
+## main...origin/main
+
+=== LATEST COMMIT ===
+c77217c docs: add B1-1 screenshot evidence
+```
+
+GitHub 원격 `main` 브랜치와 Evidence 디렉터리도 추가 확인했다.
+
+```text
+remote main head = c77217c
+desktop-light = FOUND
+mobile-375 = FOUND
+desktop-dark = FOUND
+```
+
+### 판정
+
+**PASS**
+
+- Screenshot Evidence 3개 Git stage 완료
+- `git diff --cached --check` 오류 없음
+- Commit 생성: `c77217c`
+- `main` 원격 push 완료
+- Local HEAD = Remote HEAD
+- ahead / behind 없음
+- 실제 GitHub Evidence 디렉터리에서 Screenshot 3개 존재 확인
+
+### Screenshot Evidence
+
+```text
+training/round-02-clear/evidence/b1-1-pages-desktop-light.png
+training/round-02-clear/evidence/b1-1-pages-mobile-375.png
+training/round-02-clear/evidence/b1-1-pages-desktop-dark.png
+```
+
+## 다음 단계
+
+공식 요구사항 → 구현 → 검증 → Evidence → 평가 설명 연결 상태를 최종 점검한다.
