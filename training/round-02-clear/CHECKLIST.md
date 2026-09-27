@@ -61,6 +61,7 @@
 - Contact Form 최소 수정 재적용/정적 재검증: PASS (`state.form`, validation, error render, input/submit listeners)
 - GitHub API 상태 흐름 정적 검증: PASS (`fetch`, async/await, try/catch, loading/success/error/empty, retry, 403)
 - Local HTTP Server Runtime: PASS (`/`, CSS, JS 모두 HTTP 200)
+- Browser Initial Runtime: PASS (주요 섹션/CSS/GitHub API success 카드 표시 정상)
 - 구현 로그: `docs/implementation-log.md`
 - 다음 단계: GitHub API 상태 흐름 구현
 - 상세 재현 기록: `environment/README.md`
