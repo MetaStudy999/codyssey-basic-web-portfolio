@@ -452,12 +452,12 @@ const createProjectCard = (repository) => {
 
   actions.append(
     createProjectAction({
-      label: "웹페이지",
-      href: websiteUrl,
-    }),
-    createProjectAction({
       label: "GitHub",
       href: url,
+    }),
+    createProjectAction({
+      label: "웹페이지",
+      href: websiteUrl,
     }),
   );
 

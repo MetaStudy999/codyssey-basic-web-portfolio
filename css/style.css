@@ -371,6 +371,7 @@ button {
 .project-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-sm);
   margin-top: auto;
   padding-top: var(--space-md);
