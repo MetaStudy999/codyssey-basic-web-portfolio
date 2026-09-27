@@ -90,6 +90,7 @@
 - Scroll State Runtime: **PASS**
 - Contact Form Runtime: **PASS**
 - GitHub API Success/Reload Runtime: **PASS**
+- GitHub API Error/Retry Runtime: **PASS**
 - 실제 구현 파일: `index.html`, `css/style.css`, `js/script.js`, `images/`
 - 구현 로그: `docs/implementation-log.md`
 - 다음 구현: `index.html` 시맨틱 구조
