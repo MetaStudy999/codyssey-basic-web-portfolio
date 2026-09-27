@@ -255,26 +255,26 @@ const PROJECT_CATEGORY_CONFIG = {
     mode: "repositories",
   },
   admission: {
-    label: "입학 연수",
+    label: "1. 입학 연수",
     mode: "message",
     message: "레포 준비중",
   },
   tools: {
-    label: "AI 도구 학습",
+    label: "2. AI 도구 학습",
     mode: "repositories",
   },
   advanced: {
-    label: "AI 심화 학습",
+    label: "3. AI 심화 학습",
     mode: "message",
     message: "예정",
   },
   applied: {
-    label: "AI 응용 학습",
+    label: "4. AI 응용 학습",
     mode: "message",
     message: "예정",
   },
   final: {
-    label: "파이널 프로젝트",
+    label: "5. 파이널 프로젝트",
     mode: "message",
     message: "예정",
   },
