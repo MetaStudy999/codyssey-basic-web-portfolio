@@ -307,6 +307,90 @@ button {
    Projects
 ------------------------------ */
 
+.current-mission-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  margin: var(--space-lg) 0 var(--space-sm);
+  padding: 0.8rem 1rem;
+  background:
+    color-mix(
+      in srgb,
+      var(--color-primary) 7%,
+      transparent
+    );
+  border-radius: var(--radius-sm);
+}
+
+.current-mission-label {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.mission-id-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.5rem;
+  min-height: 1.8rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 0.5rem;
+  background:
+    color-mix(
+      in srgb,
+      var(--color-primary) 12%,
+      transparent
+    );
+  color: var(--color-primary);
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.mission-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.75rem;
+  padding: 0.16rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.mission-status-ready {
+  background:
+    color-mix(
+      in srgb,
+      var(--color-muted) 12%,
+      transparent
+    );
+  color: var(--color-muted);
+}
+
+.mission-status-progress {
+  background:
+    color-mix(
+      in srgb,
+      var(--color-primary) 14%,
+      transparent
+    );
+  color: var(--color-primary);
+}
+
+.mission-status-complete {
+  background:
+    color-mix(
+      in srgb,
+      var(--color-success) 14%,
+      transparent
+    );
+  color: var(--color-success);
+}
+
 .projects-categories {
   display: flex;
   gap: var(--space-xs);
@@ -436,6 +520,32 @@ button[aria-selected="true"]
   transition:
     transform var(--transition),
     box-shadow var(--transition);
+}
+
+.project-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  min-height: 1.9rem;
+  margin-bottom: var(--space-md);
+}
+
+.project-card.is-current-mission {
+  border-color:
+    color-mix(
+      in srgb,
+      var(--color-primary) 42%,
+      var(--color-border)
+    );
+  box-shadow:
+    0 0 0 2px
+    color-mix(
+      in srgb,
+      var(--color-primary) 7%,
+      transparent
+    ),
+    var(--shadow-sm);
 }
 
 .project-card h3 {
