@@ -349,3 +349,41 @@ round-02/b1-1-web-portfolio
 ```
 
 아직 실제 실행 결과가 없으므로 PASS 처리하지 않는다.
+
+
+## 10. Round 02 작업 브랜치 생성 — PASS
+
+### 실제 결과
+
+```text
+=== CURRENT BRANCH ===
+round-02/b1-1-web-portfolio
+=== STATUS ===
+=== HEAD ===
+2506903 (HEAD -> round-02/b1-1-web-portfolio, origin/main, origin/HEAD, main)
+docs: set B1-1 next step to round 02 branch
+```
+
+### 판정
+
+**PASS**
+
+- 현재 작업 브랜치: `round-02/b1-1-web-portfolio`
+- 작업 트리 clean
+- 브랜치 생성 기준점은 당시 `main`/ `origin/main`의 동일 HEAD
+- 이후 Round 02 구현·검증·증빙은 이 브랜치에서 수행
+- 원격에도 동일 이름의 Round 02 작업 브랜치를 생성하여 로컬/원격 작업 축을 맞춤
+
+## 11. 다음 단계 — Gate 2 평가항목 연결
+
+구현 전에 공식 요구사항과 기존 평가자료를 비교해 다음 연결표를 확정한다.
+
+```text
+Requirement
+→ Implementation
+→ Verification
+→ Evidence
+→ Evaluation Explanation
+```
+
+이 단계가 끝나기 전에는 본 구현을 시작하지 않는다.
