@@ -408,58 +408,69 @@ const createProjectCard = (repository) => {
   const websiteUrl =
     homepage?.trim() || pagesUrl;
 
-  const createProjectAction = ({
+  const createProjectLink = ({
     label,
     href,
   }) => {
-    const isAvailable =
-      Boolean(href) &&
-      /^https?:\/\//i.test(href);
-
-    if (!isAvailable) {
-      const disabledAction =
-        document.createElement("span");
-
-      disabledAction.classList.add(
-        "project-action",
-        "is-disabled",
-      );
-
-      disabledAction.textContent = label;
-      disabledAction.setAttribute(
-        "aria-disabled",
-        "true",
-      );
-
-      return disabledAction;
+    if (
+      !href ||
+      !/^https?:\/\//i.test(href)
+    ) {
+      return null;
     }
 
-    const actionLink =
+    const link =
       document.createElement("a");
 
-    actionLink.classList.add(
-      "project-action",
+    link.classList.add(
+      "project-action-link",
     );
 
-    actionLink.href = href;
-    actionLink.target = "_blank";
-    actionLink.rel =
+    link.href = href;
+    link.target = "_blank";
+    link.rel =
       "noopener noreferrer";
-    actionLink.textContent = label;
+    link.textContent = label;
 
-    return actionLink;
+    return link;
   };
 
-  actions.append(
-    createProjectAction({
-      label: "GitHub",
+  const githubAction =
+    createProjectLink({
+      label: "깃허브",
       href: url,
-    }),
-    createProjectAction({
+    });
+
+  const websiteAction =
+    createProjectLink({
       label: "웹페이지",
       href: websiteUrl,
-    }),
-  );
+    });
+
+  if (githubAction) {
+    actions.append(githubAction);
+  }
+
+  if (githubAction && websiteAction) {
+    const separator =
+      document.createElement("span");
+
+    separator.classList.add(
+      "project-action-separator",
+    );
+
+    separator.textContent = "|";
+    separator.setAttribute(
+      "aria-hidden",
+      "true",
+    );
+
+    actions.append(separator);
+  }
+
+  if (websiteAction) {
+    actions.append(websiteAction);
+  }
 
   article.append(
     title,
