@@ -148,6 +148,40 @@ Skills와 별도로 **개발환경(Development Environment)** 을 역할별로 �
 - Infra/Service — GitHub Pages, AWS EC2, Supabase, Firebase, Vercel, Render/Railway, MLflow, n8n, Sentry, Pinecone, GPU Cluster
 - Domain Platform — ROS, Autoware Universe, AWSIM, Gazebo, Isaac Sim, MuJoCo, MIMIC-III, DICOM, Alpaca, Stripe, Domain API/SDK
 
+### 2026 Modern Extension & Security Baseline
+
+공식 Mission PDF 요구와 최신 확장 기술을 **구분해서** 관리합니다.
+
+#### 공식 PDF 기반
+
+- B1-1: Vanilla HTML/CSS/JavaScript, Chrome, VS Code + Live Server, GitHub Pages/API
+- B1-2: React 18+, Supabase/Firebase, JavaScript/TypeScript(선택), Vercel/Netlify
+- B2: Python 3.10+, Git/GitHub, 표준 라이브러리·협업
+- B3: AWS/VPC/EC2/IAM/Security Group, Python AI API CLI, 환경변수 Secret
+- B4: Ubuntu/Linux, Bash, SSH/UFW·firewalld, ACL, cron, Docker/격리환경
+- B5: Python 기반 Mini Redis/Mini Git, 자료구조·알고리즘 직접 구현
+- B6: SQLite/MySQL/PostgreSQL/H2, FastAPI/Uvicorn/SQLAlchemy/Jinja2, 인증 패키지
+- B7: FastAPI 기반 AI 챗봇, SQLite 권장, React+REST 풀스택, AI API, Cloud 배포
+
+#### 2026 선택 확장
+
+- Local AI: Ollama, Llama, Qwen, DeepSeek, Gemma, Local Embedding
+- Agentic Development: Google Antigravity, Claude Code, Codex, Cursor Composer, MCP
+- Automation: Make AI Agents, n8n, Webhook/API Workflow
+- Container Orchestration: Docker → Kubernetes
+
+#### Security Baseline
+
+- OWASP Top 10:2025 관점의 접근제어·설정·공급망·암호·Injection·인증·로깅·예외처리
+- OWASP LLM Top 10:2025 관점의 Prompt Injection·민감정보·공급망·Output Handling·Excessive Agency
+- Secret Scanning / Dependency Review / CodeQL / SBOM / SLSA
+- Kubernetes RBAC / Pod Security Standards / NetworkPolicy / Secret 관리 / Non-root
+- NIST AI RMF Generative AI Profile 기반 AI Risk Management
+
+상세 전수검토표:
+
+`training/round-02-clear/docs/curriculum-tech-security-matrix.md`
+
 ### 3.6 GitHub API Projects
 
 Projects는 코디세이 학습 단계별 카테고리로 구성합니다.

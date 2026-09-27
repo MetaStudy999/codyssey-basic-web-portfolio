@@ -339,6 +339,136 @@
               </p>
             </article>
           </div>
+
+          <div class="development-trend-section">
+            <div class="development-environment-heading">
+              <p class="eyebrow">2026 Extension · Optional / Recommended</p>
+              <h3>최신 확장 개발환경</h3>
+              <p>
+                아래 항목은 제2기 Mission PDF의 필수 요구와 구분되는 2026년 확장 기술입니다.
+                공식 미션 통과에 불필요한 도구는 먼저 넣지 않고, 필요할 때 선택적으로 사용합니다.
+              </p>
+            </div>
+
+            <div class="development-stack-grid">
+              <article class="development-stack-card">
+                <h4>Local AI Runtime</h4>
+                <div class="tech-tags">
+                  <span>Ollama</span>
+                  <span>Llama 3.1 / 3.2</span>
+                  <span>Qwen 2.5</span>
+                  <span>DeepSeek-R1</span>
+                  <span>Gemma 3</span>
+                  <span>Local Embedding</span>
+                </div>
+                <p>
+                  민감 데이터의 외부 전송을 줄이거나 오프라인·저비용 추론이 필요할 때
+                  로컬 모델을 선택하고, GPU/메모리 한계와 모델 출처를 함께 관리합니다.
+                </p>
+              </article>
+
+              <article class="development-stack-card">
+                <h4>Agentic Development</h4>
+                <div class="tech-tags">
+                  <span>Google Antigravity</span>
+                  <span>Claude Code</span>
+                  <span>Codex</span>
+                  <span>Cursor Composer</span>
+                  <span>MCP</span>
+                  <span>Browser / Terminal Agent</span>
+                </div>
+                <p>
+                  에디터·터미널·브라우저를 함께 사용하는 에이전트형 개발환경은
+                  구현 속도를 높이되, 도구 권한과 변경사항 검토를 사람이 통제합니다.
+                </p>
+              </article>
+
+              <article class="development-stack-card">
+                <h4>Automation · Integration</h4>
+                <div class="tech-tags">
+                  <span>Make AI Agents</span>
+                  <span>n8n</span>
+                  <span>Webhook</span>
+                  <span>REST API</span>
+                  <span>MCP Tools</span>
+                  <span>Workflow Orchestration</span>
+                </div>
+                <p>
+                  반복 업무와 서비스 간 연동은 자동화 워크플로로 분리하고,
+                  AI Agent가 필요한 판단과 고정 로직을 구분해 설계합니다.
+                </p>
+              </article>
+
+              <article class="development-stack-card">
+                <h4>Container · Orchestration</h4>
+                <div class="tech-tags">
+                  <span>Docker</span>
+                  <span>Kubernetes</span>
+                  <span>Pod / Deployment / Service</span>
+                  <span>RBAC</span>
+                  <span>NetworkPolicy</span>
+                  <span>Pod Security</span>
+                </div>
+                <p>
+                  단일 컨테이너를 넘어 다중 서비스 운영이 필요할 때 Kubernetes로 확장하며,
+                  학습 미션에서는 요구되지 않는 경우 과도한 인프라를 먼저 도입하지 않습니다.
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <div class="security-baseline">
+            <div class="development-environment-heading">
+              <p class="eyebrow">Security by Default · 2026</p>
+              <h3>보안 기본선</h3>
+              <p>
+                Mission PDF의 보안 요구사항을 유지하면서 OWASP·NIST·Kubernetes·GitHub의
+                최신 권고를 개발 흐름에 추가합니다.
+              </p>
+            </div>
+
+            <div class="security-grid">
+              <article class="security-card">
+                <h4>Web · API Security</h4>
+                <ul>
+                  <li>접근제어·인증·인가를 서버에서 강제</li>
+                  <li>입력 검증·출력 인코딩·Injection 방어</li>
+                  <li>안전한 오류 처리와 보안 로깅·알림</li>
+                  <li>HTTPS·Secure Cookie·CSRF/CORS 정책</li>
+                </ul>
+              </article>
+
+              <article class="security-card">
+                <h4>AI · Agent Security</h4>
+                <ul>
+                  <li>Prompt Injection과 민감정보 유출 방어</li>
+                  <li>LLM 출력은 신뢰하지 않고 검증·정제</li>
+                  <li>Agent Tool 권한 최소화와 승인 단계</li>
+                  <li>RAG·Embedding·Model 공급망 출처 검증</li>
+                </ul>
+              </article>
+
+              <article class="security-card">
+                <h4>Supply Chain · Repository</h4>
+                <ul>
+                  <li>Secret Scanning·Push Protection</li>
+                  <li>Dependabot·Dependency Review·CodeQL</li>
+                  <li>SBOM·SLSA Provenance·서명 검증</li>
+                  <li>Branch Protection·PR Review·최소권한</li>
+                </ul>
+              </article>
+
+              <article class="security-card">
+                <h4>Cloud · Container · Kubernetes</h4>
+                <ul>
+                  <li>IAM/RBAC 최소권한과 네트워크 분리</li>
+                  <li>Secret 암호화·외부 Secret Store 고려</li>
+                  <li>Non-root·Resource Limit·Seccomp 적용</li>
+                  <li>Pod Security Standards·NetworkPolicy</li>
+                </ul>
+              </article>
+            </div>
+          </div>
         </div>
       </div>
     </section>
