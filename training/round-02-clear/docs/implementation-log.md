@@ -647,3 +647,33 @@ Event(click)
 ## 다음 단계
 
 모바일 viewport에서 햄버거 메뉴 열기/닫기와 메뉴 선택 후 자동 닫힘을 실제 브라우저에서 검증한다.
+
+
+## Step 10 — Mobile Hamburger Runtime — PASS
+
+### 사용자 실제 확인 결과
+
+Chrome 모바일 viewport(약 375px)에서 다음 항목을 실제 확인했다.
+
+```text
+1. 햄버거 버튼 표시: 정상
+2. 메뉴 열기: 정상
+3. 메뉴 닫기: 정상
+4. 메뉴 클릭 이동: 정상
+5. 이동 후 자동 닫힘: 정상
+```
+
+### 판정
+
+**PASS**
+
+- 모바일 breakpoint에서 햄버거 버튼 표시 정상
+- 메뉴 open/close 상태 전환 정상
+- 메뉴 항목 anchor 이동 정상
+- smooth scroll 정상
+- 메뉴 선택 후 `state.menuOpen = false` 흐름 정상
+- 모바일 메뉴 Event → State → Render → DOM Runtime 확인
+
+## 다음 단계
+
+스크롤 60px 이상에서 Header 상태 변경, 300px 이상에서 Scroll Top 버튼 표시/동작을 실제 브라우저에서 검증한다.
