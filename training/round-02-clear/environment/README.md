@@ -153,15 +153,16 @@ uid=1267600747(metastudy9997479) gid=1267600747(metastudy9997479) groups=1267600
 | Shell | Bash |
 | Package Manager | apt |
 | sudo 권한 | 있음 |
-| Git | **미설치** |
+| Git | **설치 완료 — 2.43.0** |
+| Git 경로 | **/usr/bin/git** |
 | B1-1 로컬 Repository | **없음** |
 | 코드 구현 | **미시작** |
 | Runtime 검증 | **미시작** |
 | Evidence | **미수집** |
 
-## 4. 다음 재현 단계 — Git 설치
+## 4. Git 설치 및 검증 — PASS
 
-아래는 **다음 실행 예정 명령**이다. 아직 실제 결과가 확인되지 않았으므로 PASS가 아니다.
+### 실제 실행 명령
 
 ```bash
 sudo apt update
@@ -174,19 +175,36 @@ echo "=== GIT PATH ==="
 command -v git
 ```
 
-### PASS 기준
+### 실제 확인 결과
 
 ```text
+All packages are up to date.
+...
+Setting up git (1:2.43.0-1ubuntu7.3) ...
+
 === GIT VERSION ===
-git version 2.x.x
+git version 2.43.0
 
 === GIT PATH ===
 /usr/bin/git
 ```
 
-실제 버전은 설치 시점의 Ubuntu 패키지 버전에 따라 달라질 수 있다.
+### 판정
 
-## 5. 재현 기록 규칙
+**PASS**
+
+- Ubuntu 패키지 목록 최신 상태 확인
+- Git 패키지 설치 완료
+- Git 실행 버전: `2.43.0`
+- Git 실행 경로: `/usr/bin/git`
+
+## 5. 다음 재현 단계 — B1-1 Repository 준비
+
+다음 단계에서는 사용자 작업 공간 `$HOME/projects`를 준비한 뒤 공개 Repository를 clone하고, 원격 주소·브랜치·상태를 확인한다.
+
+아직 실제 clone 결과가 없으므로 이 단계는 PASS 처리하지 않는다.
+
+## 6. 재현 기록 규칙
 
 앞으로 각 단계는 이 문서 또는 관련 Evidence 문서에 다음 형식으로 누적한다.
 
