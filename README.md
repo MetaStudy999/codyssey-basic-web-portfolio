@@ -155,6 +155,20 @@ GitHub API 결과는 **페이지네이션(Pagination)** 으로 여러 페이지�
 
 `30개의 공개 프로젝트 중 1–9번째를 표시했습니다. (1/4 페이지)`
 
+### Project Card Typography & Links
+
+Repository 이름과 설명 길이가 달라도 카드가 흔들리지 않도록 Typography 규칙을 고정했습니다.
+
+- 카드 높이: 동일
+- Repository 제목: 최대 2줄
+- 설명: 최대 3줄
+- 제목 줄간격: 1.35
+- 설명 줄간격: 1.65
+- 긴 Repository 이름은 자연스럽게 줄바꿈
+- 링크 영역은 카드 하단에 고정
+
+각 카드에는 **GitHub 링크**를 기본 제공하고, Repository의 `homepage` 또는 GitHub Pages(`has_pages`) 정보가 있으면 **웹페이지 보기** 링크를 추가합니다. 존재하지 않는 Website URL을 임의로 만들어 링크하지 않습니다.
+
 ### Pagination UX
 
 페이지 번호는 **화면에 고정(Fixed)** 하지 않고 Projects 섹션의 **전용 Pagination 영역**에 고정합니다.

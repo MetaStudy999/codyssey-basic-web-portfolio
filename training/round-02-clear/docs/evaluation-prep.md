@@ -268,3 +268,12 @@ GitHub Pages
 ## 한 문장 기억
 
 > **Event가 State를 바꾸고, Render가 DOM을 갱신한다.**
+
+
+### 카드 글자 수가 서로 다르면 어떻게 처리했나?
+
+> Repository 이름은 2줄, 설명은 3줄까지 표시하고 제목/설명의 line-height를 각각 1.35와 1.65로 정했습니다. 카드 높이와 링크 영역을 고정해서 텍스트 길이가 달라도 전체 Grid와 Pagination 위치가 흔들리지 않게 했습니다.
+
+### GitHub 링크와 웹페이지 링크는 어떻게 구분했나?
+
+> GitHub 저장소 링크는 항상 보여 줍니다. 실제 서비스 링크는 GitHub API의 homepage 값이 있거나 has_pages가 true인 Repository에만 “웹페이지 보기”를 추가합니다. 존재 여부를 확인하지 않고 추정 URL을 보여 주는 것은 피했습니다.

@@ -357,6 +357,9 @@ const createProjectCard = (repository) => {
     stargazers_count: stars,
     language,
     html_url: url,
+    homepage,
+    has_pages: hasPages,
+    owner,
   } = repository;
 
   const article =
@@ -384,20 +387,64 @@ const createProjectCard = (repository) => {
   meta.textContent =
     `★ ${stars} · ${language || "Language 미지정"}`;
 
-  const link =
+  const actions =
+    document.createElement("div");
+
+  actions.classList.add("project-actions");
+
+  const githubLink =
     document.createElement("a");
 
-  link.classList.add("project-link");
-  link.href = url;
-  link.target = "_blank";
-  link.rel = "noopener noreferrer";
-  link.textContent = "GitHub에서 보기";
+  githubLink.classList.add("project-link");
+  githubLink.href = url;
+  githubLink.target = "_blank";
+  githubLink.rel = "noopener noreferrer";
+  githubLink.textContent = "GitHub에서 보기";
+
+  const ownerLogin =
+    owner?.login ?? GITHUB_USERNAME;
+
+  const pagesUrl =
+    hasPages
+      ? (
+          name.toLowerCase() ===
+          `${ownerLogin.toLowerCase()}.github.io`
+            ? `https://${ownerLogin}.github.io/`
+            : `https://${ownerLogin}.github.io/${name}/`
+        )
+      : "";
+
+  const websiteUrl =
+    homepage?.trim() || pagesUrl;
+
+  if (
+    websiteUrl &&
+    /^https?:\/\//i.test(websiteUrl)
+  ) {
+    const websiteLink =
+      document.createElement("a");
+
+    websiteLink.classList.add(
+      "project-site-link",
+    );
+
+    websiteLink.href = websiteUrl;
+    websiteLink.target = "_blank";
+    websiteLink.rel =
+      "noopener noreferrer";
+    websiteLink.textContent =
+      "웹페이지 보기";
+
+    actions.append(websiteLink);
+  }
+
+  actions.append(githubLink);
 
   article.append(
     title,
     descriptionElement,
     meta,
-    link,
+    actions,
   );
 
   return article;
