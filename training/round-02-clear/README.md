@@ -141,3 +141,12 @@ git log -1 --oneline
 - Local HEAD = Remote HEAD: `c204364`
 - 현재 작업 브랜치: `round-02/b1-1-web-portfolio`
 - 구현 파일과 Round 02 Evidence가 원격 브랜치에 반영됨
+
+
+## Root README 상태
+
+- Root README Update/Push: **PASS**
+- Commit: `07f3b03`
+- 현재 제2기 B1-1 기준 설명으로 전환 완료
+- Legacy B4-1 / Round 01 자료는 보존
+- 다음 단계: GitHub Pages 상태 확인 및 배포
