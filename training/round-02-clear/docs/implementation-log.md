@@ -901,3 +901,42 @@ Chrome DevTools에서 다음 viewport를 실제 확인했다.
 ## 다음 단계
 
 IntersectionObserver 기반 스크롤 애니메이션 Runtime을 확인한다.
+
+
+## Step 17 — IntersectionObserver Runtime — PASS
+
+### 사용자 실제 확인 결과
+
+Chrome에서 페이지를 새로고침한 뒤 아래로 스크롤하면서 섹션 reveal 동작을 실제 확인했다.
+
+```text
+1. 섹션 진입 애니메이션: 정상
+2. About/Skills/Projects/Contact 적용: 정상
+3. 한 번만 실행: 정상
+4. 반복 깜빡임 없음: 정상
+```
+
+### 판정
+
+**PASS**
+
+- `IntersectionObserver` 기반 섹션 진입 애니메이션 정상
+- About / Skills / Projects / Contact 적용 정상
+- 관찰 후 `unobserve()`되어 한 번만 실행
+- 재스크롤 시 반복 깜빡임 없음
+- `threshold: 0.2` 기반 Runtime 동작 확인
+
+### 평가 연결
+
+```text
+section observe
+→ viewport 진입
+→ isIntersecting = true
+→ is-visible class 추가
+→ CSS transition 실행
+→ observer.unobserve()
+```
+
+## 다음 단계
+
+정적 검증 결과를 실제 Evidence 파일로 저장하고, 구현 파일과 Evidence를 첫 Git 커밋으로 기록한다.
