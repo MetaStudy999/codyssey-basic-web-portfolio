@@ -286,3 +286,8 @@ GitHub Pages
 ### 왜 전체와 AI 도구 학습이 현재 같은 목록인가?
 
 > 현재 Repository가 실제로 연결된 과정이 AI 도구 학습뿐이기 때문입니다. 이후 다른 단계 Repository가 연결되면 전체는 모든 준비된 과정 Repository를 합쳐 보여 주도록 확장할 수 있습니다.
+
+
+### Mission 번호와 진행 상태는 어떻게 관리하나?
+
+> 각 `codyssey-basic-*` Mission Repository를 B1-1부터 B7-2까지 수동 매핑하고 Mission 번호 순서대로 정렬합니다. 현재 미션은 B1-1이고 아직 최종 CLEAR 전이므로 “진행”으로 표시합니다. 상태는 자동 추론하지 않고 `MISSION_PROGRESS`에서 “준비 / 진행 / 완료” 중 하나를 직접 수정합니다. 자동화는 나중에 고도화할 수 있습니다.
