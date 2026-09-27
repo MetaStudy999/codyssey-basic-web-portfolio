@@ -206,7 +206,6 @@ const handleResize = () => {
 
   if (state.projects?.status === "success") {
     renderProjects();
-    updateFloatingPaginationVisibility();
   }
 };
 
@@ -228,20 +227,12 @@ const reloadProjectsButton =
 const projectsPagination =
   document.querySelector("#projects-pagination");
 
-const projectsFloatingPagination =
-  document.querySelector(
-    "#projects-floating-pagination",
-  );
-
-const projectsSection =
-  document.querySelector("#projects");
 
 state.projects = {
   status: "idle",
   items: [],
   error: "",
   page: 1,
-  floatingPaginationActive: false,
 };
 
 const getProjectsPerPage = () => {
@@ -258,19 +249,7 @@ const getProjectsPerPage = () => {
 
 const setProjectsPage = (page) => {
   state.projects.page = page;
-  state.projects.floatingPaginationActive =
-    true;
-
   renderProjects();
-
-  requestAnimationFrame(() => {
-    projectsGrid.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-
-    updateFloatingPaginationVisibility();
-  });
 };
 
 const createProjectPageButton = ({
@@ -310,21 +289,19 @@ const createProjectPageButton = ({
   return button;
 };
 
-const renderPaginationControls = ({
-  container,
+const renderProjectsPagination = ({
   currentPage,
   totalPages,
-  compact = false,
 }) => {
-  container.replaceChildren();
+  projectsPagination.replaceChildren();
 
   if (totalPages <= 1) {
     return;
   }
 
-  container.append(
+  projectsPagination.append(
     createProjectPageButton({
-      label: compact ? "‹" : "이전",
+      label: "이전",
       page: currentPage - 1,
       disabled: currentPage === 1,
       ariaLabel: "이전 프로젝트 페이지",
@@ -336,7 +313,7 @@ const renderPaginationControls = ({
     page <= totalPages;
     page += 1
   ) {
-    container.append(
+    projectsPagination.append(
       createProjectPageButton({
         label: String(page),
         page,
@@ -346,9 +323,9 @@ const renderPaginationControls = ({
     );
   }
 
-  container.append(
+  projectsPagination.append(
     createProjectPageButton({
-      label: compact ? "›" : "다음",
+      label: "다음",
       page: currentPage + 1,
       disabled: currentPage === totalPages,
       ariaLabel: "다음 프로젝트 페이지",
@@ -356,77 +333,21 @@ const renderPaginationControls = ({
   );
 };
 
-const updateFloatingPaginationVisibility =
-  () => {
-    const {
-      status,
-      items,
-      floatingPaginationActive,
-    } = state.projects;
+const createProjectPlaceholder = () => {
+  const placeholder =
+    document.createElement("article");
 
-    if (
-      !floatingPaginationActive ||
-      status !== "success" ||
-      items.length === 0
-    ) {
-      projectsFloatingPagination.hidden =
-        true;
-      return;
-    }
+  placeholder.classList.add(
+    "project-card",
+    "project-card-placeholder",
+  );
 
-    const perPage = getProjectsPerPage();
+  placeholder.setAttribute(
+    "aria-hidden",
+    "true",
+  );
 
-    const totalPages =
-      Math.ceil(items.length / perPage);
-
-    if (totalPages <= 1) {
-      projectsFloatingPagination.hidden =
-        true;
-      return;
-    }
-
-    const headerHeight =
-      siteHeader.offsetHeight;
-
-    const sectionRect =
-      projectsSection.getBoundingClientRect();
-
-    const inlineRect =
-      projectsPagination
-        .getBoundingClientRect();
-
-    const projectsVisible =
-      sectionRect.bottom > headerHeight &&
-      sectionRect.top < window.innerHeight;
-
-    const inlinePaginationVisible =
-      inlineRect.bottom > headerHeight &&
-      inlineRect.top < window.innerHeight;
-
-    projectsFloatingPagination.hidden =
-      !projectsVisible ||
-      inlinePaginationVisible;
-  };
-
-const renderProjectsPagination = ({
-  currentPage,
-  totalPages,
-}) => {
-  renderPaginationControls({
-    container: projectsPagination,
-    currentPage,
-    totalPages,
-  });
-
-  renderPaginationControls({
-    container:
-      projectsFloatingPagination,
-    currentPage,
-    totalPages,
-    compact: true,
-  });
-
-  updateFloatingPaginationVisibility();
+  return placeholder;
 };
 
 const createProjectCard = (repository) => {
@@ -491,10 +412,6 @@ const renderProjects = () => {
 
   projectsGrid.replaceChildren();
   projectsPagination.replaceChildren();
-  projectsFloatingPagination
-    .replaceChildren();
-  projectsFloatingPagination.hidden =
-    true;
 
   reloadProjectsButton.disabled =
     status === "loading";
@@ -573,6 +490,19 @@ const renderProjects = () => {
       projectsGrid.append(card);
     });
 
+    const missingSlots =
+      perPage - visibleItems.length;
+
+    for (
+      let slot = 0;
+      slot < missingSlots;
+      slot += 1
+    ) {
+      projectsGrid.append(
+        createProjectPlaceholder(),
+      );
+    }
+
     renderProjectsPagination({
       currentPage,
       totalPages,
@@ -600,7 +530,6 @@ const loadProjects = async () => {
     items: [],
     error: "",
     page: 1,
-    floatingPaginationActive: false,
   });
 
   try {
@@ -798,11 +727,6 @@ const initializeApp = () => {
     renderScrollUi,
   );
 
-  window.addEventListener(
-    "scroll",
-    updateFloatingPaginationVisibility,
-    { passive: true },
-  );
 
   reloadProjectsButton.addEventListener(
     "click",

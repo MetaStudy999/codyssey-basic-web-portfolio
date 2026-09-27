@@ -146,9 +146,9 @@ fetch/error/403
 
 > Desktop에서는 9개씩 4페이지로 나뉩니다. 1페이지는 1–9번째, 2페이지는 10–18번째처럼 표시하고 마지막 페이지에는 남은 3개가 표시됩니다.
 
-### 왜 Floating Pagination을 추가했나?
+### Pagination 위치를 왜 고정했나?
 
-> 페이지 번호를 누르면 다음 페이지의 카드 시작 위치로 올라가므로 원래 하단 Pagination이 화면 밖으로 사라집니다. 그래서 첫 페이지 이동 이후에는 Projects 영역에 있는 동안 원래 Pagination이 보이지 않을 때만 하단에 작은 Floating Pagination을 표시합니다. 사용자가 실제 하단 Pagination 위치로 내려오면 Floating UI는 자동으로 사라져 중복 컨트롤이 보이지 않게 했습니다.
+> 페이지마다 카드 수가 달라지면 Pagination의 세로 위치가 위아래로 움직여 사용성이 떨어집니다. 그래서 페이지당 Grid Slot 수를 Mobile 4개, Tablet 6개, Desktop 9개로 항상 유지하고, 마지막 페이지의 부족한 Slot은 보이지 않는 Placeholder로 채웠습니다. 카드 행 높이도 일정하게 맞춰 페이지 번호가 같은 위치에 머물도록 했고, 페이지 클릭 시 자동 Scroll도 제거했습니다.
 
 ---
 

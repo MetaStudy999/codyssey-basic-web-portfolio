@@ -157,17 +157,20 @@ GitHub API 결과는 **페이지네이션(Pagination)** 으로 여러 페이지�
 
 ### Pagination UX
 
-처음에는 Project Grid 아래의 일반 페이지 번호를 사용합니다.
+페이지 번호는 **화면에 고정(Fixed)** 하지 않고 Projects 섹션의 **전용 Pagination 영역**에 고정합니다.
 
-사용자가 페이지 번호를 **처음 클릭한 뒤** 다른 페이지의 상단으로 이동하면, 원래 페이지 번호가 화면 아래로 사라지므로 **작은 Floating Pagination**이 화면 하단에 나타납니다.
+페이지를 바꿔도 브라우저가 자동으로 위쪽으로 이동하지 않으며, 현재 스크롤 위치를 유지합니다.
 
-- Projects 영역 안에서만 표시
-- 원래 Inline Pagination이 화면에 보이면 Floating Pagination 자동 숨김
-- Projects 영역을 벗어나면 자동 숨김
-- Floating UI는 `‹ 1 2 3 4 ›` 형태로 작게 표시
-- 실제 페이지 번호 위치로 다시 내려오면 원래 Pagination만 보임
+또한 마지막 페이지처럼 실제 카드 수가 적어도 보이지 않는 Layout Placeholder로 남은 Grid Slot을 유지하므로, **Pagination의 세로 위치가 페이지마다 움직이지 않습니다.**
 
-즉 페이지 번호를 복제해서 항상 보여 주는 것이 아니라, **원래 컨트롤이 안 보이는 동안만 임시 Navigation Dock 역할**을 합니다.
+- Mobile: 항상 4 Slot
+- Tablet: 항상 6 Slot
+- Desktop: 항상 9 Slot
+- 마지막 페이지의 빈 Slot은 화면에 보이지 않지만 Layout 공간은 유지
+- 카드 높이도 일정하게 맞춰 Pagination 위치 안정화
+- 페이지 클릭 시 자동 Scroll 없음
+
+이 구조는 Pagination을 화면에 떠 있게 만드는 방식보다 사용자의 문맥과 레이아웃을 안정적으로 유지합니다.
 
 인증 없는 GitHub API는 시간당 요청 제한이 있으므로, HTTP 403도 공통 error 상태로 처리합니다.
 
