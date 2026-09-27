@@ -52,7 +52,9 @@
 - Gate 3 문서 로컬 동기화: PASS
 - Gate 4 학습자료: `docs/jit-learning.md`
 - Gate 4 학습자료 로컬 동기화: PASS
-- 다음 단계: 핵심 개념 자기 말 설명 확인 후 실제 구현 위치 확정
+- 기본 웹 구조 생성: PASS (`index.html`, `css/`, `js/`, `images/`)
+- 구현 로그: `docs/implementation-log.md`
+- 다음 단계: `index.html` 시맨틱 구조 작성
 - 상세 재현 기록: `environment/README.md`
 
 ## Gate 6 — 검증·증빙
