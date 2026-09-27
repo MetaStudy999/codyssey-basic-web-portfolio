@@ -314,3 +314,38 @@ UNSET
 학교 iMac의 공유 환경일 수 있으므로, 이번 B1-1에서는 전역 설정(`--global`)보다 **Repository 로컬 설정**을 우선한다. 이렇게 하면 다른 Repository의 Git 작성자 정보에 영향을 주지 않는다.
 
 다음 단계에서 `git config user.name`, `git config user.email`을 현재 Repository에만 설정하고, 실제 값은 문서/Evidence에 기록하지 않는다.
+
+
+## 9. Repository 로컬 Git 작성자 설정 — PASS
+
+### 실제 확인 결과
+
+```text
+=== LOCAL GIT USER NAME ===
+SET
+=== LOCAL GIT USER EMAIL ===
+SET
+=== REPO STATUS ===
+```
+
+### 판정
+
+**PASS**
+
+- 현재 B1-1 Repository의 로컬 `user.name` 설정 확인
+- 현재 B1-1 Repository의 로컬 `user.email` 설정 확인
+- 실제 이름/이메일 값은 문서와 Evidence에 기록하지 않음
+- `git status --short` 출력 없음 → 작업 트리 clean
+- 전역 설정을 건드리지 않고 현재 Repository에만 작성자 정보를 적용
+
+## 10. 다음 재현 단계 — main 동기화 후 Round 02 작업 브랜치 생성
+
+GitHub의 Round 02 문서가 로컬 clone 이후 갱신되었으므로, 먼저 `main`을 `origin/main`과 fast-forward 방식으로 동기화한 뒤 작업 브랜치를 만든다.
+
+예정 브랜치:
+
+```text
+round-02/b1-1-web-portfolio
+```
+
+아직 실제 실행 결과가 없으므로 PASS 처리하지 않는다.
