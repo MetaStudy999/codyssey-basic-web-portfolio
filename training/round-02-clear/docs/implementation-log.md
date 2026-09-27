@@ -705,3 +705,43 @@ Chrome에서 다음 항목을 실제 확인했다.
 ## 다음 단계
 
 Contact Form에서 invalid/valid 입력을 실제 브라우저에서 검증한다.
+
+
+## Step 12 — Contact Form Runtime — PASS
+
+### 사용자 실제 확인 결과
+
+Chrome에서 Contact Form의 invalid / valid 시나리오를 실제 확인했다.
+
+```text
+1. 빈 값 오류 표시: 정상
+2. 이메일 형식 오류 표시: 정상
+3. 필드별 오류 메시지 위치: 정상
+4. 정상 입력 성공 메시지: 정상
+```
+
+### 판정
+
+**PASS**
+
+- 필수 입력값 누락 시 오류 표시 정상
+- 잘못된 이메일 형식 검증 정상
+- 각 필드 근처 오류 메시지 렌더 정상
+- 정상 입력 시 성공 메시지 렌더 정상
+- `submit` 기본 동작을 막고 검증 결과에 따라 UI가 변경되는 Runtime 확인
+- 이 단계의 성공은 폼 검증 UI에 대한 것이며 실제 이메일 전송 기능을 의미하지 않음
+
+### 평가 연결
+
+```text
+input / submit Event
+→ state.form 갱신
+→ validateForm()
+→ state.form.errors
+→ renderFormErrors()
+→ DOM 오류/성공 메시지
+```
+
+## 다음 단계
+
+GitHub API의 실제 success 상태와 재시도 버튼 동작을 브라우저에서 확인한다.
