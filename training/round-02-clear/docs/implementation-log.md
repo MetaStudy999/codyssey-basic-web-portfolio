@@ -779,3 +779,50 @@ GitHub 프로젝트 카드 표시: 정상
 ## 다음 단계
 
 Chrome DevTools의 Network Offline 기능을 사용해 소스 코드를 수정하지 않고 API error 상태를 안전하게 재현하고, `다시 시도` UI와 온라인 복구를 검증한다.
+
+
+## Step 14 — GitHub API Error/Retry Runtime — PASS
+
+### 사용자 실제 확인 결과
+
+Chrome DevTools Network를 Offline으로 전환해 API 실패를 안전하게 재현한 뒤, Online 복구 후 다시 시도했다.
+
+```text
+1. Offline에서 API 오류 메시지: 정상
+2. 버튼이 '다시 시도'로 변경: 정상
+3. Online 복구 후 다시 시도: 정상
+4. 프로젝트 카드 다시 표시: 정상
+```
+
+### 판정
+
+**PASS**
+
+- 네트워크 실패 시 `catch` 경로 진입 정상
+- error 상태 렌더 정상
+- 재시도 버튼 라벨 변경 정상
+- 네트워크 복구 후 retry 정상
+- loading → success 복귀 정상
+- 카드 재렌더 정상
+
+### 평가 연결
+
+```text
+Network Offline
+→ fetch 실패
+→ catch(error)
+→ state.projects.status = error
+→ renderProjects()
+→ "다시 시도"
+
+Network Online
+→ retry click
+→ loading
+→ fetch success
+→ success
+→ 카드 재렌더
+```
+
+## 다음 단계
+
+empty 상태를 실제 UI에서 안전하게 재현해 확인한다.
