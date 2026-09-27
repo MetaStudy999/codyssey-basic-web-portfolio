@@ -99,6 +99,14 @@
 - 구현 로그: `docs/implementation-log.md`
 - 다음 구현: `index.html` 시맨틱 구조
 
+## 다음 원격 반영 절차
+
+- GitHub CLI(gh) 설치
+- 웹 브라우저 방식으로 GitHub 인증
+- `gh auth status` 검증
+- 인증 확인 후 Round 02 작업 브랜치 push
+- Secret/Token은 Chat·Repository·Evidence에 기록하지 않음
+
 ## 다음 작업
 
 현재 환경 확인, Git 설치/검증, B1-1 Repository clone 및 원격·브랜치·작업트리 상태 확인까지 완료했다. Git 작성자 전역 설정은 둘 다 UNSET이었고, 학교 공유 환경을 고려하여 현재 B1-1 Repository에만 로컬 작성자 정보를 설정했다. `user.name`과 `user.email` 모두 SET이며 실제 값은 기록하지 않았다. 원격 `main` 동기화와 `round-02/b1-1-web-portfolio` 작업 브랜치 생성까지 완료했다. 원격에도 동일한 Round 02 작업 브랜치를 준비했다. Gate 2에서 공식 요구사항과 기존 Evaluation을 비교하고 `docs/requirements-mapping.md`에 Requirement → Implementation → Verification → Evidence → Evaluation 연결을 정리했다. Gate 3에서 필수 구현 범위, 검증 순서, 최소 Evidence, CLEAR 이후로 미룰 항목, 구현 순서를 `docs/minimum-passing-path.md`에 확정했다. Gate 4 학습자료를 `docs/jit-learning.md`에 준비했다. 다음 실제 단계는 **핵심 개념을 자기 말로 설명할 수 있는지 확인한 뒤 실제 구현 위치를 확정**하는 것이다.
