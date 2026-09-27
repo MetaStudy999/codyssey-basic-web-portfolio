@@ -60,7 +60,7 @@
 - 셸: `/bin/bash`
 - 패키지 관리자: `apt`
 - Git: **설치 완료 — 2.43.0 (`/usr/bin/git`)**
-- B1-1 로컬 Repository: **아직 없음**
+- B1-1 로컬 Repository: **clone 완료 — `/home/metastudy9997479/projects/codyssey-basic-web-portfolio`**
 - 코드 구현/수정: **아직 시작하지 않음**
 - Runtime/Evidence: **아직 없음**
 
@@ -77,19 +77,19 @@
 
 ## 다음 작업
 
-현재 환경 확인과 Git 설치/검증까지 완료했다. 다음 실제 단계는 **B1-1 Repository를 로컬에 clone하고 원격·브랜치·작업트리 상태를 확인**하는 것이다.
+현재 환경 확인, Git 설치/검증, B1-1 Repository clone 및 원격·브랜치·작업트리 상태 확인까지 완료했다. 다음 실제 단계는 **Git 작성자 설정 상태를 확인**하는 것이다.
 
 ```bash
-mkdir -p "$HOME/projects"
-cd "$HOME/projects"
+cd "$HOME/projects/codyssey-basic-web-portfolio"
 
-git clone https://github.com/MetaStudy999/codyssey-basic-web-portfolio.git
-cd codyssey-basic-web-portfolio
+echo "=== GIT USER NAME CONFIGURED ==="
+git config --global --get user.name >/dev/null 2>&1 && echo "SET" || echo "UNSET"
 
-git status
-git remote -v
-git branch --show-current
-git log -5 --oneline
+echo "=== GIT USER EMAIL CONFIGURED ==="
+git config --global --get user.email >/dev/null 2>&1 && echo "SET" || echo "UNSET"
+
+echo "=== REPO STATUS ==="
+git status --short
 ```
 
-위 clone 및 상태 확인은 아직 실제 결과가 없으므로 PASS 처리하지 않는다.
+이 단계는 이름/이메일 실제 값을 출력하지 않고 설정 여부만 확인한다. 아직 실행 결과가 없으므로 PASS 처리하지 않는다.
