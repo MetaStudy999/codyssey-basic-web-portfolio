@@ -501,3 +501,26 @@ gh 설치
 - Personal Access Token(PAT), 인증 코드, 비밀번호를 Repository/Chat/Evidence에 기록하지 않는다.
 - 학교 iMac 환경이므로 작업 종료 시 필요하면 `gh auth logout -h github.com`으로 인증을 해제한다.
 - 실제 인증 완료 전에는 PASS로 기록하지 않는다.
+
+
+## 16. GitHub CLI 설치 — PASS
+
+### 실제 확인 결과
+
+```text
+=== GH VERSION ===
+gh version 2.45.0 (2025-07-18 Ubuntu 2.45.0-1ubuntu0.3)
+
+=== GH PATH ===
+/usr/bin/gh
+```
+
+### 판정
+
+**PASS**
+
+- GitHub 명령줄 인터페이스(GitHub Command Line Interface, gh) 설치 완료
+- 버전: `2.45.0`
+- 실행 경로: `/usr/bin/gh`
+- 다음 단계: `gh auth login --web` 기반 GitHub 인증
+- 인증 토큰/브라우저 인증 코드는 문서·Chat·Evidence에 기록하지 않는다.
