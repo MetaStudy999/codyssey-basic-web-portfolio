@@ -70,6 +70,7 @@
 - GitHub API Error/Retry Runtime: PASS (Offline error / retry label / Online recovery / card re-render)
 - GitHub API Empty Runtime: PASS (empty message / cards hidden / reload / success recovery)
 - GitHub API 전체 상태 Runtime: PASS (loading / success / error / empty / retry)
+- Responsive Runtime: PASS (375px / 768px / 1200px, no horizontal overflow)
 - 구현 로그: `docs/implementation-log.md`
 - 다음 단계: GitHub API 상태 흐름 구현
 - 상세 재현 기록: `environment/README.md`
