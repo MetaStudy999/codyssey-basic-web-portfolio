@@ -220,4 +220,4 @@ git log -1 --oneline
   - Navigation Header: `60px`
   - Scroll Top: `300px`
   - IntersectionObserver threshold: `0.2`
-- Gate 6 remediation commit/push: **PENDING**
+- Gate 6 remediation commit/push: **PASS** (`841ce91`)
