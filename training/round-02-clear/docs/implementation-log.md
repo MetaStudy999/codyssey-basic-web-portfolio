@@ -1412,3 +1412,46 @@ threshold: 0.2
 - `git diff --check` 오류 없음
 - 현재 기능 보완 수정 파일은 `README.md`, `js/script.js`
 - 다음 단계: 두 파일을 최종 정적 검사 후 commit / push
+
+
+## Step 28-4 — Gate 6 Remediation Commit/Push — PASS
+
+### 사용자 실제 확인 결과
+
+```text
+=== LOCAL HEAD ===
+841ce91
+
+=== REMOTE HEAD ===
+841ce91
+
+=== STATUS ===
+## main...origin/main
+
+=== LATEST COMMIT ===
+841ce91 fix: complete B1-1 DOM and runtime documentation
+```
+
+GitHub 원격 `main`도 동일 커밋을 가리키는 것을 확인했다.
+
+### 원격 내용 확인
+
+- `js/script.js`: `projectsStatus.innerHTML` 존재
+- 동적 HTML에 `items.length` 사용
+- `README.md`: Navigation `60px`
+- `README.md`: Scroll Top `300px`
+- `README.md`: IntersectionObserver threshold `0.2`
+
+### 판정
+
+**PASS**
+
+- 기능 보완 코드 commit 완료
+- README 기준값 문서화 완료
+- Local HEAD = Remote HEAD
+- ahead / behind 없음
+- 원격 main에서 수정 내용 재확인 완료
+
+### 다음 단계
+
+GitHub Pages에 새 JavaScript/README가 실제 배포되었는지 HTTP + Browser Runtime을 재검증한다.
