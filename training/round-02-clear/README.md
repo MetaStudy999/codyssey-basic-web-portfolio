@@ -214,3 +214,10 @@ git log -1 --oneline
 - innerHTML Runtime Recheck: **PASS**
 - Projects count render: **PASS** (`8개 공개 프로젝트`)
 - Reload recovery: **PASS**
+
+
+- README Runtime Thresholds: **PASS**
+  - Navigation Header: `60px`
+  - Scroll Top: `300px`
+  - IntersectionObserver threshold: `0.2`
+- Gate 6 remediation commit/push: **PENDING**
