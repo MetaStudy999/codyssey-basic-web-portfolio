@@ -169,3 +169,12 @@ git log -1 --oneline
 - GitHub Projects API + 재로딩: 정상
 - Mobile 375px + Hamburger: 정상
 - Contact / Scroll / Reveal: 정상
+
+
+## Screenshot Evidence
+
+- Screenshot Capture: **PASS**
+- Desktop Light: 촬영 완료
+- Mobile 375px: 촬영 완료
+- Desktop Dark: 촬영 완료
+- Evidence 디렉터리 복사 및 Git 기록: **PENDING**
