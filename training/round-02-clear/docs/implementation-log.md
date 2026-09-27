@@ -1280,3 +1280,36 @@ training/round-02-clear/evidence/b1-1-pages-desktop-dark.png
 ## 다음 단계
 
 공식 요구사항 → 구현 → 검증 → Evidence → 평가 설명 연결 상태를 최종 점검한다.
+
+
+## Step 27-2 — README Screenshot Links Commit/Push — PASS
+
+### 사용자 실제 확인 결과
+
+```text
+=== LOCAL HEAD ===
+0d80901
+
+=== REMOTE HEAD ===
+0d80901
+
+=== STATUS ===
+## main...origin/main
+
+=== LATEST COMMIT ===
+0d80901 docs: link B1-1 screenshot evidence in README
+```
+
+GitHub 원격 main에서도 README의 Screenshot Evidence 링크 3개를 확인했다.
+
+### 판정
+
+**PASS**
+
+- README Screenshot 섹션 반영 완료
+- Desktop Light 링크 확인
+- Mobile 375px 링크 확인
+- Desktop Dark 링크 확인
+- Local HEAD = Remote HEAD
+- ahead / behind 없음
+- Commit: `0d80901`
