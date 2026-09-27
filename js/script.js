@@ -206,6 +206,7 @@ const handleResize = () => {
 
   if (state.projects?.status === "success") {
     renderProjects();
+    updateFloatingPaginationVisibility();
   }
 };
 
@@ -227,11 +228,20 @@ const reloadProjectsButton =
 const projectsPagination =
   document.querySelector("#projects-pagination");
 
+const projectsFloatingPagination =
+  document.querySelector(
+    "#projects-floating-pagination",
+  );
+
+const projectsSection =
+  document.querySelector("#projects");
+
 state.projects = {
   status: "idle",
   items: [],
   error: "",
   page: 1,
+  floatingPaginationActive: false,
 };
 
 const getProjectsPerPage = () => {
@@ -248,14 +258,19 @@ const getProjectsPerPage = () => {
 
 const setProjectsPage = (page) => {
   state.projects.page = page;
+  state.projects.floatingPaginationActive =
+    true;
+
   renderProjects();
 
-  document
-    .querySelector("#projects")
-    .scrollIntoView({
+  requestAnimationFrame(() => {
+    projectsGrid.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
+
+    updateFloatingPaginationVisibility();
+  });
 };
 
 const createProjectPageButton = ({
@@ -295,19 +310,21 @@ const createProjectPageButton = ({
   return button;
 };
 
-const renderProjectsPagination = ({
+const renderPaginationControls = ({
+  container,
   currentPage,
   totalPages,
+  compact = false,
 }) => {
-  projectsPagination.replaceChildren();
+  container.replaceChildren();
 
   if (totalPages <= 1) {
     return;
   }
 
-  projectsPagination.append(
+  container.append(
     createProjectPageButton({
-      label: "이전",
+      label: compact ? "‹" : "이전",
       page: currentPage - 1,
       disabled: currentPage === 1,
       ariaLabel: "이전 프로젝트 페이지",
@@ -319,7 +336,7 @@ const renderProjectsPagination = ({
     page <= totalPages;
     page += 1
   ) {
-    projectsPagination.append(
+    container.append(
       createProjectPageButton({
         label: String(page),
         page,
@@ -329,14 +346,87 @@ const renderProjectsPagination = ({
     );
   }
 
-  projectsPagination.append(
+  container.append(
     createProjectPageButton({
-      label: "다음",
+      label: compact ? "›" : "다음",
       page: currentPage + 1,
       disabled: currentPage === totalPages,
       ariaLabel: "다음 프로젝트 페이지",
     }),
   );
+};
+
+const updateFloatingPaginationVisibility =
+  () => {
+    const {
+      status,
+      items,
+      floatingPaginationActive,
+    } = state.projects;
+
+    if (
+      !floatingPaginationActive ||
+      status !== "success" ||
+      items.length === 0
+    ) {
+      projectsFloatingPagination.hidden =
+        true;
+      return;
+    }
+
+    const perPage = getProjectsPerPage();
+
+    const totalPages =
+      Math.ceil(items.length / perPage);
+
+    if (totalPages <= 1) {
+      projectsFloatingPagination.hidden =
+        true;
+      return;
+    }
+
+    const headerHeight =
+      siteHeader.offsetHeight;
+
+    const sectionRect =
+      projectsSection.getBoundingClientRect();
+
+    const inlineRect =
+      projectsPagination
+        .getBoundingClientRect();
+
+    const projectsVisible =
+      sectionRect.bottom > headerHeight &&
+      sectionRect.top < window.innerHeight;
+
+    const inlinePaginationVisible =
+      inlineRect.bottom > headerHeight &&
+      inlineRect.top < window.innerHeight;
+
+    projectsFloatingPagination.hidden =
+      !projectsVisible ||
+      inlinePaginationVisible;
+  };
+
+const renderProjectsPagination = ({
+  currentPage,
+  totalPages,
+}) => {
+  renderPaginationControls({
+    container: projectsPagination,
+    currentPage,
+    totalPages,
+  });
+
+  renderPaginationControls({
+    container:
+      projectsFloatingPagination,
+    currentPage,
+    totalPages,
+    compact: true,
+  });
+
+  updateFloatingPaginationVisibility();
 };
 
 const createProjectCard = (repository) => {
@@ -401,6 +491,10 @@ const renderProjects = () => {
 
   projectsGrid.replaceChildren();
   projectsPagination.replaceChildren();
+  projectsFloatingPagination
+    .replaceChildren();
+  projectsFloatingPagination.hidden =
+    true;
 
   reloadProjectsButton.disabled =
     status === "loading";
@@ -506,6 +600,7 @@ const loadProjects = async () => {
     items: [],
     error: "",
     page: 1,
+    floatingPaginationActive: false,
   });
 
   try {
@@ -701,6 +796,12 @@ const initializeApp = () => {
   window.addEventListener(
     "scroll",
     renderScrollUi,
+  );
+
+  window.addEventListener(
+    "scroll",
+    updateFloatingPaginationVisibility,
+    { passive: true },
   );
 
   reloadProjectsButton.addEventListener(

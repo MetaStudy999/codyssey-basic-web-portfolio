@@ -155,6 +155,20 @@ GitHub API 결과는 **페이지네이션(Pagination)** 으로 여러 페이지�
 
 `30개의 공개 프로젝트 중 1–9번째를 표시했습니다. (1/4 페이지)`
 
+### Pagination UX
+
+처음에는 Project Grid 아래의 일반 페이지 번호를 사용합니다.
+
+사용자가 페이지 번호를 **처음 클릭한 뒤** 다른 페이지의 상단으로 이동하면, 원래 페이지 번호가 화면 아래로 사라지므로 **작은 Floating Pagination**이 화면 하단에 나타납니다.
+
+- Projects 영역 안에서만 표시
+- 원래 Inline Pagination이 화면에 보이면 Floating Pagination 자동 숨김
+- Projects 영역을 벗어나면 자동 숨김
+- Floating UI는 `‹ 1 2 3 4 ›` 형태로 작게 표시
+- 실제 페이지 번호 위치로 다시 내려오면 원래 Pagination만 보임
+
+즉 페이지 번호를 복제해서 항상 보여 주는 것이 아니라, **원래 컨트롤이 안 보이는 동안만 임시 Navigation Dock 역할**을 합니다.
+
 인증 없는 GitHub API는 시간당 요청 제한이 있으므로, HTTP 403도 공통 error 상태로 처리합니다.
 
 ---
