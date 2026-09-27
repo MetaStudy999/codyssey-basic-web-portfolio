@@ -277,3 +277,40 @@ af00184  docs: mark B1-1 Git setup progress
 ```
 
 Password, API Key, Token, Private Key, Secret, Cloud Credential은 이 문서와 Evidence에 기록하지 않는다.
+
+
+## 8. Git 작성자 설정 상태 확인 — NEEDS CONFIG
+
+### 실제 확인 명령
+
+```bash
+cd "$HOME/projects/codyssey-basic-web-portfolio"
+
+git config --global --get user.name >/dev/null 2>&1 && echo "SET" || echo "UNSET"
+git config --global --get user.email >/dev/null 2>&1 && echo "SET" || echo "UNSET"
+git status --short
+```
+
+### 실제 출력
+
+```text
+=== GIT USER NAME CONFIGURED ===
+UNSET
+=== GIT USER EMAIL CONFIGURED ===
+UNSET
+=== REPO STATUS ===
+```
+
+### 판정
+
+- Git 전역 작성자 이름: **UNSET**
+- Git 전역 작성자 이메일: **UNSET**
+- 작업 트리: **clean**
+- 설치/clone 문제는 아님
+- 실제 커밋 전에 작성자 설정이 필요함
+
+### 환경 정책
+
+학교 iMac의 공유 환경일 수 있으므로, 이번 B1-1에서는 전역 설정(`--global`)보다 **Repository 로컬 설정**을 우선한다. 이렇게 하면 다른 Repository의 Git 작성자 정보에 영향을 주지 않는다.
+
+다음 단계에서 `git config user.name`, `git config user.email`을 현재 Repository에만 설정하고, 실제 값은 문서/Evidence에 기록하지 않는다.
