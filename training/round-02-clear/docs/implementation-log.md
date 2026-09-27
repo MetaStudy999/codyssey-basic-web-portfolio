@@ -307,3 +307,39 @@ click Event
 ## 다음 단계
 
 Contact Form의 입력 → 검증 상태 → 에러/성공 렌더 흐름을 구현한다.
+
+
+## Step 5 — Contact Form 1차 검증 — FAIL
+
+### 실제 검증 결과
+
+```text
+=== FORM STATE ===
+=== VALIDATION ===
+=== ERROR RENDER ===
+=== INPUT EVENTS ===
+=== SUBMIT EVENT ===
+=== PREVENT DEFAULT ===
+133:  event.preventDefault();
+=== GIT STATUS ===
+?? css/
+?? images/
+?? index.html
+?? js/
+```
+
+### 판정
+
+**FAIL — Contact Form 로직이 아직 `js/script.js`에 반영되지 않음**
+
+확인된 사실:
+- `state.form` 없음
+- `validateForm` 없음
+- `renderFormErrors` 없음
+- `handleFormInput` 없음
+- `handleFormSubmit` 없음
+- 보이는 `preventDefault()`는 기존 smooth-scroll 처리 코드일 가능성이 높으며, Contact Form 구현 증거가 아님
+
+### 다음 진단
+
+재설치/전체 파일 교체를 하지 않고, 현재 `js/script.js`의 Initialization 주변 실제 구조를 먼저 확인한 뒤 최소 수정한다.
