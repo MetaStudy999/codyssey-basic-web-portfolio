@@ -826,3 +826,42 @@ Network Online
 ## 다음 단계
 
 empty 상태를 실제 UI에서 안전하게 재현해 확인한다.
+
+
+## Step 15 — GitHub API Empty Runtime — PASS
+
+### 사용자 실제 확인 결과
+
+브라우저 Console에서 프로젝트 상태를 일시적으로 `empty`로 변경하여 UI를 안전하게 재현하고, 다시 불러오기로 success 상태를 복구했다.
+
+```text
+1. empty 메시지 표시: 정상
+2. 기존 카드 숨김: 정상
+3. 다시 불러오기 클릭: 정상
+4. success 상태로 복구: 정상
+```
+
+### 판정
+
+**PASS**
+
+- `state.projects.status = empty` 상태의 UI 렌더 정상
+- empty 상태에서 기존 프로젝트 카드 제거 정상
+- 다시 불러오기 버튼 동작 정상
+- loading → success 복구 정상
+- GitHub API의 loading / success / error / empty / retry 상태 Runtime 흐름을 모두 확인함
+
+### 전체 API 상태 흐름
+
+```text
+idle
+→ loading
+→ success
+   ├─ reload → loading → success
+   ├─ Offline → error → retry → success
+   └─ empty → reload → loading → success
+```
+
+## 다음 단계
+
+desktop / tablet / mobile viewport에서 반응형 레이아웃을 실제 브라우저로 검증한다.
