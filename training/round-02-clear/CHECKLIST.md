@@ -41,8 +41,10 @@
 - Git 작성자 전역 설정: `user.name` UNSET / `user.email` UNSET
 - B1-1 로컬 Repository: clone 완료 — `/home/metastudy9997479/projects/codyssey-basic-web-portfolio`
 - Repository clone/원격/브랜치/clean 상태 검증: PASS
-- Git 작성자 설정 상태 확인: 완료 — 둘 다 UNSET
-- 다음 단계: 현재 Repository에만 작성자 정보 설정
+- Git 작성자 설정 상태 확인: 완료 — 전역 둘 다 UNSET
+- Repository 로컬 Git 작성자 설정: PASS (`user.name`/`user.email` 모두 SET, 실제 값 미기록)
+- 작업 트리: clean
+- 다음 단계: `main` 동기화 후 `round-02/b1-1-web-portfolio` 작업 브랜치 생성
 - 상세 재현 기록: `environment/README.md`
 
 ## Gate 6 — 검증·증빙
