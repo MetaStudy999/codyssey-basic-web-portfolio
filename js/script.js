@@ -215,6 +215,11 @@ const handleResize = () => {
 
 const GITHUB_USERNAME = "MetaStudy999";
 
+const currentMissionSummary =
+  document.querySelector(
+    "#current-mission-summary",
+  );
+
 const projectsCategories =
   document.querySelector("#projects-categories");
 
@@ -247,6 +252,100 @@ state.projects = {
   error: "",
   page: 1,
   category: "all",
+};
+
+const CURRENT_MISSION_ID = "B1-1";
+
+const MISSION_PROGRESS = {
+  "B1-1": "진행",
+  "B1-2": "준비",
+  "B2-1": "준비",
+  "B2-2": "준비",
+  "B3-1": "준비",
+  "B3-2": "준비",
+  "B4-1": "준비",
+  "B4-2": "준비",
+  "B5-1": "준비",
+  "B5-2": "준비",
+  "B6-1": "준비",
+  "B6-2": "준비",
+  "B6-3": "준비",
+  "B7-1": "준비",
+  "B7-2": "준비",
+  "공통": "진행",
+};
+
+const MISSION_REPOSITORY_MAP = {
+  "codyssey-basic-web-portfolio": { missionId: "B1-1", order: 101 },
+  "codyssey-basic-react-spa": { missionId: "B1-2", order: 102 },
+  "codyssey-basic-budget-tracker": { missionId: "B2-1", order: 201 },
+  "codyssey-basic-git-collaboration": { missionId: "B2-2", order: 202 },
+  "codyssey-basic-cloud-infrastructure": { missionId: "B3-1", order: 301 },
+  "codyssey-basic-ai-git-assistant": { missionId: "B3-2", order: 302 },
+  "codyssey-basic-system-monitor": { missionId: "B4-1", order: 401 },
+  "codyssey-basic-system-troubleshooting": { missionId: "B4-2", order: 402 },
+  "codyssey-basic-mini-redis": { missionId: "B5-1", order: 501 },
+  "codyssey-basic-mini-git": { missionId: "B5-2", order: 502 },
+  "codyssey-basic-sql-database": { missionId: "B6-1", order: 601 },
+  "codyssey-basic-fastapi-crud": { missionId: "B6-2", order: 602 },
+  "codyssey-basic-fastapi-auth": { missionId: "B6-3", order: 603 },
+  "codyssey-basic-ai-chatbot": { missionId: "B7-1", order: 701 },
+  "codyssey-basic-ai-chatbot-fullstack": { missionId: "B7-2", order: 702 },
+  "codyssey-basic": { missionId: "공통", order: 999 },
+};
+
+const getMissionMeta = (name) =>
+  MISSION_REPOSITORY_MAP[name] ?? {
+    missionId: "미지정",
+    order: 9999,
+  };
+
+const getMissionStatus = (missionId) =>
+  MISSION_PROGRESS[missionId] ?? "준비";
+
+const getMissionStatusClass = (status) => {
+  if (status === "완료") return "mission-status-complete";
+  if (status === "진행") return "mission-status-progress";
+  return "mission-status-ready";
+};
+
+const compareMissionRepositories = (a, b) => {
+  const left = getMissionMeta(a.name);
+  const right = getMissionMeta(b.name);
+
+  if (left.order !== right.order) {
+    return left.order - right.order;
+  }
+
+  return a.name.localeCompare(b.name, "ko");
+};
+
+const renderCurrentMissionSummary = () => {
+  currentMissionSummary.replaceChildren();
+
+  const label = document.createElement("span");
+  label.classList.add("current-mission-label");
+  label.textContent = "현재 미션";
+
+  const mission = document.createElement("span");
+  mission.classList.add("mission-id-badge");
+  mission.textContent = CURRENT_MISSION_ID;
+
+  const currentStatus =
+    getMissionStatus(CURRENT_MISSION_ID);
+
+  const status = document.createElement("span");
+  status.classList.add(
+    "mission-status-badge",
+    getMissionStatusClass(currentStatus),
+  );
+  status.textContent = currentStatus;
+
+  currentMissionSummary.append(
+    label,
+    mission,
+    status,
+  );
 };
 
 const PROJECT_CATEGORY_CONFIG = {
@@ -294,9 +393,9 @@ const getProjectsForCategory = () => {
     category === "all" ||
     category === "tools"
   ) {
-    return items.filter(
-      isToolLearningRepository,
-    );
+    return items
+      .filter(isToolLearningRepository)
+      .sort(compareMissionRepositories);
   }
 
   return [];
@@ -467,6 +566,46 @@ const createProjectCard = (repository) => {
 
   article.classList.add("project-card");
 
+  const { missionId } =
+    getMissionMeta(name);
+
+  const missionStatus =
+    getMissionStatus(missionId);
+
+  if (missionId === CURRENT_MISSION_ID) {
+    article.classList.add(
+      "is-current-mission",
+    );
+  }
+
+  const cardHeader =
+    document.createElement("div");
+  cardHeader.classList.add(
+    "project-card-header",
+  );
+
+  const missionBadge =
+    document.createElement("span");
+  missionBadge.classList.add(
+    "mission-id-badge",
+  );
+  missionBadge.textContent = missionId;
+
+  const statusBadge =
+    document.createElement("span");
+  statusBadge.classList.add(
+    "mission-status-badge",
+    getMissionStatusClass(
+      missionStatus,
+    ),
+  );
+  statusBadge.textContent = missionStatus;
+
+  cardHeader.append(
+    missionBadge,
+    statusBadge,
+  );
+
   const title =
     document.createElement("h3");
 
@@ -573,6 +712,7 @@ const createProjectCard = (repository) => {
   }
 
   article.append(
+    cardHeader,
     title,
     descriptionElement,
     meta,
@@ -932,6 +1072,7 @@ const initializeApp = () => {
   renderTheme();
   renderMenu();
   renderScrollUi();
+  renderCurrentMissionSummary();
   initializeReveal();
 
   menuToggle.addEventListener(
