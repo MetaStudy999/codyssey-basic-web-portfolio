@@ -59,7 +59,7 @@
 - 현재 사용자: `metastudy9997479`
 - 셸: `/bin/bash`
 - 패키지 관리자: `apt`
-- Git: **미설치 상태 확인**
+- Git: **설치 완료 — 2.43.0 (`/usr/bin/git`)**
 - B1-1 로컬 Repository: **아직 없음**
 - 코드 구현/수정: **아직 시작하지 않음**
 - Runtime/Evidence: **아직 없음**
@@ -77,14 +77,19 @@
 
 ## 다음 작업
 
-현재 환경 확인까지 완료했다. 다음 실제 단계는 **Ubuntu에 Git 설치 후 설치 결과 검증**이다.
+현재 환경 확인과 Git 설치/검증까지 완료했다. 다음 실제 단계는 **B1-1 Repository를 로컬에 clone하고 원격·브랜치·작업트리 상태를 확인**하는 것이다.
 
 ```bash
-sudo apt update
-sudo apt install -y git
+mkdir -p "$HOME/projects"
+cd "$HOME/projects"
 
-git --version
-command -v git
+git clone https://github.com/MetaStudy999/codyssey-basic-web-portfolio.git
+cd codyssey-basic-web-portfolio
+
+git status
+git remote -v
+git branch --show-current
+git log -5 --oneline
 ```
 
-위 명령은 아직 실행 결과가 확인되지 않았으므로 PASS 처리하지 않는다.
+위 clone 및 상태 확인은 아직 실제 결과가 없으므로 PASS 처리하지 않는다.
