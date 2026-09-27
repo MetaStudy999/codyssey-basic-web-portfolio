@@ -1353,3 +1353,30 @@ forEach / map / filter 확인
 ### 다음 단계
 
 로컬 브라우저에서 GitHub Projects success / reload 상태가 기존처럼 정상인지 확인한다.
+
+
+## Step 28-2 — innerHTML Runtime Recheck — PASS
+
+### 사용자 실제 확인 결과
+
+로컬 웹서버에서 수정된 `js/script.js`를 로드한 뒤 Projects 섹션을 실제 브라우저에서 재검증했다.
+
+```text
+1. 프로젝트 카드 표시: 정상
+2. 프로젝트 개수 굵게 표시: 정상 — 8개 공개 프로젝트를 불러왔습니다.
+3. 다시 불러오기 후 정상 복구: 정상
+```
+
+### 판정
+
+**PASS — Runtime Recheck**
+
+- GitHub Project 카드 렌더 정상
+- `innerHTML` 기반 상태 문구 정상
+- 템플릿 리터럴의 `items.length` 값 정상 반영
+- reload → loading → success 복구 정상
+- 기존 API 기능 회귀(regression) 없음
+
+### 다음 단계
+
+README에 실제 구현 기준값인 Navigation 60px, Scroll Top 300px, IntersectionObserver threshold 0.2를 명시한다.
