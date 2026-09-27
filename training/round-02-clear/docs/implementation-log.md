@@ -1117,3 +1117,25 @@ GitHub Pages의 HTTP 배포 확인과 실제 Browser Runtime 재검증까지 완
 
 Mac Desktop의 Screenshot 파일을 OrbStack Ubuntu에서 접근 가능한 경로로 확인한 뒤
 `training/round-02-clear/evidence/`에 복사하고 실제 파일 존재를 검증한다.
+
+
+## Step 26-1 — Screenshot Source Path Discovery — PASS
+
+### 사용자 실제 확인 결과
+
+OrbStack Ubuntu에서 Mac Desktop의 실제 Screenshot 파일 3개를 확인했다.
+
+```text
+/mnt/mac/Users/metastudy9997479/Desktop/b1-1-pages-desktop-dark.png
+/mnt/mac/Users/metastudy9997479/Desktop/b1-1-pages-desktop-light.png
+/mnt/mac/Users/metastudy9997479/Desktop/b1-1-pages-mobile-375.png
+```
+
+### 판정
+
+**PASS — Screenshot 원본 경로 확인 완료**
+
+- Desktop Light 원본 확인
+- Mobile 375px 원본 확인
+- Desktop Dark 원본 확인
+- 다음 단계에서 Round 02 Evidence 디렉터리로 복사하고 파일 크기/형식/해시를 검증한다.
