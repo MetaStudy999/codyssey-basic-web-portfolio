@@ -73,7 +73,7 @@
 - Responsive Runtime: PASS (375px / 768px / 1200px, no horizontal overflow)
 - IntersectionObserver Runtime: PASS (섹션 reveal / 1회 실행 / 반복 깜빡임 없음)
 - GitHub CLI(gh) 설치: PASS (`2.45.0`, `/usr/bin/gh`)
-- GitHub CLI 인증: 대기
+- GitHub CLI 인증: PASS (`MetaStudy999`, Repository 접근 확인)
 - 구현 로그: `docs/implementation-log.md`
 - 다음 단계: GitHub API 상태 흐름 구현
 - 상세 재현 기록: `environment/README.md`
