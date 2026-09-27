@@ -1051,3 +1051,37 @@ DEPLOY_HTTP_CHECK=PASS
 
 이 단계는 HTTP 배포와 정적 자산 제공을 검증한 것이다.
 최종 GitHub Pages Runtime PASS를 위해 실제 Chrome에서 UI/Interaction/API/Responsive 재검증이 남아 있다.
+
+
+## Step 24 — GitHub Pages Browser Runtime — PASS
+
+### 사용자 실제 확인 결과
+
+실제 배포 URL `https://metastudy999.github.io/codyssey-basic-web-portfolio/` 를 Chrome에서 열어 다음 항목을 확인했다.
+
+```text
+1. 실제 Pages 기본 화면: 정상
+2. Dark Mode + 새로고침 유지: 정상
+3. GitHub Projects API + 재로딩: 정상
+4. 모바일 375px + 햄버거: 정상
+5. Contact / Scroll / Reveal: 정상
+```
+
+### 판정
+
+**PASS — GitHub Pages Browser Runtime**
+
+- 실제 배포 페이지 기본 렌더 정상
+- Dark Mode 및 localStorage persistence 정상
+- GitHub Projects API 렌더 및 reload 정상
+- 모바일 375px 반응형 및 Hamburger Menu 정상
+- Contact Form validation 정상
+- Scroll Top / Scroll Reveal 정상
+
+### 상태
+
+GitHub Pages의 HTTP 배포 확인과 실제 Browser Runtime 재검증까지 완료했다.
+
+### 다음 단계
+
+제출용 Screenshot Evidence(Desktop / Mobile / Dark Mode)를 실제 배포 페이지 기준으로 확보한다.
