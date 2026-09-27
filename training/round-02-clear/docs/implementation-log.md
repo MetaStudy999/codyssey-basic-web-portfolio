@@ -745,3 +745,37 @@ input / submit Event
 ## 다음 단계
 
 GitHub API의 실제 success 상태와 재시도 버튼 동작을 브라우저에서 확인한다.
+
+
+## Step 13 — GitHub API Success/Reload Runtime — PASS
+
+### 실제 확인 근거
+
+이전 Browser Initial Runtime에서 이미 다음을 확인했다.
+
+```text
+GitHub 프로젝트 카드 표시: 정상
+```
+
+이번 단계에서 추가로 사용자가 다음을 실제 확인했다.
+
+```text
+상태 문구 표시: 정상
+다시 불러오기 로딩 상태: 정상
+재로딩 후 카드 표시: 정상
+```
+
+### 판정
+
+**PASS**
+
+- GitHub 프로젝트 카드 실제 렌더 정상
+- 상태 문구 표시 정상
+- 재로딩 클릭 시 loading 상태 전환 정상
+- 로딩 후 success 상태로 복귀 및 카드 재렌더 정상
+- `fetch → loading → success → renderProjects → DOM` Runtime 흐름 확인
+- 아직 error/retry 복구 및 empty 상태 Runtime 검증은 별도 필요
+
+## 다음 단계
+
+Chrome DevTools의 Network Offline 기능을 사용해 소스 코드를 수정하지 않고 API error 상태를 안전하게 재현하고, `다시 시도` UI와 온라인 복구를 검증한다.
