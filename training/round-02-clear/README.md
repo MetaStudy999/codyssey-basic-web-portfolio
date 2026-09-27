@@ -182,3 +182,9 @@ git log -1 --oneline
 
 - Screenshot Source Path Discovery: **PASS**
 - Mac Desktop → OrbStack mount: `/mnt/mac/Users/metastudy9997479/Desktop/`
+
+
+- Screenshot Evidence Import: **PARTIAL PASS**
+- 3개 Screenshot 파일 존재/크기/SHA-256 확인 완료
+- `file` 명령 미설치로 PNG 형식 검증은 Python 기반 최소 검증으로 대체 예정
+- Git 기록: **PENDING**
