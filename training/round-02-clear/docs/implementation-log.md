@@ -677,3 +677,31 @@ Chrome 모바일 viewport(약 375px)에서 다음 항목을 실제 확인했다.
 ## 다음 단계
 
 스크롤 60px 이상에서 Header 상태 변경, 300px 이상에서 Scroll Top 버튼 표시/동작을 실제 브라우저에서 검증한다.
+
+
+## Step 11 — Scroll State Runtime — PASS
+
+### 사용자 실제 확인 결과
+
+Chrome에서 다음 항목을 실제 확인했다.
+
+```text
+1. Header 스크롤 상태 변경: 정상
+2. Scroll Top 버튼 표시: 정상
+3. 맨 위로 이동: 정상
+4. 맨 위에서 버튼 숨김: 정상
+```
+
+### 판정
+
+**PASS**
+
+- 60px 이상 스크롤 시 Header `scrolled` 상태 반영 정상
+- 300px 이상 스크롤 시 Scroll Top 버튼 표시 정상
+- Scroll Top 클릭 시 smooth scroll로 맨 위 이동 정상
+- 맨 위 복귀 후 버튼 숨김 정상
+- `window.scrollY` → 상태 판정 → classList 렌더 흐름 Runtime 확인
+
+## 다음 단계
+
+Contact Form에서 invalid/valid 입력을 실제 브라우저에서 검증한다.
