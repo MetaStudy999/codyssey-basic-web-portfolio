@@ -27,7 +27,7 @@
 - [x] Preflight 완료
 - [x] 한 단계씩 실행
 - [x] 실제 출력 확인
-- [ ] 오류 발생 시 최소 수정 후 재검증
+- [x] 오류 발생 시 최소 수정 후 재검증
 
 ### Gate 5 현재 메모
 - 학교 iMac 호스트에서 OrbStack Linux 환경 사용 확인
@@ -58,8 +58,9 @@
 - JavaScript Event/State/Render 정적 검증: PASS (`state`, listeners, localStorage, render functions, 60/300px, observer 0.2)
 - Contact Form 1차 정적 검증: FAIL (폼 상태/검증/렌더/이벤트 코드 미반영)
 - Contact Form 삽입 실패 원인 진단: 완료 (marker/resize/Python 정상, Contact 코드 미반영 확인)
+- Contact Form 최소 수정 재적용/정적 재검증: PASS (`state.form`, validation, error render, input/submit listeners)
 - 구현 로그: `docs/implementation-log.md`
-- 다음 단계: `index.html` 시맨틱 구조 작성
+- 다음 단계: GitHub API 상태 흐름 구현
 - 상세 재현 기록: `environment/README.md`
 
 ## Gate 6 — 검증·증빙
