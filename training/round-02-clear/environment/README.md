@@ -480,3 +480,24 @@ FOUND
 - 현재 Round 02 브랜치 유지
 - `git status --short` 출력 없음 → 작업 트리 clean
 - Gate 4 학습자료를 기준으로 개념 확인 단계 진행 가능
+
+
+## 15. GitHub CLI 설치·인증 계획
+
+다음 원격 반영 단계부터는 단순 `git push` 전에 **GitHub 명령줄 인터페이스(GitHub Command Line Interface, gh)** 를 설치하고 GitHub 인증 상태를 확인한다.
+
+진행 순서:
+
+```text
+gh 설치
+→ gh --version
+→ gh auth login --web
+→ gh auth status
+→ Git remote 인증 확인
+→ 작업 브랜치 push
+```
+
+보안 원칙:
+- Personal Access Token(PAT), 인증 코드, 비밀번호를 Repository/Chat/Evidence에 기록하지 않는다.
+- 학교 iMac 환경이므로 작업 종료 시 필요하면 `gh auth logout -h github.com`으로 인증을 해제한다.
+- 실제 인증 완료 전에는 PASS로 기록하지 않는다.
