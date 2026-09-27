@@ -35,19 +35,31 @@ Repository 관점에서 공식 요구사항의 구현, Runtime, Verification, Ev
 | Desktop/Mobile/Dark Screenshot | PASS | `evidence/b1-1-pages-*.png` |
 | Secret Pattern Scan | PASS | `evidence/verify.txt` |
 
-## 3. GitHub Projects 표시 정책
+## 3. GitHub Projects 페이지네이션 정책
 
 GitHub API에서는 non-fork 공개 Repository 목록을 가져온다.
 
-화면에서는 가독성을 위해 최신 목록 중 **최대 8개 카드**를 표시한다.
+Projects는 여러 페이지로 이동할 수 있으며 화면 폭에 따라 한 페이지 카드 수를 행렬에 맞게 조정한다.
 
-상태 메시지는 전체 개수와 실제 표시 개수를 구분한다.
+| Viewport | 페이지당 카드 | 예상 행렬 |
+|---|---:|---|
+| Mobile | 4 | 1 × 4 |
+| Tablet | 6 | 2 × 3 |
+| Desktop | 9 | 3 × 3 |
+
+페이지 이동 UI:
 
 ```text
-30개의 공개 프로젝트 중 8개를 표시했습니다.
+이전  1  2  3  4  다음
 ```
 
-따라서 API 응답 개수와 UI 카드 개수가 다른 것은 의도된 표시 정책이다.
+상태 메시지 예:
+
+```text
+30개의 공개 프로젝트 중 1–9번째를 표시했습니다. (1/4 페이지)
+```
+
+마지막 페이지는 남은 카드 수에 따라 행이 일부만 채워질 수 있다.
 
 ## 4. 핵심 Evidence
 

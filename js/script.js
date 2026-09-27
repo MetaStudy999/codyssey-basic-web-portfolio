@@ -203,6 +203,10 @@ const handleResize = () => {
   if (window.innerWidth >= 768 && state.menuOpen) {
     setMenuOpen(false);
   }
+
+  if (state.projects?.status === "success") {
+    renderProjects();
+  }
 };
 
 /* ---------------------------------
@@ -220,10 +224,119 @@ const projectsGrid =
 const reloadProjectsButton =
   document.querySelector("#reload-projects");
 
+const projectsPagination =
+  document.querySelector("#projects-pagination");
+
 state.projects = {
   status: "idle",
   items: [],
   error: "",
+  page: 1,
+};
+
+const getProjectsPerPage = () => {
+  if (window.innerWidth >= 1024) {
+    return 9;
+  }
+
+  if (window.innerWidth >= 768) {
+    return 6;
+  }
+
+  return 4;
+};
+
+const setProjectsPage = (page) => {
+  state.projects.page = page;
+  renderProjects();
+
+  document
+    .querySelector("#projects")
+    .scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+};
+
+const createProjectPageButton = ({
+  label,
+  page,
+  disabled = false,
+  current = false,
+  ariaLabel,
+}) => {
+  const button =
+    document.createElement("button");
+
+  button.classList.add(
+    "projects-page-button",
+  );
+
+  button.type = "button";
+  button.textContent = label;
+  button.disabled = disabled;
+  button.setAttribute(
+    "aria-label",
+    ariaLabel,
+  );
+
+  if (current) {
+    button.setAttribute(
+      "aria-current",
+      "page",
+    );
+  }
+
+  button.addEventListener(
+    "click",
+    () => setProjectsPage(page),
+  );
+
+  return button;
+};
+
+const renderProjectsPagination = ({
+  currentPage,
+  totalPages,
+}) => {
+  projectsPagination.replaceChildren();
+
+  if (totalPages <= 1) {
+    return;
+  }
+
+  projectsPagination.append(
+    createProjectPageButton({
+      label: "이전",
+      page: currentPage - 1,
+      disabled: currentPage === 1,
+      ariaLabel: "이전 프로젝트 페이지",
+    }),
+  );
+
+  for (
+    let page = 1;
+    page <= totalPages;
+    page += 1
+  ) {
+    projectsPagination.append(
+      createProjectPageButton({
+        label: String(page),
+        page,
+        current: page === currentPage,
+        ariaLabel: `프로젝트 ${page} 페이지`,
+      }),
+    );
+  }
+
+  projectsPagination.append(
+    createProjectPageButton({
+      label: "다음",
+      page: currentPage + 1,
+      disabled: currentPage === totalPages,
+      ariaLabel: "다음 프로젝트 페이지",
+    }),
+  );
 };
 
 const createProjectCard = (repository) => {
@@ -287,6 +400,7 @@ const renderProjects = () => {
   } = state.projects;
 
   projectsGrid.replaceChildren();
+  projectsPagination.replaceChildren();
 
   reloadProjectsButton.disabled =
     status === "loading";
@@ -322,10 +436,39 @@ const renderProjects = () => {
   }
 
   if (status === "success") {
-    const visibleItems = items.slice(0, 8);
+    const perPage = getProjectsPerPage();
+
+    const totalPages =
+      Math.max(
+        1,
+        Math.ceil(items.length / perPage),
+      );
+
+    const currentPage =
+      Math.min(
+        state.projects.page,
+        totalPages,
+      );
+
+    state.projects.page = currentPage;
+
+    const startIndex =
+      (currentPage - 1) * perPage;
+
+    const endIndex =
+      Math.min(
+        startIndex + perPage,
+        items.length,
+      );
+
+    const visibleItems =
+      items.slice(
+        startIndex,
+        endIndex,
+      );
 
     projectsStatus.innerHTML =
-      `<span><strong>${items.length}</strong>개의 공개 프로젝트 중 <strong>${visibleItems.length}</strong>개를 표시했습니다.</span>`;
+      `<span><strong>${items.length}</strong>개의 공개 프로젝트 중 <strong>${startIndex + 1}–${endIndex}</strong>번째를 표시했습니다. (${currentPage}/${totalPages} 페이지)</span>`;
 
     const cards = visibleItems
       .map((repository) =>
@@ -334,6 +477,11 @@ const renderProjects = () => {
 
     cards.forEach((card) => {
       projectsGrid.append(card);
+    });
+
+    renderProjectsPagination({
+      currentPage,
+      totalPages,
     });
 
     return;
@@ -357,6 +505,7 @@ const loadProjects = async () => {
     status: "loading",
     items: [],
     error: "",
+    page: 1,
   });
 
   try {
