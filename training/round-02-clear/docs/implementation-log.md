@@ -607,3 +607,43 @@ Chrome에서 `http://localhost:8000` 접속 후 다음 4개 항목을 실제 확
 ## 다음 단계
 
 다크 모드 토글과 새로고침 후 상태 유지(localStorage)를 실제 브라우저에서 검증한다.
+
+
+## Step 9 — Dark Mode + localStorage Runtime — PASS
+
+### 사용자 실제 확인 결과
+
+Chrome에서 `http://localhost:8000` 접속 후 다음 항목을 실제 확인했다.
+
+```text
+1. 다크 모드 전환: 정상
+2. 새로고침 후 다크 모드 유지: 정상
+3. 버튼 Dark → Light 변경: 정상
+4. Light → 밝은 테마 복귀: 정상
+```
+
+### 판정
+
+**PASS**
+
+- `click` 이벤트로 테마 전환 정상
+- `state.theme` 변경 후 렌더 정상
+- `data-theme` DOM 반영 정상
+- `localStorage` 저장/복원 정상
+- 새로고침 후 상태 유지 확인
+- 토글 버튼 라벨 상태 변화 확인
+
+### 평가 연결
+
+```text
+Event(click)
+→ State(theme)
+→ Render(renderTheme)
+→ DOM(data-theme)
+→ localStorage 저장
+→ Reload 시 localStorage 복원
+```
+
+## 다음 단계
+
+모바일 viewport에서 햄버거 메뉴 열기/닫기와 메뉴 선택 후 자동 닫힘을 실제 브라우저에서 검증한다.
