@@ -163,6 +163,24 @@ Skills와 별도로 **개발환경(Development Environment)** 을 역할별로 �
 - B6: SQLite/MySQL/PostgreSQL/H2, FastAPI/Uvicorn/SQLAlchemy/Jinja2, 인증 패키지
 - B7: FastAPI 기반 AI 챗봇, SQLite 권장, React+REST 풀스택, AI API, Cloud 배포
 
+#### 실습 개발환경
+
+- iMac/macOS → OrbStack → Ubuntu
+- Windows 11 Pro → WSL2 → Ubuntu
+- Backend → Python 3.10+ / FastAPI / Uvicorn / Pydantic / SQLAlchemy / Jinja2
+- Database → SQLite / PostgreSQL / MySQL / H2 / Supabase PostgreSQL
+- DB Client → DB Browser for SQLite / DBeaver / TablePlus / DataGrip / psql / sqlite3
+- Database Security → 최소권한 계정, 외부 포트 최소화, 파라미터 바인딩, 백업/복구
+
+```text
+iMac / Windows 11 Pro
+→ OrbStack / WSL2
+→ Ubuntu
+→ FastAPI
+→ SQLAlchemy
+→ SQLite / PostgreSQL
+```
+
 #### 2026 선택 확장
 
 - Local AI: Ollama, Llama, Qwen, DeepSeek, Gemma, Local Embedding
