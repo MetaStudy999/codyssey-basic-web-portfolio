@@ -135,4 +135,4 @@
 
 
 - innerHTML Dynamic HTML Static Verification: PASS (safe numeric interpolation, diff check clean)
-- innerHTML Runtime Recheck: PENDING
+- innerHTML Runtime Recheck: PASS (cards / bold count / reload recovery)
