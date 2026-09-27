@@ -579,3 +579,31 @@ Content-Length: 5582
 ## 다음 단계
 
 Chrome에서 `http://localhost:8000`을 열고 초기 화면/Projects API 표시 여부를 확인한다.
+
+
+## Step 8 — Browser Initial Runtime — PASS
+
+### 사용자 실제 확인 결과
+
+Chrome에서 `http://localhost:8000` 접속 후 다음 4개 항목을 실제 확인했다.
+
+```text
+1. 상단 My Portfolio / 메뉴 표시: 정상
+2. Hero / About / Skills / Projects / Contact 표시: 정상
+3. Projects 영역 GitHub 저장소 카드 표시: 정상
+4. 전체 CSS 적용 및 화면 깨짐 없음: 정상
+```
+
+### 판정
+
+**Browser Initial Runtime PASS**
+
+- HTML 주요 섹션 브라우저 표시 정상
+- CSS 적용 정상
+- GitHub API success 상태의 카드 렌더링 정상
+- 초기 화면 구성에 치명적 레이아웃 오류 없음
+- 아직 다크 모드/새로고침 유지/햄버거/스크롤/폼/반응형 viewport는 별도 검증 필요
+
+## 다음 단계
+
+다크 모드 토글과 새로고침 후 상태 유지(localStorage)를 실제 브라우저에서 검증한다.
