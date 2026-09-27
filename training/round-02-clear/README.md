@@ -150,3 +150,12 @@ git log -1 --oneline
 - 현재 제2기 B1-1 기준 설명으로 전환 완료
 - Legacy B4-1 / Round 01 자료는 보존
 - 다음 단계: GitHub Pages 상태 확인 및 배포
+
+
+## GitHub Pages 배포
+
+- GitHub Pages HTTP Deployment: **PASS**
+- URL: `https://metastudy999.github.io/codyssey-basic-web-portfolio/`
+- Source: `main:/`
+- HTML/CSS/JS HTTP: `200`
+- 실제 Browser Runtime 재검증: **PENDING**
