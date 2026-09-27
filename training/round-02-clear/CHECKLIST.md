@@ -59,6 +59,7 @@
 - Contact Form 1차 정적 검증: FAIL (폼 상태/검증/렌더/이벤트 코드 미반영)
 - Contact Form 삽입 실패 원인 진단: 완료 (marker/resize/Python 정상, Contact 코드 미반영 확인)
 - Contact Form 최소 수정 재적용/정적 재검증: PASS (`state.form`, validation, error render, input/submit listeners)
+- GitHub API 상태 흐름 정적 검증: PASS (`fetch`, async/await, try/catch, loading/success/error/empty, retry, 403)
 - 구현 로그: `docs/implementation-log.md`
 - 다음 단계: GitHub API 상태 흐름 구현
 - 상세 재현 기록: `environment/README.md`
