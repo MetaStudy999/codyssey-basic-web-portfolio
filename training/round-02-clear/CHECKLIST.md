@@ -128,4 +128,4 @@
 - Screenshot Capture: PASS (Desktop Light / Mobile 375px / Desktop Dark)
 - Screenshot Source Path Discovery: PASS (`/mnt/mac/.../Desktop`)
 - Screenshot Evidence Import: PASS (3 files copied / size+SHA256 / PNG signature+IHDR verified)
-- Screenshot Evidence Git Commit/Push: PENDING
+- Screenshot Evidence Git Commit/Push: PASS (`c77217c`, remote files verified)
