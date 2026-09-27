@@ -102,7 +102,7 @@
 ## 다음 원격 반영 절차
 
 - GitHub CLI(gh) 설치: **PASS** (`2.45.0`)
-- 웹 브라우저 방식으로 GitHub 인증
+- 웹 브라우저 방식으로 GitHub 인증: **PASS** (`MetaStudy999`)
 - `gh auth status` 검증
 - 인증 확인 후 Round 02 작업 브랜치 push
 - Secret/Token은 Chat·Repository·Evidence에 기록하지 않음
