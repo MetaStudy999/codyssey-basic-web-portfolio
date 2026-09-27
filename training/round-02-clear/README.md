@@ -208,4 +208,9 @@ git log -1 --oneline
 - innerHTML Dynamic HTML Static Verification: **PASS**
 - Template Literal Dynamic HTML: **PASS**
 - 삽입 값: `items.length` 숫자만 사용
-- Browser Runtime 재검증: **PENDING**
+- Browser Runtime 재검증: **PASS**
+
+
+- innerHTML Runtime Recheck: **PASS**
+- Projects count render: **PASS** (`8개 공개 프로젝트`)
+- Reload recovery: **PASS**
