@@ -122,4 +122,4 @@
 
 
 - GitHub Pages HTTP Deployment: PASS (`main:/`, HTML/CSS/JS HTTP 200)
-- GitHub Pages Browser Runtime Recheck: PENDING
+- GitHub Pages Browser Runtime Recheck: PASS (기본 화면 / Dark persistence / API reload / 375px / Contact-Scroll-Reveal)
