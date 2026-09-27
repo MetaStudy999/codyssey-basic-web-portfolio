@@ -201,3 +201,11 @@ git log -1 --oneline
   - `b1-1-pages-desktop-light.png`
   - `b1-1-pages-mobile-375.png`
   - `b1-1-pages-desktop-dark.png`
+
+
+## Gate 6 보완 — Dynamic HTML
+
+- innerHTML Dynamic HTML Static Verification: **PASS**
+- Template Literal Dynamic HTML: **PASS**
+- 삽입 값: `items.length` 숫자만 사용
+- Browser Runtime 재검증: **PENDING**
