@@ -136,3 +136,7 @@
 
 - innerHTML Dynamic HTML Static Verification: PASS (safe numeric interpolation, diff check clean)
 - innerHTML Runtime Recheck: PASS (cards / bold count / reload recovery)
+
+
+- README Runtime Thresholds: PASS (Navigation 60px / Scroll Top 300px / IntersectionObserver 0.2)
+- Gate 6 code+README remediation commit/push: PENDING
