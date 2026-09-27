@@ -1380,3 +1380,35 @@ forEach / map / filter 확인
 ### 다음 단계
 
 README에 실제 구현 기준값인 Navigation 60px, Scroll Top 300px, IntersectionObserver threshold 0.2를 명시한다.
+
+
+## Step 28-3 — README Runtime Thresholds — PASS
+
+### 사용자 실제 확인 결과
+
+```text
+PASS README runtime thresholds updated
+
+=== README THRESHOLDS ===
+Navigation Header 상태 변경: 60px 이상
+Scroll Top 버튼 표시: 300px 이상
+threshold: 0.2
+
+=== DIFF CHECK ===
+출력 없음
+
+=== STATUS ===
+ M README.md
+ M js/script.js
+```
+
+### 판정
+
+**PASS**
+
+- Navigation Header 기준값 `60px` README 명시
+- Scroll Top 기준값 `300px` README 명시
+- IntersectionObserver `threshold: 0.2` README 명시
+- `git diff --check` 오류 없음
+- 현재 기능 보완 수정 파일은 `README.md`, `js/script.js`
+- 다음 단계: 두 파일을 최종 정적 검사 후 commit / push
