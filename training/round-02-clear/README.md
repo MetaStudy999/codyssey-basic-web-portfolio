@@ -184,7 +184,14 @@ git log -1 --oneline
 - Mac Desktop → OrbStack mount: `/mnt/mac/Users/metastudy9997479/Desktop/`
 
 
-- Screenshot Evidence Import: **PARTIAL PASS**
+- Screenshot Evidence Import: **PASS**
 - 3개 Screenshot 파일 존재/크기/SHA-256 확인 완료
-- `file` 명령 미설치로 PNG 형식 검증은 Python 기반 최소 검증으로 대체 예정
+- Python 표준 라이브러리로 PNG Signature/IHDR 검증 완료
 - Git 기록: **PENDING**
+
+
+- Desktop Light PNG: **PASS** (2324×2280)
+- Mobile 375px PNG: **PASS** (752×2044)
+- Desktop Dark PNG: **PASS** (2334×2380)
+- PNG Signature/IHDR: **PASS**
+- Screenshot Evidence Git Commit/Push: **PENDING**
