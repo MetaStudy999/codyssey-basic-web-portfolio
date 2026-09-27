@@ -323,16 +323,27 @@ button {
   gap: 0.45rem;
   min-height: 40px;
   padding: 0.5rem 0.8rem;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  background: var(--color-surface);
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--color-text) 14%,
+      var(--color-border)
+    );
+  border-radius: 0.75rem;
+  background:
+    color-mix(
+      in srgb,
+      var(--color-text) 6%,
+      var(--color-surface)
+    );
   color: var(--color-muted);
   font-weight: 700;
   white-space: nowrap;
   transition:
     border-color var(--transition),
     background-color var(--transition),
-    color var(--transition);
+    color var(--transition),
+    box-shadow var(--transition);
 }
 
 .project-category-number {
@@ -350,6 +361,12 @@ button {
 
 .projects-categories button:hover {
   border-color: var(--color-primary);
+  background:
+    color-mix(
+      in srgb,
+      var(--color-primary) 8%,
+      var(--color-surface)
+    );
   color: var(--color-primary);
 }
 
@@ -357,6 +374,24 @@ button {
   border-color: var(--color-primary);
   background: var(--color-primary);
   color: #ffffff;
+  box-shadow:
+    0 4px 12px
+    color-mix(
+      in srgb,
+      var(--color-primary) 24%,
+      transparent
+    );
+}
+
+.projects-categories
+button[aria-selected="true"]
+.project-category-number {
+  border-color:
+    color-mix(
+      in srgb,
+      #ffffff 72%,
+      transparent
+    );
 }
 
 .projects-category-message {
