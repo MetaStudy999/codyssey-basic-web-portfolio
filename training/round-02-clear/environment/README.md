@@ -524,3 +524,24 @@ gh version 2.45.0 (2025-07-18 Ubuntu 2.45.0-1ubuntu0.3)
 - 실행 경로: `/usr/bin/gh`
 - 다음 단계: `gh auth login --web` 기반 GitHub 인증
 - 인증 토큰/브라우저 인증 코드는 문서·Chat·Evidence에 기록하지 않는다.
+
+
+## 17. GitHub CLI 인증 — PASS
+
+### 사용자 실제 확인 결과
+
+```text
+github.com 로그인: 정상
+사용자: MetaStudy999
+Repository 접근: MetaStudy999/codyssey-basic-web-portfolio
+```
+
+### 판정
+
+**PASS**
+
+- GitHub CLI 웹 인증 완료
+- 인증 계정: `MetaStudy999`
+- 대상 Repository 접근 확인
+- Secret/Token/PAT 값은 기록하지 않음
+- 다음 단계: 원격 문서 커밋과 로컬 구현 커밋의 분기 상태를 정리한 뒤 push
