@@ -14,9 +14,9 @@
 - [x] Requirement → Implementation → Verification → Evidence → Evaluation 연결 초안 작성
 
 ## Gate 3 — 최소 통과 경로
-- [ ] 필수 구현 목록 확정
-- [ ] 선택 고도화 분리
-- [ ] 실행 순서 확정
+- [x] 필수 구현 목록 확정
+- [x] 선택 고도화 분리
+- [x] 실행 순서 확정
 
 ## Gate 4 — 적시 학습
 - [ ] 현재 구현에 필요한 핵심 용어 이해
@@ -48,7 +48,8 @@
 - 원격 Round 02 작업 브랜치 생성: 완료
 - 원격 Round 02 브랜치 tracking/fast-forward/clean 검증: PASS
 - Gate 2 연결표: `docs/requirements-mapping.md`
-- 다음 단계: Gate 3 최소 통과 경로 확정
+- Gate 3 최소 통과 경로: `docs/minimum-passing-path.md`
+- 다음 단계: Gate 4 적시 학습 후 실제 구현 위치 확정
 - 상세 재현 기록: `environment/README.md`
 
 ## Gate 6 — 검증·증빙
