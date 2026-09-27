@@ -1085,3 +1085,35 @@ GitHub Pages의 HTTP 배포 확인과 실제 Browser Runtime 재검증까지 완
 ### 다음 단계
 
 제출용 Screenshot Evidence(Desktop / Mobile / Dark Mode)를 실제 배포 페이지 기준으로 확보한다.
+
+
+## Step 25 — Screenshot Capture — PASS
+
+### 사용자 실제 확인 결과
+
+실제 GitHub Pages 배포 화면을 기준으로 다음 Screenshot을 Mac에서 촬영했다.
+
+```text
+1. Desktop Light: 완료
+2. Mobile 375px: 완료
+3. Desktop Dark: 완료
+```
+
+### 판정
+
+**PASS — Screenshot 촬영 완료**
+
+촬영 대상:
+- Desktop Light
+- Mobile 375px
+- Desktop Dark
+
+### 주의
+
+이 단계에서는 Screenshot 촬영 완료만 확인했다.
+아직 파일이 Repository의 `training/round-02-clear/evidence/`에 복사·검증·커밋된 것은 아니다.
+
+### 다음 단계
+
+Mac Desktop의 Screenshot 파일을 OrbStack Ubuntu에서 접근 가능한 경로로 확인한 뒤
+`training/round-02-clear/evidence/`에 복사하고 실제 파일 존재를 검증한다.
