@@ -38,9 +38,11 @@
 - Package manager: `/usr/bin/apt`
 - `sudo` 그룹 포함
 - Git: 설치 완료 — `2.43.0` (`/usr/bin/git`)
+- Git 작성자 전역 설정: `user.name` UNSET / `user.email` UNSET
 - B1-1 로컬 Repository: clone 완료 — `/home/metastudy9997479/projects/codyssey-basic-web-portfolio`
 - Repository clone/원격/브랜치/clean 상태 검증: PASS
-- 다음 단계: Git 작성자 설정 상태 확인
+- Git 작성자 설정 상태 확인: 완료 — 둘 다 UNSET
+- 다음 단계: 현재 Repository에만 작성자 정보 설정
 - 상세 재현 기록: `environment/README.md`
 
 ## Gate 6 — 검증·증빙
