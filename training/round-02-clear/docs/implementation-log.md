@@ -865,3 +865,39 @@ idle
 ## 다음 단계
 
 desktop / tablet / mobile viewport에서 반응형 레이아웃을 실제 브라우저로 검증한다.
+
+
+## Step 16 — Responsive Runtime — PASS
+
+### 사용자 실제 확인 결과
+
+Chrome DevTools에서 다음 viewport를 실제 확인했다.
+
+```text
+1. 모바일 375px: 정상
+2. 태블릿 768px: 정상
+3. 데스크톱 1200px: 정상
+4. 가로 스크롤/레이아웃 깨짐: 없음
+```
+
+### 판정
+
+**PASS**
+
+- Mobile First 레이아웃 Runtime 정상
+- 375px 모바일 화면 정상
+- 768px 태블릿 breakpoint Runtime 정상
+- 1200px 데스크톱 화면 정상
+- 가로 overflow 없음
+- 주요 섹션 레이아웃 깨짐 없음
+- Navigation / About / Projects Grid가 viewport 변화에 맞춰 정상 반응
+
+### 평가 연결
+
+- Mobile First로 작은 화면을 기본으로 설계하고 768px, 1024px 이상에서 넓은 화면 규칙을 추가했다.
+- Navigation은 한 방향 정렬이 중심이므로 Flexbox를 사용했다.
+- Projects는 카드가 행/열로 배치되므로 Grid를 사용했다.
+
+## 다음 단계
+
+IntersectionObserver 기반 스크롤 애니메이션 Runtime을 확인한다.
