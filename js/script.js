@@ -322,11 +322,12 @@ const renderProjects = () => {
   }
 
   if (status === "success") {
-    projectsStatus.innerHTML =
-      `<span><strong>${items.length}</strong>개의 공개 프로젝트를 불러왔습니다.</span>`;
+    const visibleItems = items.slice(0, 8);
 
-    const cards = items
-      .slice(0, 8)
+    projectsStatus.innerHTML =
+      `<span><strong>${items.length}</strong>개의 공개 프로젝트 중 <strong>${visibleItems.length}</strong>개를 표시했습니다.</span>`;
+
+    const cards = visibleItems
       .map((repository) =>
         createProjectCard(repository),
       );
