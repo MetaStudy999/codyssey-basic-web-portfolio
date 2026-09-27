@@ -194,4 +194,10 @@ git log -1 --oneline
 - Mobile 375px PNG: **PASS** (752×2044)
 - Desktop Dark PNG: **PASS** (2334×2380)
 - PNG Signature/IHDR: **PASS**
-- Screenshot Evidence Git Commit/Push: **PENDING**
+- Screenshot Evidence Git Commit/Push: **PASS** (`c77217c`)
+
+
+- Screenshot Evidence 원격 확인: **PASS**
+  - `b1-1-pages-desktop-light.png`
+  - `b1-1-pages-mobile-375.png`
+  - `b1-1-pages-desktop-dark.png`
