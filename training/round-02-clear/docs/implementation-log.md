@@ -79,3 +79,81 @@ round-02/b1-1-web-portfolio
 - `article`
 - `footer`
 
+
+
+## Step 2 — 시맨틱 HTML 구조 작성
+
+### 목적
+
+B1-1 공식 요구에 맞게 HTML 구조와 필수 섹션을 작성한다.
+
+필수 시맨틱 요소:
+- `header`
+- `nav`
+- `main`
+- `section`
+- `article`
+- `footer`
+
+필수 섹션:
+- Home/Hero
+- About
+- Skills
+- Projects
+- Contact
+- Footer
+
+추가 확인:
+- 외부 CSS 연결
+- JavaScript `defer` 연결
+- 프로필 자리 표시 이미지 존재
+
+### 실제 검증 결과
+
+```text
+=== SEMANTIC TAGS ===
+header
+nav
+main
+section
+article
+footer
+
+=== REQUIRED SECTIONS ===
+id="home"
+id="about"
+id="skills"
+id="projects"
+id="contact"
+
+=== CSS LINK ===
+css/style.css
+
+=== JS DEFER ===
+js/script.js (defer)
+
+=== PROFILE IMAGE ===
+FOUND
+
+=== GIT STATUS ===
+?? css/
+?? images/
+?? index.html
+?? js/
+```
+
+### 판정
+
+**PASS**
+
+- 필수 시맨틱 태그 존재 확인
+- 필수 섹션 ID 존재 확인
+- 외부 CSS 연결 확인
+- JavaScript `defer` 연결 확인
+- 프로필 이미지 파일 존재 확인
+- 새 파일이 아직 Git 추적 전임을 확인
+- 아직 CSS/JavaScript 기능 Runtime PASS는 아님
+
+## 다음 단계
+
+CSS 변수, Mobile First, Flexbox, Grid, Dark Theme 기본 스타일을 작성한다.
