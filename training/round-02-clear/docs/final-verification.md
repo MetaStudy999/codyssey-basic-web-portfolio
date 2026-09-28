@@ -93,12 +93,14 @@ Repository 수정은 여기서 멈춘다.
 
 | 항목 | 코드 | Runtime / 외부 연동 |
 |---|---|---|
-| 프로젝트 언어별 필터 | 완료 | 확인 필요 |
-| Hero 타이핑 효과 | 완료 | 확인 필요 |
+| 프로젝트 언어별 필터 | 완료 | **PASS · 사용자 Runtime 확인** |
+| Hero 타이핑 효과 | 완료 | **PASS · 사용자 Runtime 확인** |
 | Formspree 실제 전송 | 완료 | **PASS · Submission + Email 실제 수신 확인** |
-| 시스템 다크 모드 감지 | 완료 | 확인 필요 |
+| 시스템 다크 모드 감지 | 완료 | **PENDING · System 모드 OS 연동 확인 필요** |
 
 보너스 4개는 공식 필수 요구와 별도이며, 사용자 실제 확인 전에는 보너스 전체 PASS로 기록하지 않는다.
 
 
 Formspree Runtime Evidence: `training/round-02-clear/evidence/formspree-runtime-pass.txt`
+
+Bonus Runtime Status: `training/round-02-clear/evidence/bonus-runtime-status.txt`
