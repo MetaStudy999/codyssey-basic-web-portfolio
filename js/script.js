@@ -37,10 +37,8 @@ const navSections = Array.from(navLinks)
     ),
   )
   .filter(Boolean);
-const themeOptions =
-  document.querySelectorAll(
-    "[data-theme-mode]",
-  );
+const themeCycleButton =
+  document.querySelector("#theme-cycle");
 const heroTyping =
   document.querySelector("#hero-typing");
 const scrollTopButton = document.querySelector("#scroll-top");
@@ -79,20 +77,48 @@ const resolveTheme = (mode) =>
     ? getSystemTheme()
     : mode;
 
+const THEME_MODE_ORDER = [
+  "system",
+  "light",
+  "dark",
+];
+
+const THEME_MODE_LABELS = {
+  system: "System",
+  light: "Light",
+  dark: "Dark",
+};
+
+const getNextThemeMode = (mode) => {
+  const currentIndex =
+    THEME_MODE_ORDER.indexOf(mode);
+
+  return THEME_MODE_ORDER[
+    (currentIndex + 1) %
+      THEME_MODE_ORDER.length
+  ];
+};
+
 const renderTheme = () => {
   document.documentElement.dataset.theme =
     state.theme;
 
-  themeOptions.forEach((button) => {
-    const isActive =
-      button.dataset.themeMode ===
-      state.themeMode;
+  const currentLabel =
+    THEME_MODE_LABELS[state.themeMode];
 
-    button.setAttribute(
-      "aria-pressed",
-      String(isActive),
-    );
-  });
+  const nextMode =
+    getNextThemeMode(state.themeMode);
+
+  const nextLabel =
+    THEME_MODE_LABELS[nextMode];
+
+  themeCycleButton.textContent =
+    currentLabel;
+
+  themeCycleButton.setAttribute(
+    "aria-label",
+    `현재 테마: ${currentLabel}. 눌러 ${nextLabel}로 변경`,
+  );
 };
 
 const setThemeMode = (
@@ -129,9 +155,9 @@ const handleSystemThemeChange = () => {
   renderTheme();
 };
 
-const handleThemeModeClick = (event) => {
+const handleThemeCycleClick = () => {
   setThemeMode(
-    event.currentTarget.dataset.themeMode,
+    getNextThemeMode(state.themeMode),
   );
 };
 
@@ -1641,12 +1667,10 @@ const initializeApp = () => {
     toggleMenu,
   );
 
-  themeOptions.forEach((button) => {
-    button.addEventListener(
-      "click",
-      handleThemeModeClick,
-    );
-  });
+  themeCycleButton.addEventListener(
+    "click",
+    handleThemeCycleClick,
+  );
 
   systemThemeMedia.addEventListener(
     "change",
