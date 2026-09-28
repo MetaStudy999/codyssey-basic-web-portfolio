@@ -100,8 +100,14 @@ const getNextThemeMode = (mode) => {
 };
 
 const renderTheme = () => {
-  document.documentElement.dataset.theme =
-    state.theme;
+  if (state.themeMode === "system") {
+    document.documentElement.removeAttribute(
+      "data-theme",
+    );
+  } else {
+    document.documentElement.dataset.theme =
+      state.theme;
+  }
 
   const currentLabel =
     THEME_MODE_LABELS[state.themeMode];
