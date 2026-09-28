@@ -32,7 +32,7 @@ Repository 관점에서 공식 요구사항의 구현, Runtime, Verification, Ev
 | Vanilla HTML/CSS/JS 제약 | PASS | `evidence/verify.txt` |
 | GitHub Pages | PASS | `main:/`, HTTP 200, Browser Runtime |
 | README | PASS | 설명/기술/배포 URL/Screenshot |
-| Desktop/Mobile/Dark Screenshot | PASS | `evidence/b1-1-pages-*.png` |
+| Final Screenshot Evidence | PASS | `evidence/b1-1-final-*.png` 4장 |
 | Secret Pattern Scan | PASS | `evidence/verify.txt` |
 
 ## 3. GitHub Projects 페이지네이션 정책
@@ -66,9 +66,10 @@ Projects는 여러 페이지로 이동할 수 있으며 화면 폭에 따라 한
 ```text
 training/round-02-clear/evidence/structure.txt
 training/round-02-clear/evidence/verify.txt
-training/round-02-clear/evidence/b1-1-pages-desktop-light.png
-training/round-02-clear/evidence/b1-1-pages-mobile-375.png
-training/round-02-clear/evidence/b1-1-pages-desktop-dark.png
+training/round-02-clear/evidence/b1-1-final-desktop-light.png
+training/round-02-clear/evidence/b1-1-final-desktop-dark.png
+training/round-02-clear/evidence/b1-1-final-mobile-375.png
+training/round-02-clear/evidence/b1-1-final-projects-filter.png
 training/round-02-clear/docs/implementation-log.md
 ```
 
@@ -104,3 +105,18 @@ Repository 수정은 여기서 멈춘다.
 Formspree Runtime Evidence: `training/round-02-clear/evidence/formspree-runtime-pass.txt`
 
 Bonus Runtime Status: `training/round-02-clear/evidence/bonus-runtime-status.txt`
+
+
+## 8. 최종 회귀검증 및 Screenshot 갱신
+
+- 최종 회귀검증: **PASS**
+- 사용자 실제 확인: **완료**
+- 최종 Screenshot 4장 Commit/Push: **PASS**
+- Screenshot Commit: `d979e19`
+- 현재 최종 Screenshot Evidence:
+  - `b1-1-final-desktop-light.png`
+  - `b1-1-final-desktop-dark.png`
+  - `b1-1-final-mobile-375.png`
+  - `b1-1-final-projects-filter.png`
+
+기존 Screenshot은 삭제하지 않고 이전 Evidence로 보존한다.
