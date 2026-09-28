@@ -122,7 +122,7 @@ Click Event
 - 필드별 오류 메시지
 - 정상 입력 성공 메시지
 
-Contact Form은 기존 입력 검증에 더해 **Formspree 비동기 전송 흐름(전송 중/성공/실패)**까지 구현했습니다. 실제 이메일 전송 활성화에는 개인 Formspree Form Endpoint 연결이 필요합니다.
+Contact Form은 기존 입력 검증에 더해 **Formspree 비동기 전송 흐름(전송 중/성공/실패)**까지 구현했습니다. Formspree Form Endpoint 연결을 완료했으며, 실제 이메일 수신은 Runtime에서 최종 확인합니다.
 
 ### Skills Roadmap
 
@@ -450,7 +450,7 @@ Repository 이름과 설명 길이가 달라도 카드가 흔들리지 않도록
 |---|---|---|
 | 프로젝트 언어별 필터링 | GitHub API의 `language` 값을 기준으로 `array.filter()` 적용 | 코드 구현 완료 · Runtime 확인 필요 |
 | Hero 타이핑 효과 | Vanilla JavaScript 타이핑 효과 + Reduced Motion 대응 | 코드 구현 완료 · Runtime 확인 필요 |
-| 폼 실제 전송 | Formspree POST 흐름·로딩·성공·실패 상태 구현 | **Formspree Endpoint 연결 대기** |
+| 폼 실제 전송 | Formspree POST 흐름·로딩·성공·실패 상태 구현 | **Endpoint 연결 완료 · Runtime 실제 수신 확인 필요** |
 | 시스템 다크 모드 감지 | `prefers-color-scheme` + `matchMedia()`, 사용자 저장 설정 우선 | 코드 구현 완료 · Runtime 확인 필요 |
 
 ### Formspree 활성화
@@ -460,7 +460,7 @@ Formspree에서 Form을 만든 뒤 발급받은 Endpoint만 아래에 넣으면 
 ```html
 <form
   id="contact-form"
-  data-formspree-endpoint="https://formspree.io/f/<FORM_ID>"
+  data-formspree-endpoint="https://formspree.io/f/xdekpjjj"
   novalidate
 >
 ```
