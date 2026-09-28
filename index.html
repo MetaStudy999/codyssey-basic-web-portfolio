@@ -5,16 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta
     name="description"
-    content="B1-1 미션으로 제작한 개인 포트폴리오 웹사이트입니다."
+    content="코디세이 AI 올인원 1기에서 웹, Python, Git, Cloud, Linux, Database, AI를 직접 구현하고 검증하며 학습한 과정을 기록한 포트폴리오입니다."
   >
+  <meta name="theme-color" content="#2563eb">
+  <link
+    rel="canonical"
+    href="https://metastudy999.github.io/codyssey-basic-web-portfolio/"
+  >
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CODYSSEY AI ALL-IN-ONE 1기 | AI·SW Learning Portfolio">
+  <meta
+    property="og:description"
+    content="직접 만들고, 실행하고, 검증하며 축적한 AI·SW 학습 포트폴리오입니다."
+  >
+  <meta
+    property="og:url"
+    content="https://metastudy999.github.io/codyssey-basic-web-portfolio/"
+  >
+  <link rel="icon" href="images/profile-placeholder.svg" type="image/svg+xml">
 
-  <title>My Portfolio | B1-1</title>
+  <title>CODYSSEY AI ALL-IN-ONE 1기 | AI·SW Learning Portfolio</title>
 
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js" defer></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">본문 바로가기</a>
+
   <header class="site-header" id="top">
     <nav class="site-nav" aria-label="주요 메뉴">
       <a class="logo" href="#home" aria-label="홈으로 이동">
@@ -36,6 +54,8 @@
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#tech-stack">Tech Stack</a></li>
+        <li><a href="#security">Security</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
 
@@ -50,7 +70,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero section" id="home">
       <div class="section-inner">
         <p class="eyebrow">CODYSSEY AI ALL-IN-ONE · 1기</p>
@@ -205,6 +225,97 @@
           </article>
         </div>
 
+              </div>
+    </section>
+
+<section class="projects section" id="projects">
+      <div class="section-inner">
+        <h2>Projects</h2>
+
+        <p>
+          코디세이 학습 단계별 Repository를 분류하여 확인합니다.
+        </p>
+
+        <div
+          class="current-mission-summary"
+          id="current-mission-summary"
+          aria-live="polite"
+        >
+          Portfolio 정리 현황을 불러오는 중입니다.
+        </div>
+
+        <div
+          class="projects-categories"
+          id="projects-categories"
+          role="tablist"
+          aria-label="코디세이 프로젝트 카테고리"
+        >
+          <button type="button" role="tab" data-project-category="all" aria-selected="true">
+            전체
+          </button>
+          <button type="button" role="tab" data-project-category="admission" aria-selected="false">
+            <span class="project-category-number">1</span>
+            <span>입학 연수</span>
+          </button>
+          <button type="button" role="tab" data-project-category="tools" aria-selected="false">
+            <span class="project-category-number">2</span>
+            <span>AI 도구 학습</span>
+          </button>
+          <button type="button" role="tab" data-project-category="advanced" aria-selected="false">
+            <span class="project-category-number">3</span>
+            <span>AI 심화 학습</span>
+          </button>
+          <button type="button" role="tab" data-project-category="applied" aria-selected="false">
+            <span class="project-category-number">4</span>
+            <span>AI 응용 학습</span>
+          </button>
+          <button type="button" role="tab" data-project-category="final" aria-selected="false">
+            <span class="project-category-number">5</span>
+            <span>파이널 프로젝트</span>
+          </button>
+        </div>
+
+        <div
+          class="projects-status"
+          id="projects-status"
+          role="status"
+          aria-live="polite"
+        >
+          프로젝트를 준비하고 있습니다.
+        </div>
+
+        <button
+          class="projects-reload"
+          id="reload-projects"
+          type="button"
+        >
+          프로젝트 다시 불러오기
+        </button>
+
+        <div
+          class="projects-category-message"
+          id="projects-category-message"
+          role="status"
+          hidden
+        ></div>
+
+        <div
+          class="projects-grid"
+          id="projects-grid"
+          aria-label="GitHub 프로젝트 목록"
+        ></div>
+
+        <nav
+          class="projects-pagination"
+          id="projects-pagination"
+          aria-label="프로젝트 페이지 이동"
+        ></nav>
+
+      </div>
+    </section>
+
+    <section class="tech-stack section" id="tech-stack">
+      <div class="section-inner">
         <div class="development-environment">
           <div class="development-environment-heading">
             <p class="eyebrow">Development Environment & Tech Stack</p>
@@ -406,7 +517,13 @@
             <span>Database / Cloud</span>
           </div>
 
-          <div class="security-baseline">
+                  </div>
+      </div>
+    </section>
+
+<section class="security section" id="security">
+      <div class="section-inner">
+        <div class="security-baseline">
             <div class="development-environment-heading">
               <p class="eyebrow">Security by Default · 2026</p>
               <h3>보안 기본선</h3>
@@ -517,95 +634,14 @@
       </div>
     </section>
 
-    <section class="projects section" id="projects">
-      <div class="section-inner">
-        <h2>Projects</h2>
-
-        <p>
-          코디세이 학습 단계별 Repository를 분류하여 확인합니다.
-        </p>
-
-        <div
-          class="current-mission-summary"
-          id="current-mission-summary"
-          aria-live="polite"
-        >
-          현재 미션 정보를 불러오는 중입니다.
-        </div>
-
-        <div
-          class="projects-categories"
-          id="projects-categories"
-          role="tablist"
-          aria-label="코디세이 프로젝트 카테고리"
-        >
-          <button type="button" role="tab" data-project-category="all" aria-selected="true">
-            전체
-          </button>
-          <button type="button" role="tab" data-project-category="admission" aria-selected="false">
-            <span class="project-category-number">1</span>
-            <span>입학 연수</span>
-          </button>
-          <button type="button" role="tab" data-project-category="tools" aria-selected="false">
-            <span class="project-category-number">2</span>
-            <span>AI 도구 학습</span>
-          </button>
-          <button type="button" role="tab" data-project-category="advanced" aria-selected="false">
-            <span class="project-category-number">3</span>
-            <span>AI 심화 학습</span>
-          </button>
-          <button type="button" role="tab" data-project-category="applied" aria-selected="false">
-            <span class="project-category-number">4</span>
-            <span>AI 응용 학습</span>
-          </button>
-          <button type="button" role="tab" data-project-category="final" aria-selected="false">
-            <span class="project-category-number">5</span>
-            <span>파이널 프로젝트</span>
-          </button>
-        </div>
-
-        <div
-          class="projects-status"
-          id="projects-status"
-          role="status"
-          aria-live="polite"
-        >
-          프로젝트를 준비하고 있습니다.
-        </div>
-
-        <button
-          class="projects-reload"
-          id="reload-projects"
-          type="button"
-        >
-          프로젝트 다시 불러오기
-        </button>
-
-        <div
-          class="projects-category-message"
-          id="projects-category-message"
-          role="status"
-          hidden
-        ></div>
-
-        <div
-          class="projects-grid"
-          id="projects-grid"
-          aria-label="GitHub 프로젝트 목록"
-        ></div>
-
-        <nav
-          class="projects-pagination"
-          id="projects-pagination"
-          aria-label="프로젝트 페이지 이동"
-        ></nav>
-
-      </div>
-    </section>
-
-    <section class="contact section" id="contact">
+<section class="contact section" id="contact">
       <div class="section-inner">
         <h2>Contact</h2>
+
+        <p class="contact-description">
+          현재 문의 폼은 실제 전송 기능이 아닌 입력 검증 UI 데모입니다.
+          실제 연락은 하단 GitHub 링크를 이용해 주세요.
+        </p>
 
         <form id="contact-form" novalidate>
           <div class="form-field">
@@ -644,7 +680,7 @@
           </div>
 
           <button type="submit">
-            보내기
+            입력 확인
           </button>
 
           <p
@@ -660,7 +696,7 @@
 
   <footer class="site-footer">
     <p>
-      &copy; 2026 My Portfolio
+      &copy; 2026 CODYSSEY AI ALL-IN-ONE 1기 Learning Portfolio
     </p>
 
     <a
