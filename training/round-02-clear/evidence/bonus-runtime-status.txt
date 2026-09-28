@@ -1,0 +1,12 @@
+B1-1 Bonus Runtime Status
+Date: 2026-09-28
+
+User-confirmed runtime results:
+[PASS] Project language filter — language buttons display and filtering works.
+[PASS] Hero typing effect — typing animation works.
+[PASS] Formspree contact — submission accepted and notification email received.
+[PENDING] System theme mode — code and UI implemented; final runtime verification of System following OS theme remains.
+
+Note:
+- These PASS items are based on the user's actual browser/runtime confirmation in the current session.
+- System mode must still be tested by switching macOS Appearance while the site is set to System.
