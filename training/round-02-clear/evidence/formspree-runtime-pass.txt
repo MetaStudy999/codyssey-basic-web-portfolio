@@ -1,0 +1,21 @@
+B1-1 Bonus — Formspree Runtime Evidence
+Date: 2026-09-28
+Endpoint: https://formspree.io/f/xdekpjjj
+
+Observed runtime result:
+- GitHub Pages Contact form submission succeeded.
+- Formspree Submissions dashboard showed accepted submissions.
+- User confirmed notification email delivery succeeded.
+- Submitted fields included name, email, message, and subject.
+- Subject template rendered submitted names correctly (for example, "포트폴리오 문의 - 홍길동").
+- Earlier localhost test was rejected by Formspree domain restriction because localhost:8000 did not match the allowed deployment domain.
+- Production-domain submission succeeded after testing from metastudy999.github.io.
+
+PASS criteria:
+[PASS] Form submission accepted by Formspree.
+[PASS] Submission visible in Formspree dashboard.
+[PASS] Notification email received.
+[PASS] Subject field interpolation verified.
+
+Security note:
+- No password, API key, token, or private credential is stored in this evidence.
