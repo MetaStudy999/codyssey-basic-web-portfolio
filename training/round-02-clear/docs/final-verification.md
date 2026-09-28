@@ -32,7 +32,7 @@ Repository 관점에서 공식 요구사항의 구현, Runtime, Verification, Ev
 | Vanilla HTML/CSS/JS 제약 | PASS | `evidence/verify.txt` |
 | GitHub Pages | PASS | `main:/`, HTTP 200, Browser Runtime |
 | README | PASS | 설명/기술/배포 URL/Screenshot |
-| Final Screenshot Evidence | PASS | `evidence/b1-1-final-*.png` 4장 |
+| Final Screenshot Evidence | PASS | `evidence/b1-1-final-*.png` 5장 |
 | Secret Pattern Scan | PASS | `evidence/verify.txt` |
 
 ## 3. GitHub Projects 페이지네이션 정책
@@ -70,6 +70,7 @@ training/round-02-clear/evidence/b1-1-final-desktop-light.png
 training/round-02-clear/evidence/b1-1-final-desktop-dark.png
 training/round-02-clear/evidence/b1-1-final-mobile-375.png
 training/round-02-clear/evidence/b1-1-final-projects-filter.png
+training/round-02-clear/evidence/b1-1-final-system-theme-sync.png
 training/round-02-clear/docs/implementation-log.md
 ```
 
@@ -111,12 +112,13 @@ Bonus Runtime Status: `training/round-02-clear/evidence/bonus-runtime-status.txt
 
 - 최종 회귀검증: **PASS**
 - 사용자 실제 확인: **완료**
-- 최종 Screenshot 4장 Commit/Push: **PASS**
+- 최종 Screenshot 5장 Commit/Push: **PASS**
 - Screenshot Commit: `d979e19`
 - 현재 최종 Screenshot Evidence:
   - `b1-1-final-desktop-light.png`
   - `b1-1-final-desktop-dark.png`
   - `b1-1-final-mobile-375.png`
   - `b1-1-final-projects-filter.png`
+  - `b1-1-final-system-theme-sync.png`
 
 기존 Screenshot은 삭제하지 않고 이전 Evidence로 보존한다.
