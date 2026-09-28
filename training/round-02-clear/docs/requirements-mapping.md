@@ -88,7 +88,7 @@ Round 02에서는 설명성과 평가 재사용성을 위해 명시적인 상태
 | 언어별 프로젝트 필터 | GitHub `language` 값 + `array.filter()` | 언어 버튼 클릭 → 목록/개수 변경 | 코드 구현 완료 · Runtime 확인 필요 |
 | Hero 타이핑 효과 | Vanilla JS 타이핑 + Reduced Motion 대응 | 최초 로드에서 글자 단위 표시 | 코드 구현 완료 · Runtime 확인 필요 |
 | 폼 실제 전송 | Formspree AJAX POST + 전송 중/성공/실패 UI | Submission + 실제 메일 수신 | **PASS** |
-| 시스템 다크 모드 감지 | `prefers-color-scheme` + `matchMedia()` | OS 테마 변경 / 저장 설정 우선 확인 | 코드 구현 완료 · Runtime 확인 필요 |
+| 시스템 다크 모드 감지 | 단일 버튼 System/Light/Dark 순환 + `prefers-color-scheme` + `matchMedia()` | Chrome Device + macOS Light/Dark 변경 | **PASS** |
 
 Formspree 증빙: `evidence/formspree-runtime-pass.txt`
 
