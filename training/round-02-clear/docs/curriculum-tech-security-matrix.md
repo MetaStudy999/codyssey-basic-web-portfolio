@@ -1,8 +1,8 @@
-# CODYSSEY 제2기 — Mission Tech & Security Matrix
+# CODYSSEY AI ALL-IN-ONE 1기 Portfolio — Mission Tech & Security Matrix
 
-> 목적: 제2기 오리엔테이션 2종 + B1-1~B7-2 Mission PDF의 **개발환경·제약·보안·기술 스택**을 한 곳에 정리한다.
+> 목적: **코디세이 AI 올인원 1기 교육생의 학습 경험**을 중심으로 정리하면서, 2기에서 교육생 친화적으로 보완된 오리엔테이션 2종과 B1-1~B7-2 Mission PDF를 최신 참고 체계로 활용해 **개발환경·제약·보안·기술 스택**을 한 곳에 정리한다.
 >
-> 원칙: PDF에 명시된 요구와 2026년 최신 확장 권고를 섞지 않는다.
+> 원칙: 사용자의 소속은 1기이다. 2기 PDF는 보완된 최신 구조를 참고하기 위한 자료이며, PDF에 명시된 요구와 2026년 최신 확장 권고를 구분한다.
 
 ## 1. PDF 기반 Mission Matrix
 
