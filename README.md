@@ -221,11 +221,49 @@ iMac / Windows 11 Pro
 
 #### Security Baseline
 
-- OWASP Top 10:2025 관점의 접근제어·설정·공급망·암호·Injection·인증·로깅·예외처리
-- OWASP LLM Top 10:2025 관점의 Prompt Injection·민감정보·공급망·Output Handling·Excessive Agency
-- Secret Scanning / Dependency Review / CodeQL / SBOM / SLSA
-- Kubernetes RBAC / Pod Security Standards / NetworkPolicy / Secret 관리 / Non-root
-- NIST AI RMF Generative AI Profile 기반 AI Risk Management
+보안은 **Prevent → Detect → Respond → Recover** 생명주기로 관리합니다.
+
+1. **Application · API**
+   - Server-side 인증·인가·접근제어
+   - 입력 검증·Injection/SSRF 방어
+   - Rate Limit·Brute-force 방어
+   - HTTPS·HSTS·Cookie·CORS·CSRF 정책
+2. **Identity · Session · Secret**
+   - MFA/Passkey, OAuth2/OIDC
+   - JWT 만료·갱신·폐기, Session Timeout
+   - .env·Secret Manager·KMS
+   - Short-lived Credential 우선
+3. **AI · Agent**
+   - Direct/Indirect Prompt Injection
+   - Sensitive Data Leakage·Model/Data Poisoning
+   - LLM Output 검증·Tool Allowlist
+   - RAG ACL·Human Approval·Token/Cost/Loop Limit
+4. **Repository · CI/CD · Supply Chain**
+   - Secret Scanning·Push Protection
+   - Dependabot·Dependency Review·CodeQL
+   - Lock File·Pinned Dependency·GitHub Actions 최소권한
+   - SBOM·Provenance·Signed Artifact
+5. **Database · Data · Privacy**
+   - Least Privilege·RLS
+   - Encryption at Rest·TLS in Transit
+   - Parameter Binding·Data Minimization·PII Masking
+   - Backup Encryption·Restore Test·Retention·Audit Trail
+6. **Cloud · Container · Kubernetes**
+   - IAM/RBAC·Namespace/Network 분리
+   - Trusted Registry·Image Scan·Digest Pinning
+   - runAsNonRoot·readOnlyRootFilesystem·Seccomp
+   - Pod Security Standards·NetworkPolicy·Secret Encryption
+7. **Observability · Incident Response**
+   - Security/Audit Log·Metric·Trace·Health Check
+   - Alert·이상 징후 탐지·Time Synchronization
+   - Incident Response·Root Cause Analysis
+   - Log Retention·Backup/Restore Drill
+8. **Developer Workstation**
+   - Windows/macOS/Ubuntu 정기 Patch
+   - Disk Encryption·MFA/Passkey·SSH Key 보호
+   - Shell History·IDE Extension·Local DB 노출 점검
+   - AI Agent 최소권한·Local Model 출처/라이선스 검증
+
 
 상세 전수검토표:
 
