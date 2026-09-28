@@ -307,7 +307,7 @@ GitHub Pages
 
 ### 시스템 다크 모드 감지
 
-> 저장된 사용자 선택이 있으면 localStorage를 우선하고, 저장값이 없을 때만 `prefers-color-scheme`과 `matchMedia()`로 운영체제 테마를 따릅니다.
+> 상단에 System / Light / Dark 3-state Switch를 두었습니다. Light/Dark는 사용자 선택을 `localStorage`에 저장해 고정하고, System을 선택하면 `prefers-color-scheme`과 `matchMedia()`로 운영체제 테마 변경을 실시간 반영합니다.
 
 ### Formspree 실제 전송
 
