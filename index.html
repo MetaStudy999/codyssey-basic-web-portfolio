@@ -664,15 +664,21 @@
         <h2>Contact</h2>
 
         <p class="contact-description">
-          입력 검증과 Formspree 전송 흐름까지 구현했습니다.
-          실제 이메일 전송은 이 폼에 Formspree Endpoint를 연결하면 활성화됩니다.
+          이름·이메일·메시지를 입력하면 Formspree로 비동기 전송합니다.
+          전송 결과와 오류는 이 화면에서 바로 확인할 수 있습니다.
         </p>
 
         <form
           id="contact-form"
-          data-formspree-endpoint="https://formspree.io/f/xdekpjjj"
+          action="https://formspree.io/f/xdekpjjj"
+          method="POST"
           novalidate
         >
+          <input
+            type="hidden"
+            name="subject"
+            value="Portfolio 문의 - {{ name }}"
+          >
           <div class="form-field">
             <label for="name">이름</label>
             <input
@@ -680,6 +686,7 @@
               name="name"
               type="text"
               autocomplete="name"
+              aria-describedby="name-error"
               required
             >
             <p class="field-error" id="name-error"></p>
@@ -692,6 +699,7 @@
               name="email"
               type="email"
               autocomplete="email"
+              aria-describedby="email-error"
               required
             >
             <p class="field-error" id="email-error"></p>
@@ -703,6 +711,7 @@
               id="message"
               name="message"
               rows="5"
+              aria-describedby="message-error"
               required
             ></textarea>
             <p class="field-error" id="message-error"></p>
