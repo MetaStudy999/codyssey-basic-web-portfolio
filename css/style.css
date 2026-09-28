@@ -128,9 +128,11 @@ button {
 ------------------------------ */
 
 .section {
-  padding: var(--space-2xl) var(--space-md);
+  padding:
+    clamp(2.25rem, 3vw, 3rem)
+    var(--space-md);
   scroll-margin-top:
-    calc(var(--header-height) + var(--space-md));
+    calc(var(--header-height) + var(--space-xs));
 }
 
 .section-inner {
@@ -1125,9 +1127,8 @@ button[aria-selected="true"]
 
 @media (min-width: 768px) {
   .section {
-    padding:
-      calc(var(--space-2xl) * 1.25)
-      var(--space-xl);
+    padding-right: var(--space-xl);
+    padding-left: var(--space-xl);
   }
 
   .menu-toggle {
@@ -1200,11 +1201,6 @@ button[aria-selected="true"]
 ------------------------------ */
 
 @media (min-width: 1024px) {
-  .section {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
-
   .hero p {
     font-size: 1.15rem;
   }
@@ -1249,6 +1245,11 @@ button[aria-selected="true"]
 
 
 
+
+.contact {
+  padding-bottom:
+    clamp(4.5rem, 6vw, 5.5rem);
+}
 
 .contact-description {
   max-width: 760px;
