@@ -58,36 +58,15 @@
         <li><a href="#security">Security</a></li>
         <li><a href="#contact">Contact</a></li>
         <li class="theme-menu-item">
-          <div
-            class="theme-switch"
-            role="group"
-            aria-label="테마 설정"
+          <button
+            type="button"
+            class="theme-cycle"
+            id="theme-cycle"
+            aria-label="현재 테마: System. 눌러 Light로 변경"
+            title="System → Light → Dark 순서로 변경"
           >
-            <button
-              type="button"
-              class="theme-option"
-              data-theme-mode="system"
-              aria-pressed="true"
-            >
-              System
-            </button>
-            <button
-              type="button"
-              class="theme-option"
-              data-theme-mode="light"
-              aria-pressed="false"
-            >
-              Light
-            </button>
-            <button
-              type="button"
-              class="theme-option"
-              data-theme-mode="dark"
-              aria-pressed="false"
-            >
-              Dark
-            </button>
-          </div>
+            System
+          </button>
         </li>
       </ul>
     </nav>
