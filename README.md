@@ -456,10 +456,10 @@ Repository 이름과 설명 길이가 달라도 카드가 흔들리지 않도록
 
 | 보너스 과제 | 구현 | 현재 상태 |
 |---|---|---|
-| 프로젝트 언어별 필터링 | GitHub API의 `language` 값을 기준으로 `array.filter()` 적용 | 코드 구현 완료 · Runtime 확인 필요 |
-| Hero 타이핑 효과 | Vanilla JavaScript 타이핑 효과 + Reduced Motion 대응 | 코드 구현 완료 · Runtime 확인 필요 |
+| 프로젝트 언어별 필터링 | GitHub API의 `language` 값을 기준으로 `array.filter()` 적용 | **PASS · 사용자 Runtime 확인** |
+| Hero 타이핑 효과 | Vanilla JavaScript 타이핑 효과 + Reduced Motion 대응 | **PASS · 사용자 Runtime 확인** |
 | 폼 실제 전송 | Formspree POST 흐름·로딩·성공·실패 상태 구현 | **PASS · Submission + 이메일 수신 확인** |
-| 시스템 다크 모드 감지 | 단일 버튼 순환(System → Light → Dark) + `prefers-color-scheme` + `matchMedia()` | 코드 구현 완료 · System Runtime 확인 필요 |
+| 시스템 다크 모드 감지 | 단일 버튼 순환(System → Light → Dark) + `prefers-color-scheme` + `matchMedia()` | **PASS · Chrome Device + macOS Light/Dark Runtime 확인** |
 
 ### Formspree 연동
 
