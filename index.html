@@ -203,303 +203,247 @@
             <p class="eyebrow">Development Environment & Tech Stack</p>
             <h3>개발환경</h3>
             <p>
-              제2기 공식 오리엔테이션·콘텐츠 소개·미션 PDF에서 확인되는 개발환경과 도구를
-              중복 없이 역할별로 정리했습니다. 미션·도메인에 따라 일부 선택 도구는 달라질 수 있습니다.
+              제2기 공식 PDF에서 확인된 기술, 실제 실습 환경, 2026 확장 기술을 구분해
+              “어디서 실행하고 → 무엇으로 개발하고 → 어디에 저장하고 → 어떻게 배포하고 → 어떻게 보호하는가” 순서로 정리했습니다.
             </p>
           </div>
 
           <div class="development-stack-grid">
             <article class="development-stack-card">
-              <h4>OS · 실행환경</h4>
+              <p class="stack-source">LAB · PDF</p>
+              <h4>01 Host · OS</h4>
               <div class="tech-tags">
-                <span>Linux</span>
-                <span>Windows 11 Pro</span>
-                <span>WSL2</span>
-                <span>Ubuntu</span>
-                <span>iMac / macOS</span>
-                <span>OrbStack</span>
-                <span>Local / Isolated Env</span>
-                <span>Docker</span>
-                <span>Cloud VM / EC2</span>
-                <span>Chrome</span>
+                <span>Windows 11 Pro</span><span>iMac</span><span>macOS</span><span>Linux</span>
               </div>
-              <p>
-                로컬·격리 환경에서 재현 가능한 작업공간을 만들고,
-                Linux 서버와 Cloud 환경으로 확장합니다.
-              </p>
+              <p>개발 호스트와 서버 운영체제를 구분합니다.</p>
             </article>
 
             <article class="development-stack-card">
-              <h4>개발언어</h4>
+              <p class="stack-source">LAB · PDF</p>
+              <h4>02 Virtualization · Linux Runtime</h4>
               <div class="tech-tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>TypeScript · 선택</span>
-                <span>Python 3.10+</span>
-                <span>SQL</span>
+                <span>WSL2</span><span>OrbStack</span><span>Ubuntu</span><span>Docker</span><span>Local / Isolated Env</span>
               </div>
-              <p>
-                웹 UI부터 Python 백엔드·AI 처리, 관계형 데이터 설계까지 연결합니다.
-              </p>
+              <p>Windows는 WSL2, iMac은 OrbStack을 통해 Ubuntu 기반 실행환경을 맞춥니다.</p>
             </article>
 
             <article class="development-stack-card">
-              <h4>개발툴 · Harness</h4>
+              <p class="stack-source">LAB · 2026 EXTENSION</p>
+              <h4>03 Runtime · Package Manager</h4>
               <div class="tech-tags">
-                <span>Git</span>
-                <span>GitHub</span>
-                <span>VS Code</span>
-                <span>Live Server</span>
-                <span>Terminal / CLI</span>
-                <span>Cursor Composer</span>
-                <span>Claude Code</span>
-                <span>Codex</span>
-                <span>Open Code CLI</span>
-                <span>Jupyter</span>
+                <span>Python 3.10+</span><span>venv</span><span>uv</span><span>pip</span>
+                <span>Node.js</span><span>npm</span><span>Vite</span><span>Environment Variables</span>
               </div>
-              <p>
-                버전관리·코드리뷰·AI 코딩·실험 환경을 하나의 개발 흐름으로 사용합니다.
-              </p>
+              <p>언어 런타임과 의존성·환경 설정을 재현 가능한 방식으로 관리합니다.</p>
             </article>
 
             <article class="development-stack-card">
-              <h4>Framework · Library</h4>
+              <p class="stack-source">PDF</p>
+              <h4>04 Language</h4>
               <div class="tech-tags">
-                <span>React 18+</span>
-                <span>FastAPI</span>
-                <span>Uvicorn</span>
-                <span>Pydantic</span>
-                <span>SQLAlchemy</span>
-                <span>Jinja2</span>
-                <span>python-multipart</span>
-                <span>passlib / bcrypt</span>
-                <span>LangGraph</span>
-                <span>Fairlearn</span>
-                <span>MONAI</span>
+                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>TypeScript · 선택</span>
+                <span>Python</span><span>SQL</span><span>Bash / Shell</span>
               </div>
-              <p>
-                프론트엔드·API·ORM·인증에서 AI 에이전트와 도메인 AI 라이브러리까지 확장합니다.
-              </p>
+              <p>웹·백엔드·DB·Linux 자동화를 과정별로 연결합니다.</p>
             </article>
 
             <article class="development-stack-card">
-              <h4>AI Model · Technique</h4>
+              <p class="stack-source">PDF · LAB · 2026 EXTENSION</p>
+              <h4>05 IDE · CLI</h4>
               <div class="tech-tags">
-                <span>Claude Opus</span>
-                <span>Claude Sonnet</span>
-                <span>GPT-4</span>
-                <span>GPT-5o</span>
-                <span>Gemini Pro</span>
-                <span>Vision Model</span>
-                <span>Embedding</span>
-                <span>CNN / ViT</span>
-                <span>Transformer</span>
-                <span>LSTM</span>
-                <span>RAG</span>
-                <span>XAI / SHAP</span>
+                <span>VS Code</span><span>Live Server</span><span>Terminal</span><span>Git</span><span>GitHub</span>
+                <span>GitHub CLI</span><span>curl</span><span>Jupyter</span><span>kubectl</span>
               </div>
-              <p>
-                설계·코딩 보조 모델과 CV·NLP·예측·멀티모달 모델을 문제에 맞게 선택합니다.
-              </p>
+              <p>편집·실행·버전관리·API 검증·운영 명령을 하나의 흐름으로 사용합니다.</p>
             </article>
 
             <article class="development-stack-card">
-              <h4>Infra · Service</h4>
+              <p class="stack-source">2026 EXTENSION</p>
+              <h4>06 AI Coding · Agent</h4>
               <div class="tech-tags">
-                <span>GitHub Pages</span>
-                <span>AWS EC2</span>
-                <span>SQLite</span>
-                <span>PostgreSQL</span>
-                <span>MySQL</span>
-                <span>H2</span>
-                <span>DBeaver</span>
-                <span>TablePlus</span>
-                <span>DataGrip</span>
-                <span>Supabase</span>
-                <span>Firebase</span>
-                <span>Vercel</span>
-                <span>Render / Railway</span>
-                <span>MLflow</span>
-                <span>n8n</span>
-                <span>Sentry</span>
-                <span>Pinecone</span>
-                <span>GPU Cluster</span>
+                <span>ChatGPT / Codex</span><span>Claude Code</span><span>Cursor Composer</span>
+                <span>Google Antigravity</span><span>Open Code CLI</span><span>MCP</span>
               </div>
-              <p>
-                배포·DB·인증·실험추적·자동화·모니터링을 서비스 운영 관점에서 연결합니다.
-              </p>
+              <p>에이전트형 개발 도구는 최소 권한과 사람의 검토를 전제로 사용합니다.</p>
             </article>
 
             <article class="development-stack-card">
-              <h4>Database · ORM · Client</h4>
+              <p class="stack-source">PDF</p>
+              <h4>07 Frontend</h4>
               <div class="tech-tags">
-                <span>SQLite</span>
-                <span>PostgreSQL</span>
-                <span>MySQL</span>
-                <span>H2</span>
-                <span>Supabase PostgreSQL</span>
-                <span>SQLAlchemy ORM</span>
-                <span>Alembic · 확장</span>
-                <span>DB Browser for SQLite</span>
-                <span>DBeaver</span>
-                <span>TablePlus</span>
-                <span>DataGrip</span>
-                <span>psql / sqlite3 CLI</span>
+                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React 18+</span>
+                <span>React Router</span><span>TypeScript · 선택</span><span>CSS Modules · 선택</span><span>Tailwind · 선택</span>
               </div>
-              <p>
-                로컬 미션은 SQLite·PostgreSQL·MySQL·H2 중 목적에 맞게 선택하고,
-                FastAPI에서는 SQLAlchemy로 연결해 CRUD·관계·인증 데이터 흐름을 검증합니다.
-              </p>
+              <p>B1-1은 Vanilla Web, B1-2부터 React 기반 SPA 구조로 확장합니다.</p>
             </article>
 
             <article class="development-stack-card">
-              <h4>Domain · Related Platform</h4>
+              <p class="stack-source">PDF</p>
+              <h4>08 Backend · API</h4>
               <div class="tech-tags">
-                <span>ROS</span>
-                <span>Autoware Universe</span>
-                <span>AWSIM</span>
-                <span>Gazebo</span>
-                <span>Isaac Sim</span>
-                <span>MuJoCo</span>
-                <span>MIMIC-III</span>
-                <span>DICOM</span>
-                <span>Alpaca</span>
-                <span>Stripe</span>
-                <span>Domain API / SDK</span>
+                <span>FastAPI</span><span>Uvicorn</span><span>Pydantic</span><span>Jinja2</span>
+                <span>python-multipart</span><span>REST API</span><span>Session</span><span>JWT</span><span>OAuth2</span>
               </div>
-              <p>
-                응용 단계에서는 모빌리티·로봇·헬스케어·핀테크·이커머스 등
-                산업 도메인에 맞는 플랫폼과 데이터·API를 추가합니다.
-              </p>
+              <p>FastAPI 요청·응답, 인증, SSR과 REST API 흐름을 단계적으로 학습합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF · LAB</p>
+              <h4>09 Database · ORM</h4>
+              <div class="tech-tags">
+                <span>SQLite</span><span>PostgreSQL</span><span>MySQL</span><span>H2</span><span>Supabase PostgreSQL</span>
+                <span>SQLAlchemy ORM</span><span>Alembic · 확장</span><span>DBeaver</span><span>TablePlus</span><span>DataGrip</span>
+              </div>
+              <p>로컬 SQL 실습에서 FastAPI ORM, 관계형 서비스 DB로 확장합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF · 2026 EXTENSION</p>
+              <h4>10 Cache · Vector · Search</h4>
+              <div class="tech-tags">
+                <span>Mini Redis</span><span>Redis</span><span>Pinecone</span><span>Vector DB</span>
+                <span>Embedding</span><span>Semantic Search</span><span>RAG</span>
+              </div>
+              <p>자료구조 학습과 실제 캐시·벡터 검색·RAG 활용을 구분해 이해합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF · 2026 EXTENSION</p>
+              <h4>11 Cloud AI · Local AI</h4>
+              <div class="tech-tags">
+                <span>OpenAI API</span><span>Anthropic API</span><span>Gemini API</span>
+                <span>Ollama</span><span>Llama</span><span>Qwen</span><span>DeepSeek</span><span>Gemma</span><span>Local Embedding</span>
+              </div>
+              <p>Cloud AI와 Local AI를 비용·개인정보·성능·GPU 요구사항에 따라 구분합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF · 2026 EXTENSION</p>
+              <h4>12 Container · Kubernetes</h4>
+              <div class="tech-tags">
+                <span>Docker</span><span>Docker Compose</span><span>Kubernetes</span><span>Pod</span><span>Deployment</span>
+                <span>Service</span><span>ConfigMap</span><span>Ingress</span><span>RBAC</span><span>NetworkPolicy</span>
+              </div>
+              <p>단일 컨테이너에서 필요 시 다중 서비스 오케스트레이션으로 확장합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF · 2026 EXTENSION</p>
+              <h4>13 Cloud · PaaS · BaaS</h4>
+              <div class="tech-tags">
+                <span>AWS EC2</span><span>VPC</span><span>Subnet</span><span>Security Group</span><span>IAM</span>
+                <span>GitHub Pages</span><span>Vercel</span><span>Netlify</span><span>Render</span><span>Railway</span>
+                <span>Supabase</span><span>Firebase</span>
+              </div>
+              <p>직접 구축하는 Cloud Infra와 배포형 PaaS/BaaS를 역할별로 구분합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">2026 EXTENSION</p>
+              <h4>14 Automation · MCP</h4>
+              <div class="tech-tags">
+                <span>n8n</span><span>Make</span><span>Webhook</span><span>REST API</span><span>MCP</span><span>AI Agents</span>
+              </div>
+              <p>서비스 간 연동과 반복 업무를 워크플로·에이전트로 자동화합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF · LAB · 2026 EXTENSION</p>
+              <h4>15 Testing · Quality</h4>
+              <div class="tech-tags">
+                <span>pytest</span><span>Unit Test</span><span>Integration Test</span><span>API Test</span>
+                <span>Smoke Test</span><span>E2E Test</span><span>Ruff</span><span>ESLint</span><span>Prettier</span>
+              </div>
+              <p>Mission 검증과 코드 품질을 자동 테스트·정적 검사로 연결합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF · 2026 EXTENSION</p>
+              <h4>16 Observability · Operations</h4>
+              <div class="tech-tags">
+                <span>Logging</span><span>Health Check</span><span>ps / top / htop</span><span>ss</span>
+                <span>journalctl</span><span>cron</span><span>Sentry</span><span>MLflow</span>
+                <span>Prometheus · 확장</span><span>Grafana · 확장</span><span>OpenTelemetry · 확장</span>
+              </div>
+              <p>로그·메트릭·헬스체크로 장애를 관찰하고 원인을 추적합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF · 2026 SECURITY</p>
+              <h4>17 Security</h4>
+              <div class="tech-tags">
+                <span>Authentication</span><span>Authorization</span><span>Input Validation</span><span>HTTPS</span>
+                <span>Secret Scanning</span><span>CodeQL</span><span>Dependabot</span><span>SBOM</span>
+                <span>Prompt Injection Defense</span><span>Least Privilege</span>
+              </div>
+              <p>애플리케이션·AI·Repository·Cloud·Container 보안을 개발 전 과정에 적용합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF</p>
+              <h4>18 Domain Platform</h4>
+              <div class="tech-tags">
+                <span>ROS</span><span>Autoware Universe</span><span>AWSIM</span><span>Gazebo</span><span>Isaac Sim</span>
+                <span>MuJoCo</span><span>MIMIC-III</span><span>DICOM</span><span>Alpaca</span><span>Stripe</span><span>Domain API / SDK</span>
+              </div>
+              <p>응용 과정에서는 선택한 산업 도메인에 맞춰 전용 플랫폼·데이터·API를 추가합니다.</p>
             </article>
           </div>
 
-          <div class="development-trend-section">
-            <div class="development-environment-heading">
-              <p class="eyebrow">2026 Extension · Optional / Recommended</p>
-              <h3>최신 확장 개발환경</h3>
-              <p>
-                아래 항목은 제2기 Mission PDF의 필수 요구와 구분되는 2026년 확장 기술입니다.
-                공식 미션 통과에 불필요한 도구는 먼저 넣지 않고, 필요할 때 선택적으로 사용합니다.
-              </p>
-            </div>
-
-            <div class="development-stack-grid">
-              <article class="development-stack-card">
-                <h4>Local AI Runtime</h4>
-                <div class="tech-tags">
-                  <span>Ollama</span>
-                  <span>Llama 3.1 / 3.2</span>
-                  <span>Qwen 2.5</span>
-                  <span>DeepSeek-R1</span>
-                  <span>Gemma 3</span>
-                  <span>Local Embedding</span>
-                </div>
-                <p>
-                  민감 데이터의 외부 전송을 줄이거나 오프라인·저비용 추론이 필요할 때
-                  로컬 모델을 선택하고, GPU/메모리 한계와 모델 출처를 함께 관리합니다.
-                </p>
-              </article>
-
-              <article class="development-stack-card">
-                <h4>Agentic Development</h4>
-                <div class="tech-tags">
-                  <span>Google Antigravity</span>
-                  <span>Claude Code</span>
-                  <span>Codex</span>
-                  <span>Cursor Composer</span>
-                  <span>MCP</span>
-                  <span>Browser / Terminal Agent</span>
-                </div>
-                <p>
-                  에디터·터미널·브라우저를 함께 사용하는 에이전트형 개발환경은
-                  구현 속도를 높이되, 도구 권한과 변경사항 검토를 사람이 통제합니다.
-                </p>
-              </article>
-
-              <article class="development-stack-card">
-                <h4>Automation · Integration</h4>
-                <div class="tech-tags">
-                  <span>Make AI Agents</span>
-                  <span>n8n</span>
-                  <span>Webhook</span>
-                  <span>REST API</span>
-                  <span>MCP Tools</span>
-                  <span>Workflow Orchestration</span>
-                </div>
-                <p>
-                  반복 업무와 서비스 간 연동은 자동화 워크플로로 분리하고,
-                  AI Agent가 필요한 판단과 고정 로직을 구분해 설계합니다.
-                </p>
-              </article>
-
-              <article class="development-stack-card">
-                <h4>Container · Orchestration</h4>
-                <div class="tech-tags">
-                  <span>Docker</span>
-                  <span>Kubernetes</span>
-                  <span>Pod / Deployment / Service</span>
-                  <span>RBAC</span>
-                  <span>NetworkPolicy</span>
-                  <span>Pod Security</span>
-                </div>
-                <p>
-                  단일 컨테이너를 넘어 다중 서비스 운영이 필요할 때 Kubernetes로 확장하며,
-                  학습 미션에서는 요구되지 않는 경우 과도한 인프라를 먼저 도입하지 않습니다.
-                </p>
-              </article>
-            </div>
+          <div class="environment-flow" aria-label="실습 개발환경 흐름">
+            <span>Windows 11 Pro / iMac</span><strong>→</strong>
+            <span>WSL2 / OrbStack</span><strong>→</strong>
+            <span>Ubuntu</span><strong>→</strong>
+            <span>FastAPI / React</span><strong>→</strong>
+            <span>SQLAlchemy / API</span><strong>→</strong>
+            <span>Database / Cloud</span>
           </div>
 
           <div class="security-baseline">
             <div class="development-environment-heading">
               <p class="eyebrow">Security by Default · 2026</p>
               <h3>보안 기본선</h3>
-              <p>
-                Mission PDF의 보안 요구사항을 유지하면서 OWASP·NIST·Kubernetes·GitHub의
-                최신 권고를 개발 흐름에 추가합니다.
-              </p>
+              <p>공식 Mission PDF의 보안 요구를 유지하면서 최신 개발환경에 필요한 보안 통제를 추가합니다.</p>
             </div>
 
             <div class="security-grid">
               <article class="security-card">
-                <h4>Web · API Security</h4>
+                <h4>Application · API</h4>
                 <ul>
-                  <li>접근제어·인증·인가를 서버에서 강제</li>
-                  <li>입력 검증·출력 인코딩·Injection 방어</li>
-                  <li>안전한 오류 처리와 보안 로깅·알림</li>
-                  <li>HTTPS·Secure Cookie·CSRF/CORS 정책</li>
+                  <li>인증·인가와 접근제어를 서버에서 강제</li>
+                  <li>입력 검증·출력 처리·Injection 방어</li>
+                  <li>HTTPS·Cookie·CORS·CSRF 정책</li>
+                  <li>예외 처리·보안 로그·알림</li>
                 </ul>
               </article>
 
               <article class="security-card">
-                <h4>AI · Agent Security</h4>
+                <h4>AI · Agent</h4>
                 <ul>
                   <li>Prompt Injection과 민감정보 유출 방어</li>
-                  <li>LLM 출력은 신뢰하지 않고 검증·정제</li>
-                  <li>Agent Tool 권한 최소화와 승인 단계</li>
-                  <li>RAG·Embedding·Model 공급망 출처 검증</li>
+                  <li>LLM Output 검증과 Tool Allowlist</li>
+                  <li>Agent 최소권한과 사람 승인 지점</li>
+                  <li>RAG·Embedding·Model 출처와 권한 확인</li>
                 </ul>
               </article>
 
               <article class="security-card">
-                <h4>Supply Chain · Repository</h4>
+                <h4>Repository · Supply Chain</h4>
                 <ul>
                   <li>Secret Scanning·Push Protection</li>
                   <li>Dependabot·Dependency Review·CodeQL</li>
-                  <li>SBOM·SLSA Provenance·서명 검증</li>
-                  <li>Branch Protection·PR Review·최소권한</li>
+                  <li>SBOM·Provenance·무결성 검증</li>
+                  <li>Branch Protection·PR Review</li>
                 </ul>
               </article>
 
               <article class="security-card">
-                <h4>Database Security</h4>
+                <h4>Database · Data</h4>
                 <ul>
-                  <li>애플리케이션 계정과 관리자 계정 분리</li>
-                  <li>최소권한 Role과 외부 포트 공개 최소화</li>
-                  <li>파라미터 바인딩·ORM으로 SQL Injection 위험 감소</li>
-                  <li>백업·복구 절차와 중요 변경 전 데이터 보호</li>
+                  <li>관리자 계정과 앱 계정 분리·최소권한</li>
+                  <li>DB 비밀번호와 연결정보는 환경변수로 관리</li>
+                  <li>파라미터 바인딩·ORM 사용</li>
+                  <li>Backup·Restore와 Audit Log</li>
                 </ul>
               </article>
 
@@ -507,9 +451,9 @@
                 <h4>Cloud · Container · Kubernetes</h4>
                 <ul>
                   <li>IAM/RBAC 최소권한과 네트워크 분리</li>
-                  <li>Secret 암호화·외부 Secret Store 고려</li>
-                  <li>Non-root·Resource Limit·Seccomp 적용</li>
+                  <li>Non-root·Resource Limit·Seccomp</li>
                   <li>Pod Security Standards·NetworkPolicy</li>
+                  <li>Secret Store와 운영 리소스 정리</li>
                 </ul>
               </article>
             </div>
