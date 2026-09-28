@@ -11,6 +11,7 @@ const THEME_STORAGE_KEY = "portfolio-theme";
 const SYSTEM_THEME_QUERY =
   "(prefers-color-scheme: dark)";
 const TYPING_DELAY_MS = 58;
+const SYSTEM_THEME_SYNC_INTERVAL_MS = 500;
 
 /* ---------------------------------
    State
@@ -68,7 +69,9 @@ const getSavedThemeMode = () => {
 };
 
 const getSystemTheme = () =>
-  systemThemeMedia.matches
+  window
+    .matchMedia(SYSTEM_THEME_QUERY)
+    .matches
     ? "dark"
     : "light";
 
@@ -1724,6 +1727,11 @@ const initializeApp = () => {
   window.addEventListener(
     "pageshow",
     syncSystemTheme,
+  );
+
+  window.setInterval(
+    syncSystemTheme,
+    SYSTEM_THEME_SYNC_INTERVAL_MS,
   );
 
   scrollTopButton.addEventListener(
