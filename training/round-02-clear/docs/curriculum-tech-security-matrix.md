@@ -117,40 +117,83 @@ Windows 11 Pro / iMac
 
 ## 4. Security by Default — 2026
 
-### Application / API
-- Access Control / Authentication / Authorization
-- Input Validation / Output Encoding
-- Injection 방지
-- HTTPS / Secure Cookie / CORS / CSRF
-- Security Logging / Alerting
-- Exception Handling
+보안 생명주기:
 
-### AI / Agent
-- Prompt Injection
+```text
+Prevent → Detect → Respond → Recover
+```
+
+### 4.1 Application · API
+- Server-side Authentication / Authorization / Access Control
+- Input Validation / Output Handling / Injection / SSRF 방어
+- Rate Limit / Brute-force 방어
+- HTTPS / HSTS / Secure·HttpOnly·SameSite Cookie / CORS / CSRF
+- 안전한 예외 처리 / Security Logging
+
+### 4.2 Identity · Session · Secret
+- MFA / Passkey
+- OAuth2 / OIDC
+- JWT Expiration / Rotation / Revocation
+- Session Timeout
+- .env / Secret Manager / KMS
+- Short-lived Credential 우선
+
+### 4.3 AI · Agent
+- Direct / Indirect Prompt Injection
 - Sensitive Information Disclosure
-- Model/Data Supply Chain
-- Improper Output Handling
-- Excessive Agency
-- Tool Allowlist / Human Approval / Sandbox
-- RAG·Embedding 데이터 출처와 권한 경계
+- Model / Dataset Poisoning
+- LLM Output Validation
+- Tool Allowlist / Least Privilege
+- RAG ACL / Human Approval
+- Token / Cost / Agent Loop Limit
+- Local Model 출처·라이선스·무결성 검토
 
-### Repository / Supply Chain
-- .env / Secret Manager
-- GitHub Secret Scanning / Push Protection
-- Dependency Review / Dependabot
-- CodeQL
-- SBOM
-- SLSA Provenance
-- 서명/무결성 검증
+### 4.4 Repository · CI/CD · Supply Chain
+- Secret Scanning / Push Protection
+- Branch Protection / PR Review
+- Dependabot / Dependency Review / CodeQL
+- Lock File / Pinned Dependency
+- GitHub Actions 최소권한
+- SBOM / Provenance / Signed Artifact
 
-### Container / Kubernetes
-- Least Privilege RBAC
-- Pod Security Standards (Baseline/Restricted)
-- runAsNonRoot / no privilege escalation
-- CPU/Memory requests & limits
-- Seccomp / AppArmor / SELinux
-- NetworkPolicy
-- Secret encryption at rest + external secret store 고려
+### 4.5 Database · Data · Privacy
+- 관리자 계정과 앱 계정 분리 / Least Privilege
+- Row-Level Security 검토
+- Encryption at Rest / TLS in Transit
+- Parameterized Query / ORM
+- Data Classification / Minimization / PII Masking
+- Backup Encryption / Restore Test
+- Retention / Deletion Policy / Audit Trail
+
+### 4.6 Cloud · Container · Kubernetes
+- IAM / RBAC 최소권한
+- Namespace / Network Isolation
+- Trusted Registry / Image Scan / Digest Pinning
+- runAsNonRoot / readOnlyRootFilesystem
+- Capability Drop / Seccomp
+- CPU·Memory Request / Limit
+- Pod Security Standards / NetworkPolicy
+- Secret Encryption / External Secret Store 고려
+
+### 4.7 Observability · Incident Response
+- Security Log / Audit Log / Metric / Trace / Health Check
+- Alert Rule / 이상 징후 탐지
+- Time Synchronization
+- Incident Response Runbook
+- Root Cause Analysis
+- Log Retention
+- Backup / Restore Drill
+
+### 4.8 Developer Workstation
+- Windows 11 Pro / macOS / Ubuntu 정기 Patch
+- Disk Encryption
+- MFA / Passkey
+- SSH Key 보호
+- Shell History에 Secret 미기록
+- IDE Extension 출처 검증
+- Local DB 외부 공개 금지
+- AI Agent 최소권한
+- Local Model 출처·라이선스·무결성 검증
 
 ## 5. 운영 원칙
 
