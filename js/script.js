@@ -199,16 +199,34 @@ const renderActiveNav = () => {
   const headerOffset =
     siteHeader.offsetHeight + 24;
 
+  const documentElement =
+    document.documentElement;
+
+  const isNearPageBottom =
+    window.innerHeight +
+      window.scrollY >=
+    documentElement.scrollHeight - 8;
+
   let activeId = "home";
 
-  navSections.forEach((section) => {
-    if (
-      section.offsetTop <=
-      window.scrollY + headerOffset
-    ) {
-      activeId = section.id;
-    }
-  });
+  if (
+    isNearPageBottom &&
+    navSections.length > 0
+  ) {
+    activeId =
+      navSections[
+        navSections.length - 1
+      ].id;
+  } else {
+    navSections.forEach((section) => {
+      if (
+        section.offsetTop <=
+        window.scrollY + headerOffset
+      ) {
+        activeId = section.id;
+      }
+    });
+  }
 
   navLinks.forEach((link) => {
     const isActive =
