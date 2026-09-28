@@ -1481,7 +1481,7 @@ const handleFormSubmit = async (event) => {
   contactSubmit.disabled = true;
   contactSubmit.textContent = "전송 중...";
   formResult.textContent =
-    "메시지를 전송하고 있습니다.";
+    "문의 내용을 전송하고 있습니다...";
 
   try {
     const formData =
@@ -1575,7 +1575,7 @@ const handleFormSubmit = async (event) => {
     renderFormErrors();
 
     formResult.textContent =
-      "Formspree가 메시지를 정상적으로 접수했습니다. 이메일 알림은 Formspree Workflow 설정에 따라 발송됩니다.";
+      "문의가 정상적으로 접수되었습니다. 확인 후 이메일로 답변드리겠습니다.";
 
     formResult.classList.add(
       "is-success",
