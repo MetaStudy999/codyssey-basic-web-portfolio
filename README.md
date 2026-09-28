@@ -686,8 +686,12 @@ Deployment URL: https://metastudy999.github.io/codyssey-basic-web-portfolio/
 
 ![B1-1 Final Projects Filter](training/round-02-clear/evidence/b1-1-final-projects-filter.png)
 
+### Final System Theme Sync
+
+![B1-1 Final System Theme Sync](training/round-02-clear/evidence/b1-1-final-system-theme-sync.png)
+
 기존 `b1-1-pages-*.png` 파일은 이전 Runtime Evidence로 보존하고,
-위 `b1-1-final-*.png` 4장을 현재 최종 Screenshot Evidence로 사용합니다.
+위 `b1-1-final-*.png` 5장을 현재 최종 Screenshot Evidence로 사용합니다.
 
 Round 01 자료나 예상 이미지를 Round 02 Evidence로 사용하지 않았습니다.
 
