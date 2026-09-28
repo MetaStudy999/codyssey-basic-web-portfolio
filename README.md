@@ -122,7 +122,7 @@ Click Event
 - 필드별 오류 메시지
 - 정상 입력 성공 메시지
 
-Contact Form은 기존 입력 검증에 더해 **Formspree 비동기 전송 흐름(전송 중/성공/실패)**까지 구현했습니다. Formspree Form Endpoint 연결을 완료했으며, 실제 이메일 수신은 Runtime에서 최종 확인합니다.
+Contact Form은 기존 입력 검증에 더해 **Formspree 비동기 전송 흐름(전송 중/성공/실패)**까지 구현했습니다. Formspree Form Endpoint 연결과 표준 `action/method` + Vanilla JS AJAX 처리를 완료했습니다. 실제 이메일 수신은 Formspree Workflow와 수신 메일 환경까지 포함해 Runtime에서 최종 확인합니다.
 
 ### Skills Roadmap
 
@@ -453,19 +453,27 @@ Repository 이름과 설명 길이가 달라도 카드가 흔들리지 않도록
 | 폼 실제 전송 | Formspree POST 흐름·로딩·성공·실패 상태 구현 | **Endpoint 연결 완료 · Runtime 실제 수신 확인 필요** |
 | 시스템 다크 모드 감지 | `prefers-color-scheme` + `matchMedia()`, 사용자 저장 설정 우선 | 코드 구현 완료 · Runtime 확인 필요 |
 
-### Formspree 활성화
+### Formspree 연동
 
-Formspree에서 Form을 만든 뒤 발급받은 Endpoint만 아래에 넣으면 실제 전송이 활성화됩니다.
+이 Portfolio는 B1-1의 **순수 HTML/CSS/JavaScript** 제약을 유지하기 위해 `@formspree/ajax` 외부 SDK를 추가하지 않고, 표준 HTML Form + Vanilla JavaScript `fetch()` 방식으로 연동합니다.
 
 ```html
 <form
   id="contact-form"
-  data-formspree-endpoint="https://formspree.io/f/xdekpjjj"
+  action="https://formspree.io/f/xdekpjjj"
+  method="POST"
   novalidate
 >
 ```
 
-Formspree Endpoint는 공개 폼 주소이며 API Key·Password·Token 같은 Secret을 Repository에 저장하지 않습니다.
+- `name="name"`, `name="email"`, `name="message"` 필드를 사용
+- `name="subject"` hidden field로 알림 제목 지정
+- `name="_gotcha"` Honeypot 적용
+- JavaScript가 활성화되면 AJAX로 전송하고 전송 중/성공/실패 상태를 같은 화면에 표시
+- JavaScript가 비활성화되어도 표준 `action + method="POST"` 형태가 남아 있어 Formspree 기본 HTML 계약을 충족
+- Endpoint는 공개 Form URL이며 API Key·Password·Token 같은 Secret을 Repository에 저장하지 않음
+
+**중요:** Formspree가 제출을 접수하는 것과 이메일 알림이 실제 받은편지함에 도착하는 것은 별도 단계입니다. Formspree Dashboard의 Submissions에는 기록되지만 이메일이 오지 않는다면 Workflow의 Email Action/대상 주소, Linked Email 검증, Spam/Junk, Formspree unblock 상태를 확인해야 합니다.
 
 ---
 
