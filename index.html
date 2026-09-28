@@ -403,57 +403,105 @@
             <div class="development-environment-heading">
               <p class="eyebrow">Security by Default · 2026</p>
               <h3>보안 기본선</h3>
-              <p>공식 Mission PDF의 보안 요구를 유지하면서 최신 개발환경에 필요한 보안 통제를 추가합니다.</p>
+              <p>
+                공식 Mission PDF의 보안 요구를 유지하면서 최신 개발환경에 필요한 보안 통제를
+                Application부터 Workstation까지 8개 영역으로 확장했습니다.
+              </p>
+            </div>
+
+            <div class="security-lifecycle" aria-label="보안 운영 생명주기">
+              <span><strong>Prevent</strong> 사전에 막기</span>
+              <span><strong>Detect</strong> 탐지하기</span>
+              <span><strong>Respond</strong> 대응하기</span>
+              <span><strong>Recover</strong> 복구하기</span>
             </div>
 
             <div class="security-grid">
               <article class="security-card">
-                <h4>Application · API</h4>
+                <p class="stack-source">PDF · 2026 SECURITY</p>
+                <h4>01 Application · API</h4>
                 <ul>
-                  <li>인증·인가와 접근제어를 서버에서 강제</li>
-                  <li>입력 검증·출력 처리·Injection 방어</li>
-                  <li>HTTPS·Cookie·CORS·CSRF 정책</li>
-                  <li>예외 처리·보안 로그·알림</li>
+                  <li>Server-side 인증·인가·접근제어 강제</li>
+                  <li>입력 검증·출력 처리·Injection·SSRF 방어</li>
+                  <li>Rate Limit·Brute-force 방어·안전한 예외 처리</li>
+                  <li>HTTPS·HSTS·Secure/HttpOnly/SameSite Cookie·CORS·CSRF 정책</li>
                 </ul>
               </article>
 
               <article class="security-card">
-                <h4>AI · Agent</h4>
+                <p class="stack-source">PDF · 2026 SECURITY</p>
+                <h4>02 Identity · Session · Secret</h4>
                 <ul>
-                  <li>Prompt Injection과 민감정보 유출 방어</li>
-                  <li>LLM Output 검증과 Tool Allowlist</li>
-                  <li>Agent 최소권한과 사람 승인 지점</li>
-                  <li>RAG·Embedding·Model 출처와 권한 확인</li>
+                  <li>MFA·Passkey·OAuth2/OIDC 적용 검토</li>
+                  <li>JWT 만료·갱신·폐기와 Session Timeout 정책</li>
+                  <li>.env·Secret Manager·KMS로 비밀정보 분리</li>
+                  <li>장기 Credential 대신 Short-lived Credential 우선</li>
                 </ul>
               </article>
 
               <article class="security-card">
-                <h4>Repository · Supply Chain</h4>
+                <p class="stack-source">2026 AI SECURITY</p>
+                <h4>03 AI · Agent</h4>
                 <ul>
-                  <li>Secret Scanning·Push Protection</li>
+                  <li>Direct/Indirect Prompt Injection 방어</li>
+                  <li>Sensitive Data Leakage·Model/Data Poisoning 대응</li>
+                  <li>LLM Output 검증·Tool Allowlist·Agent 최소권한</li>
+                  <li>RAG ACL·Human Approval·Token/Cost/Loop Limit</li>
+                </ul>
+              </article>
+
+              <article class="security-card">
+                <p class="stack-source">PDF · 2026 SECURITY</p>
+                <h4>04 Repository · CI/CD · Supply Chain</h4>
+                <ul>
+                  <li>Secret Scanning·Push Protection·Branch Protection</li>
                   <li>Dependabot·Dependency Review·CodeQL</li>
-                  <li>SBOM·Provenance·무결성 검증</li>
-                  <li>Branch Protection·PR Review</li>
+                  <li>Lock File·Pinned Dependency·GitHub Actions 최소권한</li>
+                  <li>SBOM·Provenance·Signed Artifact·무결성 검증</li>
                 </ul>
               </article>
 
               <article class="security-card">
-                <h4>Database · Data</h4>
+                <p class="stack-source">PDF · 2026 SECURITY</p>
+                <h4>05 Database · Data · Privacy</h4>
                 <ul>
-                  <li>관리자 계정과 앱 계정 분리·최소권한</li>
-                  <li>DB 비밀번호와 연결정보는 환경변수로 관리</li>
-                  <li>파라미터 바인딩·ORM 사용</li>
-                  <li>Backup·Restore와 Audit Log</li>
+                  <li>관리자/앱 계정 분리·Least Privilege·RLS 검토</li>
+                  <li>Encryption at Rest·TLS in Transit·Secret 분리</li>
+                  <li>Parameterized Query·ORM·Data Minimization·PII Masking</li>
+                  <li>Backup Encryption·Restore Test·Retention·Audit Trail</li>
                 </ul>
               </article>
 
               <article class="security-card">
-                <h4>Cloud · Container · Kubernetes</h4>
+                <p class="stack-source">PDF · 2026 SECURITY</p>
+                <h4>06 Cloud · Container · Kubernetes</h4>
                 <ul>
-                  <li>IAM/RBAC 최소권한과 네트워크 분리</li>
-                  <li>Non-root·Resource Limit·Seccomp</li>
-                  <li>Pod Security Standards·NetworkPolicy</li>
-                  <li>Secret Store와 운영 리소스 정리</li>
+                  <li>IAM/RBAC 최소권한·Namespace/Network 분리</li>
+                  <li>Trusted Registry·Image Scan·Digest Pinning</li>
+                  <li>runAsNonRoot·readOnlyRootFilesystem·Seccomp·Capability Drop</li>
+                  <li>Pod Security Standards·NetworkPolicy·Secret Encryption</li>
+                </ul>
+              </article>
+
+              <article class="security-card">
+                <p class="stack-source">PDF · 2026 SECURITY</p>
+                <h4>07 Observability · Incident Response</h4>
+                <ul>
+                  <li>Security Log·Audit Log·Metric·Trace·Health Check</li>
+                  <li>Alert Rule·이상 징후 탐지·Time Synchronization</li>
+                  <li>Incident Response 절차·Root Cause Analysis</li>
+                  <li>Log Retention·Backup/Restore Drill·복구 검증</li>
+                </ul>
+              </article>
+
+              <article class="security-card">
+                <p class="stack-source">LAB · 2026 SECURITY</p>
+                <h4>08 Developer Workstation</h4>
+                <ul>
+                  <li>Windows 11 Pro·macOS·Ubuntu 정기 Patch</li>
+                  <li>Disk Encryption·MFA/Passkey·SSH Key 보호</li>
+                  <li>Shell History·IDE Extension·Local DB 노출 점검</li>
+                  <li>AI Agent 최소권한·Local Model 출처/라이선스 검증</li>
                 </ul>
               </article>
             </div>
