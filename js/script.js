@@ -100,14 +100,8 @@ const getNextThemeMode = (mode) => {
 };
 
 const renderTheme = () => {
-  if (state.themeMode === "system") {
-    document.documentElement.removeAttribute(
-      "data-theme",
-    );
-  } else {
-    document.documentElement.dataset.theme =
-      state.theme;
-  }
+  document.documentElement.dataset.theme =
+    state.theme;
 
   const currentLabel =
     THEME_MODE_LABELS[state.themeMode];
@@ -152,12 +146,30 @@ const setThemeMode = (
   renderTheme();
 };
 
-const handleSystemThemeChange = () => {
+const syncSystemTheme = () => {
   if (state.themeMode !== "system") {
     return;
   }
 
-  state.theme = getSystemTheme();
+  const nextTheme = getSystemTheme();
+
+  if (state.theme === nextTheme) {
+    return;
+  }
+
+  state.theme = nextTheme;
+  renderTheme();
+};
+
+const handleSystemThemeChange = (event) => {
+  if (state.themeMode !== "system") {
+    return;
+  }
+
+  state.theme = event.matches
+    ? "dark"
+    : "light";
+
   renderTheme();
 };
 
@@ -1678,9 +1690,40 @@ const initializeApp = () => {
     handleThemeCycleClick,
   );
 
-  systemThemeMedia.addEventListener(
-    "change",
-    handleSystemThemeChange,
+  if (
+    typeof systemThemeMedia.addEventListener ===
+    "function"
+  ) {
+    systemThemeMedia.addEventListener(
+      "change",
+      handleSystemThemeChange,
+    );
+  } else if (
+    typeof systemThemeMedia.addListener ===
+    "function"
+  ) {
+    systemThemeMedia.addListener(
+      handleSystemThemeChange,
+    );
+  }
+
+  window.addEventListener(
+    "focus",
+    syncSystemTheme,
+  );
+
+  document.addEventListener(
+    "visibilitychange",
+    () => {
+      if (!document.hidden) {
+        syncSystemTheme();
+      }
+    },
+  );
+
+  window.addEventListener(
+    "pageshow",
+    syncSystemTheme,
   );
 
   scrollTopButton.addEventListener(
