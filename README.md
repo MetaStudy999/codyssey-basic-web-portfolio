@@ -442,6 +442,33 @@ Repository 이름과 설명 길이가 달라도 카드가 흔들리지 않도록
 
 ---
 
+## 3.7 B1-1 보너스 과제
+
+공식 Mission PDF의 선택 보너스 4개를 다음과 같이 구현합니다.
+
+| 보너스 과제 | 구현 | 현재 상태 |
+|---|---|---|
+| 프로젝트 언어별 필터링 | GitHub API의 `language` 값을 기준으로 `array.filter()` 적용 | 코드 구현 완료 · Runtime 확인 필요 |
+| Hero 타이핑 효과 | Vanilla JavaScript 타이핑 효과 + Reduced Motion 대응 | 코드 구현 완료 · Runtime 확인 필요 |
+| 폼 실제 전송 | Formspree POST 흐름·로딩·성공·실패 상태 구현 | **Formspree Endpoint 연결 대기** |
+| 시스템 다크 모드 감지 | `prefers-color-scheme` + `matchMedia()`, 사용자 저장 설정 우선 | 코드 구현 완료 · Runtime 확인 필요 |
+
+### Formspree 활성화
+
+Formspree에서 Form을 만든 뒤 발급받은 Endpoint만 아래에 넣으면 실제 전송이 활성화됩니다.
+
+```html
+<form
+  id="contact-form"
+  data-formspree-endpoint="https://formspree.io/f/<FORM_ID>"
+  novalidate
+>
+```
+
+Formspree Endpoint는 공개 폼 주소이며 API Key·Password·Token 같은 Secret을 Repository에 저장하지 않습니다.
+
+---
+
 ## 4. Event → State → Render
 
 이 프로젝트에서는 사용자 Event와 외부 API 결과를 State에 반영한 후 Render 함수를 통해 DOM을 갱신합니다.
