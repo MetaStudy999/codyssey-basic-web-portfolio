@@ -141,6 +141,24 @@ const handleNavLinkClick = (event) => {
 };
 
 /* ---------------------------------
+   Initial scroll position
+--------------------------------- */
+
+const resetInitialScrollPosition = () => {
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
+  if (!window.location.hash) {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "auto",
+    });
+  }
+};
+
+/* ---------------------------------
    Scroll UI
 --------------------------------- */
 
@@ -1067,6 +1085,7 @@ const handleFormSubmit = (event) => {
 --------------------------------- */
 
 const initializeApp = () => {
+  resetInitialScrollPosition();
   state.theme = getSavedTheme();
 
   renderTheme();
@@ -1102,6 +1121,10 @@ const initializeApp = () => {
     renderScrollUi,
   );
 
+  window.addEventListener(
+    "pageshow",
+    resetInitialScrollPosition,
+  );
 
   projectCategoryButtons.forEach(
     (button) => {
