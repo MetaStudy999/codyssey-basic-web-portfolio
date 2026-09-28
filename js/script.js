@@ -19,6 +19,7 @@ const TYPING_DELAY_MS = 58;
 const state = {
   menuOpen: false,
   theme: "light",
+  themeMode: "system",
 };
 
 /* ---------------------------------
@@ -36,7 +37,10 @@ const navSections = Array.from(navLinks)
     ),
   )
   .filter(Boolean);
-const themeToggle = document.querySelector("#theme-toggle");
+const themeOptions =
+  document.querySelectorAll(
+    "[data-theme-mode]",
+  );
 const heroTyping =
   document.querySelector("#hero-typing");
 const scrollTopButton = document.querySelector("#scroll-top");
@@ -48,20 +52,21 @@ const systemThemeMedia =
    Theme
 --------------------------------- */
 
-const getSavedTheme = () => {
+const getSavedThemeMode = () => {
   const savedTheme =
     localStorage.getItem(
       THEME_STORAGE_KEY,
     );
 
   if (
+    savedTheme === "system" ||
     savedTheme === "dark" ||
     savedTheme === "light"
   ) {
     return savedTheme;
   }
 
-  return null;
+  return "system";
 };
 
 const getSystemTheme = () =>
@@ -69,36 +74,46 @@ const getSystemTheme = () =>
     ? "dark"
     : "light";
 
-const getInitialTheme = () =>
-  getSavedTheme() ?? getSystemTheme();
+const resolveTheme = (mode) =>
+  mode === "system"
+    ? getSystemTheme()
+    : mode;
 
 const renderTheme = () => {
-  document.documentElement.dataset.theme = state.theme;
+  document.documentElement.dataset.theme =
+    state.theme;
 
-  const isDark = state.theme === "dark";
+  themeOptions.forEach((button) => {
+    const isActive =
+      button.dataset.themeMode ===
+      state.themeMode;
 
-  themeToggle.textContent = isDark
-    ? "Light"
-    : "Dark";
-
-  themeToggle.setAttribute(
-    "aria-label",
-    isDark
-      ? "라이트 모드로 전환"
-      : "다크 모드로 전환",
-  );
+    button.setAttribute(
+      "aria-pressed",
+      String(isActive),
+    );
+  });
 };
 
-const setTheme = (
-  theme,
+const setThemeMode = (
+  mode,
   { persist = true } = {},
 ) => {
-  state.theme = theme;
+  if (
+    mode !== "system" &&
+    mode !== "light" &&
+    mode !== "dark"
+  ) {
+    return;
+  }
+
+  state.themeMode = mode;
+  state.theme = resolveTheme(mode);
 
   if (persist) {
     localStorage.setItem(
       THEME_STORAGE_KEY,
-      state.theme,
+      state.themeMode,
     );
   }
 
@@ -106,23 +121,18 @@ const setTheme = (
 };
 
 const handleSystemThemeChange = () => {
-  if (getSavedTheme()) {
+  if (state.themeMode !== "system") {
     return;
   }
 
-  setTheme(
-    getSystemTheme(),
-    { persist: false },
-  );
+  state.theme = getSystemTheme();
+  renderTheme();
 };
 
-const toggleTheme = () => {
-  const nextTheme =
-    state.theme === "dark"
-      ? "light"
-      : "dark";
-
-  setTheme(nextTheme);
+const handleThemeModeClick = (event) => {
+  setThemeMode(
+    event.currentTarget.dataset.themeMode,
+  );
 };
 
 /* ---------------------------------
@@ -1614,7 +1624,9 @@ const handleFormSubmit = async (event) => {
 
 const initializeApp = () => {
   resetInitialScrollPosition();
-  state.theme = getInitialTheme();
+  state.themeMode = getSavedThemeMode();
+  state.theme =
+    resolveTheme(state.themeMode);
 
   renderTheme();
   renderMenu();
@@ -1629,10 +1641,12 @@ const initializeApp = () => {
     toggleMenu,
   );
 
-  themeToggle.addEventListener(
-    "click",
-    toggleTheme,
-  );
+  themeOptions.forEach((button) => {
+    button.addEventListener(
+      "click",
+      handleThemeModeClick,
+    );
+  });
 
   systemThemeMedia.addEventListener(
     "change",
