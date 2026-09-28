@@ -136,17 +136,48 @@ Skills 섹션은 제2기 공식 오리엔테이션/콘텐츠 소개 PDF를 기�
 
 ### Development Environment & Tech Stack
 
-Skills와 별도로 **개발환경(Development Environment)** 을 역할별로 정리합니다.
+Skills와 별도로 **개발환경(Development Environment)** 을 실제 개발 흐름 순서로 정리합니다.
 
-공식 제2기 오리엔테이션·콘텐츠 소개·각 Mission PDF에서 확인되는 항목을 중심으로 작성하며, 미션·도메인에 따라 선택 도구는 달라질 수 있습니다.
+표기 원칙:
 
-- OS/실행환경 — Linux, 격리/재현 가능한 Local Env, Docker, Cloud VM/EC2, Chrome
-- 개발언어 — HTML, CSS, JavaScript, TypeScript(선택), Python 3.10+, SQL
-- 개발툴/Harness — Git, GitHub, VS Code, Live Server, Terminal/CLI, Cursor Composer, Claude Code, Codex, Open Code CLI, Jupyter
-- Framework/Library — React 18+, FastAPI, Uvicorn, SQLAlchemy, Jinja2, python-multipart, passlib/bcrypt, LangGraph, Fairlearn, MONAI
-- AI Model/Technique — Claude Opus/Sonnet, GPT-4/GPT-5o, Gemini Pro, Vision/Embedding, CNN/ViT, Transformer, LSTM, RAG, XAI/SHAP
-- Infra/Service — GitHub Pages, AWS EC2, Supabase, Firebase, Vercel, Render/Railway, MLflow, n8n, Sentry, Pinecone, GPU Cluster
-- Domain Platform — ROS, Autoware Universe, AWSIM, Gazebo, Isaac Sim, MuJoCo, MIMIC-III, DICOM, Alpaca, Stripe, Domain API/SDK
+- **PDF**: 제2기 오리엔테이션·Mission PDF에 근거
+- **LAB**: 실제 실습 환경
+- **2026 EXTENSION**: 최신 확장/권장 기술이며 공식 Mission 필수는 아님
+
+18개 개발환경 계층:
+
+1. Host · OS
+2. Virtualization · Linux Runtime
+3. Runtime · Package Manager
+4. Language
+5. IDE · CLI
+6. AI Coding · Agent
+7. Frontend
+8. Backend · API
+9. Database · ORM
+10. Cache · Vector · Search
+11. Cloud AI · Local AI
+12. Container · Kubernetes
+13. Cloud · PaaS · BaaS
+14. Automation · MCP
+15. Testing · Quality
+16. Observability · Operations
+17. Security
+18. Domain Platform
+
+실습 기본 흐름:
+
+```text
+Windows 11 Pro / iMac
+→ WSL2 / OrbStack
+→ Ubuntu
+→ FastAPI / React
+→ SQLAlchemy / API
+→ Database / Cloud
+```
+
+데이터베이스는 PDF 기준 SQLite / MySQL / PostgreSQL / H2를 구분하고,
+FastAPI에서는 SQLAlchemy ORM을 연결해 CRUD·관계·인증 흐름으로 확장합니다.
 
 ### 2026 Modern Extension & Security Baseline
 
