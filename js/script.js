@@ -1351,8 +1351,7 @@ const formResult = document.querySelector("#form-result");
 const contactSubmit =
   document.querySelector("#contact-submit");
 const contactFormEndpoint =
-  contactForm.dataset.formspreeEndpoint
-    ?.trim() ?? "";
+  contactForm.action?.trim() ?? "";
 
 state.form = {
   name: "",
@@ -1394,14 +1393,44 @@ const validateForm = () => {
 };
 
 const renderFormErrors = () => {
-  nameError.textContent =
-    state.form.errors.name ?? "";
+  const fieldMap = [
+    {
+      input: nameInput,
+      errorElement: nameError,
+      message: state.form.errors.name ?? "",
+    },
+    {
+      input: emailInput,
+      errorElement: emailError,
+      message: state.form.errors.email ?? "",
+    },
+    {
+      input: messageInput,
+      errorElement: messageError,
+      message: state.form.errors.message ?? "",
+    },
+  ];
 
-  emailError.textContent =
-    state.form.errors.email ?? "";
+  fieldMap.forEach(
+    ({
+      input,
+      errorElement,
+      message,
+    }) => {
+      errorElement.textContent = message;
 
-  messageError.textContent =
-    state.form.errors.message ?? "";
+      if (message) {
+        input.setAttribute(
+          "aria-invalid",
+          "true",
+        );
+      } else {
+        input.removeAttribute(
+          "aria-invalid",
+        );
+      }
+    },
+  );
 };
 
 const clearFormResult = () => {
@@ -1482,8 +1511,54 @@ const handleFormSubmit = async (event) => {
       },
     );
 
+    const responseData =
+      await response
+        .json()
+        .catch(() => ({}));
+
     if (!response.ok) {
+      const serverErrors =
+        Array.isArray(responseData.errors)
+          ? responseData.errors
+          : [];
+
+      const nextErrors = {};
+
+      serverErrors.forEach((error) => {
+        const field =
+          error.field ??
+          error.name ??
+          "";
+
+        if (
+          field === "name" ||
+          field === "email" ||
+          field === "message"
+        ) {
+          nextErrors[field] =
+            error.message ??
+            "입력값을 확인해 주세요.";
+        }
+      });
+
+      if (
+        Object.keys(nextErrors).length > 0
+      ) {
+        state.form.errors = {
+          ...state.form.errors,
+          ...nextErrors,
+        };
+        renderFormErrors();
+      }
+
+      const formspreeMessage =
+        serverErrors
+          .map((error) => error.message)
+          .filter(Boolean)
+          .join(" ");
+
       throw new Error(
+        formspreeMessage ||
         `Formspree 응답 오류: ${response.status}`,
       );
     }
@@ -1500,7 +1575,7 @@ const handleFormSubmit = async (event) => {
     renderFormErrors();
 
     formResult.textContent =
-      "메시지가 정상적으로 전송되었습니다.";
+      "Formspree가 메시지를 정상적으로 접수했습니다. 이메일 알림은 Formspree Workflow 설정에 따라 발송됩니다.";
 
     formResult.classList.add(
       "is-success",
@@ -1509,6 +1584,7 @@ const handleFormSubmit = async (event) => {
     console.error(error);
 
     formResult.textContent =
+      error.message ||
       "메시지 전송에 실패했습니다. 잠시 후 다시 시도해 주세요.";
 
     formResult.classList.add(
