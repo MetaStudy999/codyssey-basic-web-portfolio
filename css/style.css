@@ -1247,8 +1247,12 @@ button[aria-selected="true"]
 
 
 .contact {
+  /* 마지막 섹션도 상단 메뉴 아래까지 충분히 스크롤될 수 있도록
+     최소 높이를 확보합니다. */
+  min-height:
+    calc(100svh - var(--header-height));
   padding-bottom:
-    clamp(4.5rem, 6vw, 5.5rem);
+    clamp(3rem, 4vw, 4rem);
 }
 
 .contact-description {
