@@ -51,6 +51,40 @@ Database 보안 기본선:
 - SQLAlchemy ORM 또는 파라미터 바인딩 사용
 - 중요 변경 전 백업과 복구 절차 확인
 
+## 2.2 개발환경 18계층 구조
+
+| No. | Layer | 대표 항목 | 구분 |
+|---:|---|---|---|
+| 01 | Host · OS | Windows 11 Pro, iMac, macOS, Linux | LAB/PDF |
+| 02 | Virtualization · Linux Runtime | WSL2, OrbStack, Ubuntu, Docker | LAB/PDF |
+| 03 | Runtime · Package Manager | Python, venv, uv, pip, Node.js, npm, Vite | LAB/확장 |
+| 04 | Language | HTML, CSS, JavaScript, TypeScript, Python, SQL, Bash | PDF |
+| 05 | IDE · CLI | VS Code, Live Server, Terminal, Git, GitHub, curl, Jupyter, kubectl | PDF/LAB/확장 |
+| 06 | AI Coding · Agent | Codex, Claude Code, Cursor Composer, Antigravity, MCP | 확장 |
+| 07 | Frontend | Vanilla Web, React 18+, React Router | PDF |
+| 08 | Backend · API | FastAPI, Uvicorn, Pydantic, Jinja2, REST, JWT/OAuth2 | PDF |
+| 09 | Database · ORM | SQLite, PostgreSQL, MySQL, H2, SQLAlchemy, Supabase PostgreSQL | PDF/LAB |
+| 10 | Cache · Vector · Search | Mini Redis, Redis, Pinecone, Vector DB, Embedding, RAG | PDF/확장 |
+| 11 | Cloud AI · Local AI | OpenAI/Anthropic/Gemini API, Ollama, Llama, Qwen, DeepSeek, Gemma | PDF/확장 |
+| 12 | Container · Kubernetes | Docker, Compose, Kubernetes, Pod, Deployment, Service, RBAC | PDF/확장 |
+| 13 | Cloud · PaaS · BaaS | AWS, GitHub Pages, Vercel, Netlify, Render, Railway, Supabase, Firebase | PDF/확장 |
+| 14 | Automation · MCP | n8n, Make, Webhook, REST API, MCP, AI Agents | 확장 |
+| 15 | Testing · Quality | pytest, Unit/Integration/API/Smoke/E2E, Ruff, ESLint, Prettier | LAB/확장 |
+| 16 | Observability · Operations | Logging, Health Check, ps/top/htop, Sentry, MLflow, Prometheus/Grafana/OTel | PDF/확장 |
+| 17 | Security | AuthN/AuthZ, Secret Scanning, CodeQL, Dependabot, SBOM, Prompt Injection Defense | PDF/확장 |
+| 18 | Domain Platform | ROS, Autoware, AWSIM, Gazebo, Isaac Sim, MuJoCo, MIMIC-III, DICOM | PDF |
+
+실습 실행 기준:
+
+```text
+Windows 11 Pro / iMac
+→ WSL2 / OrbStack
+→ Ubuntu
+→ FastAPI / React
+→ SQLAlchemy / API
+→ Database / Cloud
+```
+
 ## 3. 2026 최신 확장 — 공식 Mission 필수 아님
 
 ### Local AI
