@@ -87,7 +87,7 @@ Round 02에서는 설명성과 평가 재사용성을 위해 명시적인 상태
 |---|---|---|---|
 | 언어별 프로젝트 필터 | GitHub `language` 값 + `array.filter()` | 언어 버튼 클릭 → 목록/개수 변경 | 코드 구현 완료 · Runtime 확인 필요 |
 | Hero 타이핑 효과 | Vanilla JS 타이핑 + Reduced Motion 대응 | 최초 로드에서 글자 단위 표시 | 코드 구현 완료 · Runtime 확인 필요 |
-| 폼 실제 전송 | Formspree AJAX POST + 전송 중/성공/실패 UI | 실제 메일 수신 확인 | **Endpoint 연결 대기** |
+| 폼 실제 전송 | Formspree AJAX POST + 전송 중/성공/실패 UI | 실제 메일 수신 확인 | **Endpoint 연결 완료 · Runtime 실제 수신 확인 필요** |
 | 시스템 다크 모드 감지 | `prefers-color-scheme` + `matchMedia()` | OS 테마 변경 / 저장 설정 우선 확인 | 코드 구현 완료 · Runtime 확인 필요 |
 
 보너스는 필수 CLEAR 조건과 분리한다. 코드 존재만으로 보너스 PASS를 선언하지 않고 실제 Runtime과 필요한 외부 연동을 확인한다.
