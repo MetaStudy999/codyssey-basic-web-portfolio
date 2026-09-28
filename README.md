@@ -81,15 +81,19 @@
 - Navigation 클릭 시 Smooth Scroll
 - 메뉴 선택 후 자동 닫힘
 
-### 3.2 Theme Mode — System / Light / Dark
+### 3.2 Theme Mode — System → Light → Dark
 
-상단 Theme Switch에서 **System / Light / Dark** 3가지 모드를 선택할 수 있습니다.
+상단의 **하나의 Theme 버튼**을 누를 때마다 다음 순서로 순환합니다.
+
+```text
+System → Light → Dark → System
+```
 
 - **System**: 운영체제의 `prefers-color-scheme` 설정을 실시간으로 따름
 - **Light**: 라이트 모드를 사용자 선택으로 고정
 - **Dark**: 다크 모드를 사용자 선택으로 고정
 
-선택한 Theme Mode는 `localStorage`에 저장되어 새로고침 후에도 유지됩니다. `System`을 선택하면 개발자도구에서 저장값을 삭제할 필요 없이 시스템 테마 자동 감지 상태로 돌아갑니다.
+버튼에는 현재 모드가 표시되며, 선택한 Theme Mode는 `localStorage`에 저장되어 새로고침 후에도 유지됩니다. `System`으로 돌아오면 개발자도구에서 저장값을 삭제할 필요 없이 시스템 테마 자동 감지 상태가 됩니다.
 
 ```text
 Click Event
@@ -455,7 +459,7 @@ Repository 이름과 설명 길이가 달라도 카드가 흔들리지 않도록
 | 프로젝트 언어별 필터링 | GitHub API의 `language` 값을 기준으로 `array.filter()` 적용 | 코드 구현 완료 · Runtime 확인 필요 |
 | Hero 타이핑 효과 | Vanilla JavaScript 타이핑 효과 + Reduced Motion 대응 | 코드 구현 완료 · Runtime 확인 필요 |
 | 폼 실제 전송 | Formspree POST 흐름·로딩·성공·실패 상태 구현 | **PASS · Submission + 이메일 수신 확인** |
-| 시스템 다크 모드 감지 | System / Light / Dark 3-state Switch + `prefers-color-scheme` + `matchMedia()` | 코드 구현 완료 · System Runtime 확인 필요 |
+| 시스템 다크 모드 감지 | 단일 버튼 순환(System → Light → Dark) + `prefers-color-scheme` + `matchMedia()` | 코드 구현 완료 · System Runtime 확인 필요 |
 
 ### Formspree 연동
 
