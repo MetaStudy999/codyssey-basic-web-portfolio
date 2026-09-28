@@ -122,7 +122,7 @@ Click Event
 - 필드별 오류 메시지
 - 정상 입력 성공 메시지
 
-Contact Form은 기존 입력 검증에 더해 **Formspree 비동기 전송 흐름(전송 중/성공/실패)**까지 구현했습니다. Formspree Form Endpoint 연결과 표준 `action/method` + Vanilla JS AJAX 처리를 완료했습니다. 실제 이메일 수신은 Formspree Workflow와 수신 메일 환경까지 포함해 Runtime에서 최종 확인합니다.
+Contact Form은 기존 입력 검증에 더해 **Formspree 비동기 전송 흐름(전송 중/성공/실패)**까지 구현했습니다. Formspree Form Endpoint 연결과 표준 `action/method` + Vanilla JS AJAX 처리를 완료했고, 실제 GitHub Pages에서 Submission 생성과 이메일 수신까지 Runtime으로 확인했습니다.
 
 ### Skills Roadmap
 
@@ -450,10 +450,12 @@ Repository 이름과 설명 길이가 달라도 카드가 흔들리지 않도록
 |---|---|---|
 | 프로젝트 언어별 필터링 | GitHub API의 `language` 값을 기준으로 `array.filter()` 적용 | 코드 구현 완료 · Runtime 확인 필요 |
 | Hero 타이핑 효과 | Vanilla JavaScript 타이핑 효과 + Reduced Motion 대응 | 코드 구현 완료 · Runtime 확인 필요 |
-| 폼 실제 전송 | Formspree POST 흐름·로딩·성공·실패 상태 구현 | **Endpoint 연결 완료 · Runtime 실제 수신 확인 필요** |
+| 폼 실제 전송 | Formspree POST 흐름·로딩·성공·실패 상태 구현 | **PASS · Submission + 이메일 수신 확인** |
 | 시스템 다크 모드 감지 | `prefers-color-scheme` + `matchMedia()`, 사용자 저장 설정 우선 | 코드 구현 완료 · Runtime 확인 필요 |
 
 ### Formspree 연동
+
+Runtime Evidence: `training/round-02-clear/evidence/formspree-runtime-pass.txt`
 
 이 Portfolio는 B1-1의 **순수 HTML/CSS/JavaScript** 제약을 유지하기 위해 `@formspree/ajax` 외부 SDK를 추가하지 않고, 표준 HTML Form + Vanilla JavaScript `fetch()` 방식으로 연동합니다.
 
