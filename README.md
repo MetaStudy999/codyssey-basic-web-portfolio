@@ -722,6 +722,18 @@ training/round-02-clear/
 + Secret 노출 없음
 ```
 
+## Troubleshooting
+
+실제 수행 중 발생한 오류와 해결 과정은 다음 문서에 기록합니다.
+
+- `training/round-02-clear/docs/troubleshooting.md`
+  - 초기 Scroll Restoration
+  - Contact 마지막 Section 배치
+  - Formspree Domain 제한
+  - System Theme / Chrome Device Theme 연동
+
+---
+
 ## 평가 준비 바로가기
 
 - [최종 요구사항/검증 상태](training/round-02-clear/docs/final-verification.md)
