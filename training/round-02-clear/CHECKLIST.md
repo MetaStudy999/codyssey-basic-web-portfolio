@@ -112,12 +112,12 @@
 - Final Regression: **PASS**
 - Final Screenshot Evidence Update: **PASS**
 - Final Screenshot Commit/Push: **PASS** (`d979e19`)
-- Current Final Evidence: `b1-1-final-*.png` 4 files
+- Current Final Evidence: `b1-1-final-*.png` 5 files
 
 **Gate 6 판정: COMPLETE**
 
 - 최종 정리: `docs/final-verification.md`
-- Screenshot Evidence: **Final Desktop Light / Final Desktop Dark / Final Mobile 375px / Final Projects Filter**
+- Screenshot Evidence: **Final Desktop Light / Final Desktop Dark / Final Mobile 375px / Final Projects Filter / Final System Theme Sync**
 - GitHub Pages 실제 배포 및 Browser Runtime 확인 완료
 
 ## Gate 7 — 평가 준비
