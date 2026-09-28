@@ -34,7 +34,7 @@ React 이전에 DOM, Event, State, Render, 비동기 처리의 기본 원리를 
 - Screenshot/verify Evidence
 
 ### LIMITATION
-Contact는 실제 메일 전송이 아니며, Projects는 API 결과 중 최대 8개만 화면에 표시합니다.
+필수 기능 외에 언어별 프로젝트 필터, Hero 타이핑, 시스템 테마 감지, Formspree 전송 흐름을 보너스로 구현했습니다. Formspree는 개인 Endpoint 연결과 실제 수신 확인 전까지 외부 연동 대기 상태입니다.
 
 ---
 
@@ -134,7 +134,7 @@ fetch/error/403
 
 ### map / filter / forEach
 
-- `filter`: fork 저장소 제외
+- `filter`: fork 저장소 제외 + 선택 언어와 일치하는 프로젝트 필터링
 - `map`: Repository 데이터를 Project Card DOM으로 변환
 - `forEach`: 생성한 카드들을 Grid에 추가
 
@@ -174,9 +174,9 @@ input/submit
 
 > Form의 기본 페이지 전환을 막고 JavaScript에서 입력 검증 결과를 같은 화면에 표시하기 위해 사용했습니다.
 
-**한계**
+**보너스 확장**
 
-실제 이메일 전송은 구현하지 않았다. 공식 보너스 범위다.
+입력 검증을 통과하면 Formspree Endpoint로 비동기 POST하도록 확장했습니다. 전송 중·성공·실패 상태를 UI로 표시하며, 실제 수신 검증에는 개인 Formspree Endpoint가 필요합니다.
 
 ---
 
@@ -291,3 +291,24 @@ GitHub Pages
 ### Mission 번호와 진행 상태는 어떻게 관리하나?
 
 > 각 `codyssey-basic-*` Mission Repository를 B1-1부터 B7-2까지 수동 매핑하고 Mission 번호 순서대로 정렬합니다. 현재 미션은 B1-1이고 아직 최종 CLEAR 전이므로 “진행”으로 표시합니다. 상태는 자동 추론하지 않고 `MISSION_PROGRESS`에서 “준비 / 진행 / 완료” 중 하나를 직접 수정합니다. 자동화는 나중에 고도화할 수 있습니다.
+
+
+---
+
+## K. 공식 보너스 과제
+
+### 프로젝트 언어별 필터링
+
+> GitHub API의 `language` 값을 고유 목록으로 만들고, 사용자가 언어 버튼을 누르면 `array.filter()`로 해당 언어 Repository만 남긴 뒤 기존 Pagination과 Card Render를 다시 사용합니다.
+
+### Hero 타이핑 효과
+
+> Hero 핵심 문장을 JavaScript로 한 글자씩 표시합니다. 사용자가 Reduced Motion을 설정한 경우 애니메이션을 생략해 접근성을 유지합니다.
+
+### 시스템 다크 모드 감지
+
+> 저장된 사용자 선택이 있으면 localStorage를 우선하고, 저장값이 없을 때만 `prefers-color-scheme`과 `matchMedia()`로 운영체제 테마를 따릅니다.
+
+### Formspree 실제 전송
+
+> 기존 Contact Validation을 먼저 수행한 뒤 Formspree Endpoint에 비동기 POST합니다. 전송 중에는 버튼을 비활성화하고, 성공·실패 결과를 같은 화면에 표시합니다. Endpoint가 없는 상태에서는 전송을 시도하지 않고 설정 필요 메시지를 보여 줍니다.
