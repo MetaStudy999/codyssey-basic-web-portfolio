@@ -84,7 +84,7 @@ Repository 수정은 여기서 멈춘다.
 
 ## 6. 제한사항
 
-- Contact Form은 Formspree 비동기 전송 코드까지 구현했지만, Formspree Endpoint 연결은 완료했으며, 실제 이메일 수신 PASS에는 Runtime 전송 확인이 필요하다.
+- Contact Form은 Formspree Endpoint + 표준 HTML `action/method` + Vanilla JS AJAX를 사용하며, 실제 GitHub Pages에서 Submission 생성과 이메일 수신까지 Runtime PASS를 확인했다.
 - Projects는 반응형 Pagination(Mobile 4 / Tablet 6 / Desktop 9)과 언어별 보너스 필터를 사용한다.
 - GitHub API 무인증 요청은 Rate Limit 영향을 받을 수 있으며 403을 Error UI로 처리한다.
 
@@ -95,7 +95,10 @@ Repository 수정은 여기서 멈춘다.
 |---|---|---|
 | 프로젝트 언어별 필터 | 완료 | 확인 필요 |
 | Hero 타이핑 효과 | 완료 | 확인 필요 |
-| Formspree 실제 전송 | 완료 | **Endpoint/HTML/AJAX 구현 완료 · Submission/Email 실제 수신 확인 필요** |
+| Formspree 실제 전송 | 완료 | **PASS · Submission + Email 실제 수신 확인** |
 | 시스템 다크 모드 감지 | 완료 | 확인 필요 |
 
 보너스 4개는 공식 필수 요구와 별도이며, 사용자 실제 확인 전에는 보너스 전체 PASS로 기록하지 않는다.
+
+
+Formspree Runtime Evidence: `training/round-02-clear/evidence/formspree-runtime-pass.txt`
