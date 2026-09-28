@@ -84,6 +84,18 @@ Repository 수정은 여기서 멈춘다.
 
 ## 6. 제한사항
 
-- Contact Form은 실제 이메일 전송이 아니라 클라이언트 유효성 검사 범위다. 실제 전송은 보너스 과제다.
-- GitHub Projects는 전체 non-fork Repository를 가져오되 화면에는 최대 8개만 표시한다.
+- Contact Form은 Formspree 비동기 전송 코드까지 구현했지만, 실제 이메일 수신 PASS에는 개인 Formspree Endpoint 연결과 Runtime 확인이 필요하다.
+- Projects는 반응형 Pagination(Mobile 4 / Tablet 6 / Desktop 9)과 언어별 보너스 필터를 사용한다.
 - GitHub API 무인증 요청은 Rate Limit 영향을 받을 수 있으며 403을 Error UI로 처리한다.
+
+
+## 7. 보너스 과제 최종 확인
+
+| 항목 | 코드 | Runtime / 외부 연동 |
+|---|---|---|
+| 프로젝트 언어별 필터 | 완료 | 확인 필요 |
+| Hero 타이핑 효과 | 완료 | 확인 필요 |
+| Formspree 실제 전송 | 완료 | **Endpoint 연결 + 실제 수신 확인 필요** |
+| 시스템 다크 모드 감지 | 완료 | 확인 필요 |
+
+보너스 4개는 공식 필수 요구와 별도이며, 사용자 실제 확인 전에는 보너스 전체 PASS로 기록하지 않는다.
