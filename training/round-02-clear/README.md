@@ -4,6 +4,15 @@
 > **현재 작업 위치:** `training/round-02-clear/`  
 > **기존 참고자료:** `training/round-01-clear/`
 
+## 적용 실행 템플릿 버전
+
+- Template: **Mission Execution Template v1.0.0**
+- Stable Source: `MetaStudy999/codyssey-basic/templates/mission-execution/CURRENT.md`
+- Applied: **2026-09-28**
+- Upgrade Policy: 이후 버전이 생겨도 이 Mission 결과를 자동 재작성하지 않고, 재검증이 필요한 경우에만 선택적으로 Migration한다.
+
+B1-1은 v1.0.0을 만드는 실제 검증 Mission으로 사용되었다. 이 Repository에서 발견한 개선 후보는 Control Tower의 `templates/mission-execution/NEXT.md`에 기록한다.
+
 ## 현재 미션 식별
 
 - 현재 Mission ID: **B1-1**
@@ -49,6 +58,20 @@
 7. 평가 설명 준비
 8. 모의평가 후 최종 CLEAR 점검
 ```
+
+## 현재 실제 상태 — 2026-09-28
+
+- 필수 구현: **PASS**
+- GitHub Pages Runtime: **PASS**
+- Screenshot Evidence: **PASS**
+- 공식 Bonus 4개 Runtime: **PASS**
+- Troubleshooting 문서화: **PASS**
+- Requirement → Implementation → Verification → Evidence 연결: **COMPLETE**
+- Evaluation 자료: **READY**
+- 사용자 구두 복습 / 모의평가: **PENDING**
+- 최종 상태: **REPOSITORY READY / USER ORAL REVIEW PENDING**
+
+현재는 새 기능 추가보다 최종 Regression → 평가 복습 → 모의평가 → CLEAR 판정 순서로 진행한다.
 
 ## 현재 진행 상태
 
