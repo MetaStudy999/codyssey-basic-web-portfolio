@@ -42,6 +42,21 @@
   --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #0f172a;
+    --color-surface: #172033;
+    --color-text: #f8fafc;
+    --color-muted: #a7b3c7;
+    --color-primary: #60a5fa;
+    --color-primary-hover: #93c5fd;
+    --color-border: #334155;
+
+    --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.25);
+    --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.35);
+  }
+}
+
 /* ------------------------------
    Base
 ------------------------------ */
@@ -278,6 +293,29 @@ button {
   margin-bottom: var(--space-sm);
   color: var(--color-primary);
   font-weight: 700;
+}
+
+.hero-typing {
+  display: inline;
+}
+
+.hero-typing.is-typing::after {
+  content: "▋";
+  margin-left: 0.1em;
+  color: var(--color-primary);
+  animation: typing-caret 0.8s steps(1) infinite;
+}
+
+@keyframes typing-caret {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+  }
 }
 
 .hero h1 {
@@ -780,6 +818,62 @@ button[aria-selected="true"]
     );
 }
 
+.projects-language-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs);
+  margin: calc(var(--space-lg) * -0.35) 0 var(--space-lg);
+}
+
+.projects-language-filter[hidden] {
+  display: none;
+}
+
+.projects-filter-label {
+  margin-right: 0.15rem;
+  color: var(--color-muted);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.projects-language-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.projects-language-buttons button {
+  min-height: 34px;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+  transition:
+    border-color var(--transition),
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.projects-language-buttons button:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.projects-language-buttons button[aria-pressed="true"] {
+  border-color: var(--color-primary);
+  background:
+    color-mix(
+      in srgb,
+      var(--color-primary) 12%,
+      var(--color-surface)
+    );
+  color: var(--color-primary);
+}
+
 .projects-category-message {
   display: grid;
   min-height: 180px;
@@ -1045,6 +1139,18 @@ button[aria-selected="true"]
   font-size: 0.9rem;
 }
 
+.contact-honeypot {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 #contact-form button {
   justify-self: start;
   padding: 0.8rem 1.2rem;
@@ -1053,6 +1159,11 @@ button[aria-selected="true"]
   background: var(--color-primary);
   color: #ffffff;
   font-weight: 700;
+}
+
+#contact-form button:disabled {
+  cursor: wait;
+  opacity: 0.65;
 }
 
 .form-result {
@@ -1279,5 +1390,9 @@ button[aria-selected="true"]
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .hero-typing.is-typing::after {
+    display: none;
   }
 }
