@@ -271,6 +271,34 @@ iMac / Windows 11 Pro
 
 `training/round-02-clear/docs/curriculum-tech-security-matrix.md`
 
+### Portfolio UX & Accessibility
+
+포트폴리오 전체 정보구조를 방문자가 빠르게 이해하도록 다음처럼 분리합니다.
+
+```text
+Home
+→ About
+→ Skills
+→ Projects
+→ Tech Stack
+→ Security
+→ Contact
+```
+
+보완 사항:
+
+- Skills / Projects / Tech Stack / Security를 독립 Section으로 분리
+- Project 카드 제목은 Repository 이름보다 **한글 Mission 제목**을 우선 표시
+- Repository 이름은 보조 정보로 표시
+- GitHub API 조회 범위를 `per_page=100`으로 확대
+- Sticky Header 이동을 위한 `scroll-margin-top`
+- 키보드 사용자를 위한 Skip Link / `:focus-visible`
+- 현재 Section을 Navigation에 `aria-current="location"`으로 표시
+- `prefers-reduced-motion` 지원
+- 뒤로가기 시 이전 스크롤 위치를 보존하고 일반 최초 진입만 상단에서 시작
+- Contact는 실제 전송이 아닌 입력 검증 UI Demo임을 명시
+- SEO: title / description / canonical / Open Graph / theme-color 반영
+
 ### 3.6 GitHub API Projects
 
 Projects는 코디세이 학습 단계별 카테고리로 구성합니다.
