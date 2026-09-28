@@ -8,6 +8,9 @@ const NAV_SCROLL_THRESHOLD = 60;
 const SCROLL_TOP_THRESHOLD = 300;
 const OBSERVER_THRESHOLD = 0.2;
 const THEME_STORAGE_KEY = "portfolio-theme";
+const SYSTEM_THEME_QUERY =
+  "(prefers-color-scheme: dark)";
+const TYPING_DELAY_MS = 58;
 
 /* ---------------------------------
    State
@@ -34,22 +37,40 @@ const navSections = Array.from(navLinks)
   )
   .filter(Boolean);
 const themeToggle = document.querySelector("#theme-toggle");
+const heroTyping =
+  document.querySelector("#hero-typing");
 const scrollTopButton = document.querySelector("#scroll-top");
 const revealSections = document.querySelectorAll(".section");
+const systemThemeMedia =
+  window.matchMedia(SYSTEM_THEME_QUERY);
 
 /* ---------------------------------
    Theme
 --------------------------------- */
 
 const getSavedTheme = () => {
-  const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+  const savedTheme =
+    localStorage.getItem(
+      THEME_STORAGE_KEY,
+    );
 
-  if (savedTheme === "dark" || savedTheme === "light") {
+  if (
+    savedTheme === "dark" ||
+    savedTheme === "light"
+  ) {
     return savedTheme;
   }
 
-  return "light";
+  return null;
 };
+
+const getSystemTheme = () =>
+  systemThemeMedia.matches
+    ? "dark"
+    : "light";
+
+const getInitialTheme = () =>
+  getSavedTheme() ?? getSystemTheme();
 
 const renderTheme = () => {
   document.documentElement.dataset.theme = state.theme;
@@ -68,15 +89,31 @@ const renderTheme = () => {
   );
 };
 
-const setTheme = (theme) => {
+const setTheme = (
+  theme,
+  { persist = true } = {},
+) => {
   state.theme = theme;
 
-  localStorage.setItem(
-    THEME_STORAGE_KEY,
-    state.theme,
-  );
+  if (persist) {
+    localStorage.setItem(
+      THEME_STORAGE_KEY,
+      state.theme,
+    );
+  }
 
   renderTheme();
+};
+
+const handleSystemThemeChange = () => {
+  if (getSavedTheme()) {
+    return;
+  }
+
+  setTheme(
+    getSystemTheme(),
+    { persist: false },
+  );
 };
 
 const toggleTheme = () => {
@@ -86,6 +123,56 @@ const toggleTheme = () => {
       : "dark";
 
   setTheme(nextTheme);
+};
+
+/* ---------------------------------
+   Hero typing effect
+--------------------------------- */
+
+const runHeroTyping = () => {
+  if (!heroTyping) {
+    return;
+  }
+
+  const fullText =
+    heroTyping.dataset.text ||
+    heroTyping.textContent.trim();
+
+  const reduceMotion =
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+  if (reduceMotion) {
+    heroTyping.textContent = fullText;
+    return;
+  }
+
+  heroTyping.textContent = "";
+  heroTyping.classList.add("is-typing");
+
+  let index = 0;
+
+  const typeNextCharacter = () => {
+    heroTyping.textContent =
+      fullText.slice(0, index + 1);
+
+    index += 1;
+
+    if (index >= fullText.length) {
+      heroTyping.classList.remove(
+        "is-typing",
+      );
+      return;
+    }
+
+    window.setTimeout(
+      typeNextCharacter,
+      TYPING_DELAY_MS,
+    );
+  };
+
+  typeNextCharacter();
 };
 
 /* ---------------------------------
@@ -326,6 +413,16 @@ const projectsCategoryMessage =
     "#projects-category-message",
   );
 
+const projectsLanguageFilter =
+  document.querySelector(
+    "#projects-language-filter",
+  );
+
+const projectsLanguageButtons =
+  document.querySelector(
+    "#projects-language-buttons",
+  );
+
 const projectsGrid =
   document.querySelector("#projects-grid");
 
@@ -342,6 +439,7 @@ state.projects = {
   error: "",
   page: 1,
   category: "all",
+  language: "all",
 };
 
 const CURRENT_MISSION_ID = "B1-1";
@@ -556,6 +654,101 @@ const getProjectsForCategory = () => {
   return [];
 };
 
+const getProjectLanguages = (items) =>
+  Array.from(
+    new Set(
+      items
+        .map((repository) =>
+          repository.language?.trim(),
+        )
+        .filter(Boolean),
+    ),
+  ).sort((a, b) =>
+    a.localeCompare(b, "en"),
+  );
+
+const filterProjectsByLanguage =
+  (items) => {
+    if (
+      state.projects.language === "all"
+    ) {
+      return items;
+    }
+
+    return items.filter(
+      (repository) =>
+        repository.language ===
+        state.projects.language,
+    );
+  };
+
+const setProjectLanguage = (language) => {
+  state.projects.language = language;
+  state.projects.page = 1;
+  renderProjects();
+};
+
+const renderProjectLanguageFilters =
+  (categoryItems) => {
+    const languages =
+      getProjectLanguages(categoryItems);
+
+    projectsLanguageButtons
+      .replaceChildren();
+
+    if (languages.length === 0) {
+      projectsLanguageFilter.hidden = true;
+      state.projects.language = "all";
+      return;
+    }
+
+    if (
+      state.projects.language !== "all" &&
+      !languages.includes(
+        state.projects.language,
+      )
+    ) {
+      state.projects.language = "all";
+    }
+
+    const languageOptions = [
+      "all",
+      ...languages,
+    ];
+
+    languageOptions.forEach(
+      (language) => {
+        const button =
+          document.createElement("button");
+
+        button.type = "button";
+        button.textContent =
+          language === "all"
+            ? "전체"
+            : language;
+
+        button.setAttribute(
+          "aria-pressed",
+          String(
+            language ===
+              state.projects.language,
+          ),
+        );
+
+        button.addEventListener(
+          "click",
+          () =>
+            setProjectLanguage(language),
+        );
+
+        projectsLanguageButtons
+          .append(button);
+      },
+    );
+
+    projectsLanguageFilter.hidden = false;
+  };
+
 const renderProjectCategoryTabs = () => {
   projectCategoryButtons.forEach(
     (button) => {
@@ -577,6 +770,7 @@ const setProjectCategory = (category) => {
   }
 
   state.projects.category = category;
+  state.projects.language = "all";
   state.projects.page = 1;
   renderProjects();
 };
@@ -908,6 +1102,10 @@ const renderProjects = () => {
   projectsCategoryMessage
     .replaceChildren();
 
+  projectsLanguageFilter.hidden = true;
+  projectsLanguageButtons
+    .replaceChildren();
+
   reloadProjectsButton.hidden =
     categoryConfig.mode !== "repositories";
 
@@ -986,13 +1184,28 @@ const renderProjects = () => {
       return;
     }
 
+    renderProjectLanguageFilters(
+      categoryItems,
+    );
+
+    const filteredItems =
+      filterProjectsByLanguage(
+        categoryItems,
+      );
+
+    if (filteredItems.length === 0) {
+      projectsStatus.innerHTML =
+        `<span><strong>${state.projects.language}</strong> · 해당 언어의 프로젝트가 없습니다.</span>`;
+      return;
+    }
+
     const perPage = getProjectsPerPage();
 
     const totalPages =
       Math.max(
         1,
         Math.ceil(
-          categoryItems.length / perPage,
+          filteredItems.length / perPage,
         ),
       );
 
@@ -1010,17 +1223,17 @@ const renderProjects = () => {
     const endIndex =
       Math.min(
         startIndex + perPage,
-        categoryItems.length,
+        filteredItems.length,
       );
 
     const visibleItems =
-      categoryItems.slice(
+      filteredItems.slice(
         startIndex,
         endIndex,
       );
 
     projectsStatus.innerHTML =
-      `<span><strong>${categoryConfig.label}</strong> · <strong>${categoryItems.length}</strong>개 레포 중 <strong>${startIndex + 1}–${endIndex}</strong>번째를 표시했습니다. (${currentPage}/${totalPages} 페이지)</span>`;
+      `<span><strong>${categoryConfig.label}</strong> · <strong>${filteredItems.length}</strong>개 레포 중 <strong>${startIndex + 1}–${endIndex}</strong>번째를 표시했습니다. (${currentPage}/${totalPages} 페이지)${state.projects.language === "all" ? "" : ` · 언어: <strong>${state.projects.language}</strong>`}</span>`;
 
     const cards = visibleItems
       .map((repository) =>
@@ -1135,6 +1348,11 @@ const nameError = document.querySelector("#name-error");
 const emailError = document.querySelector("#email-error");
 const messageError = document.querySelector("#message-error");
 const formResult = document.querySelector("#form-result");
+const contactSubmit =
+  document.querySelector("#contact-submit");
+const contactFormEndpoint =
+  contactForm.dataset.formspreeEndpoint
+    ?.trim() ?? "";
 
 state.form = {
   name: "",
@@ -1201,7 +1419,7 @@ const handleFormInput = () => {
   clearFormResult();
 };
 
-const handleFormSubmit = (event) => {
+const handleFormSubmit = async (event) => {
   event.preventDefault();
 
   updateFormState();
@@ -1223,10 +1441,84 @@ const handleFormSubmit = (event) => {
     return;
   }
 
-  formResult.textContent =
-    "입력 내용을 확인했습니다. 현재는 실제 메시지를 전송하지 않는 UI 데모입니다.";
+  if (!contactFormEndpoint) {
+    formResult.textContent =
+      "Formspree 전송 주소가 아직 설정되지 않았습니다.";
 
-  formResult.classList.add("is-success");
+    formResult.classList.add("is-error");
+    return;
+  }
+
+  contactSubmit.disabled = true;
+  contactSubmit.textContent = "전송 중...";
+  formResult.textContent =
+    "메시지를 전송하고 있습니다.";
+
+  try {
+    const formData =
+      new FormData(contactForm);
+
+    formData.set(
+      "name",
+      state.form.name.trim(),
+    );
+    formData.set(
+      "email",
+      state.form.email.trim(),
+    );
+    formData.set(
+      "message",
+      state.form.message.trim(),
+    );
+
+    const response = await fetch(
+      contactFormEndpoint,
+      {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      },
+    );
+
+    if (!response.ok) {
+      throw new Error(
+        `Formspree 응답 오류: ${response.status}`,
+      );
+    }
+
+    contactForm.reset();
+
+    state.form = {
+      name: "",
+      email: "",
+      message: "",
+      errors: {},
+    };
+
+    renderFormErrors();
+
+    formResult.textContent =
+      "메시지가 정상적으로 전송되었습니다.";
+
+    formResult.classList.add(
+      "is-success",
+    );
+  } catch (error) {
+    console.error(error);
+
+    formResult.textContent =
+      "메시지 전송에 실패했습니다. 잠시 후 다시 시도해 주세요.";
+
+    formResult.classList.add(
+      "is-error",
+    );
+  } finally {
+    contactSubmit.disabled = false;
+    contactSubmit.textContent =
+      "메시지 보내기";
+  }
 };
 
 /* ---------------------------------
@@ -1235,7 +1527,7 @@ const handleFormSubmit = (event) => {
 
 const initializeApp = () => {
   resetInitialScrollPosition();
-  state.theme = getSavedTheme();
+  state.theme = getInitialTheme();
 
   renderTheme();
   renderMenu();
@@ -1243,6 +1535,7 @@ const initializeApp = () => {
   renderActiveNav();
   renderCurrentMissionSummary();
   initializeReveal();
+  runHeroTyping();
 
   menuToggle.addEventListener(
     "click",
@@ -1252,6 +1545,11 @@ const initializeApp = () => {
   themeToggle.addEventListener(
     "click",
     toggleTheme,
+  );
+
+  systemThemeMedia.addEventListener(
+    "change",
+    handleSystemThemeChange,
   );
 
   scrollTopButton.addEventListener(
