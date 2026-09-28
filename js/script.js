@@ -1583,9 +1583,20 @@ const handleFormSubmit = async (event) => {
   } catch (error) {
     console.error(error);
 
+    const errorMessage =
+      error.message || "";
+
+    const isDomainRestrictionError =
+      /domain|도메인|localhost|referer/i
+        .test(errorMessage);
+
     formResult.textContent =
-      error.message ||
-      "메시지 전송에 실패했습니다. 잠시 후 다시 시도해 주세요.";
+      isDomainRestrictionError
+        ? "현재 Formspree는 배포 도메인(metastudy999.github.io)만 허용하도록 설정되어 있습니다. localhost가 아닌 실제 GitHub Pages에서 전송을 테스트해 주세요."
+        : (
+            errorMessage ||
+            "메시지 전송에 실패했습니다. 잠시 후 다시 시도해 주세요."
+          );
 
     formResult.classList.add(
       "is-error",
