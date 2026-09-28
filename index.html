@@ -77,7 +77,11 @@
 
         <h1>
           안녕하세요.<br>
-          코디세이 AI 올인원 1기 교육생입니다.
+          <span
+            id="hero-typing"
+            class="hero-typing"
+            data-text="코디세이 AI 올인원 1기 교육생입니다."
+          >코디세이 AI 올인원 1기 교육생입니다.</span>
         </h1>
 
         <p>
@@ -280,6 +284,21 @@
             <span class="project-category-number">5</span>
             <span>파이널 프로젝트</span>
           </button>
+        </div>
+
+        <div
+          class="projects-language-filter"
+          id="projects-language-filter"
+          aria-label="프로젝트 언어 필터"
+          hidden
+        >
+          <span class="projects-filter-label">언어</span>
+          <div
+            class="projects-language-buttons"
+            id="projects-language-buttons"
+            role="group"
+            aria-label="언어별 프로젝트 필터"
+          ></div>
         </div>
 
         <div
@@ -645,11 +664,14 @@
         <h2>Contact</h2>
 
         <p class="contact-description">
-          현재 문의 폼은 실제 전송 기능이 아닌 입력 검증 UI 데모입니다.
-          실제 연락은 하단 GitHub 링크를 이용해 주세요.
+          이름·이메일·메시지를 입력하면 Formspree를 통해 실제 문의를 전송하도록 구성했습니다.
         </p>
 
-        <form id="contact-form" novalidate>
+        <form
+          id="contact-form"
+          data-formspree-endpoint=""
+          novalidate
+        >
           <div class="form-field">
             <label for="name">이름</label>
             <input
@@ -685,8 +707,17 @@
             <p class="field-error" id="message-error"></p>
           </div>
 
-          <button type="submit">
-            입력 확인
+          <input
+            class="contact-honeypot"
+            type="text"
+            name="_gotcha"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          >
+
+          <button type="submit" id="contact-submit">
+            메시지 보내기
           </button>
 
           <p
