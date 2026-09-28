@@ -122,7 +122,7 @@ Click Event
 - 필드별 오류 메시지
 - 정상 입력 성공 메시지
 
-현재 Contact Form은 **입력 검증 UI 범위**이며 실제 이메일 전송 기능은 포함하지 않습니다.
+Contact Form은 기존 입력 검증에 더해 **Formspree 비동기 전송 흐름(전송 중/성공/실패)**까지 구현했습니다. 실제 이메일 전송 활성화에는 개인 Formspree Form Endpoint 연결이 필요합니다.
 
 ### Skills Roadmap
 
@@ -296,7 +296,7 @@ Home
 - 현재 Section을 Navigation에 `aria-current="location"`으로 표시
 - `prefers-reduced-motion` 지원
 - 뒤로가기 시 이전 스크롤 위치를 보존하고 일반 최초 진입만 상단에서 시작
-- Contact는 실제 전송이 아닌 입력 검증 UI Demo임을 명시
+- Contact 입력 검증 + Formspree 전송 상태(전송 중/성공/실패)를 구현하고, Endpoint 미설정 상태를 명확히 처리
 - SEO: title / description / canonical / Open Graph / theme-color 반영
 
 ### 3.6 GitHub API Projects
