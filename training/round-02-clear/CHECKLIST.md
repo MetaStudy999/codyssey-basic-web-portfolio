@@ -1,5 +1,30 @@
 # B1-1 Round 02 Checklist
 
+## Template Version
+
+- Applied Template: **Mission Execution Template v1.0.0**
+- Stable Source: `MetaStudy999/codyssey-basic/templates/mission-execution/CURRENT.md`
+- This checklist was created before the 13-step v1.0.0 flow was stabilized, so the existing Gate 1~9 history is preserved.
+- Future template versions do **not** retroactively rewrite this checklist. Migration is done only when B1-1 is intentionally re-opened and re-verified.
+
+### v1.0.0 대응
+
+| v1.0.0 Step | 기존 B1-1 기록 |
+|---|---|
+| 01 기준 확정 | Gate 1 |
+| 02 평가 매핑 | Gate 2 |
+| 03 Minimum Passing Path | Gate 3 |
+| 04 통합 구현 | Gate 4~5 + 구현 로그 |
+| 05 Runtime 검증 | Gate 5~6 |
+| 06 UX 고도화 | 후속 Portfolio 개선 |
+| 07 Bonus | Bonus 4개 Runtime PASS |
+| 08 Troubleshooting | `docs/troubleshooting.md` |
+| 09 Regression | `docs/final-verification.md` |
+| 10 Evidence / Docs | Gate 6 |
+| 11 Evaluation | Gate 7 |
+| 12 Mock Evaluation | Gate 8 PENDING |
+| 13 CLEAR | Gate 8 최종 판정 |
+
 ## Gate 1 — 기준 확정
 - [x] 제2기 현재 Mission PDF에서 ID·제목 확인
 - [x] 공식 요구사항·산출물 확인
