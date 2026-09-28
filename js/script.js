@@ -26,6 +26,13 @@ const siteHeader = document.querySelector(".site-header");
 const menuToggle = document.querySelector(".menu-toggle");
 const navMenu = document.querySelector("#nav-menu");
 const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+const navSections = Array.from(navLinks)
+  .map((link) =>
+    document.querySelector(
+      link.getAttribute("href"),
+    ),
+  )
+  .filter(Boolean);
 const themeToggle = document.querySelector("#theme-toggle");
 const scrollTopButton = document.querySelector("#scroll-top");
 const revealSections = document.querySelectorAll(".section");
@@ -144,18 +151,30 @@ const handleNavLinkClick = (event) => {
    Initial scroll position
 --------------------------------- */
 
-const resetInitialScrollPosition = () => {
-  if ("scrollRestoration" in history) {
-    history.scrollRestoration = "manual";
+const resetInitialScrollPosition = (event) => {
+  if (window.location.hash) {
+    return;
   }
 
-  if (!window.location.hash) {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "auto",
-    });
+  const navigationEntry =
+    performance.getEntriesByType(
+      "navigation",
+    )[0];
+
+  const isBackForward =
+    event?.persisted ||
+    navigationEntry?.type ===
+      "back_forward";
+
+  if (isBackForward) {
+    return;
   }
+
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "auto",
+  });
 };
 
 /* ---------------------------------
@@ -174,6 +193,39 @@ const renderScrollUi = () => {
     "visible",
     scrollY >= SCROLL_TOP_THRESHOLD,
   );
+};
+
+const renderActiveNav = () => {
+  const headerOffset =
+    siteHeader.offsetHeight + 24;
+
+  let activeId = "home";
+
+  navSections.forEach((section) => {
+    if (
+      section.offsetTop <=
+      window.scrollY + headerOffset
+    ) {
+      activeId = section.id;
+    }
+  });
+
+  navLinks.forEach((link) => {
+    const isActive =
+      link.getAttribute("href") ===
+      `#${activeId}`;
+
+    if (isActive) {
+      link.setAttribute(
+        "aria-current",
+        "location",
+      );
+    } else {
+      link.removeAttribute(
+        "aria-current",
+      );
+    }
+  });
 };
 
 const handleScrollTop = () => {
@@ -218,6 +270,8 @@ const initializeReveal = () => {
 --------------------------------- */
 
 const handleResize = () => {
+  renderActiveNav();
+
   if (window.innerWidth >= 768 && state.menuOpen) {
     setMenuOpen(false);
   }
@@ -294,27 +348,92 @@ const MISSION_PROGRESS = {
 };
 
 const MISSION_REPOSITORY_MAP = {
-  "codyssey-basic-web-portfolio": { missionId: "B1-1", order: 101 },
-  "codyssey-basic-react-spa": { missionId: "B1-2", order: 102 },
-  "codyssey-basic-budget-tracker": { missionId: "B2-1", order: 201 },
-  "codyssey-basic-git-collaboration": { missionId: "B2-2", order: 202 },
-  "codyssey-basic-cloud-infrastructure": { missionId: "B3-1", order: 301 },
-  "codyssey-basic-ai-git-assistant": { missionId: "B3-2", order: 302 },
-  "codyssey-basic-system-monitor": { missionId: "B4-1", order: 401 },
-  "codyssey-basic-system-troubleshooting": { missionId: "B4-2", order: 402 },
-  "codyssey-basic-mini-redis": { missionId: "B5-1", order: 501 },
-  "codyssey-basic-mini-git": { missionId: "B5-2", order: 502 },
-  "codyssey-basic-sql-database": { missionId: "B6-1", order: 601 },
-  "codyssey-basic-fastapi-crud": { missionId: "B6-2", order: 602 },
-  "codyssey-basic-fastapi-auth": { missionId: "B6-3", order: 603 },
-  "codyssey-basic-ai-chatbot": { missionId: "B7-1", order: 701 },
-  "codyssey-basic-ai-chatbot-fullstack": { missionId: "B7-2", order: 702 },
-  "codyssey-basic": { missionId: "공통", order: 999 },
+  "codyssey-basic-web-portfolio": {
+    missionId: "B1-1",
+    title: "나를 소개하는 웹페이지 처음부터 만들기",
+    order: 101,
+  },
+  "codyssey-basic-react-spa": {
+    missionId: "B1-2",
+    title: "버튼 누르면 화면이 스르르 바뀌는 요즘 웹사이트 만들기",
+    order: 102,
+  },
+  "codyssey-basic-budget-tracker": {
+    missionId: "B2-1",
+    title: "나만의 용돈 기입장 프로그램 만들기",
+    order: 201,
+  },
+  "codyssey-basic-git-collaboration": {
+    missionId: "B2-2",
+    title: "친구 3~5명과 함께 프로그램 만드는 법 연습하기",
+    order: 202,
+  },
+  "codyssey-basic-cloud-infrastructure": {
+    missionId: "B3-1",
+    title: "내가 만든 웹사이트를 인터넷에 올려 누구나 쓰게 하기",
+    order: 301,
+  },
+  "codyssey-basic-ai-git-assistant": {
+    missionId: "B3-2",
+    title: "내가 고친 코드 설명을 AI가 대신 써주는 도우미 만들기",
+    order: 302,
+  },
+  "codyssey-basic-system-monitor": {
+    missionId: "B4-1",
+    title: "컴퓨터가 알아서 자기 상태를 점검하게 만들기",
+    order: 401,
+  },
+  "codyssey-basic-system-troubleshooting": {
+    missionId: "B4-2",
+    title: "컴퓨터가 갑자기 느려지거나 멈췄을 때 원인 찾아 고치기",
+    order: 402,
+  },
+  "codyssey-basic-mini-redis": {
+    missionId: "B5-1",
+    title: "정보를 엄청 빠르게 찾아주는 작은 저장소 만들기",
+    order: 501,
+  },
+  "codyssey-basic-mini-git": {
+    missionId: "B5-2",
+    title: "파일이 언제 어떻게 바뀌었는지 기록하는 작은 프로그램 만들기",
+    order: 502,
+  },
+  "codyssey-basic-sql-database": {
+    missionId: "B6-1",
+    title: "정보를 깔끔하게 정리하는 디지털 서랍장 만들기",
+    order: 601,
+  },
+  "codyssey-basic-fastapi-crud": {
+    missionId: "B6-2",
+    title: "글을 쓰고·보고·고치고·지울 수 있는 게시판형 웹 서비스 만들기",
+    order: 602,
+  },
+  "codyssey-basic-fastapi-auth": {
+    missionId: "B6-3",
+    title: "로그인이 되고 회원끼리 연결되는 웹 서비스 만들기",
+    order: 603,
+  },
+  "codyssey-basic-ai-chatbot": {
+    missionId: "B7-1",
+    title: "웹 기반 AI 챗봇 서비스 개발 프로젝트",
+    order: 701,
+  },
+  "codyssey-basic-ai-chatbot-fullstack": {
+    missionId: "B7-2",
+    title: "웹 기반 AI 챗봇 서비스 고도화 프로젝트",
+    order: 702,
+  },
+  "codyssey-basic": {
+    missionId: "공통",
+    title: "CODYSSEY 공통 학습 기준",
+    order: 999,
+  },
 };
 
 const getMissionMeta = (name) =>
   MISSION_REPOSITORY_MAP[name] ?? {
     missionId: "미지정",
+    title: name,
     order: 9999,
   };
 
@@ -343,7 +462,7 @@ const renderCurrentMissionSummary = () => {
 
   const label = document.createElement("span");
   label.classList.add("current-mission-label");
-  label.textContent = "현재 미션";
+  label.textContent = "Portfolio 정리 현황";
 
   const mission = document.createElement("span");
   mission.classList.add("mission-id-badge");
@@ -584,8 +703,10 @@ const createProjectCard = (repository) => {
 
   article.classList.add("project-card");
 
-  const { missionId } =
-    getMissionMeta(name);
+  const {
+    missionId,
+    title: missionTitle,
+  } = getMissionMeta(name);
 
   const missionStatus =
     getMissionStatus(missionId);
@@ -627,7 +748,16 @@ const createProjectCard = (repository) => {
   const title =
     document.createElement("h3");
 
-  title.textContent = name;
+  title.textContent = missionTitle;
+
+  const repositoryName =
+    document.createElement("p");
+
+  repositoryName.classList.add(
+    "project-repository-name",
+  );
+
+  repositoryName.textContent = name;
 
   const descriptionElement =
     document.createElement("p");
@@ -732,6 +862,7 @@ const createProjectCard = (repository) => {
   article.append(
     cardHeader,
     title,
+    repositoryName,
     descriptionElement,
     meta,
     actions,
@@ -928,7 +1059,7 @@ const loadProjects = async () => {
     const url =
       `https://api.github.com/users/` +
       `${encodeURIComponent(GITHUB_USERNAME)}` +
-      `/repos?sort=updated&per_page=30`;
+      `/repos?sort=updated&per_page=100`;
 
     const response = await fetch(url);
 
@@ -1075,7 +1206,7 @@ const handleFormSubmit = (event) => {
   }
 
   formResult.textContent =
-    "입력이 정상적으로 확인되었습니다.";
+    "입력 내용을 확인했습니다. 현재는 실제 메시지를 전송하지 않는 UI 데모입니다.";
 
   formResult.classList.add("is-success");
 };
@@ -1091,6 +1222,7 @@ const initializeApp = () => {
   renderTheme();
   renderMenu();
   renderScrollUi();
+  renderActiveNav();
   renderCurrentMissionSummary();
   initializeReveal();
 
@@ -1118,12 +1250,10 @@ const initializeApp = () => {
 
   window.addEventListener(
     "scroll",
-    renderScrollUi,
-  );
-
-  window.addEventListener(
-    "pageshow",
-    resetInitialScrollPosition,
+    () => {
+      renderScrollUi();
+      renderActiveNav();
+    },
   );
 
   projectCategoryButtons.forEach(
