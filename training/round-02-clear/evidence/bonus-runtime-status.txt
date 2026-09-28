@@ -5,8 +5,16 @@ User-confirmed runtime results:
 [PASS] Project language filter — language buttons display and filtering works.
 [PASS] Hero typing effect — typing animation works.
 [PASS] Formspree contact — submission accepted and notification email received.
-[PENDING] System theme mode — code and UI implemented; final runtime verification of System following OS theme remains.
+[PASS] System theme mode — Chrome Appearance set to Device/System and Portfolio set to System; macOS Light/Dark changes are reflected by the web page.
 
-Note:
-- These PASS items are based on the user's actual browser/runtime confirmation in the current session.
-- System mode must still be tested by switching macOS Appearance while the site is set to System.
+System theme troubleshooting result:
+- Repository and local source were current.
+- Web System mode and prefers-color-scheme logic were implemented.
+- The remaining environment issue was Chrome Appearance not following the device/system theme.
+- After setting Chrome Appearance to Device/System, System theme synchronization worked correctly.
+
+Overall bonus status:
+[PASS] 4 / 4 official B1-1 bonus tasks runtime-confirmed.
+
+Security note:
+- No password, API key, token, or private credential is stored in this evidence.
