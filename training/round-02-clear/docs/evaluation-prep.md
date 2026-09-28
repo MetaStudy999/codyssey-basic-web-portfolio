@@ -34,7 +34,7 @@ React 이전에 DOM, Event, State, Render, 비동기 처리의 기본 원리를 
 - Screenshot/verify Evidence
 
 ### LIMITATION
-필수 기능 외에 언어별 프로젝트 필터, Hero 타이핑, 시스템 테마 감지, Formspree 전송 흐름을 보너스로 구현했습니다. Formspree는 개인 Endpoint 연결과 실제 수신 확인 전까지 외부 연동 대기 상태입니다.
+필수 기능 외에 언어별 프로젝트 필터, Hero 타이핑, 시스템 테마 감지, Formspree 전송 흐름을 보너스로 구현했습니다. Formspree Endpoint 연결은 완료했으며, 실제 수신 여부는 Runtime에서 최종 확인합니다.
 
 ---
 
@@ -311,4 +311,4 @@ GitHub Pages
 
 ### Formspree 실제 전송
 
-> 기존 Contact Validation을 먼저 수행한 뒤 Formspree Endpoint에 비동기 POST합니다. 전송 중에는 버튼을 비활성화하고, 성공·실패 결과를 같은 화면에 표시합니다. Endpoint가 없는 상태에서는 전송을 시도하지 않고 설정 필요 메시지를 보여 줍니다.
+> 기존 Contact Validation을 먼저 수행한 뒤 Formspree Endpoint에 비동기 POST합니다. 전송 중에는 버튼을 비활성화하고, 성공·실패 결과를 같은 화면에 표시합니다. Endpoint가 연결되어 있어 유효한 입력은 Formspree로 전송되며, 전송 중·성공·실패 상태를 같은 화면에 표시합니다.
