@@ -52,3 +52,37 @@ presentation/
 ```
 
 빈 형식을 맞추기 위해 미리 만들지 않고 실제 발표자료 생성 시 작성한다.
+
+
+---
+
+## B1-1 Interactive Peer Evaluation Deck
+
+동료평가 1Page 문서를 기반으로 **Reveal.js 기반 인터랙티브 발표 슬라이드**를 추가했다.
+
+- Deck Source: [peer-evaluation-deck/](peer-evaluation-deck/)
+- Entry: [peer-evaluation-deck/index.html](peer-evaluation-deck/index.html)
+- Outline: [OUTLINE.md](OUTLINE.md)
+- Script: [SCRIPT.md](SCRIPT.md)
+- Evidence Map: [EVIDENCE-MAP.md](EVIDENCE-MAP.md)
+
+GitHub Pages 예상 URL:
+
+`https://metastudy999.github.io/codyssey-basic-web-portfolio/training/round-02-clear/presentation/peer-evaluation-deck/`
+
+### UI/UX Stack
+
+- Reveal.js 5.1.0 — Slide Navigation / Progress / Notes / Zoom
+- Mermaid 11 — Architecture / Data Flow
+- Lucide — UI Icon
+- Custom CSS — CODYSSEY 16:9 Presentation Design System
+
+### Deck 구성
+
+1. Mission / 한눈에 보기
+2. Problem & Concepts
+3. Requirement → Implementation
+4. System / Data Flow
+5. Runtime Result
+6. Verification / Evidence
+7. Evaluation Explanation
