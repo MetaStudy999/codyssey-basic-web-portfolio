@@ -108,12 +108,12 @@ flowchart TD
 
 **관련 소스**
 
-- [시맨틱 구조·Skip Link·Navigation](../../../index.html#L34-L76)
-- [Contact Form의 label·aria-describedby·aria-live](../../../index.html#L664-L744)
-- [동적 `aria-invalid` 처리](../../../js/script.js#L1452-L1497)
-- [현재 메뉴 `aria-current` 처리](../../../js/script.js#L342-L397)
-- [키보드 `:focus-visible`](../../../css/style.css#L131-L140)
-- [Reduced Motion 대응](../../../css/style.css#L1432-L1445)
+- [시맨틱 구조·Skip Link·Navigation](../../../index.html#L42-L91)
+- [Contact Form의 label·aria-describedby·aria-live](../../../index.html#L684-L770)
+- [동적 `aria-invalid` 처리](../../../js/script.js#L1477-L1528)
+- [현재 메뉴 `aria-current` 처리](../../../js/script.js#L351-L410)
+- [키보드 `:focus-visible`](../../../css/style.css#L136-L145)
+- [Reduced Motion 대응](../../../css/style.css#L1446-L1462)
 
 **WHY**
 
@@ -143,11 +143,11 @@ flowchart TD
 
 **관련 소스**
 
-- [CSS 변수와 Dark Theme](../../../css/style.css#L1-L60)
-- [Navigation Flexbox](../../../css/style.css#L201-L215)
-- [Projects 기본 Grid 1열](../../../css/style.css#L938-L945)
-- [Tablet 768px · Projects 2열](../../../css/style.css#L1282-L1362)
-- [Desktop 1024px · Projects 3열](../../../css/style.css#L1370-L1389)
+- [CSS 변수와 Dark Theme](../../../css/style.css#L3-L65)
+- [Navigation Flexbox](../../../css/style.css#L208-L222)
+- [Projects 기본 Grid 1열](../../../css/style.css#L947-L954)
+- [Tablet 768px · Projects 2열](../../../css/style.css#L1293-L1374)
+- [Desktop 1024px · Projects 3열](../../../css/style.css#L1382-L1402)
 
 **평가 답변**
 
@@ -183,8 +183,8 @@ flowchart TD
 
 **관련 소스**
 
-- [`defer`로 JavaScript 연결](../../../index.html#L29-L31)
-- [`initializeApp()` 및 Event Listener 등록](../../../js/script.js#L1672-L1800)
+- [`defer`로 JavaScript 연결](../../../index.html#L29-L34)
+- [`initializeApp()` 및 Event Listener 등록](../../../js/script.js#L1702-L1835)
 
 > 페이지가 로드되면 초기 상태를 읽고 화면을 먼저 그린 뒤, 사용자 이벤트를 받을 Listener를 연결하고 GitHub Projects를 처음 불러옵니다.
 
@@ -215,11 +215,11 @@ flowchart TD
 
 **관련 소스**
 
-- [Theme State 기본값](../../../js/script.js#L20-L24)
-- [`renderTheme()`](../../../js/script.js#L105-L125)
-- [`setThemeMode()`](../../../js/script.js#L127-L150)
-- [`handleThemeCycleClick()`](../../../js/script.js#L179-L184)
-- [Theme Click Event 연결](../../../js/script.js#L1686-L1704)
+- [Theme State 기본값](../../../js/script.js#L23-L27)
+- [`renderTheme()`](../../../js/script.js#L111-L133)
+- [`setThemeMode()`](../../../js/script.js#L135-L158)
+- [`handleThemeCycleClick()`](../../../js/script.js#L187-L192)
+- [Theme Click Event 연결](../../../js/script.js#L1718-L1738)
 
 **VERIFY:** Theme 변경 → 새로고침 → 동일 모드 유지
 
@@ -253,12 +253,12 @@ flowchart TD
 
 **관련 소스**
 
-- [Form State](../../../js/script.js#L1413-L1418)
-- [`updateFormState()`](../../../js/script.js#L1423-L1427)
-- [`validateForm()`](../../../js/script.js#L1429-L1450)
-- [`renderFormErrors()`](../../../js/script.js#L1452-L1497)
-- [`handleFormSubmit()` + Formspree 전송](../../../js/script.js#L1508-L1666)
-- [Contact HTML Form](../../../index.html#L664-L744)
+- [Form State](../../../js/script.js#L1434-L1441)
+- [`updateFormState()`](../../../js/script.js#L1445-L1450)
+- [`validateForm()`](../../../js/script.js#L1453-L1475)
+- [`renderFormErrors()`](../../../js/script.js#L1477-L1528)
+- [`handleFormSubmit()` + Formspree 전송](../../../js/script.js#L1535-L1696)
+- [Contact HTML Form](../../../index.html#L684-L770)
 
 **VERIFY:** 빈 값 → 잘못된 이메일 → 정상 입력 순서로 시연
 
@@ -303,11 +303,11 @@ flowchart TD
 
 **관련 소스**
 
-- [Projects State 초기값](../../../js/script.js#L493-L501)
-- [`renderProjects()` · loading/error/empty/success 분기](../../../js/script.js#L1143-L1325)
-- [`setProjectsState()`](../../../js/script.js#L1329-L1336)
-- [`loadProjects()` · fetch/async-await/try-catch/403/filter](../../../js/script.js#L1338-L1396)
-- [`map()`·`forEach()` 카드 렌더링](../../../js/script.js#L1270-L1315)
+- [Projects State 초기값](../../../js/script.js#L506-L514)
+- [`renderProjects()` · loading/error/empty/success 분기](../../../js/script.js#L1158-L1342)
+- [`setProjectsState()`](../../../js/script.js#L1346-L1354)
+- [`loadProjects()` · fetch/async-await/try-catch/403/filter](../../../js/script.js#L1358-L1417)
+- [`map()`·`forEach()` 카드 렌더링](../../../js/script.js#L1285-L1330)
 
 **WHY**
 
@@ -319,23 +319,23 @@ flowchart TD
 
 | 설명할 기능 | 코드 위치 |
 |---|---|
-| 전체 상태 | [`const state`](../../../js/script.js#L20-L24) |
-| App 시작 | [`initializeApp()`](../../../js/script.js#L1672-L1800) |
-| Theme | [`handleThemeCycleClick() → setThemeMode() → renderTheme()`](../../../js/script.js#L105-L184) |
-| Scroll UI | [`renderScrollUi()`](../../../js/script.js#L328-L340) |
-| Active Navigation | [`renderActiveNav()`](../../../js/script.js#L342-L397) |
-| Reveal | [`IntersectionObserver` / `initializeReveal()`](../../../js/script.js#L404-L430) |
-| GitHub API | [`loadProjects()`](../../../js/script.js#L1338-L1396) |
-| Projects 상태 | [`setProjectsState()`](../../../js/script.js#L1329-L1336) |
-| Projects 화면 | [`renderProjects()`](../../../js/script.js#L1143-L1325) |
-| Form 입력 | [`updateFormState()`](../../../js/script.js#L1423-L1427) |
-| Form 검증 | [`validateForm()`](../../../js/script.js#L1429-L1450) |
-| Form 오류 | [`renderFormErrors()`](../../../js/script.js#L1452-L1497) |
-| Form 제출 | [`handleFormSubmit()`](../../../js/script.js#L1508-L1666) |
-| Navigation Flex | [`.site-nav`](../../../css/style.css#L201-L215) |
-| Projects Grid | [`.projects-grid`](../../../css/style.css#L938-L945) |
-| Tablet | [`@media (min-width: 768px)`](../../../css/style.css#L1282-L1362) |
-| Desktop | [`@media (min-width: 1024px)`](../../../css/style.css#L1370-L1389) |
+| 전체 상태 | [`const state`](../../../js/script.js#L23-L27) |
+| App 시작 | [`initializeApp()`](../../../js/script.js#L1702-L1835) |
+| Theme | [`handleThemeCycleClick() → setThemeMode() → renderTheme()`](../../../js/script.js#L111-L192) |
+| Scroll UI | [`renderScrollUi()`](../../../js/script.js#L337-L349) |
+| Active Navigation | [`renderActiveNav()`](../../../js/script.js#L351-L410) |
+| Reveal | [`IntersectionObserver` / `initializeReveal()`](../../../js/script.js#L415-L441) |
+| GitHub API | [`loadProjects()`](../../../js/script.js#L1358-L1417) |
+| Projects 상태 | [`setProjectsState()`](../../../js/script.js#L1346-L1354) |
+| Projects 화면 | [`renderProjects()`](../../../js/script.js#L1158-L1342) |
+| Form 입력 | [`updateFormState()`](../../../js/script.js#L1445-L1450) |
+| Form 검증 | [`validateForm()`](../../../js/script.js#L1453-L1475) |
+| Form 오류 | [`renderFormErrors()`](../../../js/script.js#L1477-L1528) |
+| Form 제출 | [`handleFormSubmit()`](../../../js/script.js#L1535-L1696) |
+| Navigation Flex | [`.site-nav`](../../../css/style.css#L208-L222) |
+| Projects Grid | [`.projects-grid`](../../../css/style.css#L947-L954) |
+| Tablet | [`@media (min-width: 768px)`](../../../css/style.css#L1293-L1374) |
+| Desktop | [`@media (min-width: 1024px)`](../../../css/style.css#L1382-L1402) |
 
 ---
 

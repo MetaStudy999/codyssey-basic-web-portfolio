@@ -4,6 +4,7 @@
    Constants
 --------------------------------- */
 
+// WHY: 화면 동작의 기준값을 상수로 모아두면 숫자의 의미를 설명하고 수정하기 쉽습니다.
 const NAV_SCROLL_THRESHOLD = 60;
 const SCROLL_TOP_THRESHOLD = 300;
 const OBSERVER_THRESHOLD = 0.2;
@@ -17,6 +18,8 @@ const SYSTEM_THEME_SYNC_INTERVAL_MS = 500;
    State
 --------------------------------- */
 
+// State(상태): "현재 화면이 어떤 상태인가?"를 한 곳에서 관리합니다.
+// Event가 이 값을 바꾸고, Render 함수가 변경된 State를 DOM에 반영합니다.
 const state = {
   menuOpen: false,
   theme: "light",
@@ -27,6 +30,7 @@ const state = {
    DOM
 --------------------------------- */
 
+// 자주 사용하는 DOM 요소를 처음에 찾아 변수에 보관해 여러 함수에서 재사용합니다.
 const siteHeader = document.querySelector(".site-header");
 const menuToggle = document.querySelector(".menu-toggle");
 const navMenu = document.querySelector("#nav-menu");
@@ -102,6 +106,8 @@ const getNextThemeMode = (mode) => {
   ];
 };
 
+// Render: 현재 Theme State를 실제 DOM(data-theme, 버튼 문구)에 반영합니다.
+// State를 바꾸는 코드와 화면을 그리는 코드를 분리해 흐름을 추적하기 쉽게 합니다.
 const renderTheme = () => {
   document.documentElement.dataset.theme =
     state.theme;
@@ -124,6 +130,8 @@ const renderTheme = () => {
   );
 };
 
+// Theme 변경의 단일 진입점입니다.
+// 1) State 변경 → 2) localStorage 저장 → 3) renderTheme() 순서로 처리합니다.
 const setThemeMode = (
   mode,
   { persist = true } = {},
@@ -325,6 +333,7 @@ const resetInitialScrollPosition = (event) => {
    Scroll UI
 --------------------------------- */
 
+// Scroll Event가 발생할 때 현재 scrollY를 기준으로 Header/Scroll Top 상태를 렌더링합니다.
 const renderScrollUi = () => {
   const scrollY = window.scrollY;
 
@@ -401,6 +410,8 @@ const handleScrollTop = () => {
    Scroll reveal
 --------------------------------- */
 
+// IntersectionObserver는 매 순간 위치를 직접 계산하지 않고,
+// 요소가 화면에 들어왔는지를 브라우저가 알려주도록 하는 API입니다.
 const revealObserver = new IntersectionObserver(
   (entries, observer) => {
     entries.forEach((entry) => {
@@ -490,6 +501,8 @@ const projectsPagination =
   document.querySelector("#projects-pagination");
 
 
+// GitHub Projects도 하나의 State로 관리합니다.
+// status는 idle/loading/success/empty/error 중 현재 비동기 상태를 나타냅니다.
 state.projects = {
   status: "idle",
   items: [],
@@ -1140,6 +1153,8 @@ const createProjectCard = (repository) => {
   return article;
 };
 
+// Projects Render는 state.projects만 보고 화면을 결정합니다.
+// loading/error/empty/success를 분리해 네트워크 상태를 사용자에게 명확히 보여줍니다.
 const renderProjects = () => {
   const {
     status,
@@ -1326,6 +1341,8 @@ const renderProjects = () => {
     "프로젝트를 불러올 준비가 되었습니다.";
 };
 
+// Projects State를 변경한 뒤 항상 renderProjects()를 호출합니다.
+// 즉 "State 변경 → Render → DOM" 패턴을 한 함수에 모았습니다.
 const setProjectsState = (nextState) => {
   state.projects = {
     ...state.projects,
@@ -1335,6 +1352,9 @@ const setProjectsState = (nextState) => {
   renderProjects();
 };
 
+// GitHub API 비동기 흐름:
+// loading 표시 → fetch → 응답 확인 → JSON 변환 → fork 제외 → success/empty,
+// 실패하면 catch에서 error State로 바꿉니다.
 const loadProjects = async () => {
   setProjectsState({
     status: "loading",
@@ -1410,6 +1430,7 @@ const contactSubmit =
 const contactFormEndpoint =
   contactForm.action?.trim() ?? "";
 
+// Contact Form State: 입력값과 검증 오류를 DOM과 분리해 관리합니다.
 state.form = {
   name: "",
   email: "",
@@ -1420,12 +1441,15 @@ state.form = {
 const EMAIL_PATTERN =
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// 사용자가 입력한 현재 DOM 값을 Form State로 복사합니다.
 const updateFormState = () => {
   state.form.name = nameInput.value;
   state.form.email = emailInput.value;
   state.form.message = messageInput.value;
 };
 
+// Validation(유효성 검사): 비어 있는 값과 이메일 형식을 검사하고
+// 오류 메시지를 state.form.errors에 저장합니다.
 const validateForm = () => {
   const errors = {};
 
@@ -1449,6 +1473,7 @@ const validateForm = () => {
   return Object.keys(errors).length === 0;
 };
 
+// 검증 결과를 각 필드의 오류 문구와 aria-invalid 속성으로 DOM에 반영합니다.
 const renderFormErrors = () => {
   const fieldMap = [
     {
@@ -1505,6 +1530,8 @@ const handleFormInput = () => {
   clearFormResult();
 };
 
+// Submit Event의 기본 페이지 이동을 막고,
+// "검증 → Formspree 비동기 전송 → 성공/실패 UI" 흐름을 같은 화면에서 처리합니다.
 const handleFormSubmit = async (event) => {
   event.preventDefault();
 
@@ -1669,6 +1696,9 @@ const handleFormSubmit = async (event) => {
    Initialization
 --------------------------------- */
 
+// App 시작점:
+// 초기 State를 읽고 화면을 먼저 Render한 뒤 Event Listener를 연결합니다.
+// 마지막에 GitHub Projects를 처음 불러와 사용자가 상호작용할 준비를 마칩니다.
 const initializeApp = () => {
   resetInitialScrollPosition();
   state.themeMode = getSavedThemeMode();

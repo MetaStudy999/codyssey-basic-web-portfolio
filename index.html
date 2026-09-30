@@ -27,12 +27,24 @@
   <title>CODYSSEY AI ALL-IN-ONE 1기 | AI·SW Learning Portfolio</title>
 
   <link rel="stylesheet" href="css/style.css">
+  <!--
+    defer: HTML 문서를 먼저 해석한 뒤 JavaScript를 실행합니다.
+    그래서 script.js가 DOM 요소를 찾을 때 아직 만들어지지 않은 요소를 참조하는 문제를 줄입니다.
+  -->
   <script src="js/script.js" defer></script>
 </head>
 
 <body>
+  <!--
+    접근성(Accessibility, A11y): 키보드 사용자가 반복되는 메뉴를 건너뛰고
+    바로 본문(main)으로 이동할 수 있도록 Skip Link를 제공합니다.
+  -->
   <a class="skip-link" href="#main-content">본문 바로가기</a>
 
+  <!--
+    Semantic HTML: header와 nav를 사용해 "페이지 머리말"과 "주요 탐색 영역"의
+    의미를 브라우저와 보조기술에 명확하게 전달합니다.
+  -->
   <header class="site-header" id="top">
     <nav class="site-nav" aria-label="주요 메뉴">
       <a class="logo" href="#home" aria-label="홈으로 이동">
@@ -72,6 +84,10 @@
     </nav>
   </header>
 
+  <!--
+    main은 이 페이지의 핵심 콘텐츠 영역입니다.
+    각 section은 Hero / About / Skills / Projects / Contact처럼 역할별로 나눕니다.
+  -->
   <main id="main-content">
     <section class="hero section" id="home">
       <div class="section-inner">
@@ -241,6 +257,10 @@
               </div>
     </section>
 
+<!--
+  Projects는 GitHub API에서 받은 Repository 데이터를 JavaScript가 동적으로 렌더링합니다.
+  loading / success / empty / error 상태에 따라 아래 상태 영역과 카드 Grid가 달라집니다.
+-->
 <section class="projects section" id="projects">
       <div class="section-inner">
         <h2>Projects</h2>
@@ -670,6 +690,12 @@
           전송 결과와 오류는 이 화면에서 바로 확인할 수 있습니다.
         </p>
 
+        <!--
+          Contact Form:
+          1) JavaScript에서 빈 값/이메일 형식을 먼저 검증하고
+          2) 통과한 데이터만 Formspree로 비동기 전송합니다.
+          label, aria-describedby, aria-live를 사용해 오류/결과를 보조기술에도 전달합니다.
+        -->
         <form
           id="contact-form"
           action="https://formspree.io/f/xdekpjjj"
