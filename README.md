@@ -54,6 +54,16 @@
 - Scroll Reveal Animation
 - 모바일 Navigation
 
+#### Flexbox와 Grid 선택 근거
+
+이 프로젝트에서는 **레이아웃의 축 수와 배치 목적**에 따라 플렉스박스(Flexible Box Layout, Flexbox)와 CSS 그리드 레이아웃(CSS Grid Layout, Grid)을 구분해 사용했습니다.
+
+- **Navigation — Flexbox**: `.site-nav`, `.nav-menu`처럼 로고와 메뉴를 주로 한 행의 **한 축(1차원)** 에서 정렬해야 하므로 Flexbox를 사용했습니다. `align-items`, `gap`, 자동 여백을 이용해 항목 정렬과 간격을 단순하게 제어할 수 있습니다.
+- **Projects — Grid**: `.projects-grid`는 여러 Project Card를 **행과 열(2차원)** 로 배치해야 하므로 Grid를 사용했습니다. Mobile First 기준으로 기본 1열에서 시작해 `768px` 이상 2열, `1024px` 이상 3열로 확장합니다.
+- **선택 기준**: 한 방향의 정렬·분배가 핵심이면 Flexbox, 행과 열을 함께 제어하는 반복 레이아웃이면 Grid를 선택합니다.
+
+즉, Navigation은 **1차원 정렬**, Projects는 **2차원 카드 배치**라는 서로 다른 레이아웃 요구 때문에 각각 Flexbox와 Grid를 선택했습니다.
+
 ### JavaScript
 
 - `const` / `let`
