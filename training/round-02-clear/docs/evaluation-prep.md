@@ -1,6 +1,7 @@
 # B1-1 Round 02 — Evaluation Prep
 
-> 목표: **코드를 암기하지 않고 전체 흐름을 자기 말로 설명하기**
+> 목표: **코드를 암기하지 않고 전체 흐름을 자기 말로 설명하기**  
+> 입문자용 1Page 순서도: [peer-evaluation-1page.md](peer-evaluation-1page.md)
 
 ## 0. 10초 전체 설명
 
