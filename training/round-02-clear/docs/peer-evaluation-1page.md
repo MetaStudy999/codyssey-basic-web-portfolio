@@ -3,17 +3,18 @@
 > **Mission:** B1-1 — 나를 소개하는 웹페이지 처음부터 만들기  
 > **목표:** 코드를 암기하지 않고 **전체 구조 → 데이터 흐름 → 구현 이유 → 실제 시연 → 검증·증빙** 순서로 자기 말로 설명한다.  
 > **기준:** 제2기 B1-1 Mission PDF + 기존 Evaluation + Round 02 실제 코드·Runtime·Evidence  
-> **주의:** 예상 질문은 연습용이며 공식 평가문항이라고 표현하지 않는다.
+> **주의:** 예상 질문은 연습용이며 공식 평가문항이라고 표현하지 않는다.  
+> **소스 링크:** 아래 링크는 현재 `main`의 실제 코드 위치를 가리킨다. 이후 소스가 바뀌면 줄 번호가 달라질 수 있으므로 평가 전 다시 확인한다.
 
 ---
 
 ## 0. 평가 시작 전 열어둘 것
 
 - 서비스: https://metastudy999.github.io/codyssey-basic-web-portfolio/
-- 코드: `index.html`, `css/style.css`, `js/script.js`
-- 상세 평가 준비: `training/round-02-clear/docs/evaluation-prep.md`
-- 최종 검증: `training/round-02-clear/docs/final-verification.md`
-- 증빙: `training/round-02-clear/evidence/`
+- 코드: [`index.html`](../../../index.html) · [`css/style.css`](../../../css/style.css) · [`js/script.js`](../../../js/script.js)
+- 상세 평가 준비: [`evaluation-prep.md`](evaluation-prep.md)
+- 최종 검증: [`final-verification.md`](final-verification.md)
+- 증빙: [`evidence/`](../evidence/)
 
 ---
 
@@ -61,10 +62,10 @@ flowchart TD
 
 | 파일/폴더 | 역할 | WHY |
 |---|---|---|
-| `index.html` | 문서 구조와 의미 | 화면 구조를 명확히 표현 |
-| `css/style.css` | 색상·간격·레이아웃·반응형 | 표현을 HTML과 분리 |
-| `js/script.js` | 이벤트·상태·렌더링·API | 동작 로직을 분리 |
-| `images/` | 이미지 자산 | 정적 자산 분리 관리 |
+| [`index.html`](../../../index.html) | 문서 구조와 의미 | 화면 구조를 명확히 표현 |
+| [`css/style.css`](../../../css/style.css) | 색상·간격·레이아웃·반응형 | 표현을 HTML과 분리 |
+| [`js/script.js`](../../../js/script.js) | 이벤트·상태·렌더링·API | 동작 로직을 분리 |
+| [`images/`](../../../images/) | 이미지 자산 | 정적 자산 분리 관리 |
 
 > HTML은 구조, CSS는 표현, JavaScript는 동작으로 책임을 나누어 유지보수성을 높였습니다.
 
@@ -105,6 +106,15 @@ flowchart TD
 - 키보드 `:focus-visible`
 - `prefers-reduced-motion`
 
+**관련 소스**
+
+- [시맨틱 구조·Skip Link·Navigation](../../../index.html#L34-L76)
+- [Contact Form의 label·aria-describedby·aria-live](../../../index.html#L664-L744)
+- [동적 `aria-invalid` 처리](../../../js/script.js#L1452-L1497)
+- [현재 메뉴 `aria-current` 처리](../../../js/script.js#L342-L397)
+- [키보드 `:focus-visible`](../../../css/style.css#L131-L140)
+- [Reduced Motion 대응](../../../css/style.css#L1432-L1445)
+
 **WHY**
 
 > 태그와 접근성 속성이 콘텐츠의 의미와 현재 상태를 보조기술에도 전달하도록 했습니다.
@@ -131,6 +141,14 @@ flowchart TD
   행과 열(2차원) 카드 배치가 필요하므로 사용
 - CSS 변수(Custom Properties) → `:root`에서 색상·간격 등을 중앙 관리
 
+**관련 소스**
+
+- [CSS 변수와 Dark Theme](../../../css/style.css#L1-L60)
+- [Navigation Flexbox](../../../css/style.css#L201-L215)
+- [Projects 기본 Grid 1열](../../../css/style.css#L938-L945)
+- [Tablet 768px · Projects 2열](../../../css/style.css#L1282-L1362)
+- [Desktop 1024px · Projects 3열](../../../css/style.css#L1370-L1389)
+
 **평가 답변**
 
 > 작은 화면에서 필수 기능을 먼저 보장한 뒤 768px과 1024px에서 점진적으로 확장했습니다. 한 방향 정렬은 Flexbox, 행과 열을 함께 제어하는 반복 레이아웃은 Grid를 선택했습니다.
@@ -138,6 +156,37 @@ flowchart TD
 ---
 
 ## 6. JavaScript 핵심 데이터 흐름
+
+### 6-0. 페이지 시작 — 초기화 흐름
+
+```mermaid
+flowchart TD
+    A["index.html<br/>script defer"]
+    B["js/script.js 로드"]
+    C["initializeApp()"]
+    D["저장된 Theme 읽기"]
+    E["초기 UI Render"]
+    F["Event Listener 등록"]
+    G["loadProjects() 호출"]
+    H["Form 입력/Submit Listener 등록"]
+    I["사용자 입력 대기"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+```
+
+**관련 소스**
+
+- [`defer`로 JavaScript 연결](../../../index.html#L29-L31)
+- [`initializeApp()` 및 Event Listener 등록](../../../js/script.js#L1672-L1800)
+
+> 페이지가 로드되면 초기 상태를 읽고 화면을 먼저 그린 뒤, 사용자 이벤트를 받을 Listener를 연결하고 GitHub Projects를 처음 불러옵니다.
 
 ### 6-1. Theme — 실제 코드 순서
 
@@ -163,6 +212,14 @@ flowchart TD
 
 - `themeMode`: 사용자가 선택한 모드
 - `theme`: 실제 화면에 적용되는 Light/Dark 상태
+
+**관련 소스**
+
+- [Theme State 기본값](../../../js/script.js#L20-L24)
+- [`renderTheme()`](../../../js/script.js#L105-L125)
+- [`setThemeMode()`](../../../js/script.js#L127-L150)
+- [`handleThemeCycleClick()`](../../../js/script.js#L179-L184)
+- [Theme Click Event 연결](../../../js/script.js#L1686-L1704)
 
 **VERIFY:** Theme 변경 → 새로고침 → 동일 모드 유지
 
@@ -193,6 +250,15 @@ flowchart TD
     H -->|Yes| I
     I --> J
 ```
+
+**관련 소스**
+
+- [Form State](../../../js/script.js#L1413-L1418)
+- [`updateFormState()`](../../../js/script.js#L1423-L1427)
+- [`validateForm()`](../../../js/script.js#L1429-L1450)
+- [`renderFormErrors()`](../../../js/script.js#L1452-L1497)
+- [`handleFormSubmit()` + Formspree 전송](../../../js/script.js#L1508-L1666)
+- [Contact HTML Form](../../../index.html#L664-L744)
 
 **VERIFY:** 빈 값 → 잘못된 이메일 → 정상 입력 순서로 시연
 
@@ -235,6 +301,14 @@ flowchart TD
     O --> I
 ```
 
+**관련 소스**
+
+- [Projects State 초기값](../../../js/script.js#L493-L501)
+- [`renderProjects()` · loading/error/empty/success 분기](../../../js/script.js#L1143-L1325)
+- [`setProjectsState()`](../../../js/script.js#L1329-L1336)
+- [`loadProjects()` · fetch/async-await/try-catch/403/filter](../../../js/script.js#L1338-L1396)
+- [`map()`·`forEach()` 카드 렌더링](../../../js/script.js#L1270-L1315)
+
 **WHY**
 
 > 네트워크 요청은 실패하거나 결과가 비어 있을 수 있으므로 `loading / success / empty / error` 상태를 분리했습니다.
@@ -245,20 +319,23 @@ flowchart TD
 
 | 설명할 기능 | 코드 위치 |
 |---|---|
-| 전체 상태 | `js/script.js → const state` |
-| Theme | `handleThemeCycleClick()`, `setThemeMode()`, `renderTheme()` |
-| Scroll UI | `renderScrollUi()` |
-| Reveal | `IntersectionObserver`, `initializeReveal()` |
-| GitHub API | `loadProjects()` |
-| Projects 상태 | `setProjectsState()` |
-| Projects 화면 | `renderProjects()` |
-| Form 입력 | `updateFormState()` |
-| Form 검증 | `validateForm()` |
-| Form 오류 | `renderFormErrors()` |
-| Navigation Flex | `css/style.css → .site-nav` |
-| Projects Grid | `css/style.css → .projects-grid` |
-| Tablet | `@media (min-width: 768px)` |
-| Desktop | `@media (min-width: 1024px)` |
+| 전체 상태 | [`const state`](../../../js/script.js#L20-L24) |
+| App 시작 | [`initializeApp()`](../../../js/script.js#L1672-L1800) |
+| Theme | [`handleThemeCycleClick() → setThemeMode() → renderTheme()`](../../../js/script.js#L105-L184) |
+| Scroll UI | [`renderScrollUi()`](../../../js/script.js#L328-L340) |
+| Active Navigation | [`renderActiveNav()`](../../../js/script.js#L342-L397) |
+| Reveal | [`IntersectionObserver` / `initializeReveal()`](../../../js/script.js#L404-L430) |
+| GitHub API | [`loadProjects()`](../../../js/script.js#L1338-L1396) |
+| Projects 상태 | [`setProjectsState()`](../../../js/script.js#L1329-L1336) |
+| Projects 화면 | [`renderProjects()`](../../../js/script.js#L1143-L1325) |
+| Form 입력 | [`updateFormState()`](../../../js/script.js#L1423-L1427) |
+| Form 검증 | [`validateForm()`](../../../js/script.js#L1429-L1450) |
+| Form 오류 | [`renderFormErrors()`](../../../js/script.js#L1452-L1497) |
+| Form 제출 | [`handleFormSubmit()`](../../../js/script.js#L1508-L1666) |
+| Navigation Flex | [`.site-nav`](../../../css/style.css#L201-L215) |
+| Projects Grid | [`.projects-grid`](../../../css/style.css#L938-L945) |
+| Tablet | [`@media (min-width: 768px)`](../../../css/style.css#L1282-L1362) |
+| Desktop | [`@media (min-width: 1024px)`](../../../css/style.css#L1370-L1389) |
 
 ---
 
@@ -295,14 +372,14 @@ flowchart TD
 | 검증 | 실제 근거 |
 |---|---|
 | 반응형 | 375 / 768 / 1200 Runtime |
-| Dark Theme | `b1-1-final-desktop-dark.png` |
-| Mobile | `b1-1-final-mobile-375.png` |
-| Projects Filter | `b1-1-final-projects-filter.png` |
-| System Theme | `b1-1-final-system-theme-sync.png` |
-| 구조 | `evidence/structure.txt` |
-| 정적 검증 | `evidence/verify.txt` |
-| Formspree | `evidence/formspree-runtime-pass.txt` |
-| 전체 결과 | `docs/final-verification.md` |
+| Dark Theme | [`b1-1-final-desktop-dark.png`](../evidence/b1-1-final-desktop-dark.png) |
+| Mobile | [`b1-1-final-mobile-375.png`](../evidence/b1-1-final-mobile-375.png) |
+| Projects Filter | [`b1-1-final-projects-filter.png`](../evidence/b1-1-final-projects-filter.png) |
+| System Theme | [`b1-1-final-system-theme-sync.png`](../evidence/b1-1-final-system-theme-sync.png) |
+| 구조 | [`structure.txt`](../evidence/structure.txt) |
+| 정적 검증 | [`verify.txt`](../evidence/verify.txt) |
+| Formspree | [`formspree-runtime-pass.txt`](../evidence/formspree-runtime-pass.txt) |
+| 전체 결과 | [`final-verification.md`](final-verification.md) |
 
 ---
 
