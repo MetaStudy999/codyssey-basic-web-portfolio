@@ -8,6 +8,16 @@
 
 ---
 
+## 발표 슬라이드
+
+- 인터랙티브 Deck Source: [`presentation/peer-evaluation-deck/`](../presentation/peer-evaluation-deck/)
+- GitHub Pages 예상 URL: https://metastudy999.github.io/codyssey-basic-web-portfolio/training/round-02-clear/presentation/peer-evaluation-deck/
+- Slide Framework: Reveal.js
+- Diagram: Mermaid
+- UI Icon: Lucide
+
+---
+
 ## 0. 평가 시작 전 열어둘 것
 
 - 서비스: https://metastudy999.github.io/codyssey-basic-web-portfolio/
