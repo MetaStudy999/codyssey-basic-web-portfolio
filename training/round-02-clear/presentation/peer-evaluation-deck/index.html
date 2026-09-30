@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta
+    name="description"
+    content="CODYSSEY B1-1 동료평가 발표용 Reveal.js 인터랙티브 슬라이드"
+  >
+  <title>CODYSSEY B1-1 Peer Evaluation Deck</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css"
+  >
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css"
+  >
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="deck-toolbar" aria-label="발표 도구">
+    <a
+      href="https://metastudy999.github.io/codyssey-basic-web-portfolio/"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="실제 서비스 열기"
+    >
+      <i data-lucide="external-link"></i>
+      <span>Live</span>
+    </a>
+    <a
+      href="https://github.com/MetaStudy999/codyssey-basic-web-portfolio/blob/main/training/round-02-clear/docs/peer-evaluation-1page.md"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="동료평가 1Page 문서"
+    >
+      <i data-lucide="file-text"></i>
+      <span>1Page</span>
+    </a>
+    <a
+      href="https://github.com/MetaStudy999/codyssey-basic-web-portfolio"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="GitHub Repository"
+    >
+      <i data-lucide="github"></i>
+      <span>Repo</span>
+    </a>
+    <button type="button" data-fullscreen title="전체화면">
+      <i data-lucide="maximize-2"></i>
+      <span>Full</span>
+    </button>
+  </div>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <section class="slide cover-slide" data-background-color="#081B2F">
+        <div class="cover-grid">
+          <div>
+            <div class="eyebrow light">CODYSSEY AI ALL-IN-ONE · B1-1 · ROUND 02</div>
+            <h1>
+              Vanilla Web로
+              <span>웹의 상태 흐름을 직접 구현했다</span>
+            </h1>
+            <p class="cover-lead">
+              HTML · CSS · JavaScript로 반응형 포트폴리오를 만들고,
+              GitHub API·상태관리·접근성·배포까지 실제 Runtime으로 검증했습니다.
+            </p>
+
+            <div class="cover-actions">
+              <a
+                class="button button-primary"
+                href="https://metastudy999.github.io/codyssey-basic-web-portfolio/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i data-lucide="play-circle"></i>
+                실제 서비스
+              </a>
+              <a
+                class="button button-ghost"
+                href="https://github.com/MetaStudy999/codyssey-basic-web-portfolio/blob/main/training/round-02-clear/docs/peer-evaluation-1page.md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i data-lucide="book-open-check"></i>
+                평가 가이드
+              </a>
+            </div>
+          </div>
+
+          <div class="cover-panel">
+            <div class="mission-badge">B1-1</div>
+            <h2>나를 소개하는 웹페이지<br>처음부터 만들기</h2>
+            <div class="metric-grid">
+              <div class="metric">
+                <strong>HTML</strong>
+                <span>구조·의미</span>
+              </div>
+              <div class="metric">
+                <strong>CSS</strong>
+                <span>반응형·Theme</span>
+              </div>
+              <div class="metric">
+                <strong>JS</strong>
+                <span>Event·State</span>
+              </div>
+              <div class="metric">
+                <strong>API</strong>
+                <span>GitHub 비동기</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          B1-1은 외부 프레임워크 없이 HTML, CSS, JavaScript로 반응형 포트폴리오를 만든 미션입니다.
+          핵심은 Event가 State를 바꾸고 Render가 DOM을 갱신하는 흐름을 직접 구현한 것입니다.
+        </aside>
+      </section>
+
+      <section class="slide">
+        <div class="slide-header">
+          <div>
+            <div class="eyebrow">01 · PROBLEM & CONCEPTS</div>
+            <h2>웹페이지는 구조·표현·동작·검증의 4단계로 설명할 수 있다</h2>
+          </div>
+          <span class="status-chip">개념</span>
+        </div>
+
+        <div class="concept-grid">
+          <article class="concept-card">
+            <div class="icon-wrap"><i data-lucide="blocks"></i></div>
+            <h3>구조</h3>
+            <p>HTML이 문서의 의미와 화면 영역을 정의합니다.</p>
+            <span class="code-chip">Semantic HTML</span>
+          </article>
+          <article class="concept-card">
+            <div class="icon-wrap"><i data-lucide="layout-template"></i></div>
+            <h3>표현</h3>
+            <p>CSS가 색상·레이아웃·반응형 화면을 담당합니다.</p>
+            <span class="code-chip">Mobile First</span>
+          </article>
+          <article class="concept-card">
+            <div class="icon-wrap"><i data-lucide="workflow"></i></div>
+            <h3>동작</h3>
+            <p>JavaScript가 Event → State → Render를 연결합니다.</p>
+            <span class="code-chip">DOM + State</span>
+          </article>
+          <article class="concept-card">
+            <div class="icon-wrap"><i data-lucide="badge-check"></i></div>
+            <h3>검증</h3>
+            <p>Runtime과 Evidence로 실제 동작을 증명합니다.</p>
+            <span class="code-chip">GitHub Pages</span>
+          </article>
+        </div>
+
+        <div class="flow-card">
+          <div class="mermaid">
+flowchart TD
+    A["사용자<br/>클릭 · 입력 · 스크롤"]
+    B["Event<br/>이벤트 발생"]
+    C["State<br/>현재 상태 변경"]
+    D["Render<br/>화면 갱신"]
+    E["DOM<br/>브라우저 화면 변화"]
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+          </div>
+        </div>
+
+        <div class="term-strip">
+          <span>문서 객체 모델(Document Object Model, DOM)</span>
+          <span>상태(State)</span>
+          <span>렌더링(Rendering)</span>
+          <span>비동기 처리(Asynchronous Processing)</span>
+        </div>
+
+        <aside class="notes">
+          저는 B1-1을 구조, 표현, 동작, 검증의 네 단계로 설명합니다.
+          HTML은 구조, CSS는 표현, JavaScript는 동작, 마지막으로 실제 Runtime과 Evidence가 검증입니다.
+        </aside>
+      </section>
+
+      <section class="slide">
+        <div class="slide-header">
+          <div>
+            <div class="eyebrow">02 · REQUIREMENT → IMPLEMENTATION</div>
+            <h2>공식 요구사항을 실제 코드 위치와 1:1로 연결했다</h2>
+          </div>
+          <span class="status-chip success">구현 연결</span>
+        </div>
+
+        <div class="matrix">
+          <div class="matrix-row matrix-head">
+            <span>요구사항</span>
+            <span>구현</span>
+            <span>WHY</span>
+            <span>소스</span>
+          </div>
+
+          <div class="matrix-row">
+            <strong>Semantic HTML</strong>
+            <span>header · nav · main · section · footer</span>
+            <span>문서 의미와 접근성</span>
+            <a href="https://github.com/MetaStudy999/codyssey-basic-web-portfolio/blob/main/index.html#L42-L91" target="_blank" rel="noopener noreferrer">index.html <i data-lucide="arrow-up-right"></i></a>
+          </div>
+
+          <div class="matrix-row">
+            <strong>반응형 UI</strong>
+            <span>Mobile 1열 → 768px 2열 → 1024px 3열</span>
+            <span>작은 화면부터 점진 확장</span>
+            <a href="https://github.com/MetaStudy999/codyssey-basic-web-portfolio/blob/main/css/style.css#L1293-L1402" target="_blank" rel="noopener noreferrer">style.css <i data-lucide="arrow-up-right"></i></a>
+          </div>
+
+          <div class="matrix-row">
+            <strong>Flex / Grid</strong>
+            <span>Navigation = Flex · Projects = Grid</span>
+            <span>1차원 정렬 vs 2차원 배치</span>
+            <a href="https://github.com/MetaStudy999/codyssey-basic-web-portfolio/blob/main/css/style.css#L208-L222" target="_blank" rel="noopener noreferrer">CSS <i data-lucide="arrow-up-right"></i></a>
+          </div>
+
+          <div class="matrix-row">
+            <strong>GitHub API</strong>
+            <span>fetch · async/await · try/catch · 상태 분기</span>
+            <span>실패와 빈 결과까지 UI로 표현</span>
+            <a href="https://github.com/MetaStudy999/codyssey-basic-web-portfolio/blob/main/js/script.js#L1358-L1417" target="_blank" rel="noopener noreferrer">loadProjects() <i data-lucide="arrow-up-right"></i></a>
+          </div>
+
+          <div class="matrix-row">
+            <strong>Form Validation</strong>
+            <span>State → Validation → Error Render → Formspree</span>
+            <span>판단과 화면표시 책임 분리</span>
+            <a href="https://github.com/MetaStudy999/codyssey-basic-web-portfolio/blob/main/js/script.js#L1434-L1696" target="_blank" rel="noopener noreferrer">Form Logic <i data-lucide="arrow-up-right"></i></a>
+          </div>
+
+          <div class="matrix-row">
+            <strong>State Flow</strong>
+            <span>Theme · Projects · Form</span>
+            <span>현재 화면이 왜 보이는지 추적</span>
+            <a href="https://github.com/MetaStudy999/codyssey-basic-web-portfolio/blob/main/js/script.js#L23-L27" target="_blank" rel="noopener noreferrer">state <i data-lucide="arrow-up-right"></i></a>
+          </div>
+        </div>
+
+        <div class="callout">
+          <i data-lucide="lightbulb"></i>
+          <span><strong>평가 핵심:</strong> “코드가 있다”가 아니라 “왜 이 구조를 선택했는가”를 코드와 함께 설명합니다.</span>
+        </div>
+
+        <aside class="notes">
+          평가에서는 기능만 보여주는 것이 아니라 요구사항과 실제 코드 위치를 연결합니다.
+          특히 Flexbox와 Grid 선택 이유, State를 쓰는 이유를 제 코드 근거로 설명합니다.
+        </aside>
+      </section>
+
+      <section class="slide">
+        <div class="slide-header">
+          <div>
+            <div class="eyebrow">03 · SYSTEM / DATA FLOW</div>
+            <h2>Event → State → Render → DOM이 이 프로젝트의 중심 데이터 흐름이다</h2>
+          </div>
+          <span class="status-chip teal">데이터 흐름</span>
+        </div>
+
+        <div class="architecture-layout">
+          <div class="flow-card large">
+            <div class="mermaid">
+flowchart TD
+    A["initializeApp()<br/>초기 State 읽기"]
+    B["Event Listener 등록"]
+    C["사용자 Event"]
+    D{"기능 분기"}
+    E["Theme State"]
+    F["Form State"]
+    G["Projects State"]
+    H["Render 함수"]
+    I["DOM 갱신"]
+    J["localStorage"]
+    K["GitHub API"]
+    L["Formspree"]
+
+    A --> B
+    B --> C
+    C --> D
+    D -->|Theme| E
+    D -->|Form| F
+    D -->|Projects| G
+    E --> J
+    E --> H
+    F --> H
+    F --> L
+    G --> K
+    K --> G
+    G --> H
+    H --> I
+            </div>
+          </div>
+
+          <div class="architecture-side">
+            <article class="mini-flow">
+              <div class="mini-title">
+                <i data-lucide="sun-moon"></i>
+                <strong>Theme</strong>
+              </div>
+              <p>Click → themeMode/theme → localStorage → renderTheme()</p>
+              <a href="https://github.com/MetaStudy999/codyssey-basic-web-portfolio/blob/main/js/script.js#L111-L192" target="_blank" rel="noopener noreferrer">관련 코드</a>
+            </article>
+
+            <article class="mini-flow">
+              <div class="mini-title">
+                <i data-lucide="mail-check"></i>
+                <strong>Contact</strong>
+              </div>
+              <p>Input → state.form → validateForm() → render → Formspree</p>
+              <a href="https://github.com/MetaStudy999/codyssey-basic-web-portfolio/blob/main/js/script.js#L1434-L1696" target="_blank" rel="noopener noreferrer">관련 코드</a>
+            </article>
+
+            <article class="mini-flow">
+              <div class="mini-title">
+                <i data-lucide="github"></i>
+                <strong>Projects</strong>
+              </div>
+              <p>loading → fetch → filter → success/empty/error → renderProjects()</p>
+              <a href="https://github.com/MetaStudy999/codyssey-basic-web-portfolio/blob/main/js/script.js#L1158-L1417" target="_blank" rel="noopener noreferrer">관련 코드</a>
+            </article>
+          </div>
+        </div>
+
+        <aside class="notes">
+          이 프로젝트의 핵심은 Event가 State를 바꾸고 Render가 DOM을 갱신한다는 것입니다.
+          Theme, Form, Projects가 모두 같은 패턴으로 동작합니다.
+        </aside>
+      </section>
+
+      <section class="slide">
+        <div class="slide-header">
+          <div>
+            <div class="eyebrow">04 · RUNTIME RESULT</div>
+            <h2>실제 GitHub Pages에서 모바일·다크모드·Projects를 검증했다</h2>
+          </div>
+          <span class="status-chip success">Runtime PASS</span>
+        </div>
+
+        <div class="runtime-layout">
+          <figure class="shot shot-large">
+            <img
+              src="../../evidence/b1-1-final-desktop-light.png"
+              alt="B1-1 데스크톱 라이트 모드 실제 화면"
+            >
+            <figcaption>
+              <span>Desktop · Light</span>
+              <a href="../../evidence/b1-1-final-desktop-light.png" target="_blank">Evidence</a>
+            </figcaption>
+          </figure>
+
+          <div class="runtime-stack">
+            <figure class="shot">
+              <img
+                src="../../evidence/b1-1-final-mobile-375.png"
+                alt="B1-1 모바일 375px 실제 화면"
+              >
+              <figcaption>
+                <span>Mobile · 375px</span>
+                <a href="../../evidence/b1-1-final-mobile-375.png" target="_blank">Evidence</a>
+              </figcaption>
+            </figure>
+
+            <figure class="shot">
+              <img
+                src="../../evidence/b1-1-final-desktop-dark.png"
+                alt="B1-1 데스크톱 다크 모드 실제 화면"
+              >
+              <figcaption>
+                <span>Desktop · Dark</span>
+                <a href="../../evidence/b1-1-final-desktop-dark.png" target="_blank">Evidence</a>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="demo-steps">
+          <span><b>1</b> Mobile Hamburger</span>
+          <span><b>2</b> Theme → Reload</span>
+          <span><b>3</b> Projects Reload</span>
+          <span><b>4</b> Contact Validation</span>
+          <span><b>5</b> Scroll / Reveal</span>
+        </div>
+
+        <aside class="notes">
+          실제 서비스에서 모바일 메뉴, Theme 유지, Projects API, Contact Form, Scroll 동작을 순서대로 보여줍니다.
+          Screenshot은 실제 Runtime Evidence입니다.
+        </aside>
+      </section>
+
+      <section class="slide">
+        <div class="slide-header">
+          <div>
+            <div class="eyebrow">05 · VERIFICATION / EVIDENCE</div>
+            <h2>PASS 주장은 Runtime과 Evidence로 뒷받침했다</h2>
+          </div>
+          <span class="status-chip success">Evidence Ready</span>
+        </div>
+
+        <div class="evidence-summary">
+          <div class="score-card">
+            <span>Repository</span>
+            <strong>READY</strong>
+          </div>
+          <div class="score-card">
+            <span>Runtime</span>
+            <strong>PASS</strong>
+          </div>
+          <div class="score-card">
+            <span>Screenshot</span>
+            <strong>PASS</strong>
+          </div>
+          <div class="score-card">
+            <span>Mapping</span>
+            <strong>COMPLETE</strong>
+          </div>
+        </div>
+
+        <div class="evidence-grid">
+          <a class="evidence-card" href="../../evidence/structure.txt" target="_blank">
+            <i data-lucide="folder-tree"></i>
+            <div>
+              <strong>구조</strong>
+              <span>HTML / CSS / JS / images 분리</span>
+            </div>
+          </a>
+          <a class="evidence-card" href="../../evidence/verify.txt" target="_blank">
+            <i data-lucide="scan-search"></i>
+            <div>
+              <strong>정적 검증</strong>
+              <span>필수 패턴과 Secret 점검</span>
+            </div>
+          </a>
+          <a class="evidence-card" href="../../evidence/b1-1-final-projects-filter.png" target="_blank">
+            <i data-lucide="filter"></i>
+            <div>
+              <strong>Projects</strong>
+              <span>실제 필터·렌더링 화면</span>
+            </div>
+          </a>
+          <a class="evidence-card" href="../../evidence/b1-1-final-system-theme-sync.png" target="_blank">
+            <i data-lucide="monitor-check"></i>
+            <div>
+              <strong>System Theme</strong>
+              <span>OS Theme 동기화 검증</span>
+            </div>
+          </a>
+          <a class="evidence-card" href="../../evidence/formspree-runtime-pass.txt" target="_blank">
+            <i data-lucide="send"></i>
+            <div>
+              <strong>Formspree</strong>
+              <span>Submission + Email 실제 수신</span>
+            </div>
+          </a>
+          <a class="evidence-card" href="../../docs/final-verification.md" target="_blank">
+            <i data-lucide="clipboard-check"></i>
+            <div>
+              <strong>Final Verification</strong>
+              <span>최종 PASS 근거 정리</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="callout success-callout">
+          <i data-lucide="shield-check"></i>
+          <span>Round 01 과거 결과가 아니라 <strong>Round 02 실제 Runtime·Evidence</strong>를 기준으로 확인했습니다.</span>
+        </div>
+
+        <aside class="notes">
+          PASS를 주장할 때는 반드시 실제 증거를 같이 보여줍니다.
+          이 미션은 구조, 정적검증, 모바일/다크모드/Projects/Formspree 등의 Evidence가 준비되어 있습니다.
+        </aside>
+      </section>
+
+      <section class="slide conclusion-slide">
+        <div class="slide-header">
+          <div>
+            <div class="eyebrow">06 · EVALUATION EXPLANATION</div>
+            <h2>평가는 WHAT → WHY → HOW → VERIFY → LIMITATION 순서로 답한다</h2>
+          </div>
+          <span class="status-chip amber">동료평가</span>
+        </div>
+
+        <div class="evaluation-layout">
+          <div class="answer-stack">
+            <article>
+              <span>WHAT</span>
+              <p>HTML/CSS/JavaScript 반응형 포트폴리오를 구현했습니다.</p>
+            </article>
+            <article>
+              <span>WHY</span>
+              <p>React 이전에 DOM·Event·State·Render 원리를 직접 이해하기 위해서입니다.</p>
+            </article>
+            <article>
+              <span>HOW</span>
+              <p>Semantic HTML, Mobile First, Flex/Grid, State, fetch/async-await를 사용했습니다.</p>
+            </article>
+            <article>
+              <span>VERIFY</span>
+              <p>GitHub Pages에서 모바일·Theme·Form·API를 실제 Runtime으로 확인했습니다.</p>
+            </article>
+            <article>
+              <span>LIMITATION</span>
+              <p>GitHub API Rate Limit, localStorage의 기기 간 비동기화, Formspree 외부 의존성이 있습니다.</p>
+            </article>
+          </div>
+
+          <div class="qa-panel">
+            <h3>30초 핵심 설명</h3>
+            <blockquote>
+              B1-1은 HTML로 구조를 만들고 CSS로 반응형 화면을 구성하며,
+              JavaScript로 Event → State → Render → DOM 흐름을 직접 구현한 프로젝트입니다.
+              Navigation은 1차원 정렬이라 Flexbox, Projects는 2차원 카드 배치라 Grid를 사용했고,
+              GitHub API는 loading·success·empty·error 상태로 나누어 처리했습니다.
+            </blockquote>
+
+            <h3>빠른 Q&A</h3>
+            <ul class="qa-list">
+              <li><b>왜 React를 안 썼나?</b><span>웹 기본 원리를 직접 구현하기 위해</span></li>
+              <li><b>왜 Flex와 Grid를 나눴나?</b><span>1차원 정렬과 2차원 배치 요구가 다르기 때문에</span></li>
+              <li><b>왜 State 객체를 쓰나?</b><span>화면 상태를 한 구조에서 추적하기 위해</span></li>
+              <li><b>API 실패 시?</b><span>catch에서 error State로 바꾸고 Retry UI 표시</span></li>
+            </ul>
+
+            <div class="final-links">
+              <a href="https://github.com/MetaStudy999/codyssey-basic-web-portfolio/blob/main/training/round-02-clear/docs/peer-evaluation-1page.md" target="_blank" rel="noopener noreferrer">1Page Guide</a>
+              <a href="https://github.com/MetaStudy999/codyssey-basic-web-portfolio/blob/main/training/round-02-clear/docs/evaluation-prep.md" target="_blank" rel="noopener noreferrer">Evaluation Prep</a>
+              <a href="https://metastudy999.github.io/codyssey-basic-web-portfolio/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-claim">
+          <strong>한 문장 기억:</strong>
+          Event가 State를 바꾸고, Render가 DOM을 갱신한다.
+        </div>
+
+        <aside class="notes">
+          마지막에는 WHAT, WHY, HOW, VERIFY, LIMITATION 순서로 정리합니다.
+          핵심 한 문장은 Event가 State를 바꾸고 Render가 DOM을 갱신한다 입니다.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="deck-footer" aria-hidden="true">
+    <span>B1-1 · codyssey-basic-web-portfolio</span>
+    <span id="deck-section">Mission</span>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="slides.js"></script>
+</body>
+</html>
