@@ -258,6 +258,7 @@ git log -1 --oneline
 
 바로가기:
 
+- `presentation/peer-evaluation-deck/` — Reveal.js 인터랙티브 동료평가 발표 슬라이드
 - `docs/peer-evaluation-1page.md` — 입문자용 동료평가 1Page 따라하기
 - `docs/final-verification.md`
 - `docs/evaluation-prep.md`
