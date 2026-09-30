@@ -258,6 +258,7 @@ git log -1 --oneline
 
 바로가기:
 
+- `docs/peer-evaluation-1page.md` — 입문자용 동료평가 1Page 따라하기
 - `docs/final-verification.md`
 - `docs/evaluation-prep.md`
 - `docs/requirements-mapping.md`
