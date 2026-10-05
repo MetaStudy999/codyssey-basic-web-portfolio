@@ -3,7 +3,7 @@
 > **Mission:** B1-1 — 나를 소개하는 웹페이지 처음부터 만들기  
 > **Round:** `round-02-clear`  
 > **기준 레포:** [MetaStudy999/codyssey-basic](https://github.com/MetaStudy999/codyssey-basic)  
-> **권장 발표 구조:** 7장 Core Deck
+> **권장 발표 구조:** 12~14장 Learning & Evaluation Deck + Appendix / Quick Review
 
 ## 목적
 
@@ -23,7 +23,9 @@ Mission CLEAR / Evaluation Ready
 → EVIDENCE-MAP.md
 → SCRIPT.md
 → Diagram / Image Asset
-→ Figma Master
+→ Image-First Precision Composite 또는 Figma/PPT-native 구성
+→ Truth Replacement
+→ Accuracy / Evidence QA
 → PDF / PPT Export
 → 발표 리허설
 ```
@@ -32,7 +34,9 @@ Mission CLEAR / Evaluation Ready
 
 - Repository의 실제 코드·Runtime·Evidence가 사실의 원본이다.
 - ChatGPT는 스토리라인·대본·다이어그램·개념 이미지를 만든다.
-- Figma는 편집 가능한 Master와 최종 레이아웃을 관리한다.
+- Figma는 편집 가능한 Master와 최종 레이아웃을 관리할 수 있다.
+- 고품질 Golden Deck은 Image-First Precision Composite 방식을 사용할 수 있다.
+- AI Visual은 배경·캐릭터·분위기·개념 시각화를 담당하고, 정확한 Text/Code/Runtime/Evidence는 실제 Source에서 후합성한다.
 - 실제 Screenshot을 AI 생성 이미지로 대체하지 않는다.
 - AI 생성 이미지는 개념 설명용 Asset으로만 사용한다.
 - PASS 주장에는 실제 Evidence가 있어야 한다.
@@ -48,6 +52,7 @@ presentation/
 ├── OUTLINE.md
 ├── SCRIPT.md
 ├── EVIDENCE-MAP.md
+├── GOLDEN-DECK-QUALITY.md
 └── assets/
 ```
 
@@ -86,3 +91,30 @@ GitHub Pages 예상 URL:
 5. Runtime Result
 6. Verification / Evidence
 7. Evaluation Explanation
+
+
+---
+
+## B1-1 Golden Deck Quality Status — 2026-10-06
+
+### Evolution
+
+```text
+PPT-native
+→ Hybrid Golden Learning Deck
+→ Cinematic Hybrid
+→ Image-First Precision Composite
+```
+
+B1-1에서 Image-First 방식의 시각 품질은 긍정적으로 확인했다. 다만 AI가 생성한 작은 한글·코드·수치·Runtime Mockup을 실제 Evidence로 사용할 수 없다는 위험도 확인했다.
+
+### B1-1에서 확정한 규칙
+
+- AI Visual은 `AI-VISUAL` 또는 `MOCKUP`으로 표시한다.
+- 실제 Screenshot이 아닌 생성 화면에 `REAL EVIDENCE`를 붙이지 않는다.
+- 실제 Code는 Repository에서 추출한다.
+- 실제 Runtime/Evidence는 `training/round-02-clear/evidence/`의 원본을 사용한다.
+- Requirement ID, URL, Commit SHA, PASS 수치는 실제 Source와 대조한다.
+- Truth Replacement Gate 통과 전에는 `FINAL` 또는 `EVIDENCE READY`로 승격하지 않는다.
+
+상세 품질 기록: [GOLDEN-DECK-QUALITY.md](GOLDEN-DECK-QUALITY.md)
