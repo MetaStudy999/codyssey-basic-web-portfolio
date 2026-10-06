@@ -217,6 +217,7 @@ elements.navLinks.forEach((link) => {
 
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.history.pushState(null, '', targetId);
     closeMenu();
   });
 });
