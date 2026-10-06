@@ -1,0 +1,56 @@
+schema_version: "1.0"
+window: W171
+role: MAKER
+
+generation: "CODYSSEY Round 02 / 제2기"
+mission_id: "B1-1"
+title: "나를 소개하는 웹페이지 처음부터 만들기"
+stable_topic: "web-portfolio"
+
+repository: "MetaStudy999/codyssey-basic-web-portfolio"
+base_sha: "42146a8e3d642c4db71186c5dac1b588d4771e29"
+execution_branch: "round-03/b1-1-apos"
+execution_round: "round-03-apos"
+execution_root: "training/round-03-apos"
+authoring_root: "training/round-03-apos/04-src"
+
+owner_start_approval: APPROVED
+mission_start_authorized: true
+mission_state: IN_PROGRESS
+mission_execution: IN_PROGRESS
+
+official_sources:
+  mission:
+    title: "B1-1. 나를 소개하는 웹페이지 처음부터 만들기.pdf"
+    classification: A
+  evaluation:
+    title: "responsive_web_javascript.md"
+    classification: A
+
+writable_source:
+  path: "training/round-03-apos/04-src"
+  mode: SINGLE_SOURCE_OF_TRUTH
+
+reference_only:
+  - "repository root existing web source"
+  - "training/round-01-clear"
+  - "training/round-02-clear"
+
+security:
+  profile: WEB_PUBLIC_BASELINE
+  risk: LOW
+  github_api: PUBLIC_UNAUTHENTICATED
+  secrets_allowed: false
+
+runtime:
+  status: NOT_RUN
+
+evidence:
+  round03_count: 0
+  directory_created: false
+
+presentation:
+  status: NOT_STARTED
+
+bonus:
+  status: DEFERRED_UNTIL_CORE_PASS_CANDIDATE
