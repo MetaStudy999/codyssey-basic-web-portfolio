@@ -75,3 +75,55 @@ AI가 그린 Desktop/Mobile/Terminal/검증표가 실제 Runtime처럼 보일 �
 **Golden Deck FINAL: NOT YET**
 
 B1-1에서 Truth Replacement와 Full-screen QA를 완료하고, B1-2에서 동일 Workflow를 재검증한 뒤 공통 Presentation Standard의 Stable 승격을 판단한다.
+
+
+## 8. Latest Truth Review — 2026-10-06
+
+### Verdict
+
+| Dimension | Result |
+|---|---|
+| Visual Quality | **PASS** |
+| Technical Accuracy | **PARTIAL** |
+| Evidence Integrity | **FAIL** |
+| Golden Deck FINAL | **NOT YET** |
+
+### Required Corrections
+
+- [ ] OFFICIAL 제목: `B1-1 — 나를 소개하는 웹페이지 처음부터 만들기`
+- [ ] 마케팅용 부제와 공식 제목을 분리 표시
+- [ ] AI 생성 Code 제거
+- [ ] 실제 `js/script.js`에서 `loadProjects()`, `setProjectsState()`, `renderProjects()` 발췌
+- [ ] 실제 Evidence Screenshot 5장으로 Runtime/Evidence 영역 교체
+- [ ] 실제 `docs/requirements-mapping.md`의 R01~R15 사용
+- [ ] 실제 `evidence/verify.txt` 렌더링
+- [ ] URL / Screenshot Commit `d979e19` / 기준 SHA 재확인
+- [ ] 근거 없는 날짜 표현 제거
+- [ ] Architecture를 실제 GitHub REST API / Formspree / GitHub Pages와 `theme/projects/form` State에 맞춤
+- [ ] Vanilla JS vs React를 B1-1 공식 제약 및 학습 목적 중심으로 수정
+- [ ] Full-screen 16:9 가독성 검토
+- [ ] AI-VISUAL / MOCKUP / CODE / RUNTIME / EVIDENCE / OFFICIAL Badge 최종 확인
+
+### Final Truth Sources
+
+```text
+README.md
+index.html
+css/style.css
+js/script.js
+training/round-02-clear/docs/requirements-mapping.md
+training/round-02-clear/docs/final-verification.md
+training/round-02-clear/evidence/structure.txt
+training/round-02-clear/evidence/verify.txt
+training/round-02-clear/evidence/formspree-runtime-pass.txt
+training/round-02-clear/evidence/b1-1-final-desktop-light.png
+training/round-02-clear/evidence/b1-1-final-desktop-dark.png
+training/round-02-clear/evidence/b1-1-final-mobile-375.png
+training/round-02-clear/evidence/b1-1-final-projects-filter.png
+training/round-02-clear/evidence/b1-1-final-system-theme-sync.png
+```
+
+### Working Rule
+
+**현재 Art Direction은 유지한다.**
+다음 Revision은 새 스타일 탐색이 아니라 실제 Source로 치환하는 Precision Composite 작업이다.
