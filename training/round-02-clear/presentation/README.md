@@ -118,3 +118,26 @@ B1-1에서 Image-First 방식의 시각 품질은 긍정적으로 확인했다. 
 - Truth Replacement Gate 통과 전에는 `FINAL` 또는 `EVIDENCE READY`로 승격하지 않는다.
 
 상세 품질 기록: [GOLDEN-DECK-QUALITY.md](GOLDEN-DECK-QUALITY.md)
+
+## Golden Master v3 적용
+
+B1-1 Presentation Pack은 공통 `Round 02 Presentation Standard`의 **Golden Master v3 — Truth-First Learning System** 프로파일을 첫 기준작으로 사용한다.
+
+핵심 연결:
+
+```text
+Truth Lock
+→ Comic
+→ Diagram
+→ Actual Code
+→ Runtime
+→ Verification
+→ Evidence
+→ Reproduction
+→ Explanation
+→ Evaluation Defense
+→ Mastery / Transfer
+```
+
+상세 B1-1 Gate는 [GOLDEN-DECK-QUALITY.md](GOLDEN-DECK-QUALITY.md)를 따른다.
+
