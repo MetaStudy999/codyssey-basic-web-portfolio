@@ -115,8 +115,8 @@ Evaluation:
 
 ## 2. Deployment / Evidence
 
-- [ ] GitHub Pages 배포
-- [ ] Public URL 검증
+- [x] GitHub Pages 배포
+- [x] Public URL 검증
 - [ ] Desktop screenshot
 - [ ] Mobile screenshot
 - [ ] Dark mode screenshot
@@ -159,7 +159,22 @@ Current final status:
 ```text
 CORE Runtime PASS
 → Visual Review PASS
-→ Public GitHub Pages Runtime PENDING
+→ Public GitHub Pages Runtime PASS
 → Learning Minimum Gate PENDING
 → FINAL CLEAR PENDING
 ```
+
+
+## 6. Public GitHub Pages Evidence
+
+- Public URL: `https://metastudy999.github.io/codyssey-basic-web-portfolio/training/round-03-apos/04-src/`
+- Pages deployment Run: `37616679287` — **PASS**
+- Public Runtime Run: `37616681465` — **PASS**
+- Public Runtime source main SHA: `81dcfcbd5456f4113f28ec301d0218e900c30508`
+- Public Runtime Artifact ID: `11479961600`
+- Artifact SHA-256: `8954041bc8b924bd573dbbfb78331786c60309f871464df8c6321d5954631cfb`
+- Index HTTP: **200**
+- CSS HTTP: **200**
+- JavaScript HTTP: **200**
+- Round 03 marker: **PASS**
+- Title marker: **PASS**
