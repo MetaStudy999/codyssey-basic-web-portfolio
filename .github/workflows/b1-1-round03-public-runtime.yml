@@ -1,0 +1,116 @@
+name: B1-1 Round 03 Public Runtime
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/b1-1-round03-public-runtime.yml"
+      - "training/round-03-apos/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-public-pages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      BASE_URL: "https://metastudy999.github.io/codyssey-basic-web-portfolio/training/round-03-apos/04-src"
+    steps:
+      - name: Wait for Round 03 public page
+        run: |
+          set -euo pipefail
+          mkdir -p public-evidence
+          success=0
+
+          for attempt in $(seq 1 20); do
+            echo "attempt=${attempt}"
+            code="$(curl -L -sS -o public-evidence/index.html -w '%{http_code}' --max-time 20 "${BASE_URL}/" || true)"
+            echo "index_http_status=${code}"
+
+            if [[ "${code}" = "200" ]] &&
+               grep -Fq "YoungSe | Web Portfolio" public-evidence/index.html &&
+               grep -Fq "CODYSSEY B1-1 · APOS Round 03" public-evidence/index.html; then
+              success=1
+              break
+            fi
+
+            sleep 15
+          done
+
+          if [[ "${success}" -ne 1 ]]; then
+            echo "public_index_verification=FAIL"
+            exit 1
+          fi
+
+          echo "public_index_verification=PASS"
+
+      - name: Verify public CSS and JavaScript
+        run: |
+          set -euo pipefail
+
+          css_code="$(curl -L -sS -o public-evidence/style.css -w '%{http_code}' --max-time 20 "${BASE_URL}/css/style.css")"
+          js_code="$(curl -L -sS -o public-evidence/main.js -w '%{http_code}' --max-time 20 "${BASE_URL}/js/main.js")"
+
+          echo "css_http_status=${css_code}"
+          echo "js_http_status=${js_code}"
+
+          test "${css_code}" = "200"
+          test "${js_code}" = "200"
+
+          grep -Fq ".site-header" public-evidence/style.css
+          grep -Fq "const STATE =" public-evidence/main.js
+          grep -Fq "loadProjects();" public-evidence/main.js
+
+          echo "public_asset_verification=PASS"
+
+      - name: Build public runtime report
+        env:
+          EXPECTED_MAIN_SHA: ${{ github.sha }}
+        run: |
+          node <<'NODE'
+          const fs = require("node:fs");
+          const crypto = require("node:crypto");
+
+          function sha256(file) {
+            return crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
+          }
+
+          const report = {
+            schema_version: "1.0",
+            mission_id: "B1-1",
+            execution_round: "round-03-apos",
+            public_url: process.env.BASE_URL + "/",
+            source_main_sha: process.env.EXPECTED_MAIN_SHA,
+            status: "PASS",
+            checks: {
+              index_http_200: true,
+              round03_marker_present: true,
+              title_present: true,
+              css_http_200: true,
+              javascript_http_200: true,
+              javascript_state_marker_present: true
+            },
+            public_file_sha256: {
+              index_html: sha256("public-evidence/index.html"),
+              style_css: sha256("public-evidence/style.css"),
+              main_js: sha256("public-evidence/main.js")
+            }
+          };
+
+          fs.writeFileSync(
+            "public-evidence/public-runtime-report.json",
+            JSON.stringify(report, null, 2) + "\n"
+          );
+
+          console.log(JSON.stringify(report, null, 2));
+          NODE
+
+      - name: Upload public runtime evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: b1-1-round03-public-runtime-${{ github.run_id }}
+          path: public-evidence/
+          if-no-files-found: error
+          retention-days: 30
