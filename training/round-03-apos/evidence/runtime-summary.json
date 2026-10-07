@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "mission_id": "B1-1",
+  "execution_round": "round-03-apos",
+  "mission_repository": "MetaStudy999/codyssey-basic-web-portfolio",
+  "mission_branch": "round-03/b1-1-apos",
+  "mission_candidate": "95b5dd8283a611e27c0c0a9185060a213e53ada9",
+  "mission_source_root": "training/round-03-apos/04-src",
+  "verifier_repository": "MetaStudy999/agentic-project-os",
+  "verifier_candidate": "b8a82c3ed0a572c0b160f64f697120602b049779",
+  "runtime_run_id": 37582457341,
+  "runtime_job_id": 112664996295,
+  "runtime_status": "PASS",
+  "candidate_failure": false,
+  "environment_failure": false,
+  "mission_mutated": false,
+  "live_github_api": {
+    "status": "PASS",
+    "ui_text": "30개의 공개 프로젝트를 불러왔습니다."
+  },
+  "visual_review": {
+    "status": "PASS",
+    "checker_window": "W210",
+    "findings_closed": [
+      "RUNNER_KOREAN_FONT_UNAVAILABLE",
+      "SCREENSHOT_REVEAL_SECTIONS_NOT_ACTIVATED_BEFORE_CAPTURE"
+    ]
+  },
+  "evidence_gate": {
+    "automated_status": "REVIEW",
+    "reason": "MEDIA_REQUIRES_VISUAL_REVIEW",
+    "resolution": "PASS_BY_INDEPENDENT_VISUAL_REVIEW"
+  },
+  "artifact": {
+    "id": 11465355693,
+    "name": "codyssey-b1-1-runtime-37582457341",
+    "digest": "sha256:2ec015a8383a99c83bb36f409a7ae7ea08063f5fd11b60345c657046a49d11db",
+    "files": [
+      "desktop-light.png",
+      "desktop-dark.png",
+      "tablet.png",
+      "mobile.png",
+      "runtime-report.json",
+      "console.json",
+      "network.json",
+      "evidence-manifest.json",
+      "trace.zip",
+      "LATEST_PACKAGE.json",
+      "LATEST_GATE.json"
+    ]
+  },
+  "verified_assertions": [
+    "mission-exact-candidate",
+    "mission-working-tree-clean-before",
+    "mission-source-root-exists",
+    "server-loopback-only",
+    "http-200",
+    "title",
+    "section-hero",
+    "section-about",
+    "section-skills",
+    "section-projects",
+    "section-contact",
+    "intersection-observer-hero",
+    "dark-mode-toggle",
+    "dark-mode-localstorage",
+    "dark-mode-persistence",
+    "smooth-anchor-history",
+    "header-scroll-state",
+    "scroll-top-visible",
+    "scroll-top-action",
+    "form-required-errors",
+    "form-invalid-email",
+    "form-valid-success",
+    "github-api-live",
+    "tablet-menu-toggle-hidden",
+    "mobile-menu-toggle-visible",
+    "mobile-menu-expanded",
+    "mobile-menu-active",
+    "github-api-403-ui",
+    "github-api-403-retry-visible",
+    "github-api-empty-ui",
+    "no-uncaught-pageerror",
+    "mission-working-tree-clean-after"
+  ]
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-labelledby="title desc">
+  <title id="title">프로필 기본 이미지</title>
+  <desc id="desc">개인 프로필 사진을 넣기 전 사용하는 단순한 사람 실루엣</desc>
+  <rect width="480" height="480" rx="48" fill="#e8edf7"/>
+  <circle cx="240" cy="168" r="88" fill="#9aa9c4"/>
+  <path d="M92 420c18-104 78-156 148-156s130 52 148 156" fill="#9aa9c4"/>
+</svg>
