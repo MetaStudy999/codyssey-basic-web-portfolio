@@ -9,7 +9,7 @@
 - Execution Round: round-03-apos
 - Execution Root: `training/round-03-apos`
 - Writable Source: `training/round-03-apos/04-src`
-- Status: IN_PROGRESS
+- Status: CLEAR_CANDIDATE
 - Owner Start Approval: APPROVED
 
 ## Source of Truth
@@ -85,3 +85,42 @@ Round 03에서 수정 가능한 소스는 `04-src/` 하나뿐이다.
 - Fresh evidence 캡처
 - 발표자료
 - Bonus 기능
+
+
+## Actual Browser Runtime Verification
+
+Round 03 exact candidate:
+
+`95b5dd8283a611e27c0c0a9185060a213e53ada9`
+
+was executed in real Chromium through APOS with the mission source mounted read-only.
+
+Result:
+
+- Runtime: **PASS**
+- Candidate failure: **false**
+- Environment failure: **false**
+- Desktop / Tablet / Mobile: **PASS**
+- Dark mode + persistence: **PASS**
+- Mobile menu: **PASS**
+- Scroll interactions: **PASS**
+- Form negative/positive paths: **PASS**
+- GitHub Public API live runtime: **PASS**
+- GitHub API 403 / retry / empty-state paths: **PASS**
+- Independent visual review: **PASS**
+- Mission source mutation: **false**
+
+Evidence:
+
+- Run ID: `37582457341`
+- Job ID: `112664996295`
+- Artifact ID: `11465355693`
+- Artifact digest: `sha256:2ec015a8383a99c83bb36f409a7ae7ea08063f5fd11b60345c657046a49d11db`
+- Evidence map: `evidence/EVIDENCE-MAP.md`
+
+### Final CLEAR Remaining Gates
+
+1. GitHub Pages에서 Round 03 public URL 검증
+2. Learning Minimum Gate — Owner가 핵심 개념을 자신의 말로 설명
+
+따라서 현재 상태는 **CLEAR_CANDIDATE**이며 FINAL CLEAR는 위 두 Gate 이후 확정한다.
