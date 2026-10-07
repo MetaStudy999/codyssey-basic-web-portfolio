@@ -135,6 +135,25 @@ Verification:
 - Public Runtime Artifact: `11479961600`
 - Public Runtime Artifact digest: `sha256:8954041bc8b924bd573dbbfb78331786c60309f871464df8c6321d5954631cfb`
 
+## Fresh Screenshot Evidence
+
+Fresh browser screenshots were captured from the exact Round 03 runtime candidate and preserved in the verified GitHub Actions artifact.
+
+- Artifact ID: `11465355693`
+- Artifact digest: `sha256:2ec015a8383a99c83bb36f409a7ae7ea08063f5fd11b60345c657046a49d11db`
+- Exact mission candidate: `95b5dd8283a611e27c0c0a9185060a213e53ada9`
+- Independent visual review: **PASS**
+
+Screenshot set:
+
+- `desktop-light.png` — desktop / light theme
+- `desktop-dark.png` — desktop / dark theme
+- `tablet.png` — tablet responsive layout
+- `mobile.png` — 375px mobile layout
+
+These screenshots are mapped in `evidence/EVIDENCE-MAP.md` and were reviewed together with the Playwright trace, console/network summaries, and runtime report.
+
+
 ### Final CLEAR Remaining Gate
 
 Only one gate remains:
