@@ -17,7 +17,7 @@ authoring_root: "training/round-03-apos/04-src"
 owner_start_approval: APPROVED
 mission_start_authorized: true
 mission_state: IN_PROGRESS
-mission_execution: IN_PROGRESS
+mission_execution: RUNTIME_PASS
 
 official_sources:
   mission:
@@ -43,11 +43,29 @@ security:
   secrets_allowed: false
 
 runtime:
-  status: NOT_RUN
+  status: PASS
+  exact_candidate: "95b5dd8283a611e27c0c0a9185060a213e53ada9"
+  verifier_candidate: "b8a82c3ed0a572c0b160f64f697120602b049779"
+  run_id: 37582457341
+  job_id: 112664996295
+  result: PASS
+  candidate_failure: false
+  environment_failure: false
+  visual_review: PASS
+  evidence_gate: REVIEW_RESOLVED_BY_INDEPENDENT_VISUAL_REVIEW
+  source_mutation: false
 
 evidence:
-  round03_count: 0
-  directory_created: false
+  round03_count: 11
+  directory_created: true
+  artifact_id: 11465355693
+  artifact_digest: "sha256:2ec015a8383a99c83bb36f409a7ae7ea08063f5fd11b60345c657046a49d11db"
+
+clear_gate:
+  status: PENDING
+  remaining:
+    - PUBLIC_GITHUB_PAGES_RUNTIME
+    - LEARNING_MINIMUM_GATE_OWNER_EXPLANATION
 
 presentation:
   status: NOT_STARTED
