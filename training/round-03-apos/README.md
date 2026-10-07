@@ -9,7 +9,7 @@
 - Execution Round: round-03-apos
 - Execution Root: `training/round-03-apos`
 - Writable Source: `training/round-03-apos/04-src`
-- Status: CLEAR_CANDIDATE
+- Status: CLEAR_CANDIDATE_PUBLIC_VERIFIED
 - Owner Start Approval: APPROVED
 
 ## Source of Truth
@@ -118,9 +118,27 @@ Evidence:
 - Artifact digest: `sha256:2ec015a8383a99c83bb36f409a7ae7ea08063f5fd11b60345c657046a49d11db`
 - Evidence map: `evidence/EVIDENCE-MAP.md`
 
-### Final CLEAR Remaining Gates
+## Public GitHub Pages Runtime
 
-1. GitHub Pages에서 Round 03 public URL 검증
-2. Learning Minimum Gate — Owner가 핵심 개념을 자신의 말로 설명
+Public URL:
 
-따라서 현재 상태는 **CLEAR_CANDIDATE**이며 FINAL CLEAR는 위 두 Gate 이후 확정한다.
+`https://metastudy999.github.io/codyssey-basic-web-portfolio/training/round-03-apos/04-src/`
+
+Verification:
+
+- Pages deployment: **PASS**
+- Public index HTTP 200: **PASS**
+- Public CSS HTTP 200: **PASS**
+- Public JavaScript HTTP 200: **PASS**
+- Round 03 page marker: **PASS**
+- Public Runtime Run: `37616681465`
+- Public Runtime Artifact: `11479961600`
+- Public Runtime Artifact digest: `sha256:8954041bc8b924bd573dbbfb78331786c60309f871464df8c6321d5954631cfb`
+
+### Final CLEAR Remaining Gate
+
+Only one gate remains:
+
+1. **Learning Minimum Gate** — Owner가 핵심 개념을 자신의 말로 설명
+
+따라서 현재 상태는 **CLEAR_CANDIDATE_PUBLIC_VERIFIED**이며 FINAL CLEAR는 Learning Minimum Gate 이후 확정한다.

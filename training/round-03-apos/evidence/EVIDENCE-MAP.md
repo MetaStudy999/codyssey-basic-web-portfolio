@@ -104,11 +104,24 @@ Runtime assertions PASS
 = Runtime verification PASS
 ```
 
-## 6. Remaining Final CLEAR Gates
+## 6. Public GitHub Pages Runtime
 
-The following are intentionally not claimed as complete in this evidence map:
+- Public URL: `https://metastudy999.github.io/codyssey-basic-web-portfolio/training/round-03-apos/04-src/`
+- Pages deployment Run ID: `37616679287`
+- Public Runtime Run ID: `37616681465`
+- Source main SHA: `81dcfcbd5456f4113f28ec301d0218e900c30508`
+- Public Runtime Artifact ID: `11479961600`
+- Artifact SHA-256: `8954041bc8b924bd573dbbfb78331786c60309f871464df8c6321d5954631cfb`
+- Index HTTP 200: **PASS**
+- CSS HTTP 200: **PASS**
+- JavaScript HTTP 200: **PASS**
+- Expected title: **PASS**
+- Round 03 marker: **PASS**
 
-1. Round 03 GitHub Pages public URL verification
-2. Learning Minimum Gate — Owner explanation in their own words
+## 7. Remaining Final CLEAR Gate
 
-Until those are complete, Mission status remains **CLEAR_CANDIDATE**, not FINAL CLEAR.
+Only one gate is intentionally not claimed as complete:
+
+1. Learning Minimum Gate — Owner explanation in their own words
+
+Mission status therefore remains **CLEAR_CANDIDATE_PUBLIC_VERIFIED**, not FINAL CLEAR.

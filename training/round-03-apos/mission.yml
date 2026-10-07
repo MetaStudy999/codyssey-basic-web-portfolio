@@ -61,10 +61,19 @@ evidence:
   artifact_id: 11465355693
   artifact_digest: "sha256:2ec015a8383a99c83bb36f409a7ae7ea08063f5fd11b60345c657046a49d11db"
 
+deployment:
+  status: PASS
+  provider: GITHUB_PAGES
+  public_url: "https://metastudy999.github.io/codyssey-basic-web-portfolio/training/round-03-apos/04-src/"
+  source_main_sha: "81dcfcbd5456f4113f28ec301d0218e900c30508"
+  pages_run_id: 37616679287
+  public_runtime_run_id: 37616681465
+  public_runtime_artifact_id: 11479961600
+  public_runtime_artifact_digest: "sha256:8954041bc8b924bd573dbbfb78331786c60309f871464df8c6321d5954631cfb"
+
 clear_gate:
-  status: PENDING
+  status: PENDING_LEARNING_GATE
   remaining:
-    - PUBLIC_GITHUB_PAGES_RUNTIME
     - LEARNING_MINIMUM_GATE_OWNER_EXPLANATION
 
 presentation:
