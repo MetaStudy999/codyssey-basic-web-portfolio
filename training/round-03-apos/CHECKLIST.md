@@ -117,10 +117,10 @@ Evaluation:
 
 - [x] GitHub Pages 배포
 - [x] Public URL 검증
-- [ ] Desktop screenshot
-- [ ] Mobile screenshot
-- [ ] Dark mode screenshot
-- [ ] README에 최종 배포 URL 및 Fresh screenshots 반영
+- [x] Desktop screenshot — Runtime Artifact `11465355693` / `desktop-light.png`
+- [x] Mobile screenshot — Runtime Artifact `11465355693` / `mobile.png`
+- [x] Dark mode screenshot — Runtime Artifact `11465355693` / `desktop-dark.png`
+- [x] README에 최종 배포 URL 및 Fresh screenshot provenance 반영
 
 ## 3. Bonus — CORE PASS Candidate 이후
 
