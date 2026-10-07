@@ -15,8 +15,8 @@
 - [x] Meaningful image alt
 - [x] Form label for-id 연결
 - [x] External CSS / JavaScript
-- [ ] 최신 Chrome Runtime 확인
-- [ ] Fresh screenshot evidence
+- [x] 최신 Chrome Runtime 확인
+- [x] Fresh screenshot evidence
 
 Evaluation:
 - HTML/CSS/JavaScript 역할 설명
@@ -33,7 +33,7 @@ Evaluation:
 - [x] 1024px breakpoint
 - [x] Hover + transition
 - [x] Box shadow
-- [ ] Desktop / Tablet / Mobile Runtime 확인
+- [x] Desktop / Tablet / Mobile Runtime 확인
 
 Evaluation:
 - CSS 변수 사용 이유 설명
@@ -70,7 +70,7 @@ Evaluation:
 - [x] Dark Mode
 - [x] localStorage
 - [x] Intersection Observer: threshold 0.2
-- [ ] Browser interaction Runtime 확인
+- [x] Browser interaction Runtime 확인
 
 ### Form UX
 
@@ -80,7 +80,7 @@ Evaluation:
 - [x] Field-near error UI
 - [x] Success UI
 - [x] Input event revalidation
-- [ ] Runtime negative-path evidence
+- [x] Runtime negative-path evidence
 
 ### GitHub API
 
@@ -94,8 +94,8 @@ Evaluation:
 - [x] Empty UI
 - [x] 403 / rate-limit specific handling
 - [x] Retry button
-- [ ] Live API Runtime 확인
-- [ ] 403 simulated/actual evidence
+- [x] Live API Runtime 확인
+- [x] 403 simulated/actual evidence
 
 Evaluation:
 - async/await + try/catch 성공/실패 분기 설명
@@ -131,9 +131,35 @@ Evaluation:
 
 ## 4. Learning Minimum Gate
 
+Status: **PENDING — Owner explanation required before FINAL CLEAR**
+
 후속 검증에서 사용자가 자신의 말로 설명해야 한다.
 
 1. HTML / CSS / JavaScript 역할
 2. 기능 하나의 User Action → Event → State → Render 흐름
 3. 오류 하나의 증상 → 원인 → 확인 → 수정 → 재검증
 4. 핵심 코드 하나의 변경 전 → 변경 후 → 이유 → 결과
+
+
+## 5. Round 03 Runtime Evidence
+
+- Runtime verifier: APOS `APOS-CODYSSEY-B1-1-RUNTIME-080`
+- Exact mission candidate: `95b5dd8283a611e27c0c0a9185060a213e53ada9`
+- Chromium runtime: **PASS**
+- Candidate failure: **false**
+- Environment failure: **false**
+- Independent visual review: **PASS**
+- Mission source mutation: **false**
+- Evidence Artifact ID: `11465355693`
+- Evidence Artifact SHA-256: `2ec015a8383a99c83bb36f409a7ae7ea08063f5fd11b60345c657046a49d11db`
+- Evidence map: `training/round-03-apos/evidence/EVIDENCE-MAP.md`
+
+Current final status:
+
+```text
+CORE Runtime PASS
+→ Visual Review PASS
+→ Public GitHub Pages Runtime PENDING
+→ Learning Minimum Gate PENDING
+→ FINAL CLEAR PENDING
+```
