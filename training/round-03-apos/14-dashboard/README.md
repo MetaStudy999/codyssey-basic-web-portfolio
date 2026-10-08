@@ -13,3 +13,8 @@ GitHub Pages에 병합·배포되면 /training/round-03-apos/14-dashboard/ 경�
 - **사용:** HTML 파일 다운로드 → 로컬 브라우저에서 열기 → 폴더 선택 → 실제 소스 링크 열기 → 문서 덮고 답 → 실습 → 자가평가. 페이지 내 학습 기록은 브라우저 localStorage에만 보존되며 외부로 전송하지 않습니다.
 - 이것은 **오프라인 학습 지원 UI**이며 위 기존 index.html의 고정 스냅샷 관제와 다른 목적입니다. 원격 GitHub CI/PASS를 읽거나 사용자 실기·공식 평가를 자동 인증하지 않습니다.
 - 전체 상태 요약과 미완료 우선순위는 [Owner 학습 허브](../OWNER-REVIEW-LEARN.md)를 참조합니다.
+
+
+## 공식 평가 15문항 공부
+- [../07-evaluation/OFFICIAL-EVALUATION-CHECKLIST.md](../07-evaluation/OFFICIAL-EVALUATION-CHECKLIST.md)에서 공식 15개 평가 항목별 실제 코드·시연·구술 질문을 선택한다.
+- 폴더별 학습 UI의 자가 성공 버튼은 공식 평가 완료 인증이 아니다.
