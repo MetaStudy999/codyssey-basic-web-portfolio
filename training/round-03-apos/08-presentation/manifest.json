@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "mission_id": "B1-1",
+  "artifact_kind": "STUDY_FIRST_GOLDEN_LEARNING_DECK",
+  "stage": "DRAFT",
+  "status": "NOT_FINAL",
+  "deadline": "2026-10-31",
+  "canonical_decisions": {
+    "repository": "MetaStudy999/codyssey-basic",
+    "path": "standards/PRESENTATION-CANONICAL-DECISIONS.md",
+    "blob_sha": "b385159bbb702f03cdc0c0bc840bfa1095f91a4c"
+  },
+  "golden_profile": {
+    "study_first": true,
+    "image_first": true,
+    "comic_diagram_code_evidence": true,
+    "visual_direction": "Cinematic Mountain/Journey, Navy/Cyan/Amber, comic, tech UI",
+    "minimum_study_slides": 30,
+    "maximum_target_study_slides": 45
+  },
+  "baseline": {
+    "main_sha": "da8822cbbe54c47539f65571327e324ce675eeb4",
+    "bonus_pr": 19,
+    "bonus_candidate_sha": "8059498326c4cbfb5ab35e0da7ca32a0e243538f",
+    "browser_run": 37853333536,
+    "artifact_id": 11583241674,
+    "uses_mock_github_data": true,
+    "formspree_post_mock_only": true,
+    "actual_email_receipt": "NOT_VERIFIED"
+  },
+  "deliverables": {
+    "study_deck": null,
+    "presentation_deck": null,
+    "technical_appendix": null,
+    "quick_review": null,
+    "speaker_notes": null,
+    "demo_runbook": null,
+    "slide_evidence_map": null
+  },
+  "slides": [],
+  "golden_gates": {
+    "G1": "NOT_MEASURED",
+    "G2": "NOT_MEASURED",
+    "G3": "NOT_MEASURED",
+    "G4": "NOT_MEASURED",
+    "G5": "NOT_MEASURED",
+    "G6": "NOT_MEASURED",
+    "G7": "NOT_MEASURED",
+    "G8": "NOT_MEASURED",
+    "G9": "NOT_MEASURED",
+    "G10": "NOT_MEASURED"
+  },
+  "review": {
+    "owner_status": "PENDING",
+    "independent_qa_status": "PENDING"
+  },
+  "hermes": {
+    "skill_path": ".hermes/skills/codyssey-golden-slides/SKILL.md",
+    "skill_repository_status": "STAGED",
+    "runtime_execution_status": "NOT_VERIFIED",
+    "execution_log": null
+  },
+  "zero_trust": {
+    "policy_path": "training/round-03-apos/08-presentation/zero-trust-policy.json",
+    "default_deny": true,
+    "secret_scan": "PENDING",
+    "artifact_hashes_verified": false
+  },
+  "remarks": "17-slide old preview rejected as final. Round-02 evidence is reference only; bonus source in separate PR#19."
+}
