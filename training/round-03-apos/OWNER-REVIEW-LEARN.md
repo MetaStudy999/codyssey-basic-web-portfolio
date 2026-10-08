@@ -31,6 +31,13 @@
 | `13-harness` 반복 실행 검증 | 읽기 전용 Harness 검사기·계약 존재. 범용성 NOT_ESTABLISHED | [README.md](13-harness/README.md) · [학습 절차](13-harness/AGENTS.md) | `PILOT_INCOMPLETE` |
 | `14-dashboard` 한눈에 보기 | 2026-10-08 스냅샷 대시보드 시안. 실시간 관제 아님 | [index.html](14-dashboard/index.html) · [학습 절차](14-dashboard/AGENTS.md) | `STATIC_SNAPSHOT_ONLY` |
 
+## 평가 원문 15개 문항 직접 학습 (필수)
+
+- [B1-1 공식 4개 영역·15문항 전체 평가 체크리스트](07-evaluation/OFFICIAL-EVALUATION-CHECKLIST.md)
+- 출처: [responsive_web_javascript.md](https://drive.google.com/file/d/1tRJdh0a2cX8x3nAkpKYM9b6aVfPKed6q/view)
+- **평가 원본 15/15 연결은 완료됐지만, 사람의 직접 구술·실기 검증은 미측정 상태**입니다. 기존 R01~R14 요구사항 표는 공식 평가 15문항과 다른 목적으로 작성되었습니다.
+- 각 문항을 자료 없이 설명하고 실제 웹사이트로 재현해야 하며, BONUS 4개와 최종 발표 슬라이드의 검증도 별개입니다.
+
 ## 04-src 실제 코드
 
 - [HTML 구조](04-src/index.html): header/nav/main/section/article/footer, 실제 이름/이메일/메시지 폼.
