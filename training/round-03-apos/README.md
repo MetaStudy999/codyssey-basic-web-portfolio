@@ -165,3 +165,29 @@ Learning Minimum Gate까지 완료되었다.
 - Mission source mutation during finalization: **NONE**
 
 따라서 B1-1 Round 03의 현재 상태는 **FINAL_CLEAR**이다.
+
+
+---
+
+## Round 03 독립 Mission Harness (신규 실험 설정)
+
+**중요:** 이 절은 기존 B1-1 CORE FINAL CLEAR와 별개로, AI 수행 역량과 Owner 학습 성장의 **범용 미션 실험**을 설계한다. Round 01/02 산출물은 참고만 하며 이 구조에 복제하지 않는다.
+
+| 경로 | 책임 |
+| --- | --- |
+| `AGENTS.md` / `00-control/` | 독립 생성 원칙·권한·목표 |
+| `01-mission/` | 공식 요구의 Round 03 추적 |
+| `02-research/` | 새 학습 경로·개념 지도 |
+| `03-design/` | 이 버전의 실제 코드 설계 해설 |
+| `04-src/` | 유일한 실행 코드 (기존 CORE 검증 결과 보존) |
+| `05-tests/` | 검증 계약 및 향후 독립 벤치마크 |
+| `06-evidence/` | 인덱스; 실제 증거는 기존 `evidence/`가 단일 원본 |
+| `07-evaluation/` | CORE·BONUS·학습 숙달 분리 |
+| `08-presentation/` | 새 발표·학습자료 제작 규칙, 아직 실제 PPT 없음 |
+| `09-handoff/` | 새로운 단계 안전 재개 |
+| `10-performance/` | AI 성능/사람 학습 계측 |
+| `11-improvement/` | 개선 가설·검증·승격 프로세스 |
+| `12-domains/` | 다양한 미션으로 확장할 어댑터 설계 |
+| `MISSING-WORK-REGISTER.md` | 실행되지 않은 일과 실제 결손 |
+
+**현재 판정:** B1-1 CORE = CLEAR, 새 Harness 설정 = QA 후보, BONUS = NOT_VERIFIED, Final Deck = NOT_STARTED, Cross-domain Metrics = NOT_MEASURED.
