@@ -18,3 +18,7 @@ node training/round-03-apos/13-harness/harness.mjs
 
 ## 중요한 제한
 이 v1은 **제안·정적 검증·증거 맵 확인**만 수행한다. 외부 MCP 연결 또는 배포·금융·연구 작업을 자율적으로 실행하지 않는다. 범용 엔진 검증 완료는 다른 분야에서 재검증 전까지 인정하지 않는다.
+
+## 전문 도구 등록 보완 (2026-10-08)
+tool-registry.json의 각 등록에는 version, timeout_ms, cost_estimate_usd(null 허용), retry_policy, idempotency_key_required, audit_required, fallback, permission_scope, allowed_operations을 추가했다.
+실제 MCP 연결이 확인되지 않은 채 호출하지 않는다. GitHub Actions는 등록계약 자체의 유효성만 검증한다.

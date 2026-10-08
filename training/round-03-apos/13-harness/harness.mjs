@@ -46,7 +46,19 @@ export function evaluateHarness(contract, obs, registry) {
  if(stages.P06.status==='PASS') ensure(obs.research.status==='PASS','FALSE_RESEARCH_GAIN');
  if(stages.P07.status==='PASS') ensure(obs.cross_domain_experiments>=3 && obs.independent_qa?.status==='PASS' && validReference(obs.independent_qa.evidence_ref),'FALSE_GENERALIZATION');
  if(stages.P03.status==='PASS') ensure(Array.isArray(registry.tools)&&registry.tools.some(t=>t.connection==='VERIFIED' && validReference(t.connection_evidence)),'MCP_NOT_VERIFIED');
- ensure(Array.isArray(registry.tools)&&unique(registry.tools.map(t=>t.id)) && registry.tools.every(t=>t.id&&Array.isArray(t.capabilities)&&t.capabilities.length>0&&typeof t.mutating==='boolean'&&typeof t.approval_required==='boolean'&&['LOW','MEDIUM','HIGH','CRITICAL'].includes(t.risk)),'TOOL_REGISTRY_INVALID');
+ ensure(Array.isArray(registry.tools)&&unique(registry.tools.map(t=>t.id)) && registry.tools.every(t=>
+  t.id && typeof t.version==='string' && t.version.length>2 &&
+  Array.isArray(t.capabilities) && t.capabilities.length>0 &&
+  typeof t.mutating==='boolean' && typeof t.approval_required==='boolean' &&
+  ['LOW','MEDIUM','HIGH','CRITICAL'].includes(t.risk) &&
+  Number.isInteger(t.timeout_ms) && t.timeout_ms>0 && t.timeout_ms<=120000 &&
+  (t.cost_estimate_usd===null || (Number.isFinite(t.cost_estimate_usd)&&t.cost_estimate_usd>=0)) &&
+  t.retry_policy?.max_retries===0 && t.retry_policy?.retry_unknown_outcome===false &&
+  t.audit_required===true && t.fallback==='STOP_AND_REPORT' &&
+  t.idempotency_key_required===t.mutating &&
+  Array.isArray(t.allowed_operations) && t.allowed_operations.includes('READ') &&
+  (!t.mutating || (t.approval_required===true && t.permission_scope==='EXPLICIT_OWNER_AND_APOS_GUARD'))
+),'TOOL_REGISTRY_INVALID');
  const tests=obs.performance.quality_test_count;
  const passed=obs.performance.quality_pass_count;
  return {

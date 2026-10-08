@@ -57,3 +57,21 @@ test('unsafe auto-merge policy rejected',()=>{
  const x=fresh();x.contract.risk_policy.auto_merge_allowed=true;
  assert.throws(()=>evaluateHarness(x.contract,x.observations,x.registry),/POLICY_BOUNDARY/);
 });
+
+test('tool registry denies unsafe retry and missing audit metadata',()=>{
+ const x=fresh();x.registry.tools[0].retry_policy.retry_unknown_outcome=true;
+ assert.throws(()=>evaluateHarness(x.contract,x.observations,x.registry),/TOOL_REGISTRY_INVALID/);
+ const y=fresh();delete y.registry.tools[1].audit_required;
+ assert.throws(()=>evaluateHarness(y.contract,y.observations,y.registry),/TOOL_REGISTRY_INVALID/);
+});
+test('dashboard prototype is DOM-safe and visibly marked as snapshot',async()=>{
+ const fs=await import('node:fs');
+ const path=await import('node:path');
+ const url=await import('node:url');
+ const here=path.dirname(url.fileURLToPath(import.meta.url));
+ const page=fs.readFileSync(path.resolve(here,'../14-dashboard/index.html'),'utf8');
+ assert.ok(page.includes('스냅샷'));
+ assert.ok(page.includes('textContent'));
+ assert.ok(!page.includes('innerHTML'));
+ assert.ok(page.includes('../13-harness/observations.json'));
+});

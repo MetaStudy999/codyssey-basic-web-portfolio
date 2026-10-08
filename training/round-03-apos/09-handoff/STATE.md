@@ -46,3 +46,10 @@
 - `14-dashboard/`는 로컬 정적 스냅샷 UI이며 실제 관제센터의 실시간 동작 증거가 아니다.
 - 실제 AI 작업·MCP 쓰기·대외 배포·학습 향상 주장 없이 계약·권한·표시 안전을 시험한다.
 - 다음: PR #16 동일 HEAD의 CI와 이력 확인 → 다른 QA_SEC 창에서 read-only 검증 → MASTER 병합 판단.
+
+## 연계 PRs / P00~P07
+- B1-1 Harness PR: https://github.com/MetaStudy999/codyssey-basic-web-portfolio/pull/16
+- APOS Core Pilot Adoption PR: https://github.com/MetaStudy999/agentic-project-os/pull/118
+- CODYSSEY B1-1 Central Sync PR: https://github.com/MetaStudy999/codyssey-basic/pull/97
+- 모두 Draft / independent QA 전: 병합 금지.
+- 직전 Harness 정적 CI Run 37790497335 PASS, 위 추가 후보 변경 이후 재검증 필수.

@@ -25,3 +25,14 @@
 - CORE B1-1의 과거 FINAL CLEAR는 보존하며 새 Harness 검증 성과와 합산하지 않는다.
 
 상태/경로/문서 명세가 바뀌면 동일 실행 결과를 새 후보에 재사용하지 않고 새 CI를 실행한다.
+
+## 2026-10-08 범용 파일럿 하네스 도입 검증
+- Candidate: c47cf31e860951bb4f73a4631f854f6a410fd828 (이후 추가 수정 시 새로운 후보로 변경).
+- Exact HEAD CI Run 37790497335: SUCCESS.
+- 기존 정적/근거 검사: 52 PASS / 0 FAIL.
+- 기존 부정 회귀: 6 PASS / 0 FAIL.
+- 신규 하네스 정책/거짓 PASS 차단 테스트: 12 PASS / 0 FAIL.
+- 실제 하네스 상태: `PILOT_INCOMPLETE`, `ready_count=0/8` — 실패 조작이 아니라 미실행·미측정 경계를 유지한 사실적 결과.
+- EVIDENCE Artifact: 11555378635 (정적/하네스 JSON 기록).
+- 신규 브라우저 UI QA, MCP 실연결, 학습·연구 성과는 **실시하지 않음**.
+- 이번 보완으로 Tool Registry 세부 정책·대시보드 정적 검사를 추가했으므로 최신 HEAD에서 CI 재실행 필요.

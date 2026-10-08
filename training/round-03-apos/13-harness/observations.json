@@ -88,7 +88,9 @@
   "provenance": {
     "core_runtime_run_id": 37582457341,
     "core_runtime_artifact_id": 11465355693,
-    "prior_static_contract_run_id": 37780863512
+    "prior_static_contract_run_id": 37780863512,
+    "harness_static_run_id": 37790497335,
+    "harness_static_candidate_sha": "c47cf31e860951bb4f73a4631f854f6a410fd828"
   },
   "notes": "상태는 2026-10-08 기록 스냅샷이며 실시간 원격 계정 상태를 나타내지 않음"
 }

@@ -14,7 +14,21 @@
       "risk": "LOW",
       "mutating": false,
       "approval_required": false,
-      "secret_storage": "EXTERNAL_ONLY"
+      "secret_storage": "EXTERNAL_ONLY",
+      "version": "pilot-v1",
+      "timeout_ms": 30000,
+      "cost_estimate_usd": null,
+      "retry_policy": {
+        "max_retries": 0,
+        "retry_unknown_outcome": false
+      },
+      "idempotency_key_required": false,
+      "audit_required": true,
+      "fallback": "STOP_AND_REPORT",
+      "permission_scope": "READ_ONLY",
+      "allowed_operations": [
+        "READ"
+      ]
     },
     {
       "id": "git-change-manager",
@@ -27,7 +41,22 @@
       "risk": "MEDIUM",
       "mutating": true,
       "approval_required": true,
-      "secret_storage": "EXTERNAL_ONLY"
+      "secret_storage": "EXTERNAL_ONLY",
+      "version": "pilot-v1",
+      "timeout_ms": 30000,
+      "cost_estimate_usd": null,
+      "retry_policy": {
+        "max_retries": 0,
+        "retry_unknown_outcome": false
+      },
+      "idempotency_key_required": true,
+      "audit_required": true,
+      "fallback": "STOP_AND_REPORT",
+      "permission_scope": "EXPLICIT_OWNER_AND_APOS_GUARD",
+      "allowed_operations": [
+        "READ",
+        "WRITE"
+      ]
     },
     {
       "id": "browser-verifier",
@@ -40,7 +69,21 @@
       "risk": "MEDIUM",
       "mutating": false,
       "approval_required": false,
-      "secret_storage": "NONE"
+      "secret_storage": "NONE",
+      "version": "pilot-v1",
+      "timeout_ms": 30000,
+      "cost_estimate_usd": null,
+      "retry_policy": {
+        "max_retries": 0,
+        "retry_unknown_outcome": false
+      },
+      "idempotency_key_required": false,
+      "audit_required": true,
+      "fallback": "STOP_AND_REPORT",
+      "permission_scope": "READ_ONLY",
+      "allowed_operations": [
+        "READ"
+      ]
     },
     {
       "id": "learning-evaluator",
@@ -53,7 +96,21 @@
       "risk": "LOW",
       "mutating": false,
       "approval_required": false,
-      "secret_storage": "NONE"
+      "secret_storage": "NONE",
+      "version": "pilot-v1",
+      "timeout_ms": 30000,
+      "cost_estimate_usd": null,
+      "retry_policy": {
+        "max_retries": 0,
+        "retry_unknown_outcome": false
+      },
+      "idempotency_key_required": false,
+      "audit_required": true,
+      "fallback": "STOP_AND_REPORT",
+      "permission_scope": "READ_ONLY",
+      "allowed_operations": [
+        "READ"
+      ]
     },
     {
       "id": "research-evidence",
@@ -66,7 +123,21 @@
       "risk": "LOW",
       "mutating": false,
       "approval_required": false,
-      "secret_storage": "EXTERNAL_ONLY"
+      "secret_storage": "EXTERNAL_ONLY",
+      "version": "pilot-v1",
+      "timeout_ms": 30000,
+      "cost_estimate_usd": null,
+      "retry_policy": {
+        "max_retries": 0,
+        "retry_unknown_outcome": false
+      },
+      "idempotency_key_required": false,
+      "audit_required": true,
+      "fallback": "STOP_AND_REPORT",
+      "permission_scope": "READ_ONLY",
+      "allowed_operations": [
+        "READ"
+      ]
     },
     {
       "id": "dashboard-reader",
@@ -78,7 +149,21 @@
       "risk": "LOW",
       "mutating": false,
       "approval_required": false,
-      "secret_storage": "NONE"
+      "secret_storage": "NONE",
+      "version": "pilot-v1",
+      "timeout_ms": 30000,
+      "cost_estimate_usd": null,
+      "retry_policy": {
+        "max_retries": 0,
+        "retry_unknown_outcome": false
+      },
+      "idempotency_key_required": false,
+      "audit_required": true,
+      "fallback": "STOP_AND_REPORT",
+      "permission_scope": "READ_ONLY",
+      "allowed_operations": [
+        "READ"
+      ]
     },
     {
       "id": "drive-artifact-manager",
@@ -91,7 +176,22 @@
       "risk": "MEDIUM",
       "mutating": true,
       "approval_required": true,
-      "secret_storage": "EXTERNAL_ONLY"
+      "secret_storage": "EXTERNAL_ONLY",
+      "version": "pilot-v1",
+      "timeout_ms": 30000,
+      "cost_estimate_usd": null,
+      "retry_policy": {
+        "max_retries": 0,
+        "retry_unknown_outcome": false
+      },
+      "idempotency_key_required": true,
+      "audit_required": true,
+      "fallback": "STOP_AND_REPORT",
+      "permission_scope": "EXPLICIT_OWNER_AND_APOS_GUARD",
+      "allowed_operations": [
+        "READ",
+        "WRITE"
+      ]
     }
   ],
   "risk_bounds": [
