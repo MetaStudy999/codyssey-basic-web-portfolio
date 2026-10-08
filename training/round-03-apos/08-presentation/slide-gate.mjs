@@ -18,8 +18,9 @@ const validFile=fp=>{try{const s=fs.lstatSync(fp);return s.isFile()&&!s.isSymbol
 const validArtifact=art=>{
   if(!art||!safePath(art.path)||!/^[a-f0-9]{64}$/.test(art.sha256||""))return false;
   const fp=path.resolve(missionRoot,art.path);
-  return fp.startsWith(missionRoot+path.sep) && validFile(fp) &&
-    crypto.createHash("sha256").update(fs.readFileSync(fp)).digest("hex")===art.sha256;
+  const real=validFile(fp)?fs.realpathSync(fp):"";
+  return real.startsWith(fs.realpathSync(missionRoot)+path.sep) &&
+    crypto.createHash("sha256").update(fs.readFileSync(real)).digest("hex")===art.sha256;
 };
 export function verify({manifest=load("manifest.json"),ontology=load("ontology.json"),
  policy=load("zero-trust-policy.json"),
