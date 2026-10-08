@@ -9,7 +9,7 @@
 - Execution Round: round-03-apos
 - Execution Root: `training/round-03-apos`
 - Writable Source: `training/round-03-apos/04-src`
-- Status: CLEAR_CANDIDATE_PUBLIC_VERIFIED
+- Status: FINAL_CLEAR
 - Owner Start Approval: APPROVED
 
 ## Source of Truth
@@ -154,10 +154,14 @@ Screenshot set:
 These screenshots are mapped in `evidence/EVIDENCE-MAP.md` and were reviewed together with the Playwright trace, console/network summaries, and runtime report.
 
 
-### Final CLEAR Remaining Gate
+### Final CLEAR
 
-Only one gate remains:
+Learning Minimum Gate까지 완료되었다.
 
-1. **Learning Minimum Gate** — Owner가 핵심 개념을 자신의 말로 설명
+- Owner explanation: **PASS**
+- Technical gates: **PASS**
+- Public deployment/runtime: **PASS**
+- Evidence provenance: **PASS**
+- Mission source mutation during finalization: **NONE**
 
-따라서 현재 상태는 **CLEAR_CANDIDATE_PUBLIC_VERIFIED**이며 FINAL CLEAR는 Learning Minimum Gate 이후 확정한다.
+따라서 B1-1 Round 03의 현재 상태는 **FINAL_CLEAR**이다.
