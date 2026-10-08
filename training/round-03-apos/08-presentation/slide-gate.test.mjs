@@ -44,3 +44,19 @@ test("draft may not claim final",()=>{
  const m=copy(manifest);m.status="FINAL";
  assert.ok(verify({manifest:m}).failures.includes("DRAFT_CANNOT_CLAIM_FINAL"));
 });
+
+test("official EV01-EV05 keep exact functional evaluation mapping",()=>{
+ const xs=ontology["@graph"].slice(0,5);
+ const expected=[
+  ["EV01","04-src/css/style.css","반응형"],
+  ["EV02","04-src/js/main.js","다크"],
+  ["EV03","04-src/js/main.js","햄버거"],
+  ["EV04","04-src/js/main.js","GitHub API"],
+  ["EV05","04-src/js/main.js","폼"]
+ ];
+ for(let i=0;i<5;i++){
+  assert.equal(xs[i]["@id"],expected[i][0]);
+  assert.equal(xs[i].code_ref,expected[i][1]);
+  assert.ok(xs[i].title.includes(expected[i][2]));
+ }
+});
