@@ -15,23 +15,23 @@
 
 | 폴더 | 무엇을 실제 확인할까? | 기존 파일 / 검토 시작 | 현재 정확한 상태 |
 |---|---|---|---|
-| `00-control` 목표·권한 | 역할과 승인 범위를 적은 헌장 존재(실행 권한 확대 아님) | [CHARTER.md](00-control/CHARTER.md) · [학습 절차](${dir}/AGENTS.md) | `undefined` |
-| `01-mission` 공식 요구 | R01~R14 요구 추적표 존재. R14 보너스 4개 미검증 | [REQUIREMENTS.md](01-mission/REQUIREMENTS.md) · [학습 절차](${dir}/AGENTS.md) | `undefined` |
-| `02-research` 쉬운 개념 | HTML/CSS/JS와 상태 흐름 학습 지도 존재. 독립 재현 미측정 | [LEARNING-MAP.md](02-research/LEARNING-MAP.md) · [학습 절차](${dir}/AGENTS.md) | `undefined` |
-| `03-design` 설계·흐름도 | 실제 setTheme/loadProjects/validateForm 흐름 설명 존재 | [ARCHITECTURE.md](03-design/ARCHITECTURE.md) · [학습 절차](${dir}/AGENTS.md) | `undefined` |
-| `04-src` 실제 구현 | HTML/CSS/JS CORE 실행 이력 존재. 보너스 4개 구현·검증 대기 | [04-src/index.html](04-src/index.html) · [학습 절차](#04-src-실제-코드) | `undefined` |
-| `05-tests` 코드·검증 | 검증 절차와 테스트 코드 존재. 신규 학습 자료 HEAD 재검증 필요 | [RESULTS.md](05-tests/RESULTS.md) · [학습 절차](${dir}/AGENTS.md) | `undefined` |
-| `06-evidence` 증빙·출처 | 브라우저 Artifact 색인 존재. 바이너리 독립 무결성/장기 보존 별도 | [INDEX.md](06-evidence/INDEX.md) · [학습 절차](${dir}/AGENTS.md) | `undefined` |
-| `07-evaluation` 평가·보너스 | CORE와 공식 보너스 4개가 별도. BONUS-01~04 NOT_VERIFIED | [BONUS.md](07-evaluation/BONUS.md) · [학습 절차](${dir}/AGENTS.md) | `undefined` |
-| `08-presentation` 발표·학습 슬라이드 | Round 03 제작 계획만 존재. 최종 PPTX/PDF·전면 품질 검증 대기 | [PRODUCTION-BRIEF.md](08-presentation/PRODUCTION-BRIEF.md) · [학습 절차](${dir}/AGENTS.md) | `undefined` |
-| `09-handoff` 작업 인수인계 | PR/HEAD·미완료 이력 문서 존재. 새 작업은 최신 조회 필요 | [STATE.md](09-handoff/STATE.md) · [학습 절차](${dir}/AGENTS.md) | `undefined` |
-| `10-performance` 성능·학습 측정 | 표준 측정 정의 존재. 학습 향상/독립 재현은 NOT_MEASURED | [MEASUREMENT.md](10-performance/MEASUREMENT.md) · [학습 절차](${dir}/AGENTS.md) | `undefined` |
-| `11-improvement` 작은 개선 | 관찰→가설→검증 절차 문서 존재. 개선 효과 실험 미실시 | [EXPERIMENT-LOOP.md](11-improvement/EXPERIMENT-LOOP.md) · [학습 절차](${dir}/AGENTS.md) | `undefined` |
-| `12-domains` 다른 미션 전이 | WEB_STATIC 공통/특수 검사 구분 문서 존재. 교차 도메인 실측 없음 | [ADAPTER-CONTRACT.md](12-domains/ADAPTER-CONTRACT.md) · [학습 절차](${dir}/AGENTS.md) | `undefined` |
-| `13-harness` 반복 실행 검증 | 읽기 전용 Harness 검사기·계약 존재. 범용성 NOT_ESTABLISHED | [README.md](13-harness/README.md) · [학습 절차](${dir}/AGENTS.md) | `undefined` |
-| `14-dashboard` 한눈에 보기 | 2026-10-08 스냅샷 대시보드 시안. 실시간 관제 아님 | [index.html](14-dashboard/index.html) · [학습 절차](${dir}/AGENTS.md) | `undefined` |
+| `00-control` 목표·권한 | 역할과 승인 범위를 적은 헌장 존재(실행 권한 확대 아님) | [CHARTER.md](00-control/CHARTER.md) · [학습 절차](00-control/AGENTS.md) | `READ_ONLY` |
+| `01-mission` 공식 요구 | R01~R14 요구 추적표 존재. R14 보너스 4개 미검증 | [REQUIREMENTS.md](01-mission/REQUIREMENTS.md) · [학습 절차](01-mission/AGENTS.md) | `R14_PENDING` |
+| `02-research` 쉬운 개념 | HTML/CSS/JS와 상태 흐름 학습 지도 존재. 독립 재현 미측정 | [LEARNING-MAP.md](02-research/LEARNING-MAP.md) · [학습 절차](02-research/AGENTS.md) | `MASTERY_NOT_MEASURED` |
+| `03-design` 설계·흐름도 | 실제 setTheme/loadProjects/validateForm 흐름 설명 존재 | [ARCHITECTURE.md](03-design/ARCHITECTURE.md) · [학습 절차](03-design/AGENTS.md) | `DOC_PRESENT` |
+| `04-src` 실제 구현 | HTML/CSS/JS CORE 실행 이력 존재. 보너스 4개 구현·검증 대기 | [04-src/index.html](04-src/index.html) · [학습 절차](#04-src-실제-코드) | `CORE_HISTORY_PASS_BONUS_PENDING` |
+| `05-tests` 코드·검증 | 검증 절차와 테스트 코드 존재. 신규 학습 자료 HEAD 재검증 필요 | [RESULTS.md](05-tests/RESULTS.md) · [학습 절차](05-tests/AGENTS.md) | `NEW_HEAD_CI_PENDING` |
+| `06-evidence` 증빙·출처 | 브라우저 Artifact 색인 존재. 바이너리 독립 무결성/장기 보존 별도 | [INDEX.md](06-evidence/INDEX.md) · [학습 절차](06-evidence/AGENTS.md) | `BINARY_INTEGRITY_NOT_VERIFIED` |
+| `07-evaluation` 평가·보너스 | CORE와 공식 보너스 4개가 별도. BONUS-01~04 NOT_VERIFIED | [BONUS.md](07-evaluation/BONUS.md) · [학습 절차](07-evaluation/AGENTS.md) | `BONUS_4_PENDING` |
+| `08-presentation` 발표·학습 슬라이드 | Round 03 제작 계획만 존재. 최종 PPTX/PDF·전면 품질 검증 대기 | [PRODUCTION-BRIEF.md](08-presentation/PRODUCTION-BRIEF.md) · [학습 절차](08-presentation/AGENTS.md) | `FINAL_DECK_PENDING` |
+| `09-handoff` 작업 인수인계 | PR/HEAD·미완료 이력 문서 존재. 새 작업은 최신 조회 필요 | [STATE.md](09-handoff/STATE.md) · [학습 절차](09-handoff/AGENTS.md) | `CURRENT_HEAD_RECHECK_REQUIRED` |
+| `10-performance` 성능·학습 측정 | 표준 측정 정의 존재. 학습 향상/독립 재현은 NOT_MEASURED | [MEASUREMENT.md](10-performance/MEASUREMENT.md) · [학습 절차](10-performance/AGENTS.md) | `GROWTH_NOT_MEASURED` |
+| `11-improvement` 작은 개선 | 관찰→가설→검증 절차 문서 존재. 개선 효과 실험 미실시 | [EXPERIMENT-LOOP.md](11-improvement/EXPERIMENT-LOOP.md) · [학습 절차](11-improvement/AGENTS.md) | `IMPROVEMENT_NOT_MEASURED` |
+| `12-domains` 다른 미션 전이 | WEB_STATIC 공통/특수 검사 구분 문서 존재. 교차 도메인 실측 없음 | [ADAPTER-CONTRACT.md](12-domains/ADAPTER-CONTRACT.md) · [학습 절차](12-domains/AGENTS.md) | `CROSS_DOMAIN_NOT_VERIFIED` |
+| `13-harness` 반복 실행 검증 | 읽기 전용 Harness 검사기·계약 존재. 범용성 NOT_ESTABLISHED | [README.md](13-harness/README.md) · [학습 절차](13-harness/AGENTS.md) | `PILOT_INCOMPLETE` |
+| `14-dashboard` 한눈에 보기 | 2026-10-08 스냅샷 대시보드 시안. 실시간 관제 아님 | [index.html](14-dashboard/index.html) · [학습 절차](14-dashboard/AGENTS.md) | `STATIC_SNAPSHOT_ONLY` |
 
-## 04-src 실제 코드 — 수정 없이 함께 검토
+## 04-src 실제 코드
 
 - [HTML 구조](04-src/index.html): header/nav/main/section/article/footer, 실제 이름/이메일/메시지 폼.
 - [CSS 반응형·테마](04-src/css/style.css): `:root`, `[data-theme="dark"]`, 768px/1024px.
