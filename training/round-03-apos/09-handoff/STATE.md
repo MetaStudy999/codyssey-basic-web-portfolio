@@ -38,7 +38,9 @@
 
 
 
-현재 작업 단위: **독립적인 Round 03 Mission Workspace 구조 설정과 누락 조사**.
+이하 내용은 **이전 Harness Pilot 이력(역사 기록)**으로 보존한다. **현재 최우선 작업 및 다음 창 지시 범위는 상단 `P0 OWNER HANDOFF`가 우선한다.**
+
+당시 작업 단위: **독립적인 Round 03 Mission Workspace 구조 설정과 누락 조사**.
 
 ## 이미 확정된 실제 사실
 - Repository: `MetaStudy999/codyssey-basic-web-portfolio`
