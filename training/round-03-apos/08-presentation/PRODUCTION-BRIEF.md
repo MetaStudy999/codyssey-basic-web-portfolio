@@ -23,3 +23,12 @@
 
 ## 잔여 작업
 정확한 스크린샷 가져오기/배치, 슬라이드 제작, Full-screen QA, 기술·학습 QA, Drive 저장. 파일이 없는 상태에서 `Golden Master PASS` 선언 금지.
+
+
+## 공식 15문항 평가와 슬라이드 연결 (2026-10-09)
+- EV01~EV05: 실제 기능 시연·정상/실패 스크린샷(모바일·테마·스크롤·API·폼)을 발표본에서 확인 가능하게 배치.
+- EV06~EV09: HTML/CSS/JavaScript 분리·시맨틱 HTML·CSS 변수·이벤트 리스너 선택 이유를 **실제 코드**로 설명.
+- EV10~EV13: Event→State→Render, 비동기 오류, map/filter, Flexbox/Grid의 실제 함수·스타일 흐름을 다이어그램과 연결.
+- EV14~EV15: STATE 객체·모바일 퍼스트 선택 이유를 30초/1분 구술용 학습 노트에 연결.
+- 기준: [공식 B1-1 평가 15문항](../07-evaluation/OFFICIAL-EVALUATION-CHECKLIST.md)와 [실제 증빙](../06-evidence/INDEX.md). 평가문항에 미검증 보너스 결과를 합격으로 표시하지 않는다.
+- 이 내용은 **제작 명세**이며 이미지 PPTX·PDF가 실제 완성됐다는 뜻이 아니다(`PENDING`).
