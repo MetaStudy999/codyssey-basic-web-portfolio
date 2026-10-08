@@ -1,0 +1,28 @@
+name: B1-1 Golden Slides Zero-Trust Gate
+on:
+  pull_request:
+    paths:
+      - 'training/round-03-apos/08-presentation/**'
+      - '.hermes/skills/codyssey-golden-slides/**'
+      - '.github/workflows/round03-slide-trust.yml'
+permissions:
+  contents: read
+jobs:
+  slide-trust:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout exact PR head
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Assert tested SHA
+        env:
+          EXPECTED_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+      - name: Negative regression and ontology checks
+        run: node --test training/round-03-apos/08-presentation/slide-gate.test.mjs
+      - name: Explicit stage-sensitive release gate
+        run: node training/round-03-apos/08-presentation/slide-gate.mjs
