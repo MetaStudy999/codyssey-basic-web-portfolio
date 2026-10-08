@@ -28,3 +28,12 @@
 - QA: 작성자와 검증자 역할 분리
 
 **주의:** 실제로 수행하지 않은 새로운 테스트는 이 문서가 존재한다는 이유로 PASS가 되지 않는다.
+
+
+## 실행형 검증 진입점 (P0)
+- 정식 실행 순서: VERIFY-PROCEDURE.md CHECK_00~CHECK_10
+- 정적/출처 계약: VERIFICATION-CONTRACT.json
+- 실제 정적 검사: verify.mjs
+- 고의 실패 회귀 검사: test-verification.mjs
+- PR 자동검증: 저장소 루트 .github/workflows/round03-contracts.yml
+- 정적 계약 PASS는 Chromium 실브라우저 또는 독립 QA 재실행을 뜻하지 않는다.

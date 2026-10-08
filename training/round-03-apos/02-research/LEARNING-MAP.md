@@ -23,3 +23,12 @@
 
 ## 설명 정책
 용어는 한글 + 영어 + 약어를 병기한다. 기술 개념은 필요 시 4컷 만화, 세로 흐름도, 실제 소스와 연결한다. 생성 이미지와 검증 사진은 절대 혼동하지 않는다.
+
+
+## APOS 학습 단계 호환성 (P1)
+L0~L5는 설명을 돕는 편의 분류이며, 저장·교차 미션 비교의 공식 학습 단계가 아니다.
+공식 값은 APOS training-mastery.schema.json의 다음 9단계를 사용한다.
+
+DISCOVER → UNDERSTAND → PRACTICE → REPRODUCE → APPLY → EXPLAIN → EVALUATE → MASTER → TRANSFER
+
+단순 동의·설명만으로 독립 재현/MASTER/TRANSFER를 자동 선언하지 않는다.

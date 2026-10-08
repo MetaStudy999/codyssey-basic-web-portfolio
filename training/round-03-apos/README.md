@@ -191,3 +191,11 @@ Learning Minimum Gate까지 완료되었다.
 | `MISSING-WORK-REGISTER.md` | 실행되지 않은 일과 실제 결손 |
 
 **현재 판정:** B1-1 CORE = CLEAR, 새 Harness 설정 = QA 후보, BONUS = NOT_VERIFIED, Final Deck = NOT_STARTED, Cross-domain Metrics = NOT_MEASURED.
+
+
+### Round 03 수행·검증의 필수 진입점
+- 05-tests/VERIFY-PROCEDURE.md — 입력, 명령, 산출물, 실패 처리, 정식 검증 판정의 CHECK_00~CHECK_10.
+- 05-tests/AGENTS.md 및 의미 있는 하위 폴더 AGENTS.md — 해당 영역만의 책임·Exit Gate.
+- 05-tests/verify.mjs 및 test-verification.mjs — 정적·증빙 출처 검사와 고의 오류 테스트.
+- .github/workflows/round03-contracts.yml — 정확한 후보 SHA로 수행되는 PR 정적 검사.
+- 문서 작성, 정적 PASS, 실제 브라우저 PASS, 독립 QA, 사용자 MASTER를 반드시 별개 상태로 관리한다.

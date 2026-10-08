@@ -1,0 +1,40 @@
+name: Round 03 Mission Contract Verification
+
+on:
+  pull_request:
+    paths:
+      - "training/round-03-apos/**"
+      - ".github/workflows/round03-contracts.yml"
+  push:
+    branches: [main]
+    paths:
+      - "training/round-03-apos/**"
+      - ".github/workflows/round03-contracts.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  round03-static-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Read exact revision
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Node environment
+        run: node --version
+      - name: Positive and negative verifier tests
+        run: node --test training/round-03-apos/05-tests/test-verification.mjs
+      - name: Static/provenance contract
+        run: |
+          set -euo pipefail
+          node training/round-03-apos/05-tests/verify.mjs | tee round03-static-report.json
+      - name: Preserve newly generated report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: round03-static-${{ github.run_id }}
+          path: round03-static-report.json
+          if-no-files-found: warn
+          retention-days: 30

@@ -31,3 +31,12 @@ READ → DEFINE → PLAN → DESIGN → BUILD → CHECK → RUN → EVIDENCE →
 3. 미완료 항목과 다음 하나의 행동
 4. SHA / CI / Artifact 같은 기술 증거
 영어 개념은 한글 뜻, 영어 이름, 약어를 함께 설명한다.
+
+
+## Mandatory verification execution
+- 검증 실행 절차는 05-tests/VERIFY-PROCEDURE.md의 CHECK_00~CHECK_10을 적용한다.
+- 의미 있는 하위 폴더 AGENTS.md는 해당 영역의 입력·출력·Exit Gate·금지 사항을 명시하며 상위 정책을 완화할 수 없다.
+- node --test training/round-03-apos/05-tests/test-verification.mjs 및 node training/round-03-apos/05-tests/verify.mjs 로 정적 검증을 실행한다.
+- 정적 PASS를 브라우저/독립 QA/학습 전이 PASS로 확대하지 않는다.
+- 04-src/는 기존 검증 후보의 소스 불변성을 지키기 위해 하위 AGENTS.md를 추가하지 않는다. 상위 규칙이 04-src/에도 적용된다.
+- FAIL/후보 불일치/증빙 만료/의도 밖 변경 시 STOP → Finding → 새 HEAD 재검증. MAKER가 독립 QA를 대신하지 않는다.
