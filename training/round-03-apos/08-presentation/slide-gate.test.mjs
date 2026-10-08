@@ -60,3 +60,8 @@ test("official EV01-EV05 keep exact functional evaluation mapping",()=>{
   assert.ok(xs[i].title.includes(expected[i][2]));
  }
 });
+
+test("rejected original visual comparison prevents FINAL even with narrative claims",()=>{
+ const m=copy(manifest); m.stage="FINAL"; m.status="FINAL";
+ assert.ok(verify({manifest:m}).failures.includes("OWNER_ORIGINAL_VISUAL_APPROVAL"));
+});
