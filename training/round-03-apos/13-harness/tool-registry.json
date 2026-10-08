@@ -1,0 +1,205 @@
+{
+  "schema_version": "1.0",
+  "default_deny": true,
+  "tools": [
+    {
+      "id": "github-observer",
+      "capabilities": [
+        "repo.read",
+        "pr.read",
+        "run.read"
+      ],
+      "protocol": "MCP_OR_CONNECTOR",
+      "connection": "NOT_VERIFIED",
+      "risk": "LOW",
+      "mutating": false,
+      "approval_required": false,
+      "secret_storage": "EXTERNAL_ONLY",
+      "version": "pilot-v1",
+      "timeout_ms": 30000,
+      "cost_estimate_usd": null,
+      "retry_policy": {
+        "max_retries": 0,
+        "retry_unknown_outcome": false
+      },
+      "idempotency_key_required": false,
+      "audit_required": true,
+      "fallback": "STOP_AND_REPORT",
+      "permission_scope": "READ_ONLY",
+      "allowed_operations": [
+        "READ"
+      ]
+    },
+    {
+      "id": "git-change-manager",
+      "capabilities": [
+        "repo.write",
+        "pr.create"
+      ],
+      "protocol": "MCP_OR_CONNECTOR",
+      "connection": "NOT_VERIFIED",
+      "risk": "MEDIUM",
+      "mutating": true,
+      "approval_required": true,
+      "secret_storage": "EXTERNAL_ONLY",
+      "version": "pilot-v1",
+      "timeout_ms": 30000,
+      "cost_estimate_usd": null,
+      "retry_policy": {
+        "max_retries": 0,
+        "retry_unknown_outcome": false
+      },
+      "idempotency_key_required": true,
+      "audit_required": true,
+      "fallback": "STOP_AND_REPORT",
+      "permission_scope": "EXPLICIT_OWNER_AND_APOS_GUARD",
+      "allowed_operations": [
+        "READ",
+        "WRITE"
+      ]
+    },
+    {
+      "id": "browser-verifier",
+      "capabilities": [
+        "browser.run",
+        "browser.screenshot"
+      ],
+      "protocol": "LOCAL_OR_ACTIONS",
+      "connection": "NOT_VERIFIED",
+      "risk": "MEDIUM",
+      "mutating": false,
+      "approval_required": false,
+      "secret_storage": "NONE",
+      "version": "pilot-v1",
+      "timeout_ms": 30000,
+      "cost_estimate_usd": null,
+      "retry_policy": {
+        "max_retries": 0,
+        "retry_unknown_outcome": false
+      },
+      "idempotency_key_required": false,
+      "audit_required": true,
+      "fallback": "STOP_AND_REPORT",
+      "permission_scope": "READ_ONLY",
+      "allowed_operations": [
+        "READ"
+      ]
+    },
+    {
+      "id": "learning-evaluator",
+      "capabilities": [
+        "learning.practice",
+        "learning.grade"
+      ],
+      "protocol": "LOCAL_MODULE",
+      "connection": "NOT_VERIFIED",
+      "risk": "LOW",
+      "mutating": false,
+      "approval_required": false,
+      "secret_storage": "NONE",
+      "version": "pilot-v1",
+      "timeout_ms": 30000,
+      "cost_estimate_usd": null,
+      "retry_policy": {
+        "max_retries": 0,
+        "retry_unknown_outcome": false
+      },
+      "idempotency_key_required": false,
+      "audit_required": true,
+      "fallback": "STOP_AND_REPORT",
+      "permission_scope": "READ_ONLY",
+      "allowed_operations": [
+        "READ"
+      ]
+    },
+    {
+      "id": "research-evidence",
+      "capabilities": [
+        "research.search",
+        "research.citations"
+      ],
+      "protocol": "MCP_OR_CONNECTOR",
+      "connection": "NOT_VERIFIED",
+      "risk": "LOW",
+      "mutating": false,
+      "approval_required": false,
+      "secret_storage": "EXTERNAL_ONLY",
+      "version": "pilot-v1",
+      "timeout_ms": 30000,
+      "cost_estimate_usd": null,
+      "retry_policy": {
+        "max_retries": 0,
+        "retry_unknown_outcome": false
+      },
+      "idempotency_key_required": false,
+      "audit_required": true,
+      "fallback": "STOP_AND_REPORT",
+      "permission_scope": "READ_ONLY",
+      "allowed_operations": [
+        "READ"
+      ]
+    },
+    {
+      "id": "dashboard-reader",
+      "capabilities": [
+        "dashboard.read"
+      ],
+      "protocol": "STATIC_WEB",
+      "connection": "NOT_VERIFIED",
+      "risk": "LOW",
+      "mutating": false,
+      "approval_required": false,
+      "secret_storage": "NONE",
+      "version": "pilot-v1",
+      "timeout_ms": 30000,
+      "cost_estimate_usd": null,
+      "retry_policy": {
+        "max_retries": 0,
+        "retry_unknown_outcome": false
+      },
+      "idempotency_key_required": false,
+      "audit_required": true,
+      "fallback": "STOP_AND_REPORT",
+      "permission_scope": "READ_ONLY",
+      "allowed_operations": [
+        "READ"
+      ]
+    },
+    {
+      "id": "drive-artifact-manager",
+      "capabilities": [
+        "files.read",
+        "files.write"
+      ],
+      "protocol": "MCP_OR_CONNECTOR",
+      "connection": "NOT_VERIFIED",
+      "risk": "MEDIUM",
+      "mutating": true,
+      "approval_required": true,
+      "secret_storage": "EXTERNAL_ONLY",
+      "version": "pilot-v1",
+      "timeout_ms": 30000,
+      "cost_estimate_usd": null,
+      "retry_policy": {
+        "max_retries": 0,
+        "retry_unknown_outcome": false
+      },
+      "idempotency_key_required": true,
+      "audit_required": true,
+      "fallback": "STOP_AND_REPORT",
+      "permission_scope": "EXPLICIT_OWNER_AND_APOS_GUARD",
+      "allowed_operations": [
+        "READ",
+        "WRITE"
+      ]
+    }
+  ],
+  "risk_bounds": [
+    "LOW",
+    "MEDIUM",
+    "HIGH",
+    "CRITICAL"
+  ],
+  "network_execution_enabled": false,
+  "notes": "도구 연결 상태는 이 실험에서 검증되지 않았다. 권한 부여 또는 호출을 수행하지 않음."
+}

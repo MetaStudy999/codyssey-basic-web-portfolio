@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "CODYSSEY-B1-1-ROUND03-VERIFY-V1",
+  "mission_id": "B1-1",
+  "execution_round": "round-03-apos",
+  "candidate_sha": "95b5dd8283a611e27c0c0a9185060a213e53ada9",
+  "scope": "STATIC_CONTRACT_AND_LOCAL_EVIDENCE_PROVENANCE_ONLY",
+  "authoritative_source_blobs": {
+    "04-src/index.html": "d616f4d58b257ddfc34432afbce678dc760864e4",
+    "04-src/css/style.css": "7bd33fee813655149457a7a4107ae29764bbe65d",
+    "04-src/js/main.js": "566849ab6f7a1cdba47eee727858c585379cba3b",
+    "04-src/images/profile-placeholder.svg": "06682b1d2149620262a084aa22beaafff9fdae98"
+  },
+  "evidence": {
+    "chromium_run_id": 37582457341,
+    "chromium_artifact_id": 11465355693,
+    "chromium_candidate": "95b5dd8283a611e27c0c0a9185060a213e53ada9",
+    "public_run_id": 37774449939
+  },
+  "observed_not_executed_by_this_contract": [
+    "Real Chromium runtime interactions",
+    "Visual inspection",
+    "Public URL browser interactions",
+    "Independent QA approval",
+    "Human blind reproduction and transfer"
+  ],
+  "verdict_policy": "FAIL_CLOSED; STATIC_PASS_DOES_NOT_MEAN_RUNTIME_PASS"
+}

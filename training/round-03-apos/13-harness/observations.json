@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "recorded_at": "2026-10-08",
+  "mission_id": "B1-1",
+  "repository": "MetaStudy999/codyssey-basic-web-portfolio",
+  "known_source_candidate": "95b5dd8283a611e27c0c0a9185060a213e53ada9",
+  "stages": [
+    {
+      "id": "P00",
+      "status": "PENDING",
+      "reason": "APOS 및 codyssey-basic 중앙 상태 동기화 미완료",
+      "evidence_refs": [
+        "training/round-03-apos/mission.yml"
+      ]
+    },
+    {
+      "id": "P01",
+      "status": "PENDING",
+      "reason": "새 Harness 운영 절차 후보는 PR #16에서 작성됨, 독립 QA 전",
+      "evidence_refs": [
+        "training/round-03-apos/05-tests/VERIFY-PROCEDURE.md"
+      ]
+    },
+    {
+      "id": "P02",
+      "status": "PENDING",
+      "reason": "기존 Round 03 static CI PASS, 신규 Harness 전체 계약 별도 검증 필요",
+      "evidence_refs": [
+        "https://github.com/MetaStudy999/codyssey-basic-web-portfolio/actions/runs/37780863512"
+      ]
+    },
+    {
+      "id": "P03",
+      "status": "NOT_RUN",
+      "reason": "MCP 연결·권한·도구 호출은 이 파일럿에서 실행하지 않음",
+      "evidence_refs": []
+    },
+    {
+      "id": "P04",
+      "status": "NOT_RUN",
+      "reason": "웹 대시보드 표시 시안 준비 단계; 실시간 데이터 연동 미검증",
+      "evidence_refs": []
+    },
+    {
+      "id": "P05",
+      "status": "NOT_MEASURED",
+      "reason": "최소 4개 설명 PASS와 비교 학습 효과 측정은 별개",
+      "evidence_refs": [
+        "training/round-03-apos/LEARNING-GATE.md"
+      ]
+    },
+    {
+      "id": "P06",
+      "status": "NOT_RUN",
+      "reason": "학술 연구 분석 또는 문헌 검색 실험 미실시",
+      "evidence_refs": []
+    },
+    {
+      "id": "P07",
+      "status": "NOT_MEASURED",
+      "reason": "교차 분야 비교 실험·독립 재현 및 성능 개선 효과 미측정",
+      "evidence_refs": []
+    }
+  ],
+  "learning": {
+    "canonical_stage": "EXPLAIN",
+    "minimum_explanation": "PASS",
+    "independent_reproduction": "NOT_MEASURED",
+    "delayed_recall": "NOT_MEASURED",
+    "transfer": "NOT_MEASURED",
+    "source_ref": "training/round-03-apos/LEARNING-GATE.md"
+  },
+  "research": {
+    "status": "NOT_RUN",
+    "claims": [],
+    "sources": [],
+    "reproducibility": "NOT_MEASURED"
+  },
+  "performance": {
+    "quality_test_count": null,
+    "quality_pass_count": null,
+    "elapsed_ms": null,
+    "cost_usd": null,
+    "tool_call_count": null,
+    "rework_count": null,
+    "baseline_ref": null
+  },
+  "provenance": {
+    "core_runtime_run_id": 37582457341,
+    "core_runtime_artifact_id": 11465355693,
+    "prior_static_contract_run_id": 37780863512,
+    "harness_static_run_id": 37790497335,
+    "harness_static_candidate_sha": "c47cf31e860951bb4f73a4631f854f6a410fd828"
+  },
+  "notes": "상태는 2026-10-08 기록 스냅샷이며 실시간 원격 계정 상태를 나타내지 않음"
+}
