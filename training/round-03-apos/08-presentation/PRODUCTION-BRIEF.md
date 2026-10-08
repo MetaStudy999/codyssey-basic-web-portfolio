@@ -1,6 +1,6 @@
 # Round 03 독립 학습·발표자료 제작 계획
 
-**상태: PREVIEW_DRAFT_CREATED / GOLDEN_MASTER_FINAL=FAIL.** 17장 검토용 PPTX/PDF는 제작되었으나 기존 사용자 결정 D01~D14/Golden v3의 최종 요건을 충족하지 못했다. 이 파일은 Repo 내 최종 산출물로 등록되지 않았다. Round 01/02 PPT, 만화, 스크린샷을 그대로 복사하지 않는다.
+**상태: PREVIEW_DRAFT_CREATED / GOLDEN_MASTER_FINAL=FAIL / FINAL_REMAKE=PLANNED.** 17장 검토용 PPTX/PDF는 제작되었으나 기존 사용자 결정 D01~D14/Golden v3의 최종 요건을 충족하지 못했다. 이 파일은 Repo 내 최종 산출물로 등록되지 않았다. Round 01/02 PPT, 만화, 스크린샷을 그대로 복사하지 않는다.
 
 ## 산출물
 - Main Deck: 발표 핵심 약 14~16장 (가독성 우선)
