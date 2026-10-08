@@ -60,6 +60,7 @@ export function verify({manifest=load("manifest.json"),ontology=load("ontology.j
  const final=manifest.stage==="FINAL";
  if(final){
   must(manifest.status==="FINAL","FINAL_STATUS");
+  must(manifest.design_reference_review?.release_approval==="APPROVED" && manifest.design_reference_review?.status!=="REJECTED_BY_OWNER","OWNER_ORIGINAL_VISUAL_APPROVAL");
   must(Object.values(gates).every(x=>x==="PASS"),"GOLDEN_GATES_NOT_PASS");
   must(hermesExecuted,"HERMES_RUN_NOT_PROVEN");
   must(manifest.review?.owner_status==="APPROVED"&&manifest.review?.independent_qa_status==="PASS","OWNER_INDEPENDENT_QA");
