@@ -29,6 +29,22 @@ const repos = [
 {name:'fork-extra',language:'Python',html_url:'https://github.com/MetaStudy999/fork-extra',fork:true,stargazers_count:0}
 ];
 const assets=[];
+async function prepareFullPageEvidence(page){
+  // Activate actual IntersectionObserver reveal sections before the full-page capture.
+  const sections=page.locator('.reveal');
+  for(let i=0;i<await sections.count();i++){
+    await sections.nth(i).scrollIntoViewIfNeeded();
+    await page.waitForTimeout(150);
+  }
+  await page.waitForFunction(() => [...document.querySelectorAll('.reveal')].every(e=>e.classList.contains('visible')));
+  await page.evaluate(() => {
+    document.documentElement.style.scrollBehavior='auto';
+    window.scrollTo(0,0);
+  });
+  await page.waitForFunction(() => window.scrollY < 2);
+  await page.waitForTimeout(520);
+}
+
 try {
  const context=await browser.newContext({viewport:{width:1280,height:850},colorScheme:'dark',reducedMotion:'reduce'});
  const page=await context.newPage();
@@ -55,8 +71,10 @@ try {
  await page.emulateMedia({colorScheme:'light',reducedMotion:'reduce'});
  await page.waitForFunction(() => document.documentElement.dataset.theme === 'light', null, { timeout: 3000 });
  check(await page.locator('html').getAttribute('data-theme')==='light','BONUS04: responds to OS theme change');
+ await prepareFullPageEvidence(page);
  await page.screenshot({path:join(out,'bonus-desktop-light.png'),fullPage:true,animations:'disabled'});assets.push('bonus-desktop-light.png');
  await page.emulateMedia({colorScheme:'dark',reducedMotion:'reduce'});
+ await prepareFullPageEvidence(page);
  await page.screenshot({path:join(out,'bonus-desktop-dark.png'),fullPage:true,animations:'disabled'});assets.push('bonus-desktop-dark.png');
  await page.locator('#email').fill('invalid');
  await page.locator('#name').fill('QA Test');
@@ -81,6 +99,8 @@ try {
  await mp.locator('.menu-toggle').click();
  check(await mp.locator('#nav-menu').isVisible(),'CORE: mobile navigation opens');
  check(await mp.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'CORE: mobile has no horizontal overflow');
+ await mp.locator('.menu-toggle').click();
+ await prepareFullPageEvidence(mp);
  await mp.screenshot({path:join(out,'bonus-mobile.png'),fullPage:true,animations:'disabled'});assets.push('bonus-mobile.png');
  await mobile.close();
  const empty=await browser.newContext(); const ep=await empty.newPage();
