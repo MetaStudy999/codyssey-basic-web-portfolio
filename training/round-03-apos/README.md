@@ -10,6 +10,11 @@
 
 > 14개 폴더의 `AGENTS.md`에 **2분 이해 → 3분 능동 회상 → 4분 직접 재현 → 1분 설명**을 반영했습니다. `04-src`는 기존 검증된 실행 코드를 보호하므로 상위 Owner 안내서에서 학습합니다. PR #16/하위 PR #18은 모두 Draft이며 독립 QA와 병합 전입니다.
 
+## 공식 평가 항목 실제 준비
+
+- [공식 B1-1 15문항: 코드·시연·구술 연결표](07-evaluation/OFFICIAL-EVALUATION-CHECKLIST.md) — 기능5 · 구조4 · 개념4 · 확장2.
+- 기존 요구 R01~R14와 공식 평가 EV01~EV15는 별도의 표입니다. 구현 PASS를 평가 통과로 자동 처리하지 않습니다.
+
 ## Mission Identity
 
 - Generation: CODYSSEY Round 02 / 제2기
