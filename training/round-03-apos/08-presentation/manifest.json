@@ -66,5 +66,18 @@
     "secret_scan": "PENDING",
     "artifact_hashes_verified": false
   },
-  "remarks": "17-slide old preview rejected as final. Round-02 evidence is reference only; bonus source in separate PR#19."
+  "remarks": "17-slide old preview rejected as final. Round-02 evidence is reference only; bonus source in separate PR#19.",
+  "design_reference_review": {
+    "status": "REJECTED_BY_OWNER",
+    "rejected_preview": "B1-1_Golden_v3_Representative_DRAFT (four slides, created 2026-10-09)",
+    "rejection_reason": "Does not match previously agreed Golden v2/v3 original content or image quality; uses generic cards and only a conceptual storyboard rather than authentic 4-panel comic, code, diagram, actual evidence learning chain.",
+    "exact_visual_comparison": "NOT_COMPLETED",
+    "original_reference_files": [
+      "CODYSSEY_B1-1_Golden_Learning_Deck_v2.pptx",
+      "CODYSSEY_B1-1_Image_Study_Deck_v3_Slides_33-45.pptx"
+    ],
+    "reference_access": "LIBRARY_INDEXED_TEXT_ONLY; ORIGINAL_BINARY_PIXEL_VISUAL_NOT_ACCESSIBLE",
+    "release_approval": "PENDING",
+    "reuse_rejected_preview_as_golden": false
+  }
 }
