@@ -31,3 +31,11 @@
 - 05-tests/VERIFY-PROCEDURE.md의 CHECK_00~CHECK_10을 단계별로 점검한다.
 - CHECK_03 PASS 후 CHECK_04 실제 브라우저/05 독립 화면/08 독립 QA는 자동 완료로 기록하지 않는다.
 - 새 PR HEAD에서는 이전 exact-head QA/CI를 재사용하지 않는다. 안전한 경계에서 다음 작업을 넘긴다.
+
+## 2026-10-08 신규 검증기 첫 실제 실행 이력
+- PR #16: Draft / Maker Candidate, 독립 QA_SEC는 아직 하지 않음.
+- CI 최초 실행 Run 37780357572: FAIL (최상위 AGENTS.md Exit Gate 제목 검사 누락) — 확인/복구 완료.
+- 수정 후보 2b2755f265938110a45d123778709073e9a361c5: 정확한 체크아웃 SHA 확인.
+- CI Run 37780601556: SUCCESS, 테스트 6/6, 정적·출처 검사 43/43, 실패 0.
+- 상기 CI는 신규 Chromium 실브라우저 실행이나 독립 QA가 아니라 정적 계약+출처 검사만 수행.
+- 다음은 변경 범위 자동 검사 추가 후 신규 HEAD에서 CI 재실행 → QA_SEC read-only → MASTER 종료 여부 판단.

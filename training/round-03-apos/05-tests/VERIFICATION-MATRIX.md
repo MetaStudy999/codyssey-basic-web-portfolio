@@ -37,3 +37,9 @@
 - 고의 실패 회귀 검사: test-verification.mjs
 - PR 자동검증: 저장소 루트 .github/workflows/round03-contracts.yml
 - 정적 계약 PASS는 Chromium 실브라우저 또는 독립 QA 재실행을 뜻하지 않는다.
+
+## 실행 근거
+- Run 37780357572: 초기 정상 상태 테스트 FAIL 1건 → 원인: 루트 AGENTS Gate 제목 미일치 → 수정.
+- Run 37780601556: Node 테스트 6/6 PASS, 정적/출처 검사 43/43 PASS.
+- Run 37780601556: EXPECTED_SHA와 TESTED_SHA 동일. 신규 브라우저 검증을 실시하지 않았다.
+- 변경 범위 CI 검사도 추가했으며, 새 HEAD에서 실제 성공 결과가 나와야 이 범위까지 PASS.
