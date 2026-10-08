@@ -22,3 +22,12 @@ VERIFY-PROCEDURE.md 순서대로 대상·후보·런타임·입력·증거를 �
 ## 파일럿 하네스 검사
 저장소 루트에서 node --test training/round-03-apos/13-harness/harness.test.mjs 그리고 node training/round-03-apos/13-harness/harness.mjs를 실행한다. 이 검사는 외부 API나 계정에 요청하지 않는 읽기 전용 검사다.
 `14-dashboard/index.html`의 실제 반응형/접근성은 별도 브라우저 QA 항목으로 남긴다.
+
+## Owner 직접 확인·성장 학습 (2026-10-09 추가)
+- **현재 읽을 실제 산출물:** [RESULTS.md](RESULTS.md) — 검증 절차와 테스트 코드 존재. 신규 학습 자료 HEAD 재검증 필요.
+- **2분 이해:** 먼저 위 실제 파일의 목적과 현재 상태를 읽습니다. 이 파일이 있다는 것만으로 새 결과 PASS는 아닙니다.
+- **3분 능동 회상(Active Recall):** 자료를 덮고 답합니다. **정적 테스트 PASS와 실제 브라우저 PASS는 왜 다른가요?**
+- **4분 직접 확인·재현:** 저장소 루트에서 node --test training/round-03-apos/05-tests/test-verification.mjs 를 실행하고 출력의 실제 성공/실패를 기록합니다.
+- **1분 가르치듯 설명(Teach-back):** 무엇을 보았는지, 왜 그렇게 설계했는지, 아직 확인하지 못한 것 1가지를 자신의 말로 말합니다.
+- **지연 복습(Spaced Retrieval):** 성공하면 1→3→7일 후, 어려우면 다음 날 다시 확인합니다. 스스로 답한 기록은 [Owner 학습 허브](../OWNER-REVIEW-LEARN.md)에서 학습용으로만 관리하며 공식 QA·MASTER로 자동 변환하지 않습니다.
+- **급한 일정:** 2026-10-31 Owner 통보 공식 기한까지 미션 실제 구현·평가를 우선하고, 자료 만들기 자체를 새 목표로 만들지 않습니다.
