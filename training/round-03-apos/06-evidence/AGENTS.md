@@ -17,3 +17,9 @@ INDEX.md와 Evidence 무결성 기록
 
 ## 연결 절차
 검증은 05-tests/VERIFY-PROCEDURE.md의 CHECK_00~CHECK_10을 따른다. 중요한 최종 판정에는 별도 QA_SEC가 필요하며 MAKER는 스스로 독립 QA를 완료했다고 선언하지 않는다.
+
+
+## CHECK_07 보존·재생성 필수 규칙
+- [RETENTION-REPRODUCTION.md](RETENTION-REPRODUCTION.md)의 원본/재현 구분·manifest·바이트 해시·만료 전 점검을 따른다.
+- 실제 다운로드/해시 재검증 없이 BINARY_INTEGRITY_PASS 또는 ARCHIVED 선언 금지.
+- 만료 뒤 새 브라우저 Run은 과거 원본이 아니며 REPRODUCED로만 기록한다.

@@ -20,3 +20,8 @@ Artifact `11465355693`는 GitHub에서 유한 기간 보관된다. 링크가 만
 - 2026-10-08 기준 Chromium Artifact 11465355693는 2026-11-06T06:39:33Z 만료 예정이었다.
 - 실제 Binary 파일의 독립 digest 검증은 아직 수행하지 않았으므로 BINARY_INTEGRITY_NOT_CHECKED로 둔다.
 - 장기 보존 이전은 이 PR에서 수행하지 않으며 별도 승인·보존 규정이 필요하다.
+
+
+## 원본 증빙 보존·재생성
+- 절차 및 원본/재현 구분: [RETENTION-REPRODUCTION.md](RETENTION-REPRODUCTION.md)
+- 독립 파일 해시 점검과 승인된 장기 보존은 별도 미완료 Gate이며, 기존 브라우저 PASS와 혼동하지 않는다.
