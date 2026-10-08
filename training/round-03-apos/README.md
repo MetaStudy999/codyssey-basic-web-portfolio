@@ -1,5 +1,20 @@
 # CODYSSEY B1-1 — APOS Round 03
 
+## Owner 즉시 검토 · 성장 학습 (2026-10-09)
+
+- [**15개 폴더별 실제 결과·미완료·10분 학습 안내**](OWNER-REVIEW-LEARN.md) — 공식 마감 2026-10-31 (Owner 통보), **핵심 미션 완료·평가가 우선**.
+- [**15개 폴더 선택형 능동 회상·복습 도구**](14-dashboard/owner-learning.html) — HTML 파일을 내려받아 브라우저에서 실행하는 오프라인 학습 화면. 자기평가는 공식 PASS가 아님.
+- [**공식 보너스 4개 구현 현황**](07-evaluation/BONUS.md) — BONUS-01~04 Round 03 NOT_VERIFIED, 별도 구현·증빙 필요.
+- [**발표·학습 슬라이드 제작 현황**](08-presentation/PRODUCTION-BRIEF.md) — Round 03 최종 이미지 PPTX·PDF 미완료.
+- [**기존 CORE 실제 웹 페이지**](https://metastudy999.github.io/codyssey-basic-web-portfolio/training/round-03-apos/04-src/) — 과거 PASS와 현재 새 검증 결과를 구분.
+
+> 14개 폴더의 `AGENTS.md`에 **2분 이해 → 3분 능동 회상 → 4분 직접 재현 → 1분 설명**을 반영했습니다. `04-src`는 기존 검증된 실행 코드를 보호하므로 상위 Owner 안내서에서 학습합니다. PR #16/하위 PR #18은 모두 Draft이며 독립 QA와 병합 전입니다.
+
+## 공식 평가 항목 실제 준비
+
+- [공식 B1-1 15문항: 코드·시연·구술 연결표](07-evaluation/OFFICIAL-EVALUATION-CHECKLIST.md) — 기능5 · 구조4 · 개념4 · 확장2.
+- 기존 요구 R01~R14와 공식 평가 EV01~EV15는 별도의 표입니다. 구현 PASS를 평가 통과로 자동 처리하지 않습니다.
+
 ## Mission Identity
 
 - Generation: CODYSSEY Round 02 / 제2기
