@@ -199,3 +199,20 @@ Learning Minimum Gate까지 완료되었다.
 - 05-tests/verify.mjs 및 test-verification.mjs — 정적·증빙 출처 검사와 고의 오류 테스트.
 - .github/workflows/round03-contracts.yml — 정확한 후보 SHA로 수행되는 PR 정적 검사.
 - 문서 작성, 정적 PASS, 실제 브라우저 PASS, 독립 QA, 사용자 MASTER를 반드시 별개 상태로 관리한다.
+
+
+## P00~P07 범용 수행·학습·연구 하네스 파일럿
+- `01-mission/STAGE-ACCEPTANCE.md`: 각 단계의 실제 완료 조건과 미완료 현황.
+- `13-harness/AGENTS.md`: 안전한 파일럿 통제.
+- `13-harness/contract.json`: P00~P07 및 CHECK_00~CHECK_10 계약.
+- `13-harness/observations.json`: 사실로 확인한 결과만 기록한 날짜 있는 스냅샷.
+- `13-harness/tool-registry.json`: MCP/전문 도구의 기능·위험·승인/연결 상태.
+- `13-harness/harness.mjs`: 선언된 단계/관측/보안/인용/학습/성능 규칙의 **실행 가능한 읽기 전용 검사기**.
+- `13-harness/harness.test.mjs`: 고의 허위 PASS·안전권한 오류 차단 검사.
+- `14-dashboard/index.html`: 저장된 스냅샷을 보여주는 웹 관제 **시안**, 실시간 연결이 아님.
+- `07-evaluation/HUMAN-LEARNING-PROTOCOL.md`: 사용자 학습 개선 실측.
+- `02-research/RESEARCH-VERIFICATION-PROTOCOL.md`: 실제 연구 출처·재현성.
+- `10-performance/EXPERIMENT-PROTOCOL.md`: A/B 비교·속도·비용·정확도 계측.
+- `11-improvement/ADOPTION-GATE.md`: APOS 공통 기능 승격 조건.
+
+이 폴더는 다른 Round 자료를 복사하지 않고 신규 기록을 구성한다. CODE CLEAR / New Harness static PASS / New Runtime / Learning Mastery / Research / Cross-domain generalization은 **서로 다른 Gate**다.

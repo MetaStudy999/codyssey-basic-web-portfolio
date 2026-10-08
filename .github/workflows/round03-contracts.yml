@@ -62,11 +62,19 @@ jobs:
         run: |
           set -euo pipefail
           node training/round-03-apos/05-tests/verify.mjs | tee round03-static-report.json
+      - name: Harness positive and adversarial tests
+        run: node --test training/round-03-apos/13-harness/harness.test.mjs
+      - name: Produce scoped harness status report
+        run: |
+          set -euo pipefail
+          node training/round-03-apos/13-harness/harness.mjs | tee round03-harness-report.json
       - name: Preserve newly generated report
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: round03-static-${{ github.run_id }}
-          path: round03-static-report.json
+          path: |
+            round03-static-report.json
+            round03-harness-report.json
           if-no-files-found: warn
           retention-days: 30

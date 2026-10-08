@@ -7,7 +7,7 @@ const scriptPath = fileURLToPath(import.meta.url);
 const defaultRoot = path.resolve(path.dirname(scriptPath), '..');
 
 const REQUIRED_AGENTS = [
-  'AGENTS.md', '00-control/AGENTS.md', '01-mission/AGENTS.md',
+  'AGENTS.md', '13-harness/AGENTS.md', '14-dashboard/AGENTS.md', '00-control/AGENTS.md', '01-mission/AGENTS.md',
   '02-research/AGENTS.md', '03-design/AGENTS.md',
   '05-tests/AGENTS.md', '06-evidence/AGENTS.md',
   'evidence/AGENTS.md', '07-evaluation/AGENTS.md',
@@ -17,7 +17,7 @@ const REQUIRED_AGENTS = [
 ];
 
 const REQUIRED_DOCS = [
-  '00-control/CHARTER.md', '01-mission/REQUIREMENTS.md',
+  '13-harness/README.md', '14-dashboard/README.md', '01-mission/STAGE-ACCEPTANCE.md', '07-evaluation/HUMAN-LEARNING-PROTOCOL.md', '02-research/RESEARCH-VERIFICATION-PROTOCOL.md', '10-performance/EXPERIMENT-PROTOCOL.md', '11-improvement/ADOPTION-GATE.md', '00-control/CHARTER.md', '01-mission/REQUIREMENTS.md',
   '02-research/LEARNING-MAP.md', '03-design/ARCHITECTURE.md',
   '05-tests/VERIFY-PROCEDURE.md', '05-tests/VERIFICATION-MATRIX.md',
   '06-evidence/INDEX.md', '07-evaluation/BONUS.md',

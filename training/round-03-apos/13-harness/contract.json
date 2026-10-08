@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "APOS-HARNESS-B1-1-ROUND03-V1",
+  "mission_id": "B1-1",
+  "domain": "WEB_STATIC",
+  "authority": "PILOT_ONLY",
+  "execution_mode": "PLAN_AND_VERIFY_READ_ONLY",
+  "source_root": "04-src",
+  "stage_order": [
+    "P00",
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05",
+    "P06",
+    "P07"
+  ],
+  "stages": [
+    {
+      "id": "P00",
+      "label": "기준 상태·원본 일치",
+      "exit": "APOS/중앙/실제 상태가 충돌 없이 동기화"
+    },
+    {
+      "id": "P01",
+      "label": "범용 수행 절차·역할",
+      "exit": "11개 CHECK, AGENTS, 범위 계약 독립 QA"
+    },
+    {
+      "id": "P02",
+      "label": "실행형 테스트·증빙",
+      "exit": "actual exact-head CI + negative tests + provenance"
+    },
+    {
+      "id": "P03",
+      "label": "MCP 도구 연결·권한",
+      "exit": "실제 연결·거부·복구 경로 독립 검증"
+    },
+    {
+      "id": "P04",
+      "label": "통합 웹 대시보드",
+      "exit": "실제 상태 제공·갱신·접근권한·오류 검증"
+    },
+    {
+      "id": "P05",
+      "label": "학습 효과 검증",
+      "exit": "사전/사후/지연/독립 재현/전이 시험"
+    },
+    {
+      "id": "P06",
+      "label": "연구 효과 검증",
+      "exit": "실제 문헌 출처·분석 재현·반증 확인"
+    },
+    {
+      "id": "P07",
+      "label": "교차 분야 성능 검증",
+      "exit": "독립 미션 반복·전후 비교·별도 QA"
+    }
+  ],
+  "gates": [
+    "CHECK_00",
+    "CHECK_01",
+    "CHECK_02",
+    "CHECK_03",
+    "CHECK_04",
+    "CHECK_05",
+    "CHECK_06",
+    "CHECK_07",
+    "CHECK_08",
+    "CHECK_09",
+    "CHECK_10"
+  ],
+  "risk_policy": {
+    "default_deny": true,
+    "external_write_requires_owner_approval": true,
+    "independent_checker_required": true,
+    "source_write_allowed": false,
+    "auto_merge_allowed": false,
+    "auto_promotion_allowed": false
+  },
+  "source_authority": [
+    "공식 미션 자료",
+    "본 Round 03 실행 결과·실제 증거",
+    "APOS 계약",
+    "Round 01/02 참고 자료(비권위)"
+  ],
+  "completion_rule": "All P00-P07 evidenced PASS and independent QA on exact candidate; partial PASS never means universal capability",
+  "portability_rule": "도메인 변경 시 어댑터·실제 검증기로 대체하고 실증 후 APOS Core로 승격"
+}

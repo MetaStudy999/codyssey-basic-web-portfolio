@@ -45,3 +45,12 @@ READ → DEFINE → PLAN → DESIGN → BUILD → CHECK → RUN → EVIDENCE →
 - 해당 Task의 Scope, 후보 SHA, 안전 승인, 공식 요구의 근거가 일치한다.
 - 각 실제 단계의 PASS/FAIL/INSUFFICIENT_EVIDENCE/PENDING은 개별 증거로 판정한다.
 - 독립 QA_SEC PASS와 해당 HEAD의 CI를 확인하기 전 병합 또는 범용 체계 검증 완료를 주장하지 않는다.
+
+
+## P00~P07 하네스 필수 연결
+- `13-harness/`는 파일럿 전용 읽기 검사·도구 등록부다. 도구 연결 자체를 실행하거나 권한을 얻지 않는다.
+- `14-dashboard/`는 날짜 고정 스냅샷을 표시한다. 실시간 관제나 승인된 서버가 아니다.
+- `13-harness/contract.json`과 `01-mission/STAGE-ACCEPTANCE.md`의 P00~P07에서 누락 항목을 항상 확인한다.
+- `05-tests/VERIFY-PROCEDURE.md` CHECK_00~CHECK_10을 신규 시험에도 적용한다.
+- `node --test training/round-03-apos/13-harness/harness.test.mjs`와 `node training/round-03-apos/13-harness/harness.mjs`로 후보의 안전한 상태·미측정 상태를 확인한다.
+- 대시보드·MCP·학습·연구 능력은 실제 통합 시험·독립 QA가 없으면 COMPLETE 금지.

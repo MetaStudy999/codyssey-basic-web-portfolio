@@ -86,3 +86,18 @@
 - 로컬: node --test training/round-03-apos/05-tests/test-verification.mjs
 - 로컬: node training/round-03-apos/05-tests/verify.mjs
 - PR: .github/workflows/round03-contracts.yml 의 실제 HEAD 실행 결과 확인
+
+
+## P00~P07 파일럿 실행형 Harness (추가)
+위 CHECK_00~CHECK_10 계약을 생략하지 않고, CHECK_03에서 다음 명령도 실행한다.
+
+    node --test training/round-03-apos/13-harness/harness.test.mjs
+    node training/round-03-apos/13-harness/harness.mjs
+
+- P00~P07 단계, 미측정/부정 판정, 도구 권한 거부, 출처 누락, 학습/연구 과장 표시를 검사한다.
+- Harness의 `PILOT_INCOMPLETE`는 정상적인 사실 기반 결과일 수 있다. 이를 성공적인 범용 엔진 검증으로 바꾸지 않는다.
+- P03: MCP 실제 연결/권한 거부 통합 시험 전에는 NOT_RUN.
+- P04: 대시보드 브라우저 실제 화면·접근성 테스트 전에는 NOT_RUN.
+- P05: 학습 사전/사후/지연/독립 재현·전이 실험 전에는 NOT_MEASURED.
+- P06: 연구 질문/원본 출처/분석 재현 실험 전에는 NOT_RUN.
+- P07: 다른 분야 반복 수행/블라인드 평가 전에는 NOT_MEASURED.

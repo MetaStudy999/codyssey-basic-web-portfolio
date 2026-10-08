@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "default_deny": true,
+  "tools": [
+    {
+      "id": "github-observer",
+      "capabilities": [
+        "repo.read",
+        "pr.read",
+        "run.read"
+      ],
+      "protocol": "MCP_OR_CONNECTOR",
+      "connection": "NOT_VERIFIED",
+      "risk": "LOW",
+      "mutating": false,
+      "approval_required": false,
+      "secret_storage": "EXTERNAL_ONLY"
+    },
+    {
+      "id": "git-change-manager",
+      "capabilities": [
+        "repo.write",
+        "pr.create"
+      ],
+      "protocol": "MCP_OR_CONNECTOR",
+      "connection": "NOT_VERIFIED",
+      "risk": "MEDIUM",
+      "mutating": true,
+      "approval_required": true,
+      "secret_storage": "EXTERNAL_ONLY"
+    },
+    {
+      "id": "browser-verifier",
+      "capabilities": [
+        "browser.run",
+        "browser.screenshot"
+      ],
+      "protocol": "LOCAL_OR_ACTIONS",
+      "connection": "NOT_VERIFIED",
+      "risk": "MEDIUM",
+      "mutating": false,
+      "approval_required": false,
+      "secret_storage": "NONE"
+    },
+    {
+      "id": "learning-evaluator",
+      "capabilities": [
+        "learning.practice",
+        "learning.grade"
+      ],
+      "protocol": "LOCAL_MODULE",
+      "connection": "NOT_VERIFIED",
+      "risk": "LOW",
+      "mutating": false,
+      "approval_required": false,
+      "secret_storage": "NONE"
+    },
+    {
+      "id": "research-evidence",
+      "capabilities": [
+        "research.search",
+        "research.citations"
+      ],
+      "protocol": "MCP_OR_CONNECTOR",
+      "connection": "NOT_VERIFIED",
+      "risk": "LOW",
+      "mutating": false,
+      "approval_required": false,
+      "secret_storage": "EXTERNAL_ONLY"
+    },
+    {
+      "id": "dashboard-reader",
+      "capabilities": [
+        "dashboard.read"
+      ],
+      "protocol": "STATIC_WEB",
+      "connection": "NOT_VERIFIED",
+      "risk": "LOW",
+      "mutating": false,
+      "approval_required": false,
+      "secret_storage": "NONE"
+    },
+    {
+      "id": "drive-artifact-manager",
+      "capabilities": [
+        "files.read",
+        "files.write"
+      ],
+      "protocol": "MCP_OR_CONNECTOR",
+      "connection": "NOT_VERIFIED",
+      "risk": "MEDIUM",
+      "mutating": true,
+      "approval_required": true,
+      "secret_storage": "EXTERNAL_ONLY"
+    }
+  ],
+  "risk_bounds": [
+    "LOW",
+    "MEDIUM",
+    "HIGH",
+    "CRITICAL"
+  ],
+  "network_execution_enabled": false,
+  "notes": "도구 연결 상태는 이 실험에서 검증되지 않았다. 권한 부여 또는 호출을 수행하지 않음."
+}
