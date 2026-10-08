@@ -117,10 +117,10 @@ Evaluation:
 
 - [x] GitHub Pages 배포
 - [x] Public URL 검증
-- [ ] Desktop screenshot
-- [ ] Mobile screenshot
-- [ ] Dark mode screenshot
-- [ ] README에 최종 배포 URL 및 Fresh screenshots 반영
+- [x] Desktop screenshot — Runtime Artifact `11465355693` / `desktop-light.png`
+- [x] Mobile screenshot — Runtime Artifact `11465355693` / `mobile.png`
+- [x] Dark mode screenshot — Runtime Artifact `11465355693` / `desktop-dark.png`
+- [x] README에 최종 배포 URL 및 Fresh screenshot provenance 반영
 
 ## 3. Bonus — CORE PASS Candidate 이후
 
@@ -131,14 +131,14 @@ Evaluation:
 
 ## 4. Learning Minimum Gate
 
-Status: **PENDING — Owner explanation required before FINAL CLEAR**
+Status: **PASS — Owner explanation recorded**
 
-후속 검증에서 사용자가 자신의 말로 설명해야 한다.
+Owner가 자신의 말로 다음 네 항목을 설명했다.
 
-1. HTML / CSS / JavaScript 역할
-2. 기능 하나의 User Action → Event → State → Render 흐름
-3. 오류 하나의 증상 → 원인 → 확인 → 수정 → 재검증
-4. 핵심 코드 하나의 변경 전 → 변경 후 → 이유 → 결과
+- [x] HTML / CSS / JavaScript 역할
+- [x] 기능 하나의 User Action → Event → State → Render 흐름
+- [x] 오류 하나의 증상 → 원인 → 확인 → 수정 → 재검증
+- [x] 핵심 코드 하나의 변경 전 → 변경 후 → 이유 → 결과
 
 
 ## 5. Round 03 Runtime Evidence
@@ -160,8 +160,8 @@ Current final status:
 CORE Runtime PASS
 → Visual Review PASS
 → Public GitHub Pages Runtime PASS
-→ Learning Minimum Gate PENDING
-→ FINAL CLEAR PENDING
+→ Learning Minimum Gate PASS
+→ FINAL CLEAR PASS
 ```
 
 

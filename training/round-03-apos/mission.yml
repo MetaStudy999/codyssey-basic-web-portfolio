@@ -16,7 +16,7 @@ authoring_root: "training/round-03-apos/04-src"
 
 owner_start_approval: APPROVED
 mission_start_authorized: true
-mission_state: IN_PROGRESS
+mission_state: CLEAR
 mission_execution: RUNTIME_PASS
 
 official_sources:
@@ -72,9 +72,8 @@ deployment:
   public_runtime_artifact_digest: "sha256:8954041bc8b924bd573dbbfb78331786c60309f871464df8c6321d5954631cfb"
 
 clear_gate:
-  status: PENDING_LEARNING_GATE
-  remaining:
-    - LEARNING_MINIMUM_GATE_OWNER_EXPLANATION
+  status: PASS
+  remaining: []
 
 presentation:
   status: NOT_STARTED
