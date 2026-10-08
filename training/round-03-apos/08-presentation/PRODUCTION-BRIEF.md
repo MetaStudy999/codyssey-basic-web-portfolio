@@ -1,6 +1,6 @@
 # Round 03 독립 학습·발표자료 제작 계획
 
-**상태: PLANNED / 파일 생성 및 검증은 아직 아님.** Round 01/02 PPT, 만화, 스크린샷을 그대로 복사하지 않는다.
+**상태: PREVIEW_DRAFT_CREATED / GOLDEN_MASTER_FINAL=FAIL.** 17장 검토용 PPTX/PDF는 제작되었으나 기존 사용자 결정 D01~D14/Golden v3의 최종 요건을 충족하지 못했다. 이 파일은 Repo 내 최종 산출물로 등록되지 않았다. Round 01/02 PPT, 만화, 스크린샷을 그대로 복사하지 않는다.
 
 ## 산출물
 - Main Deck: 발표 핵심 약 14~16장 (가독성 우선)
@@ -32,3 +32,11 @@
 - EV14~EV15: STATE 객체·모바일 퍼스트 선택 이유를 30초/1분 구술용 학습 노트에 연결.
 - 기준: [공식 B1-1 평가 15문항](../07-evaluation/OFFICIAL-EVALUATION-CHECKLIST.md)와 [실제 증빙](../06-evidence/INDEX.md). 평가문항에 미검증 보너스 결과를 합격으로 표시하지 않는다.
 - 이 내용은 **제작 명세**이며 이미지 PPTX·PDF가 실제 완성됐다는 뜻이 아니다(`PENDING`).
+
+
+## 최종 기준 복구 (2026-10-09)
+- [실제 17장 품질 감사·Golden G1~G10 NO-GO](QUALITY-AUDIT-20261009.md) 참조. 최신 기준 문서는 `MetaStudy999/codyssey-basic/standards/PRESENTATION-CANONICAL-DECISIONS.md`가 최상위.
+- 학습 본편 30~45장과 기존 Golden v3 45장 스토리보드를 먼저 고퀄리티 이미지 중심으로 복구하고, 그중 발표 14~16장 파생. 상세 Appendix 15~25장, Quick Review 1장.
+- Presentation-first 17장 텍스트 카드만으로 완결 금지. 4컷 비유→도식→실제 코드→실제 Runtime 흐름을 이미지 슬라이드로 직접 구현.
+- 실제 B1-1 Source + PR #19 Bonus Runtime의 MOCK DATA 한계를 정확히 명시. 실제 이메일 수신 미확인을 PASS로 승격 금지.
+- Owner 대표 슬라이드 중간 검토·전면 G1~G10 QA·독립 QA_SEC 전에 FINAL 금지. Hermes는 실제 실행 근거가 있어야 적용이라 표시.
