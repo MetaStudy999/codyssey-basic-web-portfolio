@@ -40,3 +40,8 @@ READ → DEFINE → PLAN → DESIGN → BUILD → CHECK → RUN → EVIDENCE →
 - 정적 PASS를 브라우저/독립 QA/학습 전이 PASS로 확대하지 않는다.
 - 04-src/는 기존 검증 후보의 소스 불변성을 지키기 위해 하위 AGENTS.md를 추가하지 않는다. 상위 규칙이 04-src/에도 적용된다.
 - FAIL/후보 불일치/증빙 만료/의도 밖 변경 시 STOP → Finding → 새 HEAD 재검증. MAKER가 독립 QA를 대신하지 않는다.
+
+## Exit Gate — 상위 공통 규칙
+- 해당 Task의 Scope, 후보 SHA, 안전 승인, 공식 요구의 근거가 일치한다.
+- 각 실제 단계의 PASS/FAIL/INSUFFICIENT_EVIDENCE/PENDING은 개별 증거로 판정한다.
+- 독립 QA_SEC PASS와 해당 HEAD의 CI를 확인하기 전 병합 또는 범용 체계 검증 완료를 주장하지 않는다.

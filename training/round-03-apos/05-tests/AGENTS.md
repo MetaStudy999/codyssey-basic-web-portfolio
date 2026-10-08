@@ -4,7 +4,7 @@
 이 규칙은 현재 폴더와 그 하위 영역에만 적용하며 상위 training/round-03-apos/AGENTS.md 및 APOS 전역 보안 정책을 완화할 수 없다.
 
 ## 실행 전 점검
-VERIFY-PROCEDURE.md 순서대로 대상·후보·런타임·입력·증거를 잠그고 검증한다. 먼저 node --test 05-tests/test-verification.mjs, 다음 node 05-tests/verify.mjs를 실행한다.
+VERIFY-PROCEDURE.md 순서대로 대상·후보·런타임·입력·증거를 잠그고 검증한다. 저장소 루트에서 먼저 node --test training/round-03-apos/05-tests/test-verification.mjs, 다음 node training/round-03-apos/05-tests/verify.mjs를 실행한다.
 
 ## 반드시 남길 산출물
 정적 검사 JSON, 개별 검증 결과, QA 인수인계
