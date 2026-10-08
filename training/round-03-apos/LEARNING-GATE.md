@@ -1,6 +1,6 @@
 # B1-1 Round 03 Learning Minimum Gate
 
-Status: **PENDING OWNER EXPLANATION**
+Status: **PASS — OWNER EXPLANATION RECORDED**
 
 Mission: **B1-1 — 나를 소개하는 웹페이지 처음부터 만들기**
 
@@ -14,7 +14,7 @@ Final CLEAR requires the Owner to explain the following four items in their own 
 
 Owner answer:
 
-> PENDING
+> HTML은 구조, CSS는 디자인, JavaScript는 이벤트 동작라고 이해했습니다.
 
 ## 2. User Action → Event → State → Render
 
@@ -31,7 +31,7 @@ Owner answer:
 
 Owner answer:
 
-> PENDING
+> 다크 모드는 버튼을 누르면 상태가 변화해서 화면이 변경된다고 이해했습니다.
 
 ## 3. 오류 해결 흐름
 
@@ -41,7 +41,7 @@ Owner answer:
 
 Owner answer:
 
-> PENDING
+> 스크린샷 문제는 캡처 위치가 원인이었고, 화면을 스크롤해서 해결했습니다.
 
 ## 4. 핵심 코드 변경 설명
 
@@ -51,7 +51,7 @@ Owner answer:
 
 Owner answer:
 
-> PENDING
+> 다크 모드 설정은 localStorage에 저장해서 새로고침해도 다시 불러오도록 되도록 했습니다.
 
 ---
 
@@ -75,9 +75,15 @@ All technical gates are already complete:
 - Public URL Runtime: PASS
 - Evidence Provenance: PASS
 
-Remaining:
+Gate evaluation:
+
+- Owner explained all four required items in their own words.
+- Concept mapping is sufficient for the B1-1 minimum learning requirement.
+- `localStorage` code casing is normalized here only for technical notation; the Owner explanation meaning is unchanged.
+
+Result:
 
 ```text
-Learning Minimum Gate
-→ FINAL CLEAR
+Learning Minimum Gate PASS
+→ FINAL CLEAR READY
 ```
