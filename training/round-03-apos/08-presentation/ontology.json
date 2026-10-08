@@ -11,20 +11,7 @@
     {
       "@id": "EV01",
       "@type": "OfficialEvaluationCriterion",
-      "title": "HTML·CSS·JS 역할/파일 분리",
-      "official_source": "responsive_web_javascript.md",
-      "official_source_class": "A",
-      "code_ref": "04-src/index.html",
-      "concept_stage": "UNDERSTAND",
-      "learner_practice": "NOT_MEASURED",
-      "verification_status": "REFERENCE_ONLY",
-      "slide_ids": [],
-      "evidence_ids": []
-    },
-    {
-      "@id": "EV02",
-      "@type": "OfficialEvaluationCriterion",
-      "title": "반응형 모바일/태블릿",
+      "title": "모바일 화면에서 레이아웃 반응형 변경",
       "official_source": "responsive_web_javascript.md",
       "official_source_class": "A",
       "code_ref": "04-src/css/style.css",
@@ -35,9 +22,22 @@
       "evidence_ids": []
     },
     {
+      "@id": "EV02",
+      "@type": "OfficialEvaluationCriterion",
+      "title": "다크/라이트 테마와 새로고침 유지",
+      "official_source": "responsive_web_javascript.md",
+      "official_source_class": "A",
+      "code_ref": "04-src/js/main.js",
+      "concept_stage": "UNDERSTAND",
+      "learner_practice": "NOT_MEASURED",
+      "verification_status": "REFERENCE_ONLY",
+      "slide_ids": [],
+      "evidence_ids": []
+    },
+    {
       "@id": "EV03",
       "@type": "OfficialEvaluationCriterion",
-      "title": "햄버거 메뉴·스크롤",
+      "title": "햄버거 메뉴·스크롤 애니메이션·맨 위 버튼",
       "official_source": "responsive_web_javascript.md",
       "official_source_class": "A",
       "code_ref": "04-src/js/main.js",
@@ -50,7 +50,7 @@
     {
       "@id": "EV04",
       "@type": "OfficialEvaluationCriterion",
-      "title": "GitHub API·로딩·오류",
+      "title": "GitHub API 프로젝트 및 로딩/오류/빈 상태",
       "official_source": "responsive_web_javascript.md",
       "official_source_class": "A",
       "code_ref": "04-src/js/main.js",
@@ -63,7 +63,7 @@
     {
       "@id": "EV05",
       "@type": "OfficialEvaluationCriterion",
-      "title": "폼 검증",
+      "title": "문의 폼 필수값·이메일 형식 검증",
       "official_source": "responsive_web_javascript.md",
       "official_source_class": "A",
       "code_ref": "04-src/js/main.js",
