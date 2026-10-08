@@ -53,6 +53,7 @@ try {
  await page.locator('.theme-toggle').click(); await page.locator('.theme-toggle').click();
  check(await page.locator('html').getAttribute('data-theme')==='dark','BONUS04: system follows OS again');
  await page.emulateMedia({colorScheme:'light',reducedMotion:'reduce'});
+ await page.waitForFunction(() => document.documentElement.dataset.theme === 'light', null, { timeout: 3000 });
  check(await page.locator('html').getAttribute('data-theme')==='light','BONUS04: responds to OS theme change');
  await page.screenshot({path:join(out,'bonus-desktop-light.png'),fullPage:true,animations:'disabled'});assets.push('bonus-desktop-light.png');
  await page.emulateMedia({colorScheme:'dark',reducedMotion:'reduce'});
