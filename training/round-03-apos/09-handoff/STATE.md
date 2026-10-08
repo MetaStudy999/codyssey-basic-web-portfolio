@@ -21,7 +21,7 @@
 
 **D. 이미지로 Owner 실물 검토 먼저.** 다음 Maker 실행의 최초 구체적 전달물: `시네마틱 표지 1장 + 진짜 4컷 만화 1장 + 해당 개념의 기술 다이어그램 1장 + PR HEAD 정확한 코드/Runtime 합성 1장 + EV01~EV15 진도 한눈에 보는 학습·평가 맵 1장`. 사용자에게 실제 풀사이즈 이미지를 먼저 보여 주고 피드백 기록. 기획서/PR 생성은 실물 산출물로 계산하지 않는다.
 
-**E. 제출 수준 검증.** Slide ID ↔ 공식 EV01~EV15 또는 BONUS01~04 ↔ 정확한 후보 File/Function ↔ Test SHA/Run/Artifact ↔ 실제 Screenshot ↔ 본인 구술 질문/대본을 모두 채워야 한다. 슬라이드 전체 16:9 1920x1080+ 실제 렌더에서 가독성과 기술 명칭을 점검. G1~G10의 자동 체크 + 독립 시각 QA_SEC 및 Owner 검토를 분리. 실제 수신하지 않은 메일, MOСK API 등은 REAL PASS로 금지. Hermes는 실제 등록/호출 증거 없이 `HERMES_APPLIED` 금지.
+**E. 제출 수준 검증.** Slide ID ↔ 공식 EV01~EV15 또는 BONUS01~04 ↔ 정확한 후보 File/Function ↔ Test SHA/Run/Artifact ↔ 실제 Screenshot ↔ 본인 구술 질문/대본을 모두 채워야 한다. 슬라이드 전체 16:9 1920x1080+ 실제 렌더에서 가독성과 기술 명칭을 점검. G1~G10의 자동 체크 + 독립 시각 QA_SEC 및 Owner 검토를 분리. 실제 수신하지 않은 메일, MOCK API 등은 REAL PASS로 금지. Hermes는 실제 등록/호출 증거 없이 `HERMES_APPLIED` 금지.
 
 ### 3. 평가 준비 종료 기준 (문서/CI가 아니라 사용자 행동)
 
