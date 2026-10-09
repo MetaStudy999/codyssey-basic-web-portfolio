@@ -101,3 +101,15 @@ test("optional Hermes runtime must not be mandatory for official evaluation",()=
  assert.ok(!r.failures.includes("HERMES_RUN_NOT_PROVEN"));
  assert.ok(r.failures.includes("GOLDEN_GATES_NOT_PASS"));
 });
+
+test("Owner D15 all-page generation rule cannot be relaxed",()=>{
+ const m=copy(manifest);
+ m.image_generation_policy.all_pages_independently_generated=false;
+ const r=verify({manifest:m});
+ assert.ok(r.failures.includes("OWNER_D15_EVERY_PAGE_POLICY"));
+});
+test("D15/D16 ledger link and source digest cannot be removed",()=>{
+ const m=copy(manifest);
+ m.canonical_decisions.pending_owner_latest.decision_ids=["D14"];
+ assert.ok(verify({manifest:m}).failures.includes("OWNER_D15_D16_SOURCE_PIN"));
+});
