@@ -26,5 +26,14 @@ jobs:
         run: node --test training/round-03-apos/08-presentation/slide-gate.test.mjs
       - name: Verify SL03 repair preflight remains executable
         run: node training/round-03-apos/08-presentation/slide-gate.mjs --next-slide SL03
+      - name: Assert SL04 progression fails closed while SL03 has open incidents
+        run: |
+          set +e
+          node training/round-03-apos/08-presentation/slide-gate.mjs --next-slide SL04 > /tmp/sl04-preflight.json
+          code=$?
+          set -e
+          cat /tmp/sl04-preflight.json
+          test "$code" -eq 2
+          node -e 'const fs=require("fs"); const x=JSON.parse(fs.readFileSync("/tmp/sl04-preflight.json","utf8")); if(x.production_allowed || x.blocking_incidents.length!==3 || !x.blocking_incidents.every(i=>i.slide==="SL03")) process.exit(1)'
       - name: Explicit stage-sensitive release gate
         run: node training/round-03-apos/08-presentation/slide-gate.mjs
