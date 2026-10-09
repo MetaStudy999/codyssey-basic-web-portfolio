@@ -8,7 +8,7 @@
 |---:|---|---|---|---|---|
 | 01 | CODYSSEY ALL IN ONE · B1-1 Web Portfolio | 시네마틱 기존 원안 표지·문구 교정 | B1-1 미션 소개 | 미션 목표를 10초로 말하기 | RENDERED_CANDIDATE |
 | 02 | 왜 웹 포트폴리오인가 | 하나의 시네마틱 학습 이미지·실제 UI 증빙 아님 | 미션 배경 | 흩어진 성과를 한 문장으로 설명 | RENDERED_CANDIDATE / OWNER_REVIEW_PENDING |
-| 03 | 실제 결과 한눈에 | ImageGen 산악 배경 + PR19 Chromium 원본 라이트/다크·언어 필터 및 미검증 경계 | CORE 구현 이력 / BONUS 후보 / EV01~15 준비 | 검증된 기능 두 가지와 미검증 하나를 말하기 | RENDERED_CANDIDATE / OWNER_REVIEW_PENDING |
+| 03 | 실제 결과 한눈에 | ImageGen 산악 배경(화면 5.7%) + PR19 Chromium 원본·언어 필터, 시각 디자인 미달 | CORE 구현 이력 / BONUS 후보 / EV01~15 준비 | 검증된 기능 두 가지와 미검증 하나를 말하기 | VISUAL_REVIEW_FAIL / REPAIR_REQUIRED |
 | 04 | 미션 필수 요구 | 요구→화면의 시각적 연결 | 공식 B1-1 | 구현 기능과 보너스 기능 구별 | NOT_CREATED |
 | 05 | 공식 평가 15문항 지도 | 기능5·구조4·개념4·확장2 분류 | EV01–EV15 | 가장 자신 없는 질문 1개 선택 | NOT_CREATED |
 | 06 | 학습 가이드와 폴더 | Round03 학습용 폴더 동선 | 학습 절차 | 04-src와 07-evaluation 위치 찾기 | NOT_CREATED |
@@ -83,3 +83,12 @@
 - **누적 결과는 3장 PPTX/PDF**. 기존 SL01·SL02 원본 이미지 SHA256과 발표자 노트를 바꾸지 않았다. Python 생성기 `build_SL03.py`와 누적기 `build_Study03_accumulated.py` 및 `verify_SL03_portable.py`를 별도 임시 디렉터리에 복사하여 재생성·원본 해시·노트/장수 검증 PASS. ChatGPT Library 보존 예정; **GitHub 내 바이너리 등록을 주장하지 않는다**.
 - SL03 시각 사용자 승인, 독립 QA, 실제 Formspree 메일 확인 및 학교 공식 평가/제출은 PENDING. `Golden Master FINAL` 금지.
 - 다음 페이지 **SL04 `미션 필수 요구`**는 SL03의 사용자 시각 검토 이후에만 새 한 장을 생성한다.
+
+## SL03 실물 품질 재검토 — 2026-10-10 (MAKER 검토, 독립 QA 아님)
+
+- **판정:** `STRUCTURAL_EXPORT=PASS`, `VISUAL_QUALITY=FAIL`, `GOLDEN_FINAL=NOT_APPROVED`. 실제 `SL03_실제결과_한눈에_45장_학습.png`는 1920x1080; 누적 PPTX 3장/PDF 3쪽/발표자 노트 3개 확인, PDF SL03 렌더가 PNG와 정확히 일치. 이는 실물 시각 품질 PASS가 아님.
+- **P0: EVERY_PAGE_IMAGE_GENERATED 위반.** `build_SL03.py`는 ImageGen 원본에서 `(735,20,968,318)` 일부만 자르고 `350x337` 영역에 배치, 전체 1920x1080의 **약 5.69%**만 AI 생성 산악 이미지이고 대부분은 Pillow 카드·도형 조립. 최신 Owner D15의 ‘표지처럼 본문 전체’ 생성 원칙 불충족.
+- **P0: 실증 컷 하단 절단.** 프로젝트 필터는 Chromium 원본 `1280x250` 영역(1710~1960px)을 잘라 `1018x184`로 축소, 실제 카드 전체/상태를 충분히 보여주지 못한다. 기존 `잘림 수정` 기록만으로 증빙이 읽힌다는 뜻이 아님. 프로젝트 전체 실제 카드가 읽히도록 별도 장면이나 크게 확대된 원본 컷 필요.
+- **P1: 인용 표기 가독성.** 하단 Source/PR/Run 텍스트 16px, Git SHA는 축약 `8059498…`. 발표 화면 가독성과 실제 소스 식별을 위한 확대/노트 상세 보존 필요.
+- **올바른 부분:** `RUNTIME | MOCKED API` 및 모의 응답과 실제 메일 수신 미검증 구별; 공개 main CORE 구현 이력과 PR19 자체 Chromium 검사 후보·학습자 공식 구술 미측정 구별. 사용자 승인과 독립 QA는 여전히 PENDING.
+- **재작업 Gate:** SL03 **한 장을 처음부터 독립된 16:9 전체 이미지 장면**으로 제작하고, 생성 이미지의 허위 UI/코드/완료 수치가 있으면 **실제 Chromium 캡처·정확한 후보 SHA/Run·짧은 검증 문구만 최소 합성**. 실제 코드/그림 출처·가독성·전체 카드 식별을 재검증하고 사용자 시각 검토를 받은 다음 SL04 진행. 기존 SL01·SL02 파일/노트는 불변 유지.
