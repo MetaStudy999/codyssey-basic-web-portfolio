@@ -79,5 +79,30 @@
     "reference_access": "LIBRARY_INDEXED_TEXT_ONLY; ORIGINAL_BINARY_PIXEL_VISUAL_NOT_ACCESSIBLE",
     "release_approval": "PENDING",
     "reuse_rejected_preview_as_golden": false
+  },
+  "image_generation_policy": {
+    "owner_decision_date": "2026-10-09",
+    "all_pages_independently_generated": true,
+    "same_grade_as_cover": true,
+    "minimal_truth_overlay_only": true,
+    "reject_recycled_card_templates": true,
+    "review_loop": [
+      "GENERATE",
+      "FULL_SCREEN_INSPECT",
+      "VERIFY_ACTUAL_CODE_AND_EVIDENCE",
+      "REPRODUCE_FAILURE",
+      "MINIMAL_REPAIR",
+      "RENDER_SAME_PAGE",
+      "RECHECK",
+      "OWNER_REVIEW"
+    ],
+    "source": "MetaStudy999/codyssey-basic:standards/PRESENTATION-CANONICAL-DECISIONS.md#D15 (pending governed central PR)",
+    "quality_status": "REQUIRED_NOT_YET_VERIFIED",
+    "known_artifacts": {
+      "v4_study_page_count": 39,
+      "v5_ev10_repair": "LOCAL_LIBRARY_DRAFT_ONLY",
+      "unreviewed_remainder": 35
+    },
+    "actual_slides_registered_in_repo": 0
   }
 }
