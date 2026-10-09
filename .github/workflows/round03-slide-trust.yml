@@ -1,0 +1,39 @@
+name: B1-1 Golden Slides Zero-Trust Gate
+on:
+  pull_request:
+    paths:
+      - 'training/round-03-apos/08-presentation/**'
+      - '.hermes/skills/codyssey-golden-slides/**'
+      - '.github/workflows/round03-slide-trust.yml'
+permissions:
+  contents: read
+jobs:
+  slide-trust:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout exact PR head
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Assert tested SHA
+        env:
+          EXPECTED_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+      - name: Negative regression and ontology checks
+        run: node --test training/round-03-apos/08-presentation/slide-gate.test.mjs
+      - name: Verify SL03 repair preflight remains executable
+        run: node training/round-03-apos/08-presentation/slide-gate.mjs --next-slide SL03
+      - name: Assert SL04 progression fails closed while SL03 has open incidents
+        run: |
+          set +e
+          node training/round-03-apos/08-presentation/slide-gate.mjs --next-slide SL04 > /tmp/sl04-preflight.json
+          code=$?
+          set -e
+          cat /tmp/sl04-preflight.json
+          test "$code" -eq 2
+          node -e 'const fs=require("fs"); const x=JSON.parse(fs.readFileSync("/tmp/sl04-preflight.json","utf8")); if(x.production_allowed || x.blocking_incidents.length!==3 || !x.blocking_incidents.every(i=>i.slide==="SL03")) process.exit(1)'
+      - name: Explicit stage-sensitive release gate
+        run: node training/round-03-apos/08-presentation/slide-gate.mjs

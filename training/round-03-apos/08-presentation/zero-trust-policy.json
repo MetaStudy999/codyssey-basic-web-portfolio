@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "mission_id": "B1-1",
+  "default_deny": true,
+  "approved_source_roots": [
+    "training/round-03-apos/04-src/",
+    "training/round-03-apos/evidence/",
+    "training/round-03-apos/06-evidence/"
+  ],
+  "accepted_evidence_types": [
+    "CODE",
+    "RUNTIME",
+    "EVIDENCE",
+    "OFFICIAL",
+    "AI-VISUAL",
+    "MOCKUP",
+    "EXPLAIN"
+  ],
+  "no_equivalence": [
+    [
+      "AI-VISUAL",
+      "EVIDENCE"
+    ],
+    [
+      "MOCKUP",
+      "RUNTIME"
+    ],
+    [
+      "CI_SUCCESS",
+      "HUMAN_MASTERY"
+    ]
+  ],
+  "claim_requirements": {
+    "CODE": [
+      "file_path",
+      "git_sha"
+    ],
+    "RUNTIME": [
+      "run_id",
+      "tested_sha",
+      "artifact_id"
+    ],
+    "EVIDENCE": [
+      "original_path",
+      "sha256"
+    ],
+    "OFFICIAL": [
+      "document_url",
+      "title"
+    ]
+  },
+  "release_requirements": [
+    "G1-G10_PASS",
+    "SOURCE_HASHES_VERIFIED",
+    "EV01-EV15_BONUS_1_TO_4_COVERAGE",
+    "QA_SEC_PASS",
+    "OWNER_REVIEW",
+    "FORMAL_SUBMISSION_CHECK"
+  ],
+  "security_controls": [
+    "NO_NETWORK_IN_VERIFIER",
+    "NO_UNAPPROVED_EMAIL",
+    "NO_SECRET_IN_REPO",
+    "NO_DIRECT_MAIN_WRITE",
+    "REDACT_PERSONAL_DATA",
+    "FAIL_CLOSED_ON_UNKNOWN"
+  ]
+}

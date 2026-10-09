@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "mission_id": "B1-1",
+  "artifact_kind": "STUDY_FIRST_GOLDEN_LEARNING_DECK",
+  "stage": "DRAFT",
+  "status": "NOT_FINAL",
+  "deadline": "2026-10-31",
+  "canonical_decisions": {
+    "repository": "MetaStudy999/codyssey-basic",
+    "path": "standards/PRESENTATION-CANONICAL-DECISIONS.md",
+    "blob_sha": "b385159bbb702f03cdc0c0bc840bfa1095f91a4c",
+    "pending_owner_latest": {
+      "decision_ids": [
+        "D15",
+        "D16"
+      ],
+      "repository": "MetaStudy999/codyssey-basic",
+      "branch": "docs/codyssey-image-every-page-20261009",
+      "blob_sha": "a4710f7f26c6863e592400f9d6780dd0d63e512a",
+      "merge_status": "DRAFT_PR_PENDING"
+    }
+  },
+  "golden_profile": {
+    "study_first": true,
+    "image_first": true,
+    "comic_diagram_code_evidence": true,
+    "visual_direction": "Cinematic Mountain/Journey, Navy/Cyan/Amber, comic, tech UI",
+    "minimum_study_slides": 30,
+    "maximum_target_study_slides": 45
+  },
+  "baseline": {
+    "main_sha": "da8822cbbe54c47539f65571327e324ce675eeb4",
+    "bonus_pr": 19,
+    "bonus_candidate_sha": "8059498326c4cbfb5ab35e0da7ca32a0e243538f",
+    "browser_run": 37853333536,
+    "artifact_id": 11583241674,
+    "uses_mock_github_data": true,
+    "formspree_post_mock_only": true,
+    "actual_email_receipt": "NOT_VERIFIED"
+  },
+  "deliverables": {
+    "study_deck": null,
+    "presentation_deck": null,
+    "technical_appendix": null,
+    "quick_review": null,
+    "speaker_notes": null,
+    "demo_runbook": null,
+    "slide_evidence_map": null
+  },
+  "slides": [],
+  "golden_gates": {
+    "G1": "NOT_MEASURED",
+    "G2": "NOT_MEASURED",
+    "G3": "NOT_MEASURED",
+    "G4": "NOT_MEASURED",
+    "G5": "NOT_MEASURED",
+    "G6": "NOT_MEASURED",
+    "G7": "NOT_MEASURED",
+    "G8": "NOT_MEASURED",
+    "G9": "NOT_MEASURED",
+    "G10": "NOT_MEASURED"
+  },
+  "review": {
+    "owner_status": "PENDING",
+    "independent_qa_status": "PENDING"
+  },
+  "hermes": {
+    "skill_path": ".hermes/skills/codyssey-golden-slides/SKILL.md",
+    "skill_repository_status": "STAGED",
+    "runtime_execution_status": "NOT_VERIFIED",
+    "execution_log": null
+  },
+  "zero_trust": {
+    "policy_path": "training/round-03-apos/08-presentation/zero-trust-policy.json",
+    "default_deny": true,
+    "secret_scan": "PENDING",
+    "artifact_hashes_verified": false
+  },
+  "remarks": "17-slide old preview rejected as final. Round-02 evidence is reference only; bonus source in separate PR#19.",
+  "design_reference_review": {
+    "status": "REJECTED_BY_OWNER",
+    "rejected_preview": "B1-1_Golden_v3_Representative_DRAFT (four slides, created 2026-10-09)",
+    "rejection_reason": "Does not match previously agreed Golden v2/v3 original content or image quality; uses generic cards and only a conceptual storyboard rather than authentic 4-panel comic, code, diagram, actual evidence learning chain.",
+    "exact_visual_comparison": "NOT_COMPLETED",
+    "original_reference_files": [
+      "CODYSSEY_B1-1_Golden_Learning_Deck_v2.pptx",
+      "CODYSSEY_B1-1_Image_Study_Deck_v3_Slides_33-45.pptx"
+    ],
+    "reference_access": "LIBRARY_INDEXED_TEXT_ONLY; ORIGINAL_BINARY_PIXEL_VISUAL_NOT_ACCESSIBLE",
+    "release_approval": "PENDING",
+    "reuse_rejected_preview_as_golden": false
+  },
+  "image_generation_policy": {
+    "owner_decision_date": "2026-10-09",
+    "all_pages_independently_generated": true,
+    "same_grade_as_cover": true,
+    "minimal_truth_overlay_only": true,
+    "reject_recycled_card_templates": true,
+    "review_loop": [
+      "GENERATE",
+      "FULL_SCREEN_INSPECT",
+      "VERIFY_ACTUAL_CODE_AND_EVIDENCE",
+      "REPRODUCE_FAILURE",
+      "MINIMAL_REPAIR",
+      "RENDER_SAME_PAGE",
+      "RECHECK",
+      "OWNER_REVIEW"
+    ],
+    "source": "MetaStudy999/codyssey-basic:standards/PRESENTATION-CANONICAL-DECISIONS.md#D15 (pending governed central PR)",
+    "quality_status": "REQUIRED_NOT_YET_VERIFIED",
+    "known_artifacts": {
+      "v4_study_page_count": 39,
+      "v5_ev10_repair": "LOCAL_LIBRARY_DRAFT_ONLY",
+      "unreviewed_remainder": 35
+    },
+    "actual_slides_registered_in_repo": 0
+  }
+}

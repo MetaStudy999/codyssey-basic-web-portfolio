@@ -1,0 +1,220 @@
+{
+  "schema_version": "1.0",
+  "mission_id": "B1-1",
+  "scope": "Study 45, one page at a time",
+  "current_slide": "SL03",
+  "next_planned_slide": "SL04",
+  "global_rule": "READ_INCIDENTS -> GENERATE_ONE_PAGE -> VERIFY_ACTUAL_IMAGE -> FAIL_REPRODUCE -> MINIMAL_REPAIR_SAME_PAGE -> RECHECK -> OWNER_REVIEW -> NEXT_PAGE",
+  "warning": "Current entries are MAKER visual findings, not independent QA. GitHub records include incident descriptions, not the complete image binaries. Static checks cannot independently certify screenshot legibility.",
+  "lessons": [
+    {
+      "rule_id": "R01",
+      "trigger": "image_gen produced 16-slide montage or old page",
+      "prevention": "Generate exactly one slide scene; reject mosaic output, stale title, stale round/date and irrelevant content"
+    },
+    {
+      "rule_id": "R02",
+      "trigger": "3:2 image expanded using blurred side gutters",
+      "prevention": "Require composed full-bleed 16:9; no fuzzy side bars"
+    },
+    {
+      "rule_id": "R03",
+      "trigger": "only 5.69% of SL03 uses original generated art",
+      "prevention": "Require independently generated full-page design and minimal truth overlay, not a Pillow-native card template"
+    },
+    {
+      "rule_id": "R04",
+      "trigger": "project screenshot section clipped when cropped",
+      "prevention": "Review source crop and post-composite at presentation size and keep pertinent project cards in frame"
+    },
+    {
+      "rule_id": "R05",
+      "trigger": "small footer provenance and misleading completion evidence",
+      "prevention": "Use readable source badge with full SHA and artifact link in notes; separate mocked tests from live checks"
+    },
+    {
+      "rule_id": "R06",
+      "trigger": "four comic frames reuse identical character cutout",
+      "prevention": "Four-panel comic must show distinct problem, action, state change, result; compare art visually"
+    },
+    {
+      "rule_id": "R07",
+      "trigger": "notes lost in partial regeneration",
+      "prevention": "Test PPTX notes and unchanged pages, rerender PDF and hash original images"
+    }
+  ],
+  "incidents": [
+    {
+      "id": "B1-SL03-001",
+      "slide_id": "SL03",
+      "severity": "P0",
+      "status": "IN_REPAIR",
+      "blocks_next_page": true,
+      "symptom": "Only approx 5.69% of the 1920x1080 slide consists of generated scenic art; remaining page composed of Pillow-native cards.",
+      "reproduction": "Inspect SL03_실제결과_한눈에_45장_학습.png and builder build_SL03.py scenic source crop (735,20,968,318) placed into 350x337 region; note original composite is external to GitHub and is NOT independently reverified by this CI.",
+      "root_cause": "ImageGen created stale SL02 content; generator retained a small scenic crop and replaced most of the slide with programmatic card/shape layout rather than independently generating SL03 full-page artwork.",
+      "repair_required": "Generate one unique 16:9 full-bleed SL03; use only minimal source-accurate code/runtime overlays and preserve SL01/SL02.",
+      "prevention_rule_ids": [
+        "R01",
+        "R03"
+      ],
+      "linked_issue": "https://github.com/MetaStudy999/codyssey-basic-web-portfolio/issues/17",
+      "retest": {
+        "result": "PENDING_INDEPENDENT_QA",
+        "evidence_artifact": null
+      },
+      "repair_artifact": null,
+      "full_screen_review": {
+        "status": "PENDING_OWNER_AND_QA",
+        "evidence_artifact": null
+      },
+      "owner_review": {
+        "status": "PENDING",
+        "evidence_artifact": null
+      },
+      "repair_candidate": {
+        "version": "v8",
+        "source_image_sha256": "5ca1b5c3a1cd0c3eb08752508db568cac7996ef1ab523e84232be10472d592e6",
+        "candidate_png_sha256": "ff3b0b21bdd58672da0505dec3db1b2424c09a9aad7bc45736ce0f4436a7f6f1",
+        "owner_status": "PENDING",
+        "independent_qa": "PENDING",
+        "library_folder": "/CODYSSEY/B1-1/ALL-IN-ONE-STUDY-45/SL03-LOCAL-EVIDENCE-v8",
+        "candidate_source": "ChatGPT Library; exact binary is not yet in this repository",
+        "generation_mode": "AI full-scene visual with real local 8766 Chromium desktop, mobile, project filter overlays",
+        "source_run": 37853333536,
+        "source_sha": "8059498326c4cbfb5ab35e0da7ca32a0e243538f",
+        "screenshot_note": "Actual local 8766 Chromium screenshots; GitHub cards are mocked Playwright fixtures, not real GitHub repositories",
+        "incident_scope": "Scenic base now full-frame; approx 61.47% of final image pixels unchanged from ImageGen original",
+        "local_rebuild": "PASS: portable ZIP isolated re-render image SHA identical; 3 PPTX slide media/notes and PDF raster pixels identical",
+        "release_status": "BLOCKED_BEFORE_OWNER_VISUAL_APPROVAL",
+        "source_archive_sha256": "c29fb71e7125432889361714f663c5b84cbf663803f93eb12ede42029f98305f",
+        "source_screenshot_sha256": {
+          "desktop_light": "689528c1b42ed0b56549ee7db7e63bf7cb9d8e042f2549426355c429603488ea",
+          "desktop_dark": "88b6b0e6cb59481fe3fd2d22514967bde51a1922e236d684134486b7df7c44dd",
+          "mobile_375": "54a7f08529330a067dc12a9ff7f6860be7b9212073b0d8fe6ee6e58af2d75fdb"
+        },
+        "source_testing": "LOCAL_PREVIEW 35/35 PASS; user-run Playwright; mocked GitHub API and zero actual Formspree POST",
+        "unresolved_visual_findings": [
+          "Local hero Korean title breaks words at 1440px and 375px",
+          "Local hero background differs from SL02 sunrise illustration",
+          "Project card small text projector legibility needs Owner review"
+        ]
+      }
+    },
+    {
+      "id": "B1-SL03-002",
+      "slide_id": "SL03",
+      "severity": "P0",
+      "status": "IN_REPAIR",
+      "blocks_next_page": true,
+      "symptom": "Project language-filter screenshot loses lower project card content and is not adequately legible.",
+      "reproduction": "SL03 builder cropped from Chromium desktop screenshot around source y=1710..1960 to output 1018x184; inspect both crop and 1920x1080 final slide.",
+      "root_cause": "Original evidence was cropped and resized to a shallow panel without a true full-screen readable-crop review.",
+      "repair_required": "Show the complete relevant filter and project cards using a large original capture, or a separately labeled zoomed runtime evidence scene; maintain PR19 exact SHA and mocked API flag.",
+      "prevention_rule_ids": [
+        "R04",
+        "R05"
+      ],
+      "linked_issue": "https://github.com/MetaStudy999/codyssey-basic-web-portfolio/issues/17",
+      "retest": {
+        "result": "PENDING_INDEPENDENT_QA",
+        "evidence_artifact": null
+      },
+      "repair_artifact": null,
+      "full_screen_review": {
+        "status": "PENDING_OWNER_AND_QA",
+        "evidence_artifact": null
+      },
+      "owner_review": {
+        "status": "PENDING",
+        "evidence_artifact": null
+      },
+      "repair_candidate": {
+        "version": "v8",
+        "source_image_sha256": "5ca1b5c3a1cd0c3eb08752508db568cac7996ef1ab523e84232be10472d592e6",
+        "candidate_png_sha256": "ff3b0b21bdd58672da0505dec3db1b2424c09a9aad7bc45736ce0f4436a7f6f1",
+        "owner_status": "PENDING",
+        "independent_qa": "PENDING",
+        "library_folder": "/CODYSSEY/B1-1/ALL-IN-ONE-STUDY-45/SL03-LOCAL-EVIDENCE-v8",
+        "candidate_source": "ChatGPT Library; exact binary is not yet in this repository",
+        "generation_mode": "AI full-scene visual with real local 8766 Chromium desktop, mobile, project filter overlays",
+        "source_run": 37853333536,
+        "source_sha": "8059498326c4cbfb5ab35e0da7ca32a0e243538f",
+        "screenshot_note": "Actual local 8766 Chromium screenshots; GitHub cards are mocked Playwright fixtures, not real GitHub repositories",
+        "incident_scope": "Actual original project card screenshot with all three cards fully within boundary; projector legibility awaits Owner review",
+        "local_rebuild": "PASS: portable ZIP isolated re-render image SHA identical; 3 PPTX slide media/notes and PDF raster pixels identical",
+        "release_status": "BLOCKED_BEFORE_OWNER_VISUAL_APPROVAL",
+        "source_archive_sha256": "c29fb71e7125432889361714f663c5b84cbf663803f93eb12ede42029f98305f",
+        "source_screenshot_sha256": {
+          "desktop_light": "689528c1b42ed0b56549ee7db7e63bf7cb9d8e042f2549426355c429603488ea",
+          "desktop_dark": "88b6b0e6cb59481fe3fd2d22514967bde51a1922e236d684134486b7df7c44dd",
+          "mobile_375": "54a7f08529330a067dc12a9ff7f6860be7b9212073b0d8fe6ee6e58af2d75fdb"
+        },
+        "source_testing": "LOCAL_PREVIEW 35/35 PASS; user-run Playwright; mocked GitHub API and zero actual Formspree POST",
+        "unresolved_visual_findings": [
+          "Local hero Korean title breaks words at 1440px and 375px",
+          "Local hero background differs from SL02 sunrise illustration",
+          "Project card small text projector legibility needs Owner review"
+        ]
+      }
+    },
+    {
+      "id": "B1-SL03-003",
+      "slide_id": "SL03",
+      "severity": "P1",
+      "status": "IN_REPAIR",
+      "blocks_next_page": true,
+      "symptom": "Provenance/footer text is roughly 16px on a 1920px slide; Git SHA abbreviated, difficult to read on a projector.",
+      "reproduction": "Inspect footer Source / PR / Run area at full-screen presentation size; evidence status currently from MAKER review only.",
+      "root_cause": "Evidence provenance metadata was compressed into a short footer rather than a readable badge plus full citation in the speaker notes.",
+      "repair_required": "Use a clearly legible runtime/Mock badge on page, full tested commit SHA/Run/artifact reference in speaker notes, and verify projection readability.",
+      "prevention_rule_ids": [
+        "R05"
+      ],
+      "linked_issue": "https://github.com/MetaStudy999/codyssey-basic-web-portfolio/issues/17",
+      "retest": {
+        "result": "PENDING_INDEPENDENT_QA",
+        "evidence_artifact": null
+      },
+      "repair_artifact": null,
+      "full_screen_review": {
+        "status": "PENDING_OWNER_AND_QA",
+        "evidence_artifact": null
+      },
+      "owner_review": {
+        "status": "PENDING",
+        "evidence_artifact": null
+      },
+      "repair_candidate": {
+        "version": "v8",
+        "source_image_sha256": "5ca1b5c3a1cd0c3eb08752508db568cac7996ef1ab523e84232be10472d592e6",
+        "candidate_png_sha256": "ff3b0b21bdd58672da0505dec3db1b2424c09a9aad7bc45736ce0f4436a7f6f1",
+        "owner_status": "PENDING",
+        "independent_qa": "PENDING",
+        "library_folder": "/CODYSSEY/B1-1/ALL-IN-ONE-STUDY-45/SL03-LOCAL-EVIDENCE-v8",
+        "candidate_source": "ChatGPT Library; exact binary is not yet in this repository",
+        "generation_mode": "AI full-scene visual with real local 8766 Chromium desktop, mobile, project filter overlays",
+        "source_run": 37853333536,
+        "source_sha": "8059498326c4cbfb5ab35e0da7ca32a0e243538f",
+        "screenshot_note": "Actual local 8766 Chromium screenshots; GitHub cards are mocked Playwright fixtures, not real GitHub repositories",
+        "incident_scope": "Full SHA and non-verified scope in notes plus 17px source attribution; projector readability awaits Owner review",
+        "local_rebuild": "PASS: portable ZIP isolated re-render image SHA identical; 3 PPTX slide media/notes and PDF raster pixels identical",
+        "release_status": "BLOCKED_BEFORE_OWNER_VISUAL_APPROVAL",
+        "source_archive_sha256": "c29fb71e7125432889361714f663c5b84cbf663803f93eb12ede42029f98305f",
+        "source_screenshot_sha256": {
+          "desktop_light": "689528c1b42ed0b56549ee7db7e63bf7cb9d8e042f2549426355c429603488ea",
+          "desktop_dark": "88b6b0e6cb59481fe3fd2d22514967bde51a1922e236d684134486b7df7c44dd",
+          "mobile_375": "54a7f08529330a067dc12a9ff7f6860be7b9212073b0d8fe6ee6e58af2d75fdb"
+        },
+        "source_testing": "LOCAL_PREVIEW 35/35 PASS; user-run Playwright; mocked GitHub API and zero actual Formspree POST",
+        "unresolved_visual_findings": [
+          "Local hero Korean title breaks words at 1440px and 375px",
+          "Local hero background differs from SL02 sunrise illustration",
+          "Project card small text projector legibility needs Owner review"
+        ]
+      }
+    }
+  ],
+  "closure_contract": "CLOSED_VERIFIED needs hash-verified repaired artifact, passing retest record, passing full screen image review and Owner review proof. In absence of accessible actual bytes, remain OPEN or IN_REPAIR; never close merely by prose.",
+  "last_update": "2026-10-10"
+}

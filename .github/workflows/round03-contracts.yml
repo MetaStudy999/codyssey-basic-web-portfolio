@@ -48,7 +48,7 @@ jobs:
                 echo "Protected verified source modified: $f"; exit 1 ;;
               training/round-01-clear/*|training/round-02-clear/*)
                 echo "Legacy Round modified: $f"; exit 1 ;;
-              training/round-03-apos/*|.github/workflows/round03-contracts.yml)
+              training/round-03-apos/*|.hermes/skills/codyssey-golden-slides/SKILL.md|.github/workflows/round03-contracts.yml|.github/workflows/round03-slide-trust.yml)
                 echo "Allowed: $f" ;;
               *)
                 echo "Out-of-scope file: $f"; exit 1 ;;
