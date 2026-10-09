@@ -48,7 +48,7 @@
       "id": "B1-SL03-001",
       "slide_id": "SL03",
       "severity": "P0",
-      "status": "OPEN",
+      "status": "IN_REPAIR",
       "blocks_next_page": true,
       "symptom": "Only approx 5.69% of the 1920x1080 slide consists of generated scenic art; remaining page composed of Pillow-native cards.",
       "reproduction": "Inspect SL03_실제결과_한눈에_45장_학습.png and builder build_SL03.py scenic source crop (735,20,968,318) placed into 350x337 region; note original composite is external to GitHub and is NOT independently reverified by this CI.",
@@ -60,24 +60,40 @@
       ],
       "linked_issue": "https://github.com/MetaStudy999/codyssey-basic-web-portfolio/issues/17",
       "retest": {
-        "result": "PENDING",
+        "result": "PENDING_INDEPENDENT_QA",
         "evidence_artifact": null
       },
       "repair_artifact": null,
       "full_screen_review": {
-        "status": "PENDING",
+        "status": "PENDING_OWNER_AND_QA",
         "evidence_artifact": null
       },
       "owner_review": {
         "status": "PENDING",
         "evidence_artifact": null
+      },
+      "repair_candidate": {
+        "version": "v7",
+        "source_image_sha256": "5ca1b5c3a1cd0c3eb08752508db568cac7996ef1ab523e84232be10472d592e6",
+        "candidate_png_sha256": "55c307e72dbeff6c6c92f0a908686f4ecaea4267f037878176f9ac93b7dd4248",
+        "owner_status": "PENDING",
+        "independent_qa": "PENDING",
+        "library_folder": "/CODYSSEY/B1-1/ALL-IN-ONE-STUDY-45/SL03-REPAIR-v7",
+        "candidate_source": "ChatGPT Library; exact binary is not yet in this repository",
+        "generation_mode": "Full 16:9 ImageGen scene and minimal accurate runtime screenshot overlays",
+        "source_run": 37853333536,
+        "source_sha": "8059498326c4cbfb5ab35e0da7ca32a0e243538f",
+        "screenshot_note": "Chromium screenshots with mocked external API, not actual service results",
+        "incident_scope": "Scenic base now full-frame; approx 61.47% of final image pixels unchanged from ImageGen original",
+        "local_rebuild": "PASS",
+        "release_status": "BLOCKED_BEFORE_OWNER_VISUAL_APPROVAL"
       }
     },
     {
       "id": "B1-SL03-002",
       "slide_id": "SL03",
       "severity": "P0",
-      "status": "OPEN",
+      "status": "IN_REPAIR",
       "blocks_next_page": true,
       "symptom": "Project language-filter screenshot loses lower project card content and is not adequately legible.",
       "reproduction": "SL03 builder cropped from Chromium desktop screenshot around source y=1710..1960 to output 1018x184; inspect both crop and 1920x1080 final slide.",
@@ -89,24 +105,40 @@
       ],
       "linked_issue": "https://github.com/MetaStudy999/codyssey-basic-web-portfolio/issues/17",
       "retest": {
-        "result": "PENDING",
+        "result": "PENDING_INDEPENDENT_QA",
         "evidence_artifact": null
       },
       "repair_artifact": null,
       "full_screen_review": {
-        "status": "PENDING",
+        "status": "PENDING_OWNER_AND_QA",
         "evidence_artifact": null
       },
       "owner_review": {
         "status": "PENDING",
         "evidence_artifact": null
+      },
+      "repair_candidate": {
+        "version": "v7",
+        "source_image_sha256": "5ca1b5c3a1cd0c3eb08752508db568cac7996ef1ab523e84232be10472d592e6",
+        "candidate_png_sha256": "55c307e72dbeff6c6c92f0a908686f4ecaea4267f037878176f9ac93b7dd4248",
+        "owner_status": "PENDING",
+        "independent_qa": "PENDING",
+        "library_folder": "/CODYSSEY/B1-1/ALL-IN-ONE-STUDY-45/SL03-REPAIR-v7",
+        "candidate_source": "ChatGPT Library; exact binary is not yet in this repository",
+        "generation_mode": "Full 16:9 ImageGen scene and minimal accurate runtime screenshot overlays",
+        "source_run": 37853333536,
+        "source_sha": "8059498326c4cbfb5ab35e0da7ca32a0e243538f",
+        "screenshot_note": "Chromium screenshots with mocked external API, not actual service results",
+        "incident_scope": "Actual original project card screenshot with all three cards fully within boundary; projector legibility awaits Owner review",
+        "local_rebuild": "PASS",
+        "release_status": "BLOCKED_BEFORE_OWNER_VISUAL_APPROVAL"
       }
     },
     {
       "id": "B1-SL03-003",
       "slide_id": "SL03",
       "severity": "P1",
-      "status": "OPEN",
+      "status": "IN_REPAIR",
       "blocks_next_page": true,
       "symptom": "Provenance/footer text is roughly 16px on a 1920px slide; Git SHA abbreviated, difficult to read on a projector.",
       "reproduction": "Inspect footer Source / PR / Run area at full-screen presentation size; evidence status currently from MAKER review only.",
@@ -117,19 +149,36 @@
       ],
       "linked_issue": "https://github.com/MetaStudy999/codyssey-basic-web-portfolio/issues/17",
       "retest": {
-        "result": "PENDING",
+        "result": "PENDING_INDEPENDENT_QA",
         "evidence_artifact": null
       },
       "repair_artifact": null,
       "full_screen_review": {
-        "status": "PENDING",
+        "status": "PENDING_OWNER_AND_QA",
         "evidence_artifact": null
       },
       "owner_review": {
         "status": "PENDING",
         "evidence_artifact": null
+      },
+      "repair_candidate": {
+        "version": "v7",
+        "source_image_sha256": "5ca1b5c3a1cd0c3eb08752508db568cac7996ef1ab523e84232be10472d592e6",
+        "candidate_png_sha256": "55c307e72dbeff6c6c92f0a908686f4ecaea4267f037878176f9ac93b7dd4248",
+        "owner_status": "PENDING",
+        "independent_qa": "PENDING",
+        "library_folder": "/CODYSSEY/B1-1/ALL-IN-ONE-STUDY-45/SL03-REPAIR-v7",
+        "candidate_source": "ChatGPT Library; exact binary is not yet in this repository",
+        "generation_mode": "Full 16:9 ImageGen scene and minimal accurate runtime screenshot overlays",
+        "source_run": 37853333536,
+        "source_sha": "8059498326c4cbfb5ab35e0da7ca32a0e243538f",
+        "screenshot_note": "Chromium screenshots with mocked external API, not actual service results",
+        "incident_scope": "Full SHA and non-verified scope in notes plus 17px source attribution; projector readability awaits Owner review",
+        "local_rebuild": "PASS",
+        "release_status": "BLOCKED_BEFORE_OWNER_VISUAL_APPROVAL"
       }
     }
   ],
-  "closure_contract": "CLOSED_VERIFIED needs hash-verified repaired artifact, passing retest record, passing full screen image review and Owner review proof. In absence of accessible actual bytes, remain OPEN or IN_REPAIR; never close merely by prose."
+  "closure_contract": "CLOSED_VERIFIED needs hash-verified repaired artifact, passing retest record, passing full screen image review and Owner review proof. In absence of accessible actual bytes, remain OPEN or IN_REPAIR; never close merely by prose.",
+  "last_update": "2026-10-10"
 }
