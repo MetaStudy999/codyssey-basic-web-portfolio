@@ -32,6 +32,8 @@ export function verify({manifest=load("manifest.json"),ontology=load("ontology.j
  must(policy.default_deny===true&&manifest.zero_trust?.default_deny===true,"ZERO_TRUST_DEFAULT_DENY");
  must(manifest.canonical_decisions?.path==="standards/PRESENTATION-CANONICAL-DECISIONS.md"&&
   /^[a-f0-9]{40}$/.test(manifest.canonical_decisions?.blob_sha||""),"CANONICAL_DECISION_PIN");
+ must(manifest.image_generation_policy?.all_pages_independently_generated===true && manifest.image_generation_policy?.same_grade_as_cover===true && manifest.image_generation_policy?.minimal_truth_overlay_only===true,"OWNER_D15_EVERY_PAGE_POLICY");
+ must(manifest.canonical_decisions?.pending_owner_latest?.decision_ids?.includes("D15") && manifest.canonical_decisions?.pending_owner_latest?.decision_ids?.includes("D16") && /^[0-9a-f]{40}$/.test(manifest.canonical_decisions?.pending_owner_latest?.blob_sha||""),"OWNER_D15_D16_SOURCE_PIN");
  must(manifest.golden_profile?.image_first===true&&manifest.golden_profile?.study_first===true&&
   manifest.golden_profile?.comic_diagram_code_evidence===true,"GOLDEN_PROFILE");
  must(skill.startsWith("---")&&skill.includes("name: codyssey-golden-slides")&&
