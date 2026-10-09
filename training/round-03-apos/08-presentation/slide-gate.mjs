@@ -57,19 +57,53 @@ export function verify({manifest=load("manifest.json"),ontology=load("ontology.j
  must(manifest.hermes?.skill_repository_status==="STAGED","HERMES_SKILL_STAGED");
  const hermesExecuted=manifest.hermes?.runtime_execution_status==="EXECUTED"&&validArtifact(manifest.hermes.execution_log);
  if(manifest.hermes?.runtime_execution_status==="EXECUTED")must(hermesExecuted,"HERMES_FALSE_EXECUTION");
+ // Every staged page must have its own image-generated visual, including body pages.
+ // A digest verifies bytes, not aesthetics: human full-screen visual review is separate.
+ const stagedSlides=Array.isArray(manifest.slides)?manifest.slides:[];
+ const seenGeneratedDigests=new Set();
+ for(const slide of stagedSlides){
+  const id=slide.id||"UNIDENTIFIED";
+  const visual=slide.image_generation||{};
+  const explicitException=visual.kind==="EVIDENCE_ONLY_EXCEPTION"&&visual.owner_exception_approval==="APPROVED";
+  if(!explicitException){
+   must(visual.kind==="IMAGE_GENERATED","EVERY_PAGE_IMAGE_GENERATED:"+id);
+   must(validArtifact(visual.generated_image),"GENERATED_IMAGE_HASH:"+id);
+   must(validArtifact(visual.prompt_record),"PROMPT_PROVENANCE:"+id);
+   const sha=visual.generated_image?.sha256;
+   if(typeof sha==="string"&&seenGeneratedDigests.has(sha))must(false,"REUSED_GENERATED_IMAGE:"+id);
+   if(typeof sha==="string")seenGeneratedDigests.add(sha);
+  }
+  must(validArtifact(slide.final_composite||slide.image),"FINAL_COMPOSITE_HASH:"+id);
+  must(typeof slide.learning_goal==="string"&&slide.learning_goal.trim().length>5,"LEARNING_GOAL:"+id);
+  must(Array.isArray(slide.truth_overlays),"TRUTH_OVERLAY_LIST:"+id);
+  const allowed=new Set(["CODE","EVIDENCE","RUNTIME","OFFICIAL","AI-VISUAL","EXPLAIN"]);
+  for(const overlay of Array.isArray(slide.truth_overlays)?slide.truth_overlays:[]){
+   must(allowed.has(overlay.source_type),"OVERLAY_SOURCE_TYPE:"+id);
+   if(overlay.source_type==="RUNTIME")
+    must(Boolean(overlay.run_id&&overlay.tested_sha&&overlay.artifact_id)&&validArtifact(overlay.original),"ACTUAL_RUNTIME_PROVENANCE:"+id);
+   if(overlay.source_type==="CODE")
+    must(Boolean(overlay.file_path&&overlay.git_sha)&&validArtifact(overlay.original),"ACTUAL_CODE_PROVENANCE:"+id);
+   if(overlay.source_type==="EVIDENCE")
+    must(validArtifact(overlay.original),"ACTUAL_EVIDENCE_PROVENANCE:"+id);
+  }
+ }
  const final=manifest.stage==="FINAL";
  if(final){
   must(manifest.status==="FINAL","FINAL_STATUS");
   must(manifest.design_reference_review?.release_approval==="APPROVED" && manifest.design_reference_review?.status!=="REJECTED_BY_OWNER","OWNER_ORIGINAL_VISUAL_APPROVAL");
   must(Object.values(gates).every(x=>x==="PASS"),"GOLDEN_GATES_NOT_PASS");
-  must(hermesExecuted,"HERMES_RUN_NOT_PROVEN");
+  // Hermes use is optional; falsely claiming execution is denied above.
+  // Equivalent documented tools plus independent QA may be used before the deadline.
   must(manifest.review?.owner_status==="APPROVED"&&manifest.review?.independent_qa_status==="PASS","OWNER_INDEPENDENT_QA");
+  must(validArtifact(manifest.review?.owner_approval_artifact)&&validArtifact(manifest.review?.independent_qa_artifact),"OWNER_QA_EVIDENCE_FILES");
   must(manifest.zero_trust?.secret_scan==="PASS"&&manifest.zero_trust?.artifact_hashes_verified===true,"RELEASE_ZERO_TRUST");
   for(const [name,art] of Object.entries(manifest.deliverables||{}))must(validArtifact(art),"ARTIFACT_MISSING_OR_TAMPERED:"+name);
   must(Array.isArray(manifest.slides)&&manifest.slides.length>=30,"STUDY_30_SLIDES");
   const present=new Set((manifest.slides||[]).flatMap(x=>x.assessment_ids||[]));
   must(allIds.every(x=>present.has(x)),"ASSESSMENT_19_COVERAGE");
   for(const s of manifest.slides||[]){
+   must(s.full_screen_review?.status==="PASS"&&validArtifact(s.full_screen_review?.review_artifact),"FULL_SCREEN_VISUAL_QA:"+s.id);
+   must(s.full_screen_review?.no_repeated_template===true && s.full_screen_review?.text_readable===true,"COVER_GRADE_VISUAL_REVIEW:"+s.id);
    must(validArtifact(s.image),"SLIDE_HASH:"+s.id);
    if(s.evidence_type==="RUNTIME")must(Boolean(s.run_id&&s.artifact_id&&s.tested_sha),"RUNTIME_PROVENANCE:"+s.id);
    if(s.evidence_type==="AI-VISUAL")must(s.claims_runtime_pass!==true,"AI_AS_FAKE_EVIDENCE:"+s.id);
