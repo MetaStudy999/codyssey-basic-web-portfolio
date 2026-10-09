@@ -17,7 +17,7 @@ test("false FINAL with missing deliverables and QA is denied",()=>{
  const r=verify({manifest:m});assert.equal(r.contract_valid,false);
  assert.ok(r.failures.includes("GOLDEN_GATES_NOT_PASS"));
  assert.ok(r.failures.includes("OWNER_INDEPENDENT_QA"));
- assert.ok(r.failures.includes("HERMES_RUN_NOT_PROVEN"));
+ assert.ok(!r.failures.includes("HERMES_RUN_NOT_PROVEN"),"Hermes absence must not block equivalent secure process");
 });
 test("Hermes execution requires actual digest-verified log",()=>{
  const m=copy(manifest);m.hermes.runtime_execution_status="EXECUTED";
@@ -64,4 +64,40 @@ test("official EV01-EV05 keep exact functional evaluation mapping",()=>{
 test("rejected original visual comparison prevents FINAL even with narrative claims",()=>{
  const m=copy(manifest); m.stage="FINAL"; m.status="FINAL";
  assert.ok(verify({manifest:m}).failures.includes("OWNER_ORIGINAL_VISUAL_APPROVAL"));
+});
+
+test("new draft slide without generated image is blocked before expansion",()=>{
+ const m=copy(manifest);
+ m.slides=[{id:"SL-EV10",image_generation:{kind:"PPT_NATIVE_CARD"},truth_overlays:[],learning_goal:"Explain real event and state rendering"}];
+ const r=verify({manifest:m});
+ assert.equal(r.contract_valid,false);
+ assert.ok(r.failures.includes("EVERY_PAGE_IMAGE_GENERATED:SL-EV10"));
+ assert.ok(r.failures.includes("FINAL_COMPOSITE_HASH:SL-EV10"));
+});
+test("duplicate generated visual across distinct slides is blocked",()=>{
+ const m=copy(manifest);
+ m.slides=[
+  {id:"SL01",image_generation:{kind:"IMAGE_GENERATED",generated_image:{path:"bogus.png",sha256:"a".repeat(64)}},truth_overlays:[],learning_goal:"Explain stage one"},
+  {id:"SL02",image_generation:{kind:"IMAGE_GENERATED",generated_image:{path:"bogus.png",sha256:"a".repeat(64)}},truth_overlays:[],learning_goal:"Explain stage two"}
+ ];
+ const r=verify({manifest:m});
+ assert.ok(r.failures.includes("REUSED_GENERATED_IMAGE:SL02"));
+});
+test("AI-claimed runtime without original evidence is blocked",()=>{
+ const m=copy(manifest);
+ m.slides=[{id:"SL07",image_generation:{kind:"IMAGE_GENERATED"},learning_goal:"Explain theme rendering",truth_overlays:[{source_type:"RUNTIME",run_id:123,tested_sha:"abc",artifact_id:99}]}];
+ assert.ok(verify({manifest:m}).failures.includes("ACTUAL_RUNTIME_PROVENANCE:SL07"));
+});
+test("FINAL must have full screen visual review and signed owner QA evidence",()=>{
+ const m=copy(manifest);m.stage="FINAL";m.status="FINAL";
+ m.slides=[{id:"SL01",image_generation:{kind:"IMAGE_GENERATED"},learning_goal:"Learn actual code",truth_overlays:[]}];
+ const r=verify({manifest:m});
+ assert.ok(r.failures.includes("FULL_SCREEN_VISUAL_QA:SL01"));
+ assert.ok(r.failures.includes("OWNER_QA_EVIDENCE_FILES"));
+});
+test("optional Hermes runtime must not be mandatory for official evaluation",()=>{
+ const m=copy(manifest);m.stage="FINAL";m.status="FINAL";
+ const r=verify({manifest:m});
+ assert.ok(!r.failures.includes("HERMES_RUN_NOT_PROVEN"));
+ assert.ok(r.failures.includes("GOLDEN_GATES_NOT_PASS"));
 });
