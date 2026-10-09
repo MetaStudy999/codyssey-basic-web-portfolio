@@ -8,7 +8,7 @@
 |---:|---|---|---|---|---|
 | 01 | CODYSSEY ALL IN ONE · B1-1 Web Portfolio | 시네마틱 기존 원안 표지·문구 교정 | B1-1 미션 소개 | 미션 목표를 10초로 말하기 | RENDERED_CANDIDATE |
 | 02 | 왜 웹 포트폴리오인가 | 하나의 시네마틱 학습 이미지·실제 UI 증빙 아님 | 미션 배경 | 흩어진 성과를 한 문장으로 설명 | RENDERED_CANDIDATE / OWNER_REVIEW_PENDING |
-| 03 | 실제 결과 한눈에 | ImageGen 산악 배경(화면 5.7%) + PR19 Chromium 원본·언어 필터, 시각 디자인 미달 | CORE 구현 이력 / BONUS 후보 / EV01~15 준비 | 검증된 기능 두 가지와 미검증 하나를 말하기 | VISUAL_REVIEW_FAIL / REPAIR_REQUIRED |
+| 03 | 실제 결과 한눈에 | v7 생성형 전면 장면 + Chromium 실제 노트북/모바일/언어 필터 화면(외부 응답 MOCKED) | CORE 구현 이력 / BONUS 후보 / EV01~15 준비 | 검증된 기능 두 가지와 미검증 하나를 말하기 | REPAIR_CANDIDATE / MAKER_REBUILD_PASS / OWNER_QA_PENDING |
 | 04 | 미션 필수 요구 | 요구→화면의 시각적 연결 | 공식 B1-1 | 구현 기능과 보너스 기능 구별 | NOT_CREATED |
 | 05 | 공식 평가 15문항 지도 | 기능5·구조4·개념4·확장2 분류 | EV01–EV15 | 가장 자신 없는 질문 1개 선택 | NOT_CREATED |
 | 06 | 학습 가이드와 폴더 | Round03 학습용 폴더 동선 | 학습 절차 | 04-src와 07-evaluation 위치 찾기 | NOT_CREATED |
@@ -99,3 +99,12 @@
 - **P1: 인용 표기 가독성.** 하단 Source/PR/Run 텍스트 16px, Git SHA는 축약 `8059498…`. 발표 화면 가독성과 실제 소스 식별을 위한 확대/노트 상세 보존 필요.
 - **올바른 부분:** `RUNTIME | MOCKED API` 및 모의 응답과 실제 메일 수신 미검증 구별; 공개 main CORE 구현 이력과 PR19 자체 Chromium 검사 후보·학습자 공식 구술 미측정 구별. 사용자 승인과 독립 QA는 여전히 PENDING.
 - **재작업 Gate:** SL03 **한 장을 처음부터 독립된 16:9 전체 이미지 장면**으로 제작하고, 생성 이미지의 허위 UI/코드/완료 수치가 있으면 **실제 Chromium 캡처·정확한 후보 SHA/Run·짧은 검증 문구만 최소 합성**. 실제 코드/그림 출처·가독성·전체 카드 식별을 재검증하고 사용자 시각 검토를 받은 다음 SL04 진행. 기존 SL01·SL02 파일/노트는 불변 유지.
+
+## SL03 v7 단일 페이지 재작업·동일 파일 재검증 (2026-10-10)
+
+- 이전 v6은 ImageGen 구성 면적 약 5.69% 및 프로젝트 필터 하단 잘림 때문에 **VISUAL_REVIEW_FAIL**. 해당 결과를 삭제하지 않고 `TROUBLESHOOTING.json` incident 3건에 연결해 보존한다.
+- 생성형 원본 단일 화면을 전면에 사용하고, 그림 속 임의 웹 UI는 PR #19 후보 SHA `8059498326c4cbfb5ab35e0da7ca32a0e243538f`, Chromium Run `37853333536`, Artifact `11583241674`의 실제 dark desktop/light mobile/filter screenshot으로 교체. 배경·기기 프레임·나머지 그림은 AI-VISUAL이며 외부 GitHub API와 Formspree는 **MOCKED** 결과.
+- 최종 PNG `1920x1080`, SHA256 `55c307e72dbeff6c6c92f0a908686f4ecaea4267f037878176f9ac93b7dd4248`. 원본 ImageGen 전체 장면의 픽셀 약 **61.47%**가 합성 후 그대로 남음. 기존 SL01·SL02 **원본 바이트와 발표자 노트 불변**. 누적 PPTX 3장, PDF 3쪽, 발표자 노트 3개.
+- 소스·입력·검증이 포함된 패키지를 별도 폴더에서 독립 재실행: **생성 PNG SHA 동일**, PDF SL03 재렌더 이미지 픽셀 평균 차이 0, 기존 2장 이미지/노트 불변, 전체 PPTX/PDF 3장 정상. 최초 재현 패키지의 누락 입력 오류는 보완 후 PASS. 실제 코드/이미지 파일은 ChatGPT Library `/CODYSSEY/B1-1/ALL-IN-ONE-STUDY-45/SL03-REPAIR-v7/`에 보존 예정.
+- **판정은 `REPAIR_CANDIDATE`**: 실제 프로젝트 카드 작은 글씨의 교실 가독성, 독립 시각 QA 및 사용자 승인 부족. Incident B1-SL03-001/002/003 모두 **IN_REPAIR**, 자동 `--next-slide SL04`는 계속 exit 2 차단. 이 QA는 사용자 승인 또는 공식 평가 PASS가 아님.
+- 현재 SL01·SL02 제작 후보, SL03 수리 후보 1장, **SL04 미착수**. 공식 마감 2026-10-31 우선.
