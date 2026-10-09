@@ -84,6 +84,13 @@
 - SL03 시각 사용자 승인, 독립 QA, 실제 Formspree 메일 확인 및 학교 공식 평가/제출은 PENDING. `Golden Master FINAL` 금지.
 - 다음 페이지 **SL04 `미션 필수 요구`**는 SL03의 사용자 시각 검토 이후에만 새 한 장을 생성한다.
 
+## 재발 방지 검사 연결 (2026-10-10)
+
+- [TROUBLESHOOTING.json](TROUBLESHOOTING.json): SL03 오류 **3건 OPEN**, 원인·재현·수정·예방 규칙 R01~R07, 증빙 상태를 통합 기록.
+- 다음 장 제작 전 `node training/round-03-apos/08-presentation/slide-gate.mjs --next-slide SL04` 결과는 **BLOCKED(exit 2)**가 정상. SL03 수정을 계속할 때는 `--next-slide SL03` 허용.
+- `CLOSED_VERIFIED`는 이미 확인 가능한 수정된 파일·재검증·전체화면 품질·Owner 승인 근거를 확인한 뒤에만. CI 성공 자체가 SL03 수정 완료를 뜻하지 않는다.
+- 기존 45장 작업 진도: SL01·02는 RENDERED_CANDIDATE, SL03 **VISUAL_REVIEW_FAIL**, SL04는 **NOT_STARTED / BLOCKED**.
+
 ## SL03 실물 품질 재검토 — 2026-10-10 (MAKER 검토, 독립 QA 아님)
 
 - **판정:** `STRUCTURAL_EXPORT=PASS`, `VISUAL_QUALITY=FAIL`, `GOLDEN_FINAL=NOT_APPROVED`. 실제 `SL03_실제결과_한눈에_45장_학습.png`는 1920x1080; 누적 PPTX 3장/PDF 3쪽/발표자 노트 3개 확인, PDF SL03 렌더가 PNG와 정확히 일치. 이는 실물 시각 품질 PASS가 아님.

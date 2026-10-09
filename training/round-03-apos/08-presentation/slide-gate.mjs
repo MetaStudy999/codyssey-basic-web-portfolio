@@ -22,6 +22,40 @@ const validArtifact=art=>{
   return real.startsWith(fs.realpathSync(missionRoot)+path.sep) &&
     crypto.createHash("sha256").update(fs.readFileSync(real)).digest("hex")===art.sha256;
 };
+
+const requiredTroubleshootingIds=["B1-SL03-001","B1-SL03-002","B1-SL03-003"];
+const slideOrdinal=value=>typeof value==="string"&&/^SL(0[1-9]|[1-3][0-9]|4[0-5])$/.test(value)?Number(value.slice(2)):null;
+export function verifyTroubleshooting({ledger=load("TROUBLESHOOTING.json"),targetSlide="SL04"}={}){
+ const failures=[],warnings=[],blocking=[];
+ const ensure=(condition,id)=>{if(!condition)failures.push(id)};
+ ensure(ledger?.schema_version==="1.0"&&ledger?.mission_id==="B1-1","INCIDENT_SCHEMA_MISSION");
+ ensure(Array.isArray(ledger?.incidents)&&ledger.incidents.length>0,"INCIDENTS_REQUIRED");
+ const ids=(Array.isArray(ledger?.incidents)?ledger.incidents:[]).map(i=>i.id);
+ ensure(ids.length===new Set(ids).size && requiredTroubleshootingIds.every(id=>ids.includes(id)),"KNOWN_SL03_INCIDENTS_PRESERVED");
+ ensure(Array.isArray(ledger?.lessons) && ["R01","R02","R03","R04","R05","R06","R07"].every(id=>ledger.lessons.some(x=>x.rule_id===id&&typeof x.prevention==="string"&&x.prevention.length>15)),"LESSONS_AND_PREVENTIONS_REQUIRED");
+ ensure(slideOrdinal(ledger?.current_slide)!==null && slideOrdinal(ledger?.next_planned_slide)!==null,"INCIDENT_PAGE_SEQUENCE");
+ const target=slideOrdinal(targetSlide);
+ ensure(target!==null,"INVALID_PRODUCTION_TARGET");
+ for(const incident of Array.isArray(ledger?.incidents)?ledger.incidents:[]){
+  const id=incident.id||"UNIDENTIFIED";
+  const sourceOrdinal=slideOrdinal(incident.slide_id);
+  ensure(sourceOrdinal!==null && ["P0","P1","P2"].includes(incident.severity),"INCIDENT_ID_AND_SEVERITY:"+id);
+  ensure(["OPEN","IN_REPAIR","RETEST_FAILED","CLOSED_VERIFIED"].includes(incident.status),"INCIDENT_STATUS:"+id);
+  for(const field of ["symptom","reproduction","root_cause","repair_required"]){
+   ensure(typeof incident[field]==="string"&&incident[field].trim().length>20,"INCIDENT_DETAIL:"+id+":"+field);
+  }
+  ensure(Array.isArray(incident.prevention_rule_ids)&&incident.prevention_rule_ids.length>0&&incident.prevention_rule_ids.every(rule=>ledger.lessons?.some(x=>x.rule_id===rule)),"INCIDENT_RULE_LINK:"+id);
+  if(incident.status==="CLOSED_VERIFIED"){
+   ensure(validArtifact(incident.repair_artifact)&&incident.retest?.result==="PASS"&&validArtifact(incident.retest?.evidence_artifact)&&incident.full_screen_review?.status==="PASS"&&validArtifact(incident.full_screen_review?.evidence_artifact)&&incident.owner_review?.status==="APPROVED"&&validArtifact(incident.owner_review?.evidence_artifact),"UNPROVEN_INCIDENT_CLOSURE:"+id);
+  }
+  if(incident.blocks_next_page===true && sourceOrdinal!==null && target!==null && sourceOrdinal<target && incident.status!=="CLOSED_VERIFIED"){
+   blocking.push({id,slide:incident.slide_id,status:incident.status});
+  }
+ }
+ if(blocking.length)warnings.push("NEXT_SLIDE_BLOCKED_BY_OPEN_INCIDENTS");
+ return {contract_valid:failures.length===0,production_allowed:failures.length===0&&blocking.length===0,target_slide:targetSlide,blocking_incidents:blocking,failures,warnings};
+}
+
 export function verify({manifest=load("manifest.json"),ontology=load("ontology.json"),
  policy=load("zero-trust-policy.json"),
  skill=fs.readFileSync(path.join(repoRoot,".hermes/skills/codyssey-golden-slides/SKILL.md"),"utf8")}={}){
@@ -89,6 +123,12 @@ export function verify({manifest=load("manifest.json"),ontology=load("ontology.j
     must(validArtifact(overlay.original),"ACTUAL_EVIDENCE_PROVENANCE:"+id);
   }
  }
+ const incidents=verifyTroubleshooting({targetSlide:"SL04"});
+ for(const error of incidents.failures)must(false,error);
+ // The ordinary contract CI validates incident integrity while SL03 is in repair.
+ // Progression is blocked separately via --next-slide, or if a later slide appears in the manifest.
+ const addedLater=Array.isArray(manifest.slides)?manifest.slides.filter(x=>slideOrdinal(x.id)>=4):[];
+ if(addedLater.length&&!incidents.production_allowed)must(false,"UNRESOLVED_INCIDENTS_BLOCK_REGISTERED_LATER_SLIDE");
  const final=manifest.stage==="FINAL";
  if(final){
   must(manifest.status==="FINAL","FINAL_STATUS");
@@ -114,6 +154,12 @@ export function verify({manifest=load("manifest.json"),ontology=load("ontology.j
  return {schema_version:"1.0",contract_valid:failures.length===0,release_eligible:final&&failures.length===0,hermes_runtime_verified:Boolean(hermesExecuted),assessment_nodes:ids.length,golden_gates:Object.keys(gates).length,stage:manifest.stage,failures,warnings};
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===scriptPath){
+ if(process.argv[2]==="--next-slide"){
+  const target=process.argv[3]||"";
+  const result=verifyTroubleshooting({targetSlide:target});
+  console.log(JSON.stringify(result,null,2));
+  process.exit(result.production_allowed?0:2);
+ }
  const result=verify();
  console.log(JSON.stringify(result,null,2));
  process.exit(result.contract_valid?0:1);

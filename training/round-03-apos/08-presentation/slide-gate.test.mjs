@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { verify } from "./slide-gate.mjs";
+import { verify, verifyTroubleshooting } from "./slide-gate.mjs";
 const base="training/round-03-apos/08-presentation/";
 const manifest=JSON.parse(fs.readFileSync(base+"manifest.json","utf8"));
 const ontology=JSON.parse(fs.readFileSync(base+"ontology.json","utf8"));
@@ -112,4 +112,48 @@ test("D15/D16 ledger link and source digest cannot be removed",()=>{
  const m=copy(manifest);
  m.canonical_decisions.pending_owner_latest.decision_ids=["D14"];
  assert.ok(verify({manifest:m}).failures.includes("OWNER_D15_D16_SOURCE_PIN"));
+});
+
+const incidentLedger=JSON.parse(fs.readFileSync(base+"TROUBLESHOOTING.json","utf8"));
+test("incident registry preserves three SL03 findings and reusable rules",()=>{
+ const result=verifyTroubleshooting({targetSlide:"SL03"});
+ assert.equal(result.contract_valid,true,JSON.stringify(result.failures));
+ assert.equal(result.production_allowed,true,"repairing SL03 must be allowed");
+});
+test("SL04 authoring is blocked by actual OPEN SL03 visual incidents",()=>{
+ const result=verifyTroubleshooting({targetSlide:"SL04"});
+ assert.equal(result.contract_valid,true);
+ assert.equal(result.production_allowed,false);
+ assert.equal(result.blocking_incidents.length,3);
+});
+test("missing SL03 incident cannot silently make SL04 pass",()=>{
+ const ledger=copy(incidentLedger);
+ ledger.incidents.splice(0,1);
+ const result=verifyTroubleshooting({ledger,targetSlide:"SL04"});
+ assert.equal(result.production_allowed,false);
+ assert.ok(result.failures.includes("KNOWN_SL03_INCIDENTS_PRESERVED"));
+});
+test("faked incident closure without file digests and owner review is rejected",()=>{
+ const ledger=copy(incidentLedger);
+ for(const item of ledger.incidents){item.status="CLOSED_VERIFIED";item.retest.result="PASS";item.owner_review.status="APPROVED";}
+ const result=verifyTroubleshooting({ledger,targetSlide:"SL04"});
+ assert.equal(result.production_allowed,false);
+ assert.ok(result.failures.some(x=>x.startsWith("UNPROVEN_INCIDENT_CLOSURE:")));
+});
+test("removing preventive rule fails incident contract",()=>{
+ const ledger=copy(incidentLedger);
+ ledger.lessons=[];
+ const result=verifyTroubleshooting({ledger,targetSlide:"SL03"});
+ assert.equal(result.contract_valid,false);
+ assert.ok(result.failures.includes("LESSONS_AND_PREVENTIONS_REQUIRED"));
+});
+test("later image registered before SL03 repair fails normal CI",()=>{
+ const candidate=copy(manifest);
+ candidate.slides=[{id:"SL04",image_generation:{kind:"IMAGE_GENERATED"},learning_goal:"Explain B1-1 requirements",truth_overlays:[]}];
+ assert.ok(verify({manifest:candidate}).failures.includes("UNRESOLVED_INCIDENTS_BLOCK_REGISTERED_LATER_SLIDE"));
+});
+test("invalid slide targets fail closed",()=>{
+ const result=verifyTroubleshooting({targetSlide:"SL99"});
+ assert.equal(result.production_allowed,false);
+ assert.ok(result.failures.includes("INVALID_PRODUCTION_TARGET"));
 });

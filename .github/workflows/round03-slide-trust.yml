@@ -24,5 +24,7 @@ jobs:
         run: test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
       - name: Negative regression and ontology checks
         run: node --test training/round-03-apos/08-presentation/slide-gate.test.mjs
+      - name: Verify SL03 repair preflight remains executable
+        run: node training/round-03-apos/08-presentation/slide-gate.mjs --next-slide SL03
       - name: Explicit stage-sensitive release gate
         run: node training/round-03-apos/08-presentation/slide-gate.mjs
