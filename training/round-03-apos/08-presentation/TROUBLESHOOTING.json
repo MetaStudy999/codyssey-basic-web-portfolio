@@ -73,20 +73,32 @@
         "evidence_artifact": null
       },
       "repair_candidate": {
-        "version": "v7",
+        "version": "v8",
         "source_image_sha256": "5ca1b5c3a1cd0c3eb08752508db568cac7996ef1ab523e84232be10472d592e6",
-        "candidate_png_sha256": "55c307e72dbeff6c6c92f0a908686f4ecaea4267f037878176f9ac93b7dd4248",
+        "candidate_png_sha256": "ff3b0b21bdd58672da0505dec3db1b2424c09a9aad7bc45736ce0f4436a7f6f1",
         "owner_status": "PENDING",
         "independent_qa": "PENDING",
-        "library_folder": "/CODYSSEY/B1-1/ALL-IN-ONE-STUDY-45/SL03-REPAIR-v7",
+        "library_folder": "/CODYSSEY/B1-1/ALL-IN-ONE-STUDY-45/SL03-LOCAL-EVIDENCE-v8",
         "candidate_source": "ChatGPT Library; exact binary is not yet in this repository",
-        "generation_mode": "Full 16:9 ImageGen scene and minimal accurate runtime screenshot overlays",
+        "generation_mode": "AI full-scene visual with real local 8766 Chromium desktop, mobile, project filter overlays",
         "source_run": 37853333536,
         "source_sha": "8059498326c4cbfb5ab35e0da7ca32a0e243538f",
-        "screenshot_note": "Chromium screenshots with mocked external API, not actual service results",
+        "screenshot_note": "Actual local 8766 Chromium screenshots; GitHub cards are mocked Playwright fixtures, not real GitHub repositories",
         "incident_scope": "Scenic base now full-frame; approx 61.47% of final image pixels unchanged from ImageGen original",
-        "local_rebuild": "PASS",
-        "release_status": "BLOCKED_BEFORE_OWNER_VISUAL_APPROVAL"
+        "local_rebuild": "PASS: portable ZIP isolated re-render image SHA identical; 3 PPTX slide media/notes and PDF raster pixels identical",
+        "release_status": "BLOCKED_BEFORE_OWNER_VISUAL_APPROVAL",
+        "source_archive_sha256": "c29fb71e7125432889361714f663c5b84cbf663803f93eb12ede42029f98305f",
+        "source_screenshot_sha256": {
+          "desktop_light": "689528c1b42ed0b56549ee7db7e63bf7cb9d8e042f2549426355c429603488ea",
+          "desktop_dark": "88b6b0e6cb59481fe3fd2d22514967bde51a1922e236d684134486b7df7c44dd",
+          "mobile_375": "54a7f08529330a067dc12a9ff7f6860be7b9212073b0d8fe6ee6e58af2d75fdb"
+        },
+        "source_testing": "LOCAL_PREVIEW 35/35 PASS; user-run Playwright; mocked GitHub API and zero actual Formspree POST",
+        "unresolved_visual_findings": [
+          "Local hero Korean title breaks words at 1440px and 375px",
+          "Local hero background differs from SL02 sunrise illustration",
+          "Project card small text projector legibility needs Owner review"
+        ]
       }
     },
     {
@@ -118,20 +130,32 @@
         "evidence_artifact": null
       },
       "repair_candidate": {
-        "version": "v7",
+        "version": "v8",
         "source_image_sha256": "5ca1b5c3a1cd0c3eb08752508db568cac7996ef1ab523e84232be10472d592e6",
-        "candidate_png_sha256": "55c307e72dbeff6c6c92f0a908686f4ecaea4267f037878176f9ac93b7dd4248",
+        "candidate_png_sha256": "ff3b0b21bdd58672da0505dec3db1b2424c09a9aad7bc45736ce0f4436a7f6f1",
         "owner_status": "PENDING",
         "independent_qa": "PENDING",
-        "library_folder": "/CODYSSEY/B1-1/ALL-IN-ONE-STUDY-45/SL03-REPAIR-v7",
+        "library_folder": "/CODYSSEY/B1-1/ALL-IN-ONE-STUDY-45/SL03-LOCAL-EVIDENCE-v8",
         "candidate_source": "ChatGPT Library; exact binary is not yet in this repository",
-        "generation_mode": "Full 16:9 ImageGen scene and minimal accurate runtime screenshot overlays",
+        "generation_mode": "AI full-scene visual with real local 8766 Chromium desktop, mobile, project filter overlays",
         "source_run": 37853333536,
         "source_sha": "8059498326c4cbfb5ab35e0da7ca32a0e243538f",
-        "screenshot_note": "Chromium screenshots with mocked external API, not actual service results",
+        "screenshot_note": "Actual local 8766 Chromium screenshots; GitHub cards are mocked Playwright fixtures, not real GitHub repositories",
         "incident_scope": "Actual original project card screenshot with all three cards fully within boundary; projector legibility awaits Owner review",
-        "local_rebuild": "PASS",
-        "release_status": "BLOCKED_BEFORE_OWNER_VISUAL_APPROVAL"
+        "local_rebuild": "PASS: portable ZIP isolated re-render image SHA identical; 3 PPTX slide media/notes and PDF raster pixels identical",
+        "release_status": "BLOCKED_BEFORE_OWNER_VISUAL_APPROVAL",
+        "source_archive_sha256": "c29fb71e7125432889361714f663c5b84cbf663803f93eb12ede42029f98305f",
+        "source_screenshot_sha256": {
+          "desktop_light": "689528c1b42ed0b56549ee7db7e63bf7cb9d8e042f2549426355c429603488ea",
+          "desktop_dark": "88b6b0e6cb59481fe3fd2d22514967bde51a1922e236d684134486b7df7c44dd",
+          "mobile_375": "54a7f08529330a067dc12a9ff7f6860be7b9212073b0d8fe6ee6e58af2d75fdb"
+        },
+        "source_testing": "LOCAL_PREVIEW 35/35 PASS; user-run Playwright; mocked GitHub API and zero actual Formspree POST",
+        "unresolved_visual_findings": [
+          "Local hero Korean title breaks words at 1440px and 375px",
+          "Local hero background differs from SL02 sunrise illustration",
+          "Project card small text projector legibility needs Owner review"
+        ]
       }
     },
     {
@@ -162,20 +186,32 @@
         "evidence_artifact": null
       },
       "repair_candidate": {
-        "version": "v7",
+        "version": "v8",
         "source_image_sha256": "5ca1b5c3a1cd0c3eb08752508db568cac7996ef1ab523e84232be10472d592e6",
-        "candidate_png_sha256": "55c307e72dbeff6c6c92f0a908686f4ecaea4267f037878176f9ac93b7dd4248",
+        "candidate_png_sha256": "ff3b0b21bdd58672da0505dec3db1b2424c09a9aad7bc45736ce0f4436a7f6f1",
         "owner_status": "PENDING",
         "independent_qa": "PENDING",
-        "library_folder": "/CODYSSEY/B1-1/ALL-IN-ONE-STUDY-45/SL03-REPAIR-v7",
+        "library_folder": "/CODYSSEY/B1-1/ALL-IN-ONE-STUDY-45/SL03-LOCAL-EVIDENCE-v8",
         "candidate_source": "ChatGPT Library; exact binary is not yet in this repository",
-        "generation_mode": "Full 16:9 ImageGen scene and minimal accurate runtime screenshot overlays",
+        "generation_mode": "AI full-scene visual with real local 8766 Chromium desktop, mobile, project filter overlays",
         "source_run": 37853333536,
         "source_sha": "8059498326c4cbfb5ab35e0da7ca32a0e243538f",
-        "screenshot_note": "Chromium screenshots with mocked external API, not actual service results",
+        "screenshot_note": "Actual local 8766 Chromium screenshots; GitHub cards are mocked Playwright fixtures, not real GitHub repositories",
         "incident_scope": "Full SHA and non-verified scope in notes plus 17px source attribution; projector readability awaits Owner review",
-        "local_rebuild": "PASS",
-        "release_status": "BLOCKED_BEFORE_OWNER_VISUAL_APPROVAL"
+        "local_rebuild": "PASS: portable ZIP isolated re-render image SHA identical; 3 PPTX slide media/notes and PDF raster pixels identical",
+        "release_status": "BLOCKED_BEFORE_OWNER_VISUAL_APPROVAL",
+        "source_archive_sha256": "c29fb71e7125432889361714f663c5b84cbf663803f93eb12ede42029f98305f",
+        "source_screenshot_sha256": {
+          "desktop_light": "689528c1b42ed0b56549ee7db7e63bf7cb9d8e042f2549426355c429603488ea",
+          "desktop_dark": "88b6b0e6cb59481fe3fd2d22514967bde51a1922e236d684134486b7df7c44dd",
+          "mobile_375": "54a7f08529330a067dc12a9ff7f6860be7b9212073b0d8fe6ee6e58af2d75fdb"
+        },
+        "source_testing": "LOCAL_PREVIEW 35/35 PASS; user-run Playwright; mocked GitHub API and zero actual Formspree POST",
+        "unresolved_visual_findings": [
+          "Local hero Korean title breaks words at 1440px and 375px",
+          "Local hero background differs from SL02 sunrise illustration",
+          "Project card small text projector legibility needs Owner review"
+        ]
       }
     }
   ],
