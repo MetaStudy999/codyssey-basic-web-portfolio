@@ -8,7 +8,17 @@
   "canonical_decisions": {
     "repository": "MetaStudy999/codyssey-basic",
     "path": "standards/PRESENTATION-CANONICAL-DECISIONS.md",
-    "blob_sha": "b385159bbb702f03cdc0c0bc840bfa1095f91a4c"
+    "blob_sha": "b385159bbb702f03cdc0c0bc840bfa1095f91a4c",
+    "pending_owner_latest": {
+      "decision_ids": [
+        "D15",
+        "D16"
+      ],
+      "repository": "MetaStudy999/codyssey-basic",
+      "branch": "docs/codyssey-image-every-page-20261009",
+      "blob_sha": "a4710f7f26c6863e592400f9d6780dd0d63e512a",
+      "merge_status": "DRAFT_PR_PENDING"
+    }
   },
   "golden_profile": {
     "study_first": true,
