@@ -1,5 +1,6 @@
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
+import { createHash } from 'node:crypto';
 import { readFileSync, mkdirSync } from 'node:fs';
 import { join, resolve, extname } from 'node:path';
 import assert from 'node:assert/strict';
@@ -153,6 +154,16 @@ try {
  await mp.locator('.menu-toggle').click();
  await prepareFullPageEvidence(mp);
  await mp.screenshot({path:join(out,'bonus-mobile.png'),fullPage:true,animations:'disabled'});assets.push('bonus-mobile.png');
+
+ for(const width of [320,375,768,1024,1440]){
+  await mp.setViewportSize({width,height:900});
+  check(await mp.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),
+    'P2: responsive no overflow '+width);
+  await prepareFullPageEvidence(mp);
+  const screenshot='bonus-viewport-'+width+'.png';
+  await mp.screenshot({path:join(out,screenshot),fullPage:true,animations:'disabled'});
+  assets.push(screenshot);
+ }
  await mobile.close();
  const empty=await browser.newContext(); const ep=await empty.newPage();
  await ep.route('https://api.github.com/users/MetaStudy999/repos**',r=>r.fulfill({status:200,contentType:'application/json',body:'[]'}));
@@ -178,5 +189,6 @@ try {
  await tp.waitForTimeout(2200);
  check(await tp.locator('.typing-target').innerText()==='안녕하세요. 배우고 만들며 성장하는 개발자입니다.','BONUS02: typing ends on full string');
  await normal.close();await context.close();
- console.log(JSON.stringify({status:'PASS',checks,artifacts:assets,scope:'stubbed API and Formspree POST; NO REAL EMAIL SEND'},null,2));
+ const screenshotSHA256=Object.fromEntries(assets.map(name=>[name,createHash('sha256').update(readFileSync(join(out,name))).digest('hex')]));
+ console.log(JSON.stringify({status:'PASS',checks,artifacts:assets,screenshot_sha256:screenshotSHA256,scope:'stubbed API and Formspree POST; NO REAL EMAIL SEND'},null,2));
 }finally{await browser.close();await new Promise(ok=>server.close(ok));}
