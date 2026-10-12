@@ -1,5 +1,6 @@
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
+import { createHash } from 'node:crypto';
 import { readFileSync, mkdirSync } from 'node:fs';
 import { join, resolve, extname } from 'node:path';
 import assert from 'node:assert/strict';
@@ -51,6 +52,35 @@ try {
  page.on('pageerror',e=>{console.error('PAGE ERROR',e.message);});
  await page.route('https://api.github.com/users/MetaStudy999/repos**',r=>r.fulfill({status:200,contentType:'application/json',body:JSON.stringify(repos)}));
  await page.goto(base);await page.locator('.project-card').first().waitFor();
+
+ // P2-01: validate the rendered DOM (not just the source string).
+ const hostileUrls=[
+  ['javascript','javascript:alert(1)'],
+  ['data','data:text/html,unsafe'],
+  ['http','http://github.com/MetaStudy999/repo'],
+  ['external','https://gitlab.com/MetaStudy999/repo'],
+  ['lookalike','https://github.com.evil.example/repo'],
+  ['host-spoof','https://github.com@evil.example/repo'],
+  ['credentials','https://user:pw@github.com/MetaStudy999/repo'],
+  ['quote','https://github.com/repo" onclick="evil()']
+ ];
+ const hostilePage=await context.newPage();
+ const fixture=[{name:'safe',html_url:'https://github.com/MetaStudy999/safe',language:'JavaScript',fork:false}]
+  .concat(hostileUrls.map(([name,html_url])=>({name,html_url,language:'JavaScript',fork:false})));
+ await hostilePage.route('https://api.github.com/users/MetaStudy999/repos**',
+  route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(fixture)}));
+ await hostilePage.goto(base);await hostilePage.locator('.project-card').first().waitFor();
+ check(await hostilePage.locator('.project-card').count()===fixture.length,'P2-01: unsafe card titles still render');
+ const safeLink=hostilePage.locator('.project-card').first().locator('a');
+ check(await safeLink.getAttribute('href')==='https://github.com/MetaStudy999/safe','P2-01: safe DOM href');
+ check(await safeLink.evaluate(a=>a.href)==='https://github.com/MetaStudy999/safe','P2-01: browser href property');
+ for(let i=0;i<hostileUrls.length;i++){
+  const card=hostilePage.locator('.project-card').nth(i+1);
+  check(await card.locator('a').count()===0,'P2-01: rejected clickable '+hostileUrls[i][0]);
+  check(await card.locator('h3').innerText()===hostileUrls[i][0],'P2-01: plain text '+hostileUrls[i][0]);
+ }
+ check(await hostilePage.locator('[onclick]').count()===0,'P2-01: no injected HTML attribute');
+ await hostilePage.close();
  check(await page.locator('.project-card').count()===3,'BONUS01: excludes fork and shows 3 cards');
  check((await page.locator('.project-status').innerText()).includes('3개 표시'),'displayed item count is accurate');
  check(await page.locator('.retry-button').isVisible()===false,'CORE: retry button hidden on success');
@@ -76,14 +106,35 @@ try {
  await page.emulateMedia({colorScheme:'dark',reducedMotion:'reduce'});
  await prepareFullPageEvidence(page);
  await page.screenshot({path:join(out,'bonus-desktop-dark.png'),fullPage:true,animations:'disabled'});assets.push('bonus-desktop-dark.png');
+
+ // P2-02: labels, accessible error text and invalid-state transitions.
+ for(const field of ['name','email','message']){
+  check(await page.locator('#'+field).getAttribute('aria-describedby')===field+'-error','P2-02: describedby for '+field);
+  check(await page.locator('#'+field+'-error').count()===1,'P2-02: unique error ID '+field);
+  check(await page.locator('#'+field).getAttribute('aria-invalid')==='false','P2-02: initial valid '+field);
+ }
+ check(await page.locator('.form-status').getAttribute('aria-live')==='polite','P2-02: aria-live retained');
+ await page.locator('#name').focus();
+ check(await page.evaluate(()=>document.activeElement.id)==='name','P2-02: keyboard focus to name');
+ await page.keyboard.press('Tab');
+ check(await page.evaluate(()=>document.activeElement.id)==='email','P2-02: keyboard Tab advances to email');
+ await page.locator('.contact-form button[type=submit]').click();
+ for(const field of ['name','email','message']){
+  check(await page.locator('#'+field).getAttribute('aria-invalid')==='true','P2-02: empty submit invalid '+field);
+  check((await page.locator('#'+field+'-error').innerText()).length>0,'P2-02: described error visible '+field);
+ }
  await page.locator('#email').fill('invalid');
  await page.locator('#name').fill('QA Test');
  await page.locator('#message').fill('A safe test message');
  await page.locator('.contact-form button[type=submit]').click();
  check((await page.locator('[data-error-for=email]').innerText()).length>0,'CORE: email validation catches invalid input');
  await page.locator('#email').fill('qa@example.com');
+ for(const field of ['name','email','message'])check(await page.locator('#'+field).getAttribute('aria-invalid')==='false','P2-02: corrected '+field);
  await page.locator('.contact-form button[type=submit]').click();
  check((await page.locator('.form-status').innerText()).includes('실제 발송하지 않았습니다'),'BONUS03: missing endpoint sends no personal data');
+ await page.locator('.contact-form').evaluate(e=>e.reset());
+ for(const field of ['name','email','message'])check(await page.locator('#'+field).getAttribute('aria-invalid')==='false','P2-02: reset '+field);
+ check((await page.locator('.form-status').innerText())==='','P2-02: reset status cleared');
  let posted=0;
  await page.route('https://formspree.io/f/*',r=>{posted++;return r.fulfill({status:200,contentType:'application/json',body:'{"ok":true}'})});
  await page.locator('.contact-form').evaluate(e=>e.dataset.formspreeEndpoint='https://formspree.io/f/TESTFORM');
@@ -91,6 +142,7 @@ try {
  await page.locator('.contact-form button[type=submit]').click();
  await page.getByText('전송 요청 성공.',{exact:false}).waitFor();
  check(posted===1,'BONUS03: mocked POST sends exactly one request');
+ for(const field of ['name','email','message'])check(await page.locator('#'+field).getAttribute('aria-invalid')==='false','P2-02: successful POST reset '+field);
  check((await page.locator('.form-status').innerText()).includes('수신은 별도'),'BONUS03: does not claim actual mailbox arrival');
  const mobile=await browser.newContext({viewport:{width:375,height:812},colorScheme:'light',reducedMotion:'reduce'});
  const mp=await mobile.newPage();await mp.route('https://api.github.com/users/MetaStudy999/repos**',r=>r.fulfill({status:200,contentType:'application/json',body:JSON.stringify(repos)}));
@@ -102,6 +154,16 @@ try {
  await mp.locator('.menu-toggle').click();
  await prepareFullPageEvidence(mp);
  await mp.screenshot({path:join(out,'bonus-mobile.png'),fullPage:true,animations:'disabled'});assets.push('bonus-mobile.png');
+
+ for(const width of [320,375,768,1024,1440]){
+  await mp.setViewportSize({width,height:900});
+  check(await mp.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),
+    'P2: responsive no overflow '+width);
+  await prepareFullPageEvidence(mp);
+  const screenshot='bonus-viewport-'+width+'.png';
+  await mp.screenshot({path:join(out,screenshot),fullPage:true,animations:'disabled'});
+  assets.push(screenshot);
+ }
  await mobile.close();
  const empty=await browser.newContext(); const ep=await empty.newPage();
  await ep.route('https://api.github.com/users/MetaStudy999/repos**',r=>r.fulfill({status:200,contentType:'application/json',body:'[]'}));
@@ -127,5 +189,6 @@ try {
  await tp.waitForTimeout(2200);
  check(await tp.locator('.typing-target').innerText()==='안녕하세요. 배우고 만들며 성장하는 개발자입니다.','BONUS02: typing ends on full string');
  await normal.close();await context.close();
- console.log(JSON.stringify({status:'PASS',checks,artifacts:assets,scope:'stubbed API and Formspree POST; NO REAL EMAIL SEND'},null,2));
+ const screenshotSHA256=Object.fromEntries(assets.map(name=>[name,createHash('sha256').update(readFileSync(join(out,name))).digest('hex')]));
+ console.log(JSON.stringify({status:'PASS',checks,artifacts:assets,screenshot_sha256:screenshotSHA256,scope:'stubbed API and Formspree POST; NO REAL EMAIL SEND'},null,2));
 }finally{await browser.close();await new Promise(ok=>server.close(ok));}
