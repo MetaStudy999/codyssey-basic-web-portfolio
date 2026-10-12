@@ -105,14 +105,35 @@ try {
  await page.emulateMedia({colorScheme:'dark',reducedMotion:'reduce'});
  await prepareFullPageEvidence(page);
  await page.screenshot({path:join(out,'bonus-desktop-dark.png'),fullPage:true,animations:'disabled'});assets.push('bonus-desktop-dark.png');
+
+ // P2-02: labels, accessible error text and invalid-state transitions.
+ for(const field of ['name','email','message']){
+  check(await page.locator('#'+field).getAttribute('aria-describedby')===field+'-error','P2-02: describedby for '+field);
+  check(await page.locator('#'+field+'-error').count()===1,'P2-02: unique error ID '+field);
+  check(await page.locator('#'+field).getAttribute('aria-invalid')==='false','P2-02: initial valid '+field);
+ }
+ check(await page.locator('.form-status').getAttribute('aria-live')==='polite','P2-02: aria-live retained');
+ await page.locator('#name').focus();
+ check(await page.evaluate(()=>document.activeElement.id)==='name','P2-02: keyboard focus to name');
+ await page.keyboard.press('Tab');
+ check(await page.evaluate(()=>document.activeElement.id)==='email','P2-02: keyboard Tab advances to email');
+ await page.locator('.contact-form button[type=submit]').click();
+ for(const field of ['name','email','message']){
+  check(await page.locator('#'+field).getAttribute('aria-invalid')==='true','P2-02: empty submit invalid '+field);
+  check((await page.locator('#'+field+'-error').innerText()).length>0,'P2-02: described error visible '+field);
+ }
  await page.locator('#email').fill('invalid');
  await page.locator('#name').fill('QA Test');
  await page.locator('#message').fill('A safe test message');
  await page.locator('.contact-form button[type=submit]').click();
  check((await page.locator('[data-error-for=email]').innerText()).length>0,'CORE: email validation catches invalid input');
  await page.locator('#email').fill('qa@example.com');
+ for(const field of ['name','email','message'])check(await page.locator('#'+field).getAttribute('aria-invalid')==='false','P2-02: corrected '+field);
  await page.locator('.contact-form button[type=submit]').click();
  check((await page.locator('.form-status').innerText()).includes('실제 발송하지 않았습니다'),'BONUS03: missing endpoint sends no personal data');
+ await page.locator('.contact-form').evaluate(e=>e.reset());
+ for(const field of ['name','email','message'])check(await page.locator('#'+field).getAttribute('aria-invalid')==='false','P2-02: reset '+field);
+ check((await page.locator('.form-status').innerText())==='','P2-02: reset status cleared');
  let posted=0;
  await page.route('https://formspree.io/f/*',r=>{posted++;return r.fulfill({status:200,contentType:'application/json',body:'{"ok":true}'})});
  await page.locator('.contact-form').evaluate(e=>e.dataset.formspreeEndpoint='https://formspree.io/f/TESTFORM');
@@ -120,6 +141,7 @@ try {
  await page.locator('.contact-form button[type=submit]').click();
  await page.getByText('전송 요청 성공.',{exact:false}).waitFor();
  check(posted===1,'BONUS03: mocked POST sends exactly one request');
+ for(const field of ['name','email','message'])check(await page.locator('#'+field).getAttribute('aria-invalid')==='false','P2-02: successful POST reset '+field);
  check((await page.locator('.form-status').innerText()).includes('수신은 별도'),'BONUS03: does not claim actual mailbox arrival');
  const mobile=await browser.newContext({viewport:{width:375,height:812},colorScheme:'light',reducedMotion:'reduce'});
  const mp=await mobile.newPage();await mp.route('https://api.github.com/users/MetaStudy999/repos**',r=>r.fulfill({status:200,contentType:'application/json',body:JSON.stringify(repos)}));
