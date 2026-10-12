@@ -27,16 +27,19 @@ for(const path of [prefix+'css/style.css',prefix+'js/main.js',prefix+'images/abo
  check(html.includes(path),'New root link: '+path);
 check(!html.includes('src="js/script.js"'),'No legacy JavaScript on root');
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'application/javascript; charset=utf-8','.svg':'image/svg+xml','.jpg':'image/jpeg'};
+const projectPath='/codyssey-basic-web-portfolio/';
 const server=createServer((req,res)=>{try{
- let pathname=decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname);
- if(pathname.endsWith('/'))pathname+='index.html';
- const file=resolve(root,'.'+pathname);
+ const requestPath=decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname);
+ if(!requestPath.startsWith(projectPath)){res.writeHead(404).end('WRONG_PROJECT_PREFIX');return;}
+ let pathname=requestPath.slice(projectPath.length);
+ if(pathname==='' || pathname.endsWith('/'))pathname+='index.html';
+ const file=resolve(root,pathname);
  if(!file.startsWith(root+sep)){res.writeHead(403).end();return;}
  const data=readFileSync(file);
  res.writeHead(200,{'Content-Type':mime[extname(file)]||'application/octet-stream','Cache-Control':'no-store'}).end(data);
 }catch(e){res.writeHead(404).end('NOT_FOUND')}});
 await new Promise(ok=>server.listen(0,'127.0.0.1',ok));
-const base='http://127.0.0.1:'+server.address().port+'/';
+const base='http://127.0.0.1:'+server.address().port+projectPath;
 let browser;
 try{
  browser=await chromium.launch({headless:true});
@@ -44,7 +47,7 @@ try{
  const page=await ctx.newPage(), errors=[];
  page.on('pageerror',e=>errors.push(e.message));
  await page.route('https://api.github.com/users/MetaStudy999/repos**',r=>r.fulfill({status:200,contentType:'application/json',body:'[]'}));
- check((await page.goto(base,{waitUntil:'load'})).status()===200,'Root HTTP 200');
+ check((await page.goto(base,{waitUntil:'load'})).status()===200,'GitHub Pages project-prefix root HTTP 200');
  check((await page.title()).includes('B1-1'),'Root new B1-1 title');
  check((await page.locator('.typing-target').textContent()).includes('안녕하세요'),'New hero rendered');
  const image=await page.locator('.hero').evaluate(e=>getComputedStyle(e).backgroundImage);
