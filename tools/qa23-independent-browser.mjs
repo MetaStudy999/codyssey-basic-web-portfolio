@@ -144,7 +144,18 @@ await page.locator('.contact-form').evaluate(form=>form.dataset.formspreeEndpoin
 assert(await page.locator('.contact-form').getAttribute('data-formspree-endpoint')==='','form endpoint restored blank');
 const cdp=await ctx.newCDPSession(page),ax=await cdp.send('Accessibility.getFullAXTree');
 assert(ax.nodes.length>40,'Chromium accessibility tree populated');
-writeFileSync(join(output,'ax-tree-summary.json'),JSON.stringify({node_count:ax.nodes.length,digest:hash(Buffer.from(JSON.stringify(ax.nodes)))},null,2));
+// Validate actual Chromium AX semantics, not only the node count or DOM attributes.
+// The report records label/role/ignored status only, never form values or personal input.
+const axFields=[];
+for(const label of ['이름','이메일','메시지']){
+  const hits=ax.nodes.filter(node=>node.role?.value==='textbox' && node.name?.value===label && !node.ignored);
+  assert(hits.length===1,'Chromium AX named interactive textbox '+label);
+  axFields.push({label,role:hits[0].role.value,accessible_name:hits[0].name.value,ignored:hits[0].ignored});
+}
+writeFileSync(join(output,'ax-tree-summary.json'),JSON.stringify({
+  node_count:ax.nodes.length,fields:axFields,
+  digest:hash(Buffer.from(JSON.stringify(ax.nodes)))
+},null,2));
 api=403;await page.reload({waitUntil:'networkidle'});assert(await page.locator('.retry-button').isVisible(),'API 403 retry enabled');
 assert(expectedApi403Console===1,'exactly one expected mock API 403 console response');
 api=200;await page.locator('.retry-button').click();await page.locator('.project-card').first().waitFor();
