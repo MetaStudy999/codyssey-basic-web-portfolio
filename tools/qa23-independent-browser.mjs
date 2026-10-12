@@ -51,10 +51,11 @@ const port=server.address().port;
 browser=await chromium.launch({headless:true});
 for(const width of widths){
 const ctx=await browser.newContext({viewport:{width,height:900},colorScheme:'light',reducedMotion:'reduce'});
-const page=await ctx.newPage();let api=200;let mockRepos=repos;let expectedApi403Console=0;
+const page=await ctx.newPage();let api=200;let mockRepos=repos;let expectedApi403Console=0;let expectedMock500=false;let mocked500Console=0;
 page.on('pageerror',e=>errors.push({width,pageerror:e.message}));
 page.on('console',m=>{if(m.type()!=='error')return;const message=m.text();
 if(api===403 && message.includes('403 (Forbidden)')){expectedApi403Console++;return;}
+if(expectedMock500 && message.includes('500 (Internal Server Error)')){mocked500Console++;return;}
 errors.push({width,console:message});});
 page.on('response',r=>{if(r.url().startsWith('http://127.0.0.1:')&&r.status()>=400)errors.push({width,response:r.url(),status:r.status()});});
 await page.route('**/*',route=>{const u=route.request().url();
@@ -129,9 +130,13 @@ assert(await page.locator('#'+field).getAttribute('aria-invalid')==='false','ari
 await page.unroute(mockEndpoint);
 await page.route(mockEndpoint,route=>{formMocks++;return route.fulfill({status:500,contentType:'application/json',body:'{"error":"mock"}'});});
 await page.locator('#name').fill('QA Name');await page.locator('#email').fill('qa@example.com');await page.locator('#message').fill('QA mock failure');
+expectedMock500=true;
 await page.locator('.contact-form button[type=submit]').click();
 await page.getByText('전송 실패. 네트워크와 설정을 확인하고 다시 시도해 주세요.').waitFor();
 assert(formMocks===2,'mock failure intercepted exactly once');
+await page.waitForTimeout(75);
+assert(mocked500Console===1,'exactly one expected simulated 500 console error');
+expectedMock500=false;
 assert(await page.locator('#message').inputValue()==='QA mock failure','failure preserves user entry');
 for(const field of ['name','email','message'])assert(await page.locator('#'+field).getAttribute('aria-invalid')==='false','aria valid after mock failure '+field);
 await page.unroute(mockEndpoint);
