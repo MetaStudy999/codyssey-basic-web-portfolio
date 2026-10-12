@@ -86,20 +86,20 @@
         <form class="contact-form" data-formspree-endpoint="" novalidate>
           <div class="form-field">
             <label for="name">이름</label>
-            <input id="name" name="name" type="text" autocomplete="name" required>
-            <p class="field-error" data-error-for="name"></p>
+            <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-error" aria-invalid="false">
+            <p class="field-error" id="name-error" data-error-for="name"></p>
           </div>
 
           <div class="form-field">
             <label for="email">이메일</label>
-            <input id="email" name="email" type="email" autocomplete="email" required>
-            <p class="field-error" data-error-for="email"></p>
+            <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error" aria-invalid="false">
+            <p class="field-error" id="email-error" data-error-for="email"></p>
           </div>
 
           <div class="form-field">
             <label for="message">메시지</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
-            <p class="field-error" data-error-for="message"></p>
+            <textarea id="message" name="message" rows="6" required aria-describedby="message-error" aria-invalid="false"></textarea>
+            <p class="field-error" id="message-error" data-error-for="message"></p>
           </div>
 
           <button class="button" type="submit">보내기</button>
