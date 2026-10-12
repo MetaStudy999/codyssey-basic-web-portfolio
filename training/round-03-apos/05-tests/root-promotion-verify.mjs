@@ -15,9 +15,9 @@ const expected={
  [legacy+'css/style.css']:'63a67f2adca9815a31fc7aab439a1989a4d4887c',
  [legacy+'js/script.js']:'e0b8c011fbae55c1a8913b3db0ceb7fe71cf2367',
  [legacy+'images/profile-placeholder.svg']:'8cf400174e07418a22a401e756230ec6d3feec0a',
- [prefix+'index.html']:'a11b9daff7d734c09a5db581ca2ae0262ddf9d25',
+ [prefix+'index.html']:'2a751ab1e5dcf89eb90758fa209d6f3c6bc7292c',
  [prefix+'css/style.css']:'d1fae4a091440ae121a2ca98d55bbc5a61934a3b',
- [prefix+'js/main.js']:'a9437ac48a63869105747ae4baf5a084a5742ff7',
+ [prefix+'js/main.js']:'adc9c757196847f4755ad1ecccaf8c0adfb6bea6',
  [prefix+'images/hero-mountain-sl02.jpg']:'f7bf0495af97d6bb99ac1c4ba866361f245be2a1',
  [prefix+'images/about-journey-sl02.jpg']:'7631db9c7a0fe23da44531e4a1e757b24b12f3b5'
 };
@@ -57,16 +57,59 @@ try{
   check(resp.status===200&&(await resp.arrayBuffer()).byteLength>256,'Root asset HTTP 200 '+a);
  }
  check(await page.locator('.about-visual img').evaluate(e=>e.complete&&e.naturalWidth>0),'About image decoded');
+ const screenshots=[];
  for(const width of [320,375,768,1024,1440]){
   await page.setViewportSize({width,height:900});
   check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'No horizontal overflow at '+width);
-  if(width===375||width===1440){
-   await page.locator('#hero').scrollIntoViewIfNeeded();
-   await page.screenshot({path:join(out,'root-'+width+'.png'),animations:'disabled'});
-  }
+  await page.locator('#hero').scrollIntoViewIfNeeded();
+  const shot='root-'+width+'.png';
+  await page.screenshot({path:join(out,shot),animations:'disabled'});
+  screenshots.push(shot);
  }
+
+ // P2-02: root page is independent from Round-03 source HTML.
+ for(const field of ['name','email','message']){
+  check(await page.locator('#'+field).getAttribute('aria-describedby')===field+'-error',
+    'Root ARIA describedby '+field);
+  check(await page.locator('#'+field+'-error').count()===1,'Root unique error '+field);
+  check(await page.locator('#'+field).getAttribute('aria-invalid')==='false','Root initial valid '+field);
+ }
+ check(await page.locator('.form-status').getAttribute('aria-live')==='polite','Root aria-live preserved');
+ await page.locator('#name').focus();
+ await page.keyboard.press('Tab');
+ check(await page.evaluate(()=>document.activeElement.id)==='email','Root keyboard field order');
+ await page.locator('.contact-form button[type=submit]').click();
+ for(const field of ['name','email','message'])
+  check(await page.locator('#'+field).getAttribute('aria-invalid')==='true','Root invalid '+field);
+ await page.locator('.contact-form').evaluate(e=>e.reset());
+ for(const field of ['name','email','message'])
+  check(await page.locator('#'+field).getAttribute('aria-invalid')==='false','Root reset '+field);
+ await page.locator('#name').fill('QA Test');
+ await page.locator('#email').fill('qa@example.com');
+ await page.locator('#message').fill('Mocked page test only');
+ await page.locator('.contact-form button[type=submit]').click();
+ check((await page.locator('.form-status').innerText()).includes('실제 발송하지 않았습니다'),
+  'Root missing Formspree endpoint blocks live submit');
+
  check(errors.length===0,'No root script errors');
  check((await page.locator('a[href="legacy/round-01-portfolio/"]').count())===1,'Legacy link available');
+
+ // P2-01: root DOM must not turn API-provided executable/foreign URLs into links.
+ const securityPage=await ctx.newPage();
+ const candidates=[
+  {name:'approved',html_url:'https://github.com/MetaStudy999/approved',fork:false,language:'JS'},
+  {name:'bad-scheme',html_url:'javascript:alert(1)',fork:false,language:'JS'},
+  {name:'bad-host',html_url:'https://github.com.evil.example/repo',fork:false,language:'JS'},
+  {name:'bad-user',html_url:'https://who@github.com/repo',fork:false,language:'JS'}
+ ];
+ await securityPage.route('https://api.github.com/users/MetaStudy999/repos**',
+   r=>r.fulfill({status:200,contentType:'application/json',body:JSON.stringify(candidates)}));
+ await securityPage.goto(base);await securityPage.locator('.project-card').first().waitFor();
+ check(await securityPage.locator('.project-card').count()===candidates.length,'Root bad-link card count retained');
+ check(await securityPage.locator('.project-card a').count()===1,'Root rejects unsafe href anchors');
+ check(await securityPage.locator('.project-card a').first().getAttribute('href')==='https://github.com/MetaStudy999/approved',
+   'Root safe href DOM exactly GitHub HTTPS');
+ await securityPage.close();
  const old=await ctx.newPage();
  check((await old.goto(base+legacy,{waitUntil:'load'})).status()===200,'Legacy HTTP 200');
  check((await old.title()).includes('1기'),'Legacy original title');
@@ -76,5 +119,6 @@ try{
  }
  await old.screenshot({path:join(out,'legacy-first-generation.png'),animations:'disabled'});
  await old.close();await ctx.close();
- console.log(JSON.stringify({status:'PASS',checks,scope:'ISOLATED_PREDEPLOY',live_release:'NOT_EXECUTED'},null,2));
+ const hashes=Object.fromEntries(screenshots.concat('legacy-first-generation.png').map(name=>[name,createHash('sha256').update(readFileSync(join(out,name))).digest('hex')]));
+ console.log(JSON.stringify({status:'PASS',checks,screenshot_sha256:hashes,scope:'ISOLATED_PREDEPLOY',live_release:'NOT_EXECUTED'},null,2));
 }finally{if(browser)await browser.close();await new Promise(ok=>server.close(ok));}
