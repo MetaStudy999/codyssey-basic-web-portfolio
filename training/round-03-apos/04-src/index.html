@@ -27,14 +27,25 @@
   </header>
 
   <main>
-    <section class="hero section" id="hero">
-      <div class="container reveal">
-        <p class="eyebrow">CODYSSEY B1-1 · APOS Round 03</p>
-        <h1 aria-label="안녕하세요. 배우고 만들며 성장하는 개발자입니다."><span class="typing-target" aria-hidden="true">안녕하세요. 배우고 만들며 성장하는 개발자입니다.</span></h1>
-        <p class="lead">HTML, CSS, JavaScript의 기본 원리를 직접 구현하며 Event → State → Render 흐름을 학습합니다.</p>
-        <div class="hero-actions">
-          <a class="button" href="#projects">프로젝트 보기</a>
-          <a class="button button-secondary" href="#contact">연락하기</a>
+    <!-- SL02-DESIGN-PREVIEW-V1: illustration only; functional JS untouched -->
+    <section class="hero section" id="hero" aria-label="웹 포트폴리오 소개">
+      <div class="container hero-stage reveal">
+        <div class="hero-panel">
+          <p class="eyebrow hero-eyebrow">CODYSSEY · B1-1 WEB PORTFOLIO</p>
+          <p class="hero-overline">LEARN TODAY <span aria-hidden="true">→</span> BUILD TOMORROW</p>
+          <h1 aria-label="안녕하세요. 배우고 만들며 성장하는 개발자입니다."><span class="typing-target" aria-hidden="true">안녕하세요. 배우고 만들며 성장하는 개발자입니다.</span></h1>
+          <p class="lead">HTML · CSS · JavaScript로 구현한 개인 포트폴리오입니다. 배우고, 만들고, 브라우저에서 직접 확인합니다.</p>
+          <div class="hero-actions">
+            <a class="button" href="#projects">실제 프로젝트 보기 <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="#about">포트폴리오 소개</a>
+          </div>
+          <div class="journey-steps" role="list" aria-label="프로젝트의 성장 과정">
+            <span role="listitem"><strong>01</strong> 배우기</span>
+            <span role="listitem"><strong>02</strong> 구현하기</span>
+            <span role="listitem"><strong>03</strong> 테스트</span>
+            <span role="listitem"><strong>04</strong> 공유하기</span>
+          </div>
+          <p class="visual-disclaimer">* 산악 이미지는 SL02와 연결한 AI 연출 이미지이며 실제 개발 화면이나 성과 증빙이 아닙니다.</p>
         </div>
       </div>
     </section>
@@ -43,7 +54,7 @@
       <div class="container reveal">
         <h2>About</h2>
         <div class="about-grid">
-          <img class="profile-image" src="images/profile-placeholder.svg" alt="프로필 사진을 위한 기본 이미지">
+          <figure class="about-visual"><img class="profile-image" src="images/about-journey-sl02.jpg" alt="산맥을 향하는 여행자의 AI 생성 이미지, 성장 과정을 상징하는 연출"><figcaption>Learn · Practice · Build · Improve — AI 연출 이미지</figcaption></figure>
           <div>
             <p>웹의 구조, 표현, 동작을 각각 분리해 이해하고 실제 코드로 검증하는 학습 포트폴리오입니다.</p>
             <p>이번 Round 03에서는 이전 결과물을 복사해 통과시키는 대신 공식 요구사항을 기준으로 다시 구현하고 설명 가능한 상태를 목표로 합니다.</p>
