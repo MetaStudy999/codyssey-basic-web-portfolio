@@ -160,8 +160,10 @@ assert(await page.evaluate(()=>localStorage.getItem('b1-1-theme'))==='light','ex
 await page.locator('.theme-toggle').click();await page.locator('.theme-toggle').click();
 assert(await page.evaluate(()=>localStorage.getItem('b1-1-theme'))==='system','system preference selected');
 await page.emulateMedia({colorScheme:'dark'});
+await page.waitForFunction(()=>document.documentElement.dataset.theme==='dark',{timeout:8000});
 assert(await page.locator('html').getAttribute('data-theme')==='dark','system dark preference tracks OS');
 await page.emulateMedia({colorScheme:'light'});
+await page.waitForFunction(()=>document.documentElement.dataset.theme==='light',{timeout:8000});
 assert(await page.locator('html').getAttribute('data-theme')==='light','system light preference tracks OS');
 await page.locator('.theme-toggle').click();
 assert(await page.evaluate(()=>localStorage.getItem('b1-1-theme'))==='light','explicit light restored for screenshot');}
