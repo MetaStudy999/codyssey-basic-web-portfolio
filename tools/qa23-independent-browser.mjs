@@ -84,6 +84,11 @@ await page.locator('.contact-form button[type=submit]').click();
 assert((await page.locator('.form-status').innerText()).includes('실제 발송하지 않았습니다'),'no real Formspree submission');
 await page.locator('.contact-form').evaluate(form=>form.reset());
 for(const field of ['name','email','message'])assert(await page.locator('#'+field).getAttribute('aria-invalid')==='false','reset valid '+field);
+await page.locator('#name').focus();await page.keyboard.press('Tab');
+assert(await page.evaluate(()=>document.activeElement.id)==='email','keyboard Tab name to email');
+await page.keyboard.press('Tab');
+assert(await page.evaluate(()=>document.activeElement.id)==='message','keyboard Tab email to message');
+for(const field of ['name','email','message'])assert(await page.getByRole('textbox',{name:field==='name'?'이름':field==='email'?'이메일':'메시지'}).count()===1,'accessible textbox name '+field);
 const cdp=await ctx.newCDPSession(page),ax=await cdp.send('Accessibility.getFullAXTree');
 assert(ax.nodes.length>40,'Chromium accessibility tree populated');
 writeFileSync(join(output,'ax-tree-summary.json'),JSON.stringify({node_count:ax.nodes.length,digest:hash(Buffer.from(JSON.stringify(ax.nodes)))},null,2));
@@ -100,7 +105,10 @@ await page.locator('.theme-toggle').click();await page.locator('.theme-toggle').
 assert(await page.evaluate(()=>localStorage.getItem('b1-1-theme'))==='dark','dark preference saved');
 await page.reload({waitUntil:'networkidle'});
 assert(await page.locator('html').getAttribute('data-theme')==='dark','dark theme survives reload');
-await image(page,width,'dark');}
+await image(page,width,'dark');
+await page.locator('.theme-toggle').click();await page.locator('.theme-toggle').click();
+assert(await page.locator('html').getAttribute('data-theme')==='light','explicit light theme applied');
+assert(await page.evaluate(()=>localStorage.getItem('b1-1-theme'))==='light','explicit light preference saved');}
 await image(page,width,'full');
 await ctx.close();
 }
