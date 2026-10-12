@@ -51,14 +51,14 @@ const port=server.address().port;
 browser=await chromium.launch({headless:true});
 for(const width of widths){
 const ctx=await browser.newContext({viewport:{width,height:900},colorScheme:'light',reducedMotion:'reduce'});
-const page=await ctx.newPage();let api=200;let expectedApi403Console=0;
+const page=await ctx.newPage();let api=200;let mockRepos=repos;let expectedApi403Console=0;
 page.on('pageerror',e=>errors.push({width,pageerror:e.message}));
 page.on('console',m=>{if(m.type()!=='error')return;const message=m.text();
 if(api===403 && message.includes('403 (Forbidden)')){expectedApi403Console++;return;}
 errors.push({width,console:message});});
 page.on('response',r=>{if(r.url().startsWith('http://127.0.0.1:')&&r.status()>=400)errors.push({width,response:r.url(),status:r.status()});});
 await page.route('**/*',route=>{const u=route.request().url();
-if(u.startsWith('https://api.github.com/users/MetaStudy999/repos'))return route.fulfill({status:api,contentType:'application/json',body:api===200?JSON.stringify(repos):'{"message":"rate limit"}'});
+if(u.startsWith('https://api.github.com/users/MetaStudy999/repos'))return route.fulfill({status:api,contentType:'application/json',body:api===200?JSON.stringify(mockRepos):'{"message":"rate limit"}'});
 if(u.startsWith('https://formspree.io/')){formPosts++;return route.abort('blockedbyclient');}
 if(u.startsWith('http://127.0.0.1:'+port+'/'))return route.continue();
 return route.abort('blockedbyclient');});
@@ -66,6 +66,7 @@ const response=await page.goto('http://127.0.0.1:'+port+prefix,{waitUntil:'netwo
 assert(response?.status()===200,'page 200 '+width);
 await page.locator('.project-card').first().waitFor({timeout:12000});
 assert(await page.locator('.project-card').count()===5,'fork exclusion '+width);
+assert((await page.locator('.typing-target').textContent()).trim()===(await page.locator('h1').getAttribute('aria-label')),'reduced motion presents complete headline '+width);
 const links=await page.locator('.project-grid .project-card a[href]').evaluateAll(ns=>ns.map(n=>n.href));
 assert(links.length===2&&links.every(u=>u.startsWith('https://github.com/MetaStudy999/safe-')),'malicious links text only '+width);
 assert(!(await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth+1)),'horizontal overflow '+width);
@@ -76,6 +77,29 @@ for(const field of ['name','email','message']){
 assert(await page.locator('#'+field).getAttribute('aria-describedby')===field+'-error','describedby '+field+' '+width);
 assert(await page.locator('#'+field).getAttribute('aria-invalid')==='false','initial valid '+field+' '+width);}
 if(width===375){
+await page.getByRole('button',{name:'Python',exact:true}).click();
+assert(await page.locator('.project-card').count()===3,'Python language filter count');
+assert(await page.getByRole('button',{name:'Python',exact:true}).getAttribute('aria-pressed')==='true','Python selected ARIA');
+await page.getByRole('button',{name:'JavaScript',exact:true}).click();
+assert(await page.locator('.project-card').count()===2,'JavaScript language filter count');
+await page.getByRole('button',{name:'전체',exact:true}).click();
+assert(await page.locator('.project-card').count()===5,'language filter resets to all');
+mockRepos=[...repos,
+{name:'bad-data',html_url:'data:text/html,alert(1)',language:'JavaScript',fork:false},
+{name:'bad-http',html_url:'http://github.com/MetaStudy999/bad',language:'JavaScript',fork:false},
+{name:'bad-spoof',html_url:'https://github.com@evil.example/bad',language:'JavaScript',fork:false},
+{name:'bad-quote',html_url:'https://github.com/MetaStudy999/bad" onclick="alert(1)',language:'JavaScript',fork:false},
+{name:'bad-port',html_url:'https://github.com:444/MetaStudy999/bad',language:'JavaScript',fork:false},
+{name:'bad-backslash',html_url:'https:\\\\github.com/MetaStudy999/bad',language:'JavaScript',fork:false}];
+await page.reload({waitUntil:'networkidle'});
+assert(await page.locator('.project-card').count()===11,'additional hostile URL fixtures loaded');
+assert(await page.locator('.project-card a[href]').count()===2,'all bad protocols and spoofed URLs remain plain text');
+for(const name of ['bad-data','bad-http','bad-spoof','bad-quote','bad-port','bad-backslash']){
+const card=page.locator('.project-card').filter({has:page.getByRole('heading',{name,exact:true})});
+assert(await card.count()===1 && await card.locator('a').count()===0,'nonclickable hostile card '+name);
+}
+mockRepos=repos;await page.reload({waitUntil:'networkidle'});
+assert(await page.locator('.project-card').count()===5,'restore non-hostile mock data');
 await page.locator('.contact-form button[type=submit]').click();
 for(const field of ['name','email','message'])assert(await page.locator('#'+field).getAttribute('aria-invalid')==='true','required validation '+field);
 await page.locator('#name').fill('QA Name');await page.locator('#email').fill('qa@example.com');await page.locator('#message').fill('QA isolated message');
@@ -89,6 +113,30 @@ assert(await page.evaluate(()=>document.activeElement.id)==='email','keyboard Ta
 await page.keyboard.press('Tab');
 assert(await page.evaluate(()=>document.activeElement.id)==='message','keyboard Tab email to message');
 for(const field of ['name','email','message'])assert(await page.getByRole('textbox',{name:field==='name'?'이름':field==='email'?'이메일':'메시지'}).count()===1,'accessible textbox name '+field);
+// All Formspree requests are blocked by the catch-all route unless explicitly fulfilled by this local-only mock.
+const mockEndpoint='https://formspree.io/f/QA123';
+let formMocks=0;
+await page.route(mockEndpoint,route=>{formMocks++;return route.fulfill({status:200,contentType:'application/json',body:'{"ok":true}'});});
+await page.locator('.contact-form').evaluate((form,url)=>{form.dataset.formspreeEndpoint=url;},mockEndpoint);
+await page.locator('#name').fill('QA Name');await page.locator('#email').fill('qa@example.com');await page.locator('#message').fill('QA mock success');
+await page.locator('.contact-form button[type=submit]').click();
+await page.getByText('전송 요청 성공. 실제 메일 수신은 별도 확인이 필요합니다.').waitFor();
+assert(formMocks===1,'mock success intercepted exactly once');
+for(const field of ['name','email','message']){
+assert(await page.locator('#'+field).inputValue()==='','form reset after mocked success '+field);
+assert(await page.locator('#'+field).getAttribute('aria-invalid')==='false','aria normalized after mocked success '+field);
+}
+await page.unroute(mockEndpoint);
+await page.route(mockEndpoint,route=>{formMocks++;return route.fulfill({status:500,contentType:'application/json',body:'{"error":"mock"}'});});
+await page.locator('#name').fill('QA Name');await page.locator('#email').fill('qa@example.com');await page.locator('#message').fill('QA mock failure');
+await page.locator('.contact-form button[type=submit]').click();
+await page.getByText('전송 실패. 네트워크와 설정을 확인하고 다시 시도해 주세요.').waitFor();
+assert(formMocks===2,'mock failure intercepted exactly once');
+assert(await page.locator('#message').inputValue()==='QA mock failure','failure preserves user entry');
+for(const field of ['name','email','message'])assert(await page.locator('#'+field).getAttribute('aria-invalid')==='false','aria valid after mock failure '+field);
+await page.unroute(mockEndpoint);
+await page.locator('.contact-form').evaluate(form=>form.dataset.formspreeEndpoint='');
+assert(await page.locator('.contact-form').getAttribute('data-formspree-endpoint')==='','form endpoint restored blank');
 const cdp=await ctx.newCDPSession(page),ax=await cdp.send('Accessibility.getFullAXTree');
 assert(ax.nodes.length>40,'Chromium accessibility tree populated');
 writeFileSync(join(output,'ax-tree-summary.json'),JSON.stringify({node_count:ax.nodes.length,digest:hash(Buffer.from(JSON.stringify(ax.nodes)))},null,2));
@@ -108,7 +156,15 @@ assert(await page.locator('html').getAttribute('data-theme')==='dark','dark them
 await image(page,width,'dark');
 await page.locator('.theme-toggle').click();await page.locator('.theme-toggle').click();
 assert(await page.locator('html').getAttribute('data-theme')==='light','explicit light theme applied');
-assert(await page.evaluate(()=>localStorage.getItem('b1-1-theme'))==='light','explicit light preference saved');}
+assert(await page.evaluate(()=>localStorage.getItem('b1-1-theme'))==='light','explicit light preference saved');
+await page.locator('.theme-toggle').click();await page.locator('.theme-toggle').click();
+assert(await page.evaluate(()=>localStorage.getItem('b1-1-theme'))==='system','system preference selected');
+await page.emulateMedia({colorScheme:'dark'});
+assert(await page.locator('html').getAttribute('data-theme')==='dark','system dark preference tracks OS');
+await page.emulateMedia({colorScheme:'light'});
+assert(await page.locator('html').getAttribute('data-theme')==='light','system light preference tracks OS');
+await page.locator('.theme-toggle').click();
+assert(await page.evaluate(()=>localStorage.getItem('b1-1-theme'))==='light','explicit light restored for screenshot');}
 await image(page,width,'full');
 await ctx.close();
 }
