@@ -44,16 +44,18 @@ if(pr>=21)for(const [name,expected] of [
 assert(hash(readFileSync(join(root,'training/round-03-apos/04-src/images',name)))===expected,'unaltered image '+name);
 if(pr===22)for(const [name,expected] of [
 ['index.html','301ba10743cb80595eb20e243e7b1de4757e4dfa'],['css/style.css','63a67f2adca9815a31fc7aab439a1989a4d4887c'],
-['js/script.js','e0b8c011fbae55c1a8913bdb0ceb7fe71cf2367'],['images/profile-placeholder.svg','8cf400174e07418a22a401e756230ec6d3feec0a']])
+['js/script.js','e0b8c011fbae55c1a8913b3db0ceb7fe71cf2367'],['images/profile-placeholder.svg','8cf400174e07418a22a401e756230ec6d3feec0a']])
 assert(execFileSync('git',['hash-object','legacy/round-01-portfolio/'+name],{cwd:root,encoding:'utf8'}).trim()===expected,'legacy source blob '+name);
 await new Promise(done=>server.listen(0,'127.0.0.1',done));
 const port=server.address().port;
 browser=await chromium.launch({headless:true});
 for(const width of widths){
 const ctx=await browser.newContext({viewport:{width,height:900},colorScheme:'light',reducedMotion:'reduce'});
-const page=await ctx.newPage();let api=200;
+const page=await ctx.newPage();let api=200;let expectedApi403Console=0;
 page.on('pageerror',e=>errors.push({width,pageerror:e.message}));
-page.on('console',m=>{if(m.type()==='error')errors.push({width,console:m.text()});});
+page.on('console',m=>{if(m.type()!=='error')return;const message=m.text();
+if(api===403 && message.includes('403 (Forbidden)')){expectedApi403Console++;return;}
+errors.push({width,console:message});});
 page.on('response',r=>{if(r.url().startsWith('http://127.0.0.1:')&&r.status()>=400)errors.push({width,response:r.url(),status:r.status()});});
 await page.route('**/*',route=>{const u=route.request().url();
 if(u.startsWith('https://api.github.com/users/MetaStudy999/repos'))return route.fulfill({status:api,contentType:'application/json',body:api===200?JSON.stringify(repos):'{"message":"rate limit"}'});
@@ -86,6 +88,7 @@ const cdp=await ctx.newCDPSession(page),ax=await cdp.send('Accessibility.getFull
 assert(ax.nodes.length>40,'Chromium accessibility tree populated');
 writeFileSync(join(output,'ax-tree-summary.json'),JSON.stringify({node_count:ax.nodes.length,digest:hash(Buffer.from(JSON.stringify(ax.nodes)))},null,2));
 api=403;await page.reload({waitUntil:'networkidle'});assert(await page.locator('.retry-button').isVisible(),'API 403 retry enabled');
+assert(expectedApi403Console===1,'exactly one expected mock API 403 console response');
 api=200;await page.locator('.retry-button').click();await page.locator('.project-card').first().waitFor();
 assert(await page.locator('.project-card').count()===5,'retry recovers API');
 }
