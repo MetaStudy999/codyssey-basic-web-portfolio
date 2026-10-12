@@ -1,0 +1,71 @@
+name: B1-1 QA23 Fixed Browser Candidate
+on:
+  push:
+    branches: [qa/b1-1-qa23-fixed-replay-20261013]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fixed-browser-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {pr: 19, sha: "1206b9f92006e7111ce9e79fe5053d887e1469b7", branch: "feat/b1-1-round03-bonus-repair-20261009"}
+          - {pr: 21, sha: "eb5748d197c4e109e1e62073ae6dcc7805309295", branch: "feat/b1-1-sl02-local-visual-20261013"}
+          - {pr: 22, sha: "1f53571c6e16774d53112d9b4b82933d65935838", branch: "feat/b1-1-root-promotion-preserve-legacy-20261013"}
+    steps:
+      - name: Checkout isolated QA harness
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Verify pinned PR HEAD remains current
+        env:
+          EXPECTED_SHA: ${{ matrix.sha }}
+          TARGET_REF: ${{ matrix.branch }}
+        run: |
+          set -euo pipefail
+          actual="$(git ls-remote https://github.com/MetaStudy999/codyssey-basic-web-portfolio.git "refs/heads/$TARGET_REF" | cut -f1)"
+          test "$actual" = "$EXPECTED_SHA"
+          echo "target_exact_head=PASS"
+      - name: Checkout target exact SHA
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          path: mission
+          ref: ${{ matrix.sha }}
+          persist-credentials: false
+      - name: Verify exact checkout
+        env:
+          EXPECTED_SHA: ${{ matrix.sha }}
+        run: |
+          test "$(git -C mission rev-parse HEAD)" = "$EXPECTED_SHA"
+          test -z "$(git -C mission status --porcelain --untracked-files=no)"
+      - name: Setup Node 20
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '20'
+      - name: Install pinned Playwright/Chromium
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Run QA23 fixed checks and full-page screenshots
+        env:
+          QA_PR: ${{ matrix.pr }}
+          QA_SHA: ${{ matrix.sha }}
+          QA_OUTPUT: qa-evidence/pr-${{ matrix.pr }}
+        run: node tools/qa23-independent-browser.mjs
+      - name: Confirm target source unchanged
+        if: always()
+        run: test -z "$(git -C mission status --porcelain --untracked-files=no)"
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qa23-candidate-pr-${{ matrix.pr }}-${{ github.run_id }}
+          path: qa-evidence/pr-${{ matrix.pr }}/
+          if-no-files-found: warn
+          retention-days: 14
