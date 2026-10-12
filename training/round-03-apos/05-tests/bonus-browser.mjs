@@ -51,6 +51,35 @@ try {
  page.on('pageerror',e=>{console.error('PAGE ERROR',e.message);});
  await page.route('https://api.github.com/users/MetaStudy999/repos**',r=>r.fulfill({status:200,contentType:'application/json',body:JSON.stringify(repos)}));
  await page.goto(base);await page.locator('.project-card').first().waitFor();
+
+ // P2-01: validate the rendered DOM (not just the source string).
+ const hostileUrls=[
+  ['javascript','javascript:alert(1)'],
+  ['data','data:text/html,unsafe'],
+  ['http','http://github.com/MetaStudy999/repo'],
+  ['external','https://gitlab.com/MetaStudy999/repo'],
+  ['lookalike','https://github.com.evil.example/repo'],
+  ['host-spoof','https://github.com@evil.example/repo'],
+  ['credentials','https://user:pw@github.com/MetaStudy999/repo'],
+  ['quote','https://github.com/repo" onclick="evil()']
+ ];
+ const hostilePage=await context.newPage();
+ const fixture=[{name:'safe',html_url:'https://github.com/MetaStudy999/safe',language:'JavaScript',fork:false}]
+  .concat(hostileUrls.map(([name,html_url])=>({name,html_url,language:'JavaScript',fork:false})));
+ await hostilePage.route('https://api.github.com/users/MetaStudy999/repos**',
+  route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(fixture)}));
+ await hostilePage.goto(base);await hostilePage.locator('.project-card').first().waitFor();
+ check(await hostilePage.locator('.project-card').count()===fixture.length,'P2-01: unsafe card titles still render');
+ const safeLink=hostilePage.locator('.project-card').first().locator('a');
+ check(await safeLink.getAttribute('href')==='https://github.com/MetaStudy999/safe','P2-01: safe DOM href');
+ check(await safeLink.evaluate(a=>a.href)==='https://github.com/MetaStudy999/safe','P2-01: browser href property');
+ for(let i=0;i<hostileUrls.length;i++){
+  const card=hostilePage.locator('.project-card').nth(i+1);
+  check(await card.locator('a').count()===0,'P2-01: rejected clickable '+hostileUrls[i][0]);
+  check(await card.locator('h3').innerText()===hostileUrls[i][0],'P2-01: plain text '+hostileUrls[i][0]);
+ }
+ check(await hostilePage.locator('[onclick]').count()===0,'P2-01: no injected HTML attribute');
+ await hostilePage.close();
  check(await page.locator('.project-card').count()===3,'BONUS01: excludes fork and shows 3 cards');
  check((await page.locator('.project-status').innerText()).includes('3개 표시'),'displayed item count is accurate');
  check(await page.locator('.retry-button').isVisible()===false,'CORE: retry button hidden on success');
