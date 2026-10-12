@@ -52,6 +52,16 @@ const escapeHtml = (value = '') =>
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#039;');
 
+const getTrustedGitHubUrl = (value) => {
+  if (typeof value !== 'string' || !value || /[\s<>"'`\\]/.test(value)) return null;
+  try {
+    const url = new URL(value);
+    if (url.protocol !== 'https:' || url.origin !== 'https://github.com' ||
+        url.username || url.password) return null;
+    return url.href;
+  } catch { return null; }
+};
+
 // BONUS-04: user preference overrides the operating-system choice.
 const setTheme = (preference) => {
   STATE.themePreference = preference;
@@ -134,12 +144,15 @@ const renderProjects = () => {
   elements.projectStatus.textContent=shown.length
     ? `${shown.length}개 표시 (선택 ${matching.length}개, 전체 ${repositories.length}개)`
     : '선택한 언어에 해당하는 프로젝트가 없습니다.';
-  elements.projectGrid.innerHTML=shown.map(({name,description,html_url:url,stargazers_count:stars,language})=>`
+  elements.projectGrid.innerHTML=shown.map(({name,description,html_url:url,stargazers_count:stars,language})=>{
+    const trustedUrl = getTrustedGitHubUrl(url);
+    return `
     <article class="project-card">
-      <h3><a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">${escapeHtml(name)}</a></h3>
+      <h3>${trustedUrl ? `<a href="${escapeHtml(trustedUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(name)}</a>` : escapeHtml(name)}</h3>
       <p>${escapeHtml(description||'설명이 등록되지 않은 저장소입니다.')}</p>
       <div class="project-meta"><span>${escapeHtml(language||'Language N/A')}</span><span>★ ${Number(stars)||0}</span></div>
-    </article>`).join('');
+    </article>`;
+  }).join('');
 };
 const loadProjects = async () => {
   STATE.projects = { status: 'loading', data: [], error: '', selectedLanguage: 'all' };
@@ -211,7 +224,11 @@ const validateForm = ({ name, email, message }) => {
 
 const renderFormFeedback = () => {
   document.querySelectorAll('[data-error-for]').forEach(element=>{
-    element.textContent=STATE.form.errors[element.dataset.errorFor]||'';
+    const field = element.dataset.errorFor;
+    const error = STATE.form.errors[field] || '';
+    element.textContent = error;
+    const input = elements.contactForm.elements.namedItem(field);
+    if (input) input.setAttribute('aria-invalid', String(Boolean(error)));
   });
   elements.formSubmit.disabled=STATE.form.submitting;
   elements.formSubmit.textContent=STATE.form.submitting?'전송 중...':'보내기';
@@ -273,6 +290,12 @@ elements.scrollTop.addEventListener('click', () => {
 elements.retryButton.addEventListener('click', loadProjects);
 
 elements.contactForm.addEventListener('input', updateFormState);
+elements.contactForm.addEventListener('reset', () => {
+  STATE.form.errors = {};
+  STATE.form.submitted = false;
+  STATE.form.message = '';
+  renderFormFeedback();
+});
 
 elements.contactForm.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -297,9 +320,9 @@ elements.contactForm.addEventListener('submit', async (event) => {
       body:new FormData(elements.contactForm)
     });
     if(!response.ok)throw new Error('SEND_FAILED');
+    elements.contactForm.reset();
     STATE.form.submitted=true;
     STATE.form.message='전송 요청 성공. 실제 메일 수신은 별도 확인이 필요합니다.';
-    elements.contactForm.reset();
   }catch(error){
     STATE.form.message='전송 실패. 네트워크와 설정을 확인하고 다시 시도해 주세요.';
   }finally{
