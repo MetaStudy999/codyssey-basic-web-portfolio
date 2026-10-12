@@ -1,0 +1,42 @@
+name: B1-1 Round 03 Bonus Browser Verification
+on:
+  pull_request:
+    paths:
+      - 'training/round-03-apos/04-src/**'
+      - 'training/round-03-apos/05-tests/bonus-browser.mjs'
+      - '.github/workflows/b1-1-round03-bonus.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - name: Exact candidate checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Verify checkout SHA
+        env:
+          EXPECTED_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+      - name: Syntax verification
+        run: |
+          node --check training/round-03-apos/04-src/js/main.js
+          node --check training/round-03-apos/05-tests/bonus-browser.mjs
+      - name: Install isolated browser test dependency
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Run Chromium functional and regression checks
+        run: node training/round-03-apos/05-tests/bonus-browser.mjs
+      - name: Preserve actual screenshots
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: b1-1-bonus-evidence-${{ github.run_id }}
+          path: bonus-browser-evidence/
+          if-no-files-found: warn
+          retention-days: 25

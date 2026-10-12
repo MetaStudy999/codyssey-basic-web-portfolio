@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="코디세이 AI 올인원 1기에서 웹, Python, Git, Cloud, Linux, Database, AI를 직접 구현하고 검증하며 학습한 과정을 기록한 포트폴리오입니다."
+  >
+  <meta name="theme-color" content="#2563eb">
+  <link
+    rel="canonical"
+    href="https://metastudy999.github.io/codyssey-basic-web-portfolio/"
+  >
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CODYSSEY AI ALL-IN-ONE 1기 | AI·SW Learning Portfolio">
+  <meta
+    property="og:description"
+    content="직접 만들고, 실행하고, 검증하며 축적한 AI·SW 학습 포트폴리오입니다."
+  >
+  <meta
+    property="og:url"
+    content="https://metastudy999.github.io/codyssey-basic-web-portfolio/"
+  >
+  <link rel="icon" href="images/profile-placeholder.svg" type="image/svg+xml">
+
+  <title>CODYSSEY AI ALL-IN-ONE 1기 | AI·SW Learning Portfolio</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <!--
+    defer: HTML 문서를 먼저 해석한 뒤 JavaScript를 실행합니다.
+    그래서 script.js가 DOM 요소를 찾을 때 아직 만들어지지 않은 요소를 참조하는 문제를 줄입니다.
+  -->
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <!--
+    접근성(Accessibility, A11y): 키보드 사용자가 반복되는 메뉴를 건너뛰고
+    바로 본문(main)으로 이동할 수 있도록 Skip Link를 제공합니다.
+  -->
+  <a class="skip-link" href="#main-content">본문 바로가기</a>
+
+  <!--
+    Semantic HTML: header와 nav를 사용해 "페이지 머리말"과 "주요 탐색 영역"의
+    의미를 브라우저와 보조기술에 명확하게 전달합니다.
+  -->
+  <header class="site-header" id="top">
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a class="logo" href="#home" aria-label="홈으로 이동">
+        My Portfolio
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="메뉴 열기"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+      >
+        ☰
+      </button>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#tech-stack">Tech Stack</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="theme-menu-item">
+          <button
+            type="button"
+            class="theme-cycle"
+            id="theme-cycle"
+            aria-label="현재 테마: System. 눌러 Light로 변경"
+            title="System → Light → Dark 순서로 변경"
+          >
+            System
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!--
+    main은 이 페이지의 핵심 콘텐츠 영역입니다.
+    각 section은 Hero / About / Skills / Projects / Contact처럼 역할별로 나눕니다.
+  -->
+  <main id="main-content">
+    <section class="hero section" id="home">
+      <div class="section-inner">
+        <p class="eyebrow">CODYSSEY AI ALL-IN-ONE · 1기</p>
+
+        <h1>
+          안녕하세요.<br>
+          <span
+            id="hero-typing"
+            class="hero-typing"
+            data-text="코디세이 AI 올인원 1기 교육생입니다."
+          >코디세이 AI 올인원 1기 교육생입니다.</span>
+        </h1>
+
+        <p>
+          웹의 기본부터 백엔드·데이터베이스·클라우드·AI 서비스까지
+          직접 만들고, 실행하고, 검증하며 학습한 과정을 기록합니다.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects">프로젝트 보기</a>
+          <a href="#contact">연락하기</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="section-inner">
+        <h2>About Me</h2>
+
+        <article class="about-card">
+          <img
+            src="images/profile-placeholder.svg"
+            alt="포트폴리오 프로필 이미지 자리 표시"
+          >
+
+          <div>
+            <h3>AI·SW를 직접 구현하며 배우는 1기 교육생</h3>
+
+            <p>
+              <strong>남서울대학교 대학원 AI보안융합학과 석사과정에 재학 중</strong>이며,
+              AI와 정보보호를 함께 이해하고 실제 시스템에 적용하는 역량을 키우고 있습니다.
+            </p>
+
+            <p>
+              대학원에서는 AI 신뢰성·정보보호·클라우드 및 공급망 보안 관점에서
+              기술을 학습하고, 코디세이 AI 올인원 1기에서는 웹 개발을 시작으로
+              Python, Git, Cloud, Linux, Database,
+              응용 프로그램 인터페이스(Application Programming Interface, API),
+              AI 서비스까지 단계적으로 구현하고 있습니다.
+            </p>
+
+            <p>
+              이론 학습과 실습을 분리하지 않고
+              <strong>직접 구현 → 실행 → 검증 → 문제 해결 → 기록</strong>의 과정을 반복하며,
+              실제로 동작하고 다시 재현할 수 있는 결과물로 축적하고 있습니다.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="skills section" id="skills">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">CODYSSEY Skill Roadmap</p>
+          <h2>Skills</h2>
+          <p class="section-description">
+            1기에서 직접 학습한 경험을 중심으로 정리하고, 2기에서 교육생 친화적으로 보완된 공식 체계를 참고해 과정별 핵심 역량을 중복 없이 재구성했습니다.
+          </p>
+        </div>
+
+        <div class="skills-roadmap">
+          <article class="skill-stage-card">
+            <div class="skill-stage-header">
+              <span class="skill-stage-number">1</span>
+              <div>
+                <p class="skill-stage-kicker">입문 기반</p>
+                <h3>입학 연수</h3>
+              </div>
+            </div>
+            <ul class="skill-list">
+              <li>AI 도구 기초 활용과 프롬프트·코드 작성</li>
+              <li>재현 가능한 개발환경 구성과 변경 이력 관리</li>
+              <li>Python 기본 문법·데이터·제어 흐름</li>
+              <li>테스트·동료 코드리뷰·Peer Review</li>
+              <li>자기주도 학습 습관과 개인 학습 로드맵</li>
+              <li>사용자 인터뷰 기반 문제 발굴·정의</li>
+            </ul>
+          </article>
+
+          <article class="skill-stage-card">
+            <div class="skill-stage-header">
+              <span class="skill-stage-number">2</span>
+              <div>
+                <p class="skill-stage-kicker">서비스 구현 기반</p>
+                <h3>AI 도구 학습</h3>
+              </div>
+            </div>
+            <ul class="skill-list">
+              <li>HTML·CSS·JavaScript·React 기반 웹 UI</li>
+              <li>Python 유지보수 코드와 Git 협업·버전 관리</li>
+              <li>Linux·OS·서버 상태 점검과 트러블슈팅</li>
+              <li>자료구조·알고리즘과 Mini Redis·Mini Git</li>
+              <li>SQL 데이터 모델링과 FastAPI CRUD·인증</li>
+              <li>REST API·외부 데이터·AI API 연동</li>
+              <li>Cloud 배포와 운영 가능한 AI 챗봇 서비스</li>
+            </ul>
+          </article>
+
+          <article class="skill-stage-card">
+            <div class="skill-stage-header">
+              <span class="skill-stage-number">3</span>
+              <div>
+                <p class="skill-stage-kicker">모델링·분석 심화</p>
+                <h3>AI 심화 학습</h3>
+              </div>
+            </div>
+            <ul class="skill-list">
+              <li>데이터 분석·전처리와 비즈니스 인사이트 도출</li>
+              <li>행렬·경사하강법 등 AI 수학 핵심 원리</li>
+              <li>컴퓨터 비전 탐지·추적·문서 영상 처리</li>
+              <li>자연어 처리·검색·정보추출·감성분석</li>
+              <li>머신러닝 예측·리스크 모델과 설명가능 AI</li>
+              <li>딥러닝 모델 구현·튜닝·성능 진단</li>
+              <li>멀티모달 결합 검색과 실험 재현·평가</li>
+            </ul>
+          </article>
+
+          <article class="skill-stage-card">
+            <div class="skill-stage-header">
+              <span class="skill-stage-number">4</span>
+              <div>
+                <p class="skill-stage-kicker">산업 문제 해결</p>
+                <h3>AI 응용 학습</h3>
+              </div>
+            </div>
+            <ul class="skill-list">
+              <li>7대 산업 도메인 요구사항·문제 구조화</li>
+              <li>도메인 특화 데이터·모델·시스템 통합</li>
+              <li>산업 KPI 기반 성능·운영 지표 설계</li>
+              <li>End-to-End AI 서비스 아키텍처</li>
+              <li>MVP 설계·구현과 현장 시나리오 검증</li>
+              <li>사업화 가설 수립·검증과 전문가 협업</li>
+            </ul>
+          </article>
+
+          <article class="skill-stage-card">
+            <div class="skill-stage-header">
+              <span class="skill-stage-number">5</span>
+              <div>
+                <p class="skill-stage-kicker">제품 완성·검증</p>
+                <h3>파이널 프로젝트</h3>
+              </div>
+            </div>
+            <ul class="skill-list">
+              <li>자율 주제 선정과 성공 기준·제품 범위 확정</li>
+              <li>End-to-End AI 서비스 완성도·통합 품질 관리</li>
+              <li>비즈니스 모델 설계와 시장·고객 검증</li>
+              <li>실사용 관점의 운영성·신뢰성·비용 검토</li>
+              <li>최종 발표·외부 심사 대응과 Demo Day</li>
+              <li>IR·사업화·창업·취업 연계 준비</li>
+            </ul>
+          </article>
+        </div>
+
+              </div>
+    </section>
+
+<!--
+  Projects는 GitHub API에서 받은 Repository 데이터를 JavaScript가 동적으로 렌더링합니다.
+  loading / success / empty / error 상태에 따라 아래 상태 영역과 카드 Grid가 달라집니다.
+-->
+<section class="projects section" id="projects">
+      <div class="section-inner">
+        <h2>Projects</h2>
+
+        <p>
+          코디세이 학습 단계별 Repository를 분류하여 확인합니다.
+        </p>
+
+        <div
+          class="current-mission-summary"
+          id="current-mission-summary"
+          aria-live="polite"
+        >
+          Portfolio 정리 현황을 불러오는 중입니다.
+        </div>
+
+        <div
+          class="projects-categories"
+          id="projects-categories"
+          role="tablist"
+          aria-label="코디세이 프로젝트 카테고리"
+        >
+          <button type="button" role="tab" data-project-category="all" aria-selected="true">
+            전체
+          </button>
+          <button type="button" role="tab" data-project-category="admission" aria-selected="false">
+            <span class="project-category-number">1</span>
+            <span>입학 연수</span>
+          </button>
+          <button type="button" role="tab" data-project-category="tools" aria-selected="false">
+            <span class="project-category-number">2</span>
+            <span>AI 도구 학습</span>
+          </button>
+          <button type="button" role="tab" data-project-category="advanced" aria-selected="false">
+            <span class="project-category-number">3</span>
+            <span>AI 심화 학습</span>
+          </button>
+          <button type="button" role="tab" data-project-category="applied" aria-selected="false">
+            <span class="project-category-number">4</span>
+            <span>AI 응용 학습</span>
+          </button>
+          <button type="button" role="tab" data-project-category="final" aria-selected="false">
+            <span class="project-category-number">5</span>
+            <span>파이널 프로젝트</span>
+          </button>
+        </div>
+
+        <div
+          class="projects-language-filter"
+          id="projects-language-filter"
+          aria-label="프로젝트 언어 필터"
+          hidden
+        >
+          <span class="projects-filter-label">언어</span>
+          <div
+            class="projects-language-buttons"
+            id="projects-language-buttons"
+            role="group"
+            aria-label="언어별 프로젝트 필터"
+          ></div>
+        </div>
+
+        <div
+          class="projects-status"
+          id="projects-status"
+          role="status"
+          aria-live="polite"
+        >
+          프로젝트를 준비하고 있습니다.
+        </div>
+
+        <button
+          class="projects-reload"
+          id="reload-projects"
+          type="button"
+        >
+          프로젝트 다시 불러오기
+        </button>
+
+        <div
+          class="projects-category-message"
+          id="projects-category-message"
+          role="status"
+          hidden
+        ></div>
+
+        <div
+          class="projects-grid"
+          id="projects-grid"
+          aria-label="GitHub 프로젝트 목록"
+        ></div>
+
+        <nav
+          class="projects-pagination"
+          id="projects-pagination"
+          aria-label="프로젝트 페이지 이동"
+        ></nav>
+
+      </div>
+    </section>
+
+    <section class="tech-stack section" id="tech-stack">
+      <div class="section-inner">
+        <div class="development-environment">
+          <div class="development-environment-heading">
+            <p class="eyebrow">Development Environment & Tech Stack</p>
+            <h2>Tech Stack</h2>
+            <p>
+              1기에서 실제로 사용하고 학습한 환경을 중심으로, 2기에서 보완된 공식 PDF의 기술 체계를 참고했습니다.
+              “어디서 실행하고 → 무엇으로 개발하고 → 어디에 저장하고 → 어떻게 배포하고 → 어떻게 보호하는가” 순서로 정리했습니다.
+            </p>
+          </div>
+
+          <div class="development-stack-grid">
+            <article class="development-stack-card">
+              <p class="stack-source">LAB · PDF</p>
+              <h4>01 Host · OS</h4>
+              <div class="tech-tags">
+                <span>Windows 11 Pro</span><span>iMac</span><span>macOS</span><span>Linux</span>
+              </div>
+              <p>개발 호스트와 서버 운영체제를 구분합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">LAB · PDF</p>
+              <h4>02 Virtualization · Linux Runtime</h4>
+              <div class="tech-tags">
+                <span>WSL2</span><span>OrbStack</span><span>Ubuntu</span><span>Docker</span><span>Local / Isolated Env</span>
+              </div>
+              <p>Windows는 WSL2, iMac은 OrbStack을 통해 Ubuntu 기반 실행환경을 맞춥니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">LAB · 2026 EXTENSION</p>
+              <h4>03 Runtime · Package Manager</h4>
+              <div class="tech-tags">
+                <span>Python 3.10+</span><span>venv</span><span>uv</span><span>pip</span>
+                <span>Node.js</span><span>npm</span><span>Vite</span><span>Environment Variables</span>
+              </div>
+              <p>언어 런타임과 의존성·환경 설정을 재현 가능한 방식으로 관리합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF</p>
+              <h4>04 Language</h4>
+              <div class="tech-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>TypeScript · 선택</span>
+                <span>Python</span><span>SQL</span><span>Bash / Shell</span>
+              </div>
+              <p>웹·백엔드·DB·Linux 자동화를 과정별로 연결합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF · LAB · 2026 EXTENSION</p>
+              <h4>05 IDE · CLI</h4>
+              <div class="tech-tags">
+                <span>VS Code</span><span>Live Server</span><span>Terminal</span><span>Git</span><span>GitHub</span>
+                <span>GitHub CLI</span><span>curl</span><span>Jupyter</span><span>kubectl</span>
+              </div>
+              <p>편집·실행·버전관리·API 검증·운영 명령을 하나의 흐름으로 사용합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">2026 EXTENSION</p>
+              <h4>06 AI Coding · Agent</h4>
+              <div class="tech-tags">
+                <span>ChatGPT / Codex</span><span>Claude Code</span><span>Cursor Composer</span>
+                <span>Google Antigravity</span><span>Open Code CLI</span><span>MCP</span>
+              </div>
+              <p>에이전트형 개발 도구는 최소 권한과 사람의 검토를 전제로 사용합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF</p>
+              <h4>07 Frontend</h4>
+              <div class="tech-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React 18+</span>
+                <span>React Router</span><span>TypeScript · 선택</span><span>CSS Modules · 선택</span><span>Tailwind · 선택</span>
+              </div>
+              <p>B1-1은 Vanilla Web, B1-2부터 React 기반 SPA 구조로 확장합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF</p>
+              <h4>08 Backend · API</h4>
+              <div class="tech-tags">
+                <span>FastAPI</span><span>Uvicorn</span><span>Pydantic</span><span>Jinja2</span>
+                <span>python-multipart</span><span>REST API</span><span>Session</span><span>JWT</span><span>OAuth2</span>
+              </div>
+              <p>FastAPI 요청·응답, 인증, SSR과 REST API 흐름을 단계적으로 학습합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF · LAB</p>
+              <h4>09 Database · ORM</h4>
+              <div class="tech-tags">
+                <span>SQLite</span><span>PostgreSQL</span><span>MySQL</span><span>H2</span><span>Supabase PostgreSQL</span>
+                <span>SQLAlchemy ORM</span><span>Alembic · 확장</span><span>DBeaver</span><span>TablePlus</span><span>DataGrip</span>
+              </div>
+              <p>로컬 SQL 실습에서 FastAPI ORM, 관계형 서비스 DB로 확장합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF · 2026 EXTENSION</p>
+              <h4>10 Cache · Vector · Search</h4>
+              <div class="tech-tags">
+                <span>Mini Redis</span><span>Redis</span><span>Pinecone</span><span>Vector DB</span>
+                <span>Embedding</span><span>Semantic Search</span><span>RAG</span>
+              </div>
+              <p>자료구조 학습과 실제 캐시·벡터 검색·RAG 활용을 구분해 이해합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF · 2026 EXTENSION</p>
+              <h4>11 Cloud AI · Local AI</h4>
+              <div class="tech-tags">
+                <span>OpenAI API</span><span>Anthropic API</span><span>Gemini API</span>
+                <span>Ollama</span><span>Llama</span><span>Qwen</span><span>DeepSeek</span><span>Gemma</span><span>Local Embedding</span>
+              </div>
+              <p>Cloud AI와 Local AI를 비용·개인정보·성능·GPU 요구사항에 따라 구분합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF · 2026 EXTENSION</p>
+              <h4>12 Container · Kubernetes</h4>
+              <div class="tech-tags">
+                <span>Docker</span><span>Docker Compose</span><span>Kubernetes</span><span>Pod</span><span>Deployment</span>
+                <span>Service</span><span>ConfigMap</span><span>Ingress</span><span>RBAC</span><span>NetworkPolicy</span>
+              </div>
+              <p>단일 컨테이너에서 필요 시 다중 서비스 오케스트레이션으로 확장합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF · 2026 EXTENSION</p>
+              <h4>13 Cloud · PaaS · BaaS</h4>
+              <div class="tech-tags">
+                <span>AWS EC2</span><span>VPC</span><span>Subnet</span><span>Security Group</span><span>IAM</span>
+                <span>GitHub Pages</span><span>Vercel</span><span>Netlify</span><span>Render</span><span>Railway</span>
+                <span>Supabase</span><span>Firebase</span>
+              </div>
+              <p>직접 구축하는 Cloud Infra와 배포형 PaaS/BaaS를 역할별로 구분합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">2026 EXTENSION</p>
+              <h4>14 Automation · MCP</h4>
+              <div class="tech-tags">
+                <span>n8n</span><span>Make</span><span>Webhook</span><span>REST API</span><span>MCP</span><span>AI Agents</span>
+              </div>
+              <p>서비스 간 연동과 반복 업무를 워크플로·에이전트로 자동화합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF · LAB · 2026 EXTENSION</p>
+              <h4>15 Testing · Quality</h4>
+              <div class="tech-tags">
+                <span>pytest</span><span>Unit Test</span><span>Integration Test</span><span>API Test</span>
+                <span>Smoke Test</span><span>E2E Test</span><span>Ruff</span><span>ESLint</span><span>Prettier</span>
+              </div>
+              <p>Mission 검증과 코드 품질을 자동 테스트·정적 검사로 연결합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF · 2026 EXTENSION</p>
+              <h4>16 Observability · Operations</h4>
+              <div class="tech-tags">
+                <span>Logging</span><span>Health Check</span><span>ps / top / htop</span><span>ss</span>
+                <span>journalctl</span><span>cron</span><span>Sentry</span><span>MLflow</span>
+                <span>Prometheus · 확장</span><span>Grafana · 확장</span><span>OpenTelemetry · 확장</span>
+              </div>
+              <p>로그·메트릭·헬스체크로 장애를 관찰하고 원인을 추적합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF · 2026 SECURITY</p>
+              <h4>17 Security</h4>
+              <div class="tech-tags">
+                <span>Authentication</span><span>Authorization</span><span>Input Validation</span><span>HTTPS</span>
+                <span>Secret Scanning</span><span>CodeQL</span><span>Dependabot</span><span>SBOM</span>
+                <span>Prompt Injection Defense</span><span>Least Privilege</span>
+              </div>
+              <p>애플리케이션·AI·Repository·Cloud·Container 보안을 개발 전 과정에 적용합니다.</p>
+            </article>
+
+            <article class="development-stack-card">
+              <p class="stack-source">PDF</p>
+              <h4>18 Domain Platform</h4>
+              <div class="tech-tags">
+                <span>ROS</span><span>Autoware Universe</span><span>AWSIM</span><span>Gazebo</span><span>Isaac Sim</span>
+                <span>MuJoCo</span><span>MIMIC-III</span><span>DICOM</span><span>Alpaca</span><span>Stripe</span><span>Domain API / SDK</span>
+              </div>
+              <p>응용 과정에서는 선택한 산업 도메인에 맞춰 전용 플랫폼·데이터·API를 추가합니다.</p>
+            </article>
+          </div>
+
+          <div class="environment-flow" aria-label="실습 개발환경 흐름">
+            <span>Windows 11 Pro / iMac</span><strong>→</strong>
+            <span>WSL2 / OrbStack</span><strong>→</strong>
+            <span>Ubuntu</span><strong>→</strong>
+            <span>FastAPI / React</span><strong>→</strong>
+            <span>SQLAlchemy / API</span><strong>→</strong>
+            <span>Database / Cloud</span>
+          </div>
+
+                  </div>
+      </div>
+    </section>
+
+<section class="security section" id="security">
+      <div class="section-inner">
+        <div class="security-baseline">
+            <div class="development-environment-heading">
+              <p class="eyebrow">Security by Default · 2026</p>
+              <h2>Security</h2>
+              <p>
+                공식 Mission PDF의 보안 요구를 유지하면서 최신 개발환경에 필요한 보안 통제를
+                Application부터 Workstation까지 8개 영역으로 확장했습니다.
+              </p>
+            </div>
+
+            <div class="security-lifecycle" aria-label="보안 운영 생명주기">
+              <span><strong>Prevent</strong> 사전에 막기</span>
+              <span><strong>Detect</strong> 탐지하기</span>
+              <span><strong>Respond</strong> 대응하기</span>
+              <span><strong>Recover</strong> 복구하기</span>
+            </div>
+
+            <div class="security-grid">
+              <article class="security-card">
+                <p class="stack-source">PDF · 2026 SECURITY</p>
+                <h4>01 Application · API</h4>
+                <ul>
+                  <li>Server-side 인증·인가·접근제어 강제</li>
+                  <li>입력 검증·출력 처리·Injection·SSRF 방어</li>
+                  <li>Rate Limit·Brute-force 방어·안전한 예외 처리</li>
+                  <li>HTTPS·HSTS·Secure/HttpOnly/SameSite Cookie·CORS·CSRF 정책</li>
+                </ul>
+              </article>
+
+              <article class="security-card">
+                <p class="stack-source">PDF · 2026 SECURITY</p>
+                <h4>02 Identity · Session · Secret</h4>
+                <ul>
+                  <li>MFA·Passkey·OAuth2/OIDC 적용 검토</li>
+                  <li>JWT 만료·갱신·폐기와 Session Timeout 정책</li>
+                  <li>.env·Secret Manager·KMS로 비밀정보 분리</li>
+                  <li>장기 Credential 대신 Short-lived Credential 우선</li>
+                </ul>
+              </article>
+
+              <article class="security-card">
+                <p class="stack-source">2026 AI SECURITY</p>
+                <h4>03 AI · Agent</h4>
+                <ul>
+                  <li>Direct/Indirect Prompt Injection 방어</li>
+                  <li>Sensitive Data Leakage·Model/Data Poisoning 대응</li>
+                  <li>LLM Output 검증·Tool Allowlist·Agent 최소권한</li>
+                  <li>RAG ACL·Human Approval·Token/Cost/Loop Limit</li>
+                </ul>
+              </article>
+
+              <article class="security-card">
+                <p class="stack-source">PDF · 2026 SECURITY</p>
+                <h4>04 Repository · CI/CD · Supply Chain</h4>
+                <ul>
+                  <li>Secret Scanning·Push Protection·Branch Protection</li>
+                  <li>Dependabot·Dependency Review·CodeQL</li>
+                  <li>Lock File·Pinned Dependency·GitHub Actions 최소권한</li>
+                  <li>SBOM·Provenance·Signed Artifact·무결성 검증</li>
+                </ul>
+              </article>
+
+              <article class="security-card">
+                <p class="stack-source">PDF · 2026 SECURITY</p>
+                <h4>05 Database · Data · Privacy</h4>
+                <ul>
+                  <li>관리자/앱 계정 분리·Least Privilege·RLS 검토</li>
+                  <li>Encryption at Rest·TLS in Transit·Secret 분리</li>
+                  <li>Parameterized Query·ORM·Data Minimization·PII Masking</li>
+                  <li>Backup Encryption·Restore Test·Retention·Audit Trail</li>
+                </ul>
+              </article>
+
+              <article class="security-card">
+                <p class="stack-source">PDF · 2026 SECURITY</p>
+                <h4>06 Cloud · Container · Kubernetes</h4>
+                <ul>
+                  <li>IAM/RBAC 최소권한·Namespace/Network 분리</li>
+                  <li>Trusted Registry·Image Scan·Digest Pinning</li>
+                  <li>runAsNonRoot·readOnlyRootFilesystem·Seccomp·Capability Drop</li>
+                  <li>Pod Security Standards·NetworkPolicy·Secret Encryption</li>
+                </ul>
+              </article>
+
+              <article class="security-card">
+                <p class="stack-source">PDF · 2026 SECURITY</p>
+                <h4>07 Observability · Incident Response</h4>
+                <ul>
+                  <li>Security Log·Audit Log·Metric·Trace·Health Check</li>
+                  <li>Alert Rule·이상 징후 탐지·Time Synchronization</li>
+                  <li>Incident Response 절차·Root Cause Analysis</li>
+                  <li>Log Retention·Backup/Restore Drill·복구 검증</li>
+                </ul>
+              </article>
+
+              <article class="security-card">
+                <p class="stack-source">LAB · 2026 SECURITY</p>
+                <h4>08 Developer Workstation</h4>
+                <ul>
+                  <li>Windows 11 Pro·macOS·Ubuntu 정기 Patch</li>
+                  <li>Disk Encryption·MFA/Passkey·SSH Key 보호</li>
+                  <li>Shell History·IDE Extension·Local DB 노출 점검</li>
+                  <li>AI Agent 최소권한·Local Model 출처/라이선스 검증</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="section-inner">
+        <h2>Contact</h2>
+
+        <p class="contact-description">
+          이름·이메일·메시지를 입력하면 Formspree로 비동기 전송합니다.
+          전송 결과와 오류는 이 화면에서 바로 확인할 수 있습니다.
+        </p>
+
+        <!--
+          Contact Form:
+          1) JavaScript에서 빈 값/이메일 형식을 먼저 검증하고
+          2) 통과한 데이터만 Formspree로 비동기 전송합니다.
+          label, aria-describedby, aria-live를 사용해 오류/결과를 보조기술에도 전달합니다.
+        -->
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/xdekpjjj"
+          method="POST"
+          novalidate
+        >
+          <input
+            type="hidden"
+            name="subject"
+            value="포트폴리오 문의 - {{ name }}"
+          >
+          <div class="form-field">
+            <label for="name">이름</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              autocomplete="name"
+              aria-describedby="name-error"
+              required
+            >
+            <p class="field-error" id="name-error"></p>
+          </div>
+
+          <div class="form-field">
+            <label for="email">이메일</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              aria-describedby="email-error"
+              required
+            >
+            <p class="field-error" id="email-error"></p>
+          </div>
+
+          <div class="form-field">
+            <label for="message">메시지</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              aria-describedby="message-error"
+              required
+            ></textarea>
+            <p class="field-error" id="message-error"></p>
+          </div>
+
+          <input
+            class="contact-honeypot"
+            type="text"
+            name="_gotcha"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          >
+
+          <button type="submit" id="contact-submit">
+            메시지 보내기
+          </button>
+
+          <p
+            class="form-result"
+            id="form-result"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      &copy; 2026 CODYSSEY AI ALL-IN-ONE 1기 Learning Portfolio
+    </p>
+
+    <a
+      href="https://github.com/MetaStudy999"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      GitHub
+    </a>
+  </footer>
+
+  <button
+    class="scroll-top"
+    id="scroll-top"
+    type="button"
+    aria-label="페이지 맨 위로 이동"
+  >
+    ↑
+  </button>
+</body>
+</html>
