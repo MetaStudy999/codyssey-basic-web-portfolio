@@ -17,7 +17,10 @@ The Artifact is evidence storage, while this directory is the durable provenance
 ```text
 CORE Runtime PASS
 Visual Review PASS
-Public GitHub Pages Runtime PENDING
-Learning Minimum Gate PENDING
-FINAL CLEAR PENDING
+Public GitHub Pages Runtime PASS
+Learning Minimum Gate PASS
+B1-1 CORE FINAL CLEAR PASS
 ```
+
+
+Update note: above results were already evidenced in Round 03; this edit reconciles stale labels only. See `../06-evidence/INDEX.md` for the numbered-folder navigation. New AI-performance metrics and slides are separate PENDING scopes.
