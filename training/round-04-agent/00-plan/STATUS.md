@@ -1,0 +1,21 @@
+# B1-1 — 00단계 이행 상태
+
+- 작성일: 2026-10-26
+- 미션: B1-1 — 나를 소개하는 웹페이지 처음부터 만들기
+- 작업 저장소: `MetaStudy999/codyssey-basic-web-portfolio`
+- 고정 작성 루트: `training/round-04-agent/`
+- 이번 단계: **00 계획**
+- 이번 단계 산출물: `README.md`, `MASTER-PLAN.md`, `ACCEPTANCE-GATES.md`, `SOURCE-REGISTER.md`, `STATUS.md`
+- 단계 00 문서 작성: **READY_FOR_GIT_READBACK** (커밋 후 실제 존재·내용·SHA 확인이 PASS 근거)
+- 01 요구: **NOT_STARTED**
+- 02 분석: **NOT_STARTED**
+- 03 설계: **NOT_STARTED**
+- 04 코드: **NOT_STARTED**
+- 05~09: **NOT_VERIFIED**
+- 현재 신규 미션의 `runtime`/`clear`: **NOT_VERIFIED**
+- 개발 시작 명시적 승인: **PENDING** (`mission.yml` 유지)
+- 금지: 기존 소스 재작성, Round 01~03 PASS 이식, 새 미션 코드 작성·실행, 배포·병합
+
+## 다음 순서
+
+**01-requirements**를 한 단계로 따로 진행합니다. 공식 PDF·평가 15문항의 조항·필수/선택·수용·테스트·증빙 매핑을 작성하고, 검증 결과를 보고합니다. 사용자 승인 없는 신규 미션 개발은 시작하지 않습니다.
