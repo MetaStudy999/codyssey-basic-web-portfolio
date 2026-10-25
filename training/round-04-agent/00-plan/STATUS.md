@@ -31,3 +31,11 @@
 - `mission.yml`의 `owner_mission_development_approval: PENDING`, `mission_execution: NOT_STARTED` 유지 = **PASS**
 - 전체 B1-1 기능/실행/공식 평가/CLEAR = **NOT_VERIFIED**. 이 계획 PASS로 승격하지 않음.
 - 다음 단계: `01-requirements/`에 공식 요구 조항별 매핑 작성. **이번 00단계에는 포함하지 않음**.
+
+## 사용자 승인 4종 슬라이드 계획 추가 — 2026-10-26
+
+- 범위: B1-1~B7-2 모든 15개 미션. 중앙 공통 표준과 각 미션의 `00-plan/SLIDE-PACKAGE-PLAN.md`를 기준으로 구성.
+- B1-1 계획 목표: **발표 16장 / 학습 45장 / 심화 15~25장 / 복습 1~2장**.
+- 계획 및 작업 공간 생성: GitHub 저장소에 반영. **실제 PPTX/PDF: ARTIFACTS_NOT_CREATED**.
+- 본 00단계의 기존 PASS는 유지하고, **01단계 요구사항 분석은 NOT_STARTED**, 04단계 개발 승인 PENDING, 전체 미션 CLEAR NOT_VERIFIED를 유지합니다.
+- [상세 계획](SLIDE-PACKAGE-PLAN.md) · [중앙 표준](https://github.com/MetaStudy999/codyssey-basic/blob/main/standards/ROUND-04-AGENT-SLIDE-PACKAGE-STANDARD.md)
