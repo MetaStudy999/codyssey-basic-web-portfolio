@@ -12,3 +12,7 @@
 - [00단계 전체 슬라이드 계획](../00-plan/SLIDE-PACKAGE-PLAN.md)
 
 상태: **PLAN_ONLY / ARTIFACTS_NOT_CREATED**. 과거 Round 자료는 참고 전용입니다.
+
+## 학습활동 보조자료 (2026-10-26 승인)
+
+[용어 카드·개념도·코드 추적·실습·오류 해결·문제은행·간격 복습](06-learning-activities/README.md). 4종 슬라이드 목표는 그대로 두고 별도 학습 자료로 연결합니다. **PLAN_ONLY / NOT_VERIFIED**.
