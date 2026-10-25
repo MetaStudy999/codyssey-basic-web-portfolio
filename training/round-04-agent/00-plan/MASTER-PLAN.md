@@ -1,4 +1,4 @@
-# B1-1 Round 04 Agent — 고정 개발계획 V1.1 (슬라이드 계획 확장)
+# B1-1 Round 04 Agent — 고정 개발계획 V1.2 (학습자 중심 AI 교육체계 포함)
 
 - 계획 확정 기준일: **2026-10-26**
 - 미션 번호: **B1-1** (현재 제2기), 제목: **나를 소개하는 웹페이지 처음부터 만들기**
@@ -99,3 +99,18 @@
 **CORE 실행 PASS + 공개 배포 및 실사용 확인 + 신뢰 가능한 증빙 + 공식 평가 설명 + 4종 학습·발표 패키지 검수 + GitHub 최종 기록**이 모두 충족될 때만 `FINAL_CLEAR` 후보입니다. 외부 공식 평가자의 합격 여부는 별도 판정입니다.
 
 참조: [게이트 기준](ACCEPTANCE-GATES.md) · [공식 문서 등록](SOURCE-REGISTER.md) · [00단계 상태](STATUS.md).
+
+## 7. 사용자 승인 학습자 중심 AI 교육체계 — V1.2 (2026-10-26)
+
+기존 **00~09 단계·공식 미션 범위·4종 슬라이드 목표**를 변경하지 않고 각 단계의 학습 품질 기준을 보완합니다. [학습자 중심 통합 계획](LEARNING-SYSTEM-PLAN.md)과 [중앙 15개 미션 공통 표준](https://github.com/MetaStudy999/codyssey-basic/blob/main/standards/LEARNER-CENTERED-AI-LEARNING-STANDARD.md)이 근거입니다.
+
+- **M01~M16:** 용어카드·개념관계·4컷·Why·비교·예측·코드추적·Parsons·빈칸·수정·디버깅·독립 구현·자기 설명·전이·간격 복습·AI 튜터.
+- **PRIMM:** Predict→Run→Investigate→Modify→Make. 실제 코드 독해와 독립 구현을 별도 평가.
+- **AI 힌트 H1~H4:** 질문→개념→절차→해설; 학습자의 사용 여부를 독립 평가와 구분.
+- **L1~L5:** 코드 보며 설명→구조도→무자료→빈 환경 재현→새 문제 응용. AI 도움 없는 수행 능력 측정.
+- **품질 게이트 QG-01~08:** 공식 요구·학습목표/사전사후/AI 콘텐츠 정확성/PRIMM/오답 피드백/독립 구현/접근성/개인정보·실습 안전.
+- **간격 복습 초기 운영안:** 직후·1·3·7·14·30일, 실제 기억·오답 결과에 따라 변경.
+- **교육 자료:** 기존 4종 발표·학습·부록·복습 유지 + `08-presentation/06-learning-activities/`(glossary, concept-maps, code-tracing, coding-labs, debugging, question-bank, review) 추가.
+- **별도 3축 PASS:** 미션 기능/교육 콘텐츠/학습자 숙달. 슬라이드·계획 존재만으로 기능 PASS 또는 MASTER 금지.
+
+**범위 제한:** 현재 사용자 승인은 고도화 계획·표준·폴더 반영에 한정됩니다. 신규 B1-1 코드 개발·실행·PPTX/PDF 생성·실제 학습자 진단은 **NOT_STARTED / NOT_VERIFIED**로 유지합니다.

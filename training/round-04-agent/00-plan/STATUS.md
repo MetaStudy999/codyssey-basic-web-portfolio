@@ -39,3 +39,11 @@
 - 계획 및 작업 공간 생성: GitHub 저장소에 반영. **실제 PPTX/PDF: ARTIFACTS_NOT_CREATED**.
 - 본 00단계의 기존 PASS는 유지하고, **01단계 요구사항 분석은 NOT_STARTED**, 04단계 개발 승인 PENDING, 전체 미션 CLEAR NOT_VERIFIED를 유지합니다.
 - [상세 계획](SLIDE-PACKAGE-PLAN.md) · [중앙 표준](https://github.com/MetaStudy999/codyssey-basic/blob/main/standards/ROUND-04-AGENT-SLIDE-PACKAGE-STANDARD.md)
+
+## 학습자 중심 교육체계 고도화 계획 승인 (2026-10-26)
+
+- 범위: B1-1~B7-2 15개 미션의 학습체계 계획·공통 표준·학습활동 폴더 구성 승인.
+- B1-1 교육계획: [LEARNING-SYSTEM-PLAN.md](LEARNING-SYSTEM-PLAN.md) 작성 및 저장소 반영.
+- PRIMM·16개 방법·QG-01~08·H1~H4·L1~L5 문서화: PLAN_ONLY.
+- 실제 콘텐츠 제작·학습자 성취 평가·미션 개발·코드 실행: NOT_STARTED / NOT_VERIFIED.
+- **기존 00단계 계획 문서 PASS는 보존**, 새 학습 게이트의 실제 PASS는 미부여.
