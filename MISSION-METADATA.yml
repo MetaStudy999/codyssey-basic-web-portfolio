@@ -7,3 +7,14 @@ official_title_ko: "나를 소개하는 웹페이지 처음부터 만들기"
 repository: MetaStudy999/codyssey-basic-web-portfolio
 control_tower_map: https://github.com/MetaStudy999/codyssey-basic/blob/main/CURRENT-MISSION-MAP.md
 numbering_updated_at: "2026-09-03"
+active_execution_round: round-04-agent
+active_execution_root: training/round-04-agent
+active_authoring_root: training/round-04-agent/04-src
+current_mission_development_approval: PENDING
+current_execution_status: NOT_STARTED
+current_runtime_status: NOT_VERIFIED
+current_clear_status: NOT_VERIFIED
+root_site_role: MISSION_STATUS_LANDING_NOT_MISSION_DELIVERABLE
+legacy_root_index_archive: training/round-03-apos/09-handoff/ROOT-INDEX-HISTORICAL-20261025.html
+historical_rounds: REFERENCE_ONLY
+root_status_publication_authorized: "2026-10-25"
