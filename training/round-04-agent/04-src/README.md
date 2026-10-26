@@ -90,6 +90,8 @@ flowchart TD
 
 **후속 05-1 모의 실행 결과(2026-10-27):** [독립 모의 검사 결과](../05-tests/05-1-V8-MOCK-TEST-REPORT.md)에서 **V8 구문 PASS 및 모의 DOM·API 35개 PASS/FAIL 0**을 관찰했습니다. 실제 Node CLI·Chrome·WSL2·51개 정식 수용 시험은 여전히 **NOT_VERIFIED**입니다.
 
+**05-2 후속 WSL2 실측(2026-10-27):** [로컬 Node 검증 보고서](../05-tests/05-2-WSL2-LOCAL-NODE-VALIDATION-20261027.md)에서 SHA 대조 및 Ubuntu Node 구문 검사·35개 모의 동작 검사 **PASS/FAIL 0**을 확인했습니다. 별도 Chrome·실제 공개 API·정식 51개 사례·배포·학습자 숙달은 **NOT_VERIFIED**입니다.
+
 **허위 PASS 금지:** 파일이 존재하더라도 런타임·API 응답·입문자 숙달은 실제 실행 증거를 수집한 뒤에만 판정합니다. 개발 브랜치의 코드 변경과 배포·병합을 별개로 승인합니다.
 
 [03 설계](../03-design/README.md) · [01 공식 요구](../01-requirements/REQUIREMENTS-CATALOG.md) · [미션 승인](../mission.yml)
