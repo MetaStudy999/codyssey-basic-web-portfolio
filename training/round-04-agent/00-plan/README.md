@@ -59,7 +59,7 @@ flowchart TD
 
 ## ③ 처음 방문한 학습자의 추천 읽기 순서
 
-아래 순서대로 읽으면 **그림으로 큰 흐름을 이해한 다음 세부 계획과 합격 기준**을 확인할 수 있습니다.
+아래 순서대로 읽으면 **그림으로 큰 흐름을 이해한 다음 세부 계획과 합격 기준**을 확인할 수 있습니다. 기술 용어·코드 학습은 ④의 **기술 학습 5개 문서**에서 이어집니다.
 
 | 순서 | 문서 | 이 파일을 읽는 이유 |
 |---|---|---|
@@ -78,10 +78,17 @@ flowchart TD
 | [SOURCE-REGISTER.md](SOURCE-REGISTER.md) | 공식 미션 PDF·평가표와 참고 자료의 **출처 목록** |
 | [SLIDE-PACKAGE-PLAN.md](SLIDE-PACKAGE-PLAN.md) | 발표 16장·학습 45장·심화 15~25장·복습 1~2장의 **제작 계획** |
 | [LEARNING-SYSTEM-PLAN.md](LEARNING-SYSTEM-PLAN.md) | 용어·코드·실습·복습·AI 튜터·L1~L5를 이용한 **학습 설계** |
+| [LEARNING-MAP.md](LEARNING-MAP.md) | 학습 순서·선행 개념·9요소 체계 |
+| [TECHNICAL-GLOSSARY.md](TECHNICAL-GLOSSARY.md) | HTML·CSS·JS·DOM·API 필수 기술 용어 |
+| [CORE-CONCEPTS.md](CORE-CONCEPTS.md) | 개념·원리·비유·반례·Mermaid |
+| [ARCHITECTURE-INTRO.md](ARCHITECTURE-INTRO.md) | 브라우저 구성·상태·API·보안 경계 Mermaid |
+| [CODE-LEARNING-ROADMAP.md](CODE-LEARNING-ROADMAP.md) | 주요 코드·줄별 해설·가상 오류·PRIMM 실습 |
 | [LEGACY-SOURCE-INVENTORY.md](LEGACY-SOURCE-INVENTORY.md) | 이전 Round 01~03 자료를 **어디에 왜 보존했는지** 확인 |
 | [VISUAL-QA-20261026.md](VISUAL-QA-20261026.md) | 형광펜·밑줄 **화면 QA 시도 결과와 미검증 항목** 확인 |
 
-이 폴더의 **총 9개 Markdown 문서**는 같은 정보를 복사한 자료가 아니라 역할이 다른 안내·계획·기준·근거 문서입니다. <ins>처음부터 9개를 모두 읽을 필요는 없습니다.</ins>
+이 폴더의 **총 15개 Markdown 문서**는 계획·근거·기술 교육·검증 기록을 역할별로 분리한 것입니다. <ins>처음부터 15개를 모두 읽을 필요는 없습니다.</ins> 핵심 기술 학습은 **[학습지도](LEARNING-MAP.md) → [용어](TECHNICAL-GLOSSARY.md) → [개념](CORE-CONCEPTS.md) → [아키텍처](ARCHITECTURE-INTRO.md) → [주요 코드](CODE-LEARNING-ROADMAP.md)** 순서를 권장합니다.
+
+**기술 학습 9요소:** <mark>용어 → 개념 → 비유 → 아키텍처 → 주요 코드 → 실행 흐름 → 오류 해결 → 실습 → 평가</mark>. 00단계의 코드와 아키텍처는 **교육용 예시·개념도**이며 실제 신규 앱의 구현·검증이 아닙니다.
 
 <a name="b11-stage00-glossary"></a>
 

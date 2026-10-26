@@ -59,3 +59,10 @@
 - PRIMM·16개 방법·QG-01~08·H1~H4·L1~L5 문서화: PLAN_ONLY.
 - 실제 콘텐츠 제작·학습자 성취 평가·미션 개발·코드 실행: NOT_STARTED / NOT_VERIFIED.
 - **기존 00단계 계획 문서 PASS는 보존**, 새 학습 게이트의 실제 PASS는 미부여.
+
+## 00단계 입문 기술 교육자료 보완 (2026-10-26)
+
+- 새 자료 5개: [학습지도](LEARNING-MAP.md), [기술 용어](TECHNICAL-GLOSSARY.md), [핵심 개념](CORE-CONCEPTS.md), [아키텍처 개념도](ARCHITECTURE-INTRO.md), [주요 코드·PRIMM 로드맵](CODE-LEARNING-ROADMAP.md).
+- 문서에 **용어·개념·비유·아키텍처·주요 코드·실행 흐름·오류 해결·실습·평가** 9요소를 연결한 *교육 설명 초안*을 기록함.
+- 이 단계 PASS의 의미: 기존 00단계의 **계획·문서 기록** 상태를 유지합니다. 새 기술 교안은 **학습자 이해도 측정·실제 코드 검증 전**이므로 실사용 교육 품질 및 학습자 숙달은 NOT_VERIFIED입니다.
+- 01 공식 요구 분석: NOT_STARTED; 03 상세 설계: NOT_STARTED; 04 신규 구현: NOT_STARTED / 승인 PENDING; 실제 테스트·실습·슬라이드 PPTX/PDF: NOT_VERIFIED 또는 NOT_STARTED.

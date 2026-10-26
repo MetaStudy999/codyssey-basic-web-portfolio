@@ -104,6 +104,11 @@ flowchart LR
 | [SLIDE-PACKAGE-PLAN.md](SLIDE-PACKAGE-PLAN.md) | 4종 슬라이드를 어떻게 구성할지 |
 | [LEARNING-SYSTEM-PLAN.md](LEARNING-SYSTEM-PLAN.md) | 용어·개념·코드·실습·복습·평가 계획 |
 | [LEGACY-SOURCE-INVENTORY.md](LEGACY-SOURCE-INVENTORY.md) | 과거 코드와 자료를 왜 보존했는지 |
+| [LEARNING-MAP.md](LEARNING-MAP.md) | 학습 순서·선행 개념·9요소 체계 |
+| [TECHNICAL-GLOSSARY.md](TECHNICAL-GLOSSARY.md) | HTML·CSS·JS·DOM·API 필수 기술 용어 |
+| [CORE-CONCEPTS.md](CORE-CONCEPTS.md) | 개념·원리·비유·반례·Mermaid |
+| [ARCHITECTURE-INTRO.md](ARCHITECTURE-INTRO.md) | 브라우저 구성·상태·API·보안 경계 Mermaid |
+| [CODE-LEARNING-ROADMAP.md](CODE-LEARNING-ROADMAP.md) | 주요 코드·줄별 해설·가상 오류·PRIMM 실습 |
 
 ## 6. 자주 나오는 용어
 

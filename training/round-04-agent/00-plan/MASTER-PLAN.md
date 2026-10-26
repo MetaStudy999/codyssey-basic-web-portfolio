@@ -132,3 +132,17 @@
 - **별도 3축 PASS:** 미션 기능/교육 콘텐츠/학습자 숙달. 슬라이드·계획 존재만으로 기능 PASS 또는 MASTER 금지.
 
 **범위 제한:** <ins>현재 사용자 승인은 고도화 계획·표준·폴더 반영에 한정됩니다.</ins> 신규 B1-1 코드 개발·실행·PPTX/PDF 생성·실제 학습자 진단은 **NOT_STARTED / NOT_VERIFIED**로 유지합니다.
+
+## 8. B1-1 00단계 기술 선행학습 자료 보완 (2026-10-26)
+
+프로젝트 준비 문서와 실제 기술학습 자료를 구분하여 **5개의 입문자 교안**을 추가했습니다.
+
+- [LEARNING-MAP.md](LEARNING-MAP.md): 학습 순서·선행 개념·9요소 체계
+- [TECHNICAL-GLOSSARY.md](TECHNICAL-GLOSSARY.md): HTML·CSS·JS·DOM·API 필수 기술 용어
+- [CORE-CONCEPTS.md](CORE-CONCEPTS.md): 개념·원리·비유·반례·Mermaid
+- [ARCHITECTURE-INTRO.md](ARCHITECTURE-INTRO.md): 브라우저 구성·상태·API·보안 경계 Mermaid
+- [CODE-LEARNING-ROADMAP.md](CODE-LEARNING-ROADMAP.md): 주요 코드·줄별 해설·가상 오류·PRIMM 실습
+
+**교육 구성 9요소:** 용어 → 개념 → 비유 → 아키텍처 → 주요 코드 → 실행 흐름 → 오류 해결 → 실습 → 평가. **00은 입문 개념·예제·학습지도 작성**, 01은 요구 분석, 03은 실제 설계, 04는 별도 승인 후 신규 구현, 05~07은 실행·증빙·평가, 08은 학습 슬라이드/워크북 제작으로 기존 목차를 유지합니다.
+
+<ins>00단계 설명용 코드와 Mermaid를 실제 신규 구현·테스트 PASS로 사용하지 않습니다.</ins> 신규 소스 개발·실행·배포는 NOT_STARTED, 승인 PENDING, 실제 학습 성취는 NOT_VERIFIED입니다.

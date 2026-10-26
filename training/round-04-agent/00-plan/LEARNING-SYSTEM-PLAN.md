@@ -44,3 +44,17 @@ PASS는 실제 코드·시험·학습자 독립 수행·증빙 존재 시에만 
 00 이 계획 / 01 공식 요구↔학습 목표 / 02 사전 진단 및 이전 자료 비교 / 03 힌트·실습·문제 설계 / 04 별도 승인된 신규 구현 / 05 코드·정답·접근성 시험 / 06 실제 증빙 / 07 독립 숙달 평가 / 08 4종 슬라이드·워크북·문제은행 제작 / 09 인계.
 
 [공식 요구 연계](../01-requirements/LEARNING-OBJECTIVES.md) · [사전 진단](../02-analysis/BASELINE-ASSESSMENT.md) · [학습 설계](../03-design/LEARNING-DESIGN.md) · [시험](../05-tests/LEARNING-CONTENT-QA.md) · [숙달 평가](../07-evaluation/LEARNING-MASTERY.md) · [활동 자료](../08-presentation/06-learning-activities/README.md)
+
+## 9요소 기술 학습 내용의 구체화 (2026-10-26)
+
+기존 16가지 학습법·PRIMM·L1~L5와 결합하는 9요소 학습 흐름: **용어 → 개념 → 비유 → 아키텍처 → 주요 코드 → 실행 흐름 → 오류 해결 → 실습 → 평가**.
+
+| B1-1 00단계 실제 자료 | 학습 영역 | 상태 |
+|---|---|---|
+| [LEARNING-MAP.md](LEARNING-MAP.md) | 학습 순서·선행 개념·9요소 체계 | 교육 설명 초안 작성 / 실제 운영 NOT_VERIFIED |
+| [TECHNICAL-GLOSSARY.md](TECHNICAL-GLOSSARY.md) | HTML·CSS·JS·DOM·API 필수 기술 용어 | 교육 설명 초안 작성 / 실제 운영 NOT_VERIFIED |
+| [CORE-CONCEPTS.md](CORE-CONCEPTS.md) | 개념·원리·비유·반례·Mermaid | 교육 설명 초안 작성 / 실제 운영 NOT_VERIFIED |
+| [ARCHITECTURE-INTRO.md](ARCHITECTURE-INTRO.md) | 브라우저 구성·상태·API·보안 경계 Mermaid | 교육 설명 초안 작성 / 실제 운영 NOT_VERIFIED |
+| [CODE-LEARNING-ROADMAP.md](CODE-LEARNING-ROADMAP.md) | 주요 코드·줄별 해설·가상 오류·PRIMM 실습 | 교육 설명 초안 작성 / 실제 운영 NOT_VERIFIED |
+
+이 5종은 **00단계 선행학습용**으로 작성한 문서입니다. 예시 코드는 실제 신규 코드가 아니며, 사전/사후 평가·코드 실행·정밀 요구 매핑·독립 숙달 검증은 아직 이루어지지 않았습니다. 중앙 [학습표준](https://github.com/MetaStudy999/codyssey-basic/blob/main/standards/LEARNER-CENTERED-AI-LEARNING-STANDARD.md)의 기술 학습 9요소를 따릅니다.
