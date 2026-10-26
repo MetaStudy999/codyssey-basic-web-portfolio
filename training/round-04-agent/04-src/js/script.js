@@ -321,6 +321,7 @@ function onFormSubmit(event) {
 function init() {
   // Missing elements must not produce unhandled errors.
   if (Object.values(elements).some((element) => !element)) return;
+  document.documentElement.classList.add("js-enhanced");
 
   state.theme = readSavedTheme();
   renderTheme();
