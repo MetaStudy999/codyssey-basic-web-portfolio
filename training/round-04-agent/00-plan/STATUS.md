@@ -5,7 +5,8 @@
 - 작업 저장소: `MetaStudy999/codyssey-basic-web-portfolio`
 - 고정 작성 루트: `training/round-04-agent/`
 - 이번 단계: **00 계획**
-- 이번 단계 산출물: `README.md`, `MASTER-PLAN.md`, `ACCEPTANCE-GATES.md`, `SOURCE-REGISTER.md`, `STATUS.md`
+- 초기 00단계 필수 계획 문서 5개: `README.md`, `MASTER-PLAN.md`, `ACCEPTANCE-GATES.md`, `SOURCE-REGISTER.md`, `STATUS.md`
+- 현재 00단계 문서: **총 15개**(학습 교안 5개·Mermaid 안내·검증 기록 등 포함). [현재 문서 목차](README.md)에서 선택하여 확인
 - 단계 00 문서 작성: **PASS — GitHub main 읽기 재검증 완료** (00단계 문서·경로·보존 확인에 한정)
 - 01 요구: **NOT_STARTED**
 - 02 분석: **NOT_STARTED**

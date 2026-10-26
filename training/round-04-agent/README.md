@@ -1,6 +1,6 @@
 # B1-1 — 나를 소개하는 웹페이지 처음부터 만들기 | Round 04 Agent
 
-> 2026-10-25 사용자 지정 신규 작성 경로: `training/round-04-agent/`. 현재 상태: **PLAN_ONLY / NOT_STARTED**. 이 문서와 폴더 생성은 미션 구현·실행·배포 승인 또는 PASS를 의미하지 않습니다.
+> 2026-10-25 사용자 지정 신규 작성 경로: `training/round-04-agent/`. 현재 상태: **00단계 계획·기초 교안 문서 PASS / 실제 미션 구현 NOT_STARTED**. 이 문서와 폴더 생성은 미션 구현·실행·배포 승인 또는 PASS를 의미하지 않습니다.
 
 - 미션: B1-1 — 나를 소개하는 웹페이지 처음부터 만들기
 - 저장소: `MetaStudy999/codyssey-basic-web-portfolio`

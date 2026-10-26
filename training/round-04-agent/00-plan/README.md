@@ -1,147 +1,151 @@
-# B1-1 — 00단계 시작 안내 | 처음 방문한 학습자를 위한 README
+# B1-1 · 00단계 — 처음 배우는 웹페이지 만들기
 
-> **00단계 계획 문서: PASS** · **다음 단계 01 공식 요구사항 분석: NOT_STARTED** · **새 웹페이지 구현: NOT_STARTED** · **기능·학습 평가: NOT_VERIFIED**  
-> 확인일: 2026-10-26. 여기서 PASS는 <mark>계획서가 작성되어 GitHub에 정상 반영됐다는 뜻</mark>이며, 웹페이지를 완성하거나 학습 평가에 합격했다는 뜻이 아닙니다.
+> **00 계획 문서 PASS** · **01 공식 요구 분석 NOT_STARTED** · **신규 코드 개발 NOT_STARTED / 승인 PENDING**
 
-## 현재 문서 목차
+**30초 요약:** <mark>HTML은 웹페이지의 구조, CSS는 디자인, JavaScript는 동작</mark>을 담당합니다. 지금은 웹페이지를 만들기 전에 **목표·작업 순서·학습자료·검증 기준을 준비한 단계**입니다. <ins>실제 웹페이지 구현과 학습 성취를 완료한 것은 아닙니다.</ins>
 
-> 아래 제목을 클릭하면 이 문서의 해당 설명으로 이동합니다.
+## 현재 문서의 구조화된 목차
 
-- [① 3분 안에 이해하기](#b11-stage00-overview)
-- [② 그림으로 보는 00단계 흐름](#b11-stage00-flow)
-- [③ 추천 읽기 순서](#b11-stage00-reading)
-- [④ 상세 문서 안내](#b11-stage00-files)
-- [⑤ 쉬운 용어 설명](#b11-stage00-glossary)
-- [⑥ 이해도 확인 문제](#b11-stage00-quiz)
-  - [정답·설명](#b11-stage00-answers)
-- [⑦ 다음 단계](#b11-stage00-next)
+| 학습 경로 | 목차 바로가기 | 누구에게 필요한가요? |
+|---|---|---|
+| **A · 처음 시작하기** | [① 시작 안내](#b11-00-start) | 처음 방문한 사람 |
+| **B · 기술 배우기** | [② 웹 원리](#b11-00-tech) · [③ 학습자료](#b11-00-learning) · [④ 작은 코드](#b11-00-mini) | 기술을 배우고 싶은 사람 |
+| **C · 진행 확인하기** | [⑤ 현재 상태](#b11-00-status) · [⑥ 확인 문제](#b11-00-check) | 어디까지 했는지 알고 싶은 사람 |
+| **D · 더 알아보기** | [⑦ 용어 설명](#b11-00-glossary) · [⑧ 상세 문서](#b11-00-reference) | 근거·계획이 필요한 사람 |
 
-<a name="b11-stage00-overview"></a>
+<a name="b11-00-start"></a>
 
-## ① 3분 안에 이해하기
+## A. 처음 시작하기
 
-**B1-1 미션은 무엇인가요?** HTML, CSS, JavaScript로 <mark>나를 소개하는 웹페이지를 새로 만드는 과제</mark>입니다.
+### ① 어디서부터 읽으면 되나요?
 
-**00단계는 무엇인가요?** 요리를 시작하기 전에 재료와 순서, 완성 기준을 정하듯이 <mark>목표·범위·작업 순서·승인·검증 방법을 문서로 준비</mark>하는 단계입니다.
+<mark>처음 방문했다면 아래 세 가지 중 **한 가지만 선택**하면 됩니다.</mark>
 
-**지금 무엇이 완료됐나요?** 작업 순서 00~09, 기존 자료 보존 기준, 학습 계획, 4종 슬라이드 목표, PASS/FAIL 기준을 정하고 GitHub 파일을 다시 읽어 확인했습니다. <ins>새 HTML/CSS/JavaScript 코드는 작성하지 않았습니다.</ins>
+- **그림으로 먼저 이해:** [00단계 Mermaid 안내](STAGE-00-MERMAID-GUIDE.md)
+- **웹 기술부터 배우기:** [기술 학습지도](LEARNING-MAP.md)
+- **현재 상태만 확인:** [00단계 진행 현황](STATUS.md)
 
-| 궁금한 점 | 현재 답 |
-|---|---|
-| 지금 어느 단계인가요? | **00 계획 완료(PASS)**. 다음은 **01 요구사항 분석** |
-| 새 코드는 어디에 쓰나요? | `../04-src/` — **아직 README만 있음** |
-| 지난 미션 결과는 어떻게 하나요? | 이전 Round 01~03 코드는 **보존·참고만** |
-| 코드를 지금 만들어도 되나요? | <ins>아니요. 신규 코드 개발 승인은 `PENDING`입니다.</ins> |
-| 발표와 학습자료는 완성됐나요? | **아니요**. 4종 패키지는 **계획만 승인** |
+**이 미션에서 만들 것:** 나를 소개하는 웹페이지입니다. 00단계는 요리 전 레시피를 정하듯 전체 목표·순서와 통과 기준을 준비하는 일입니다. 실제 개발은 다음 단계들을 완료하고 별도 승인을 받은 후 진행합니다.
 
-<a name="b11-stage00-flow"></a>
+<a name="b11-00-tech"></a>
 
-## ② 그림으로 보는 00단계 흐름
+## B. 기술 배우기
+
+### ② 웹페이지의 세 기술을 그림으로 이해해요
 
 ```mermaid
 flowchart TD
-    A["B1-1 미션과 공식 기준 확인"] --> B["목표와 작업 범위 고정"]
-    B --> C["00~09 목차와 수행 순서 정하기"]
-    C --> D["산출물·승인 조건·PASS 기준 작성"]
-    D --> E["00-plan 문서를 GitHub main에 기록"]
-    E --> F{"실제 문서를 다시 읽어 확인했나요?"}
-    F -- "아니요" --> G["누락·오류 수정 후 다시 확인"]
-    G --> F
-    F -- "예" --> H["00단계 계획 문서 PASS"]
-    H --> I["다음: 01 공식 요구사항 분석"]
+    A["사용자가 버튼 클릭"] --> H["HTML: 버튼·글자 구조"]
+    H --> J["JavaScript: 클릭 사건 처리"]
+    J --> D["DOM: 글자·화면 요소 변경"]
+    C["CSS: 색상·레이아웃"] --> D
+    D --> V["브라우저에 결과 표시"]
 ```
 
-**읽는 방법:** 위에서 아래로 화살표를 따라가면 됩니다. 마지막의 <mark>PASS는 계획 문서 검증</mark>이고, **01단계 공식 PDF의 항목별 분석은 아직 진행하지 않았습니다.**
+**쉬운 비유:** HTML은 집의 구조, CSS는 인테리어, JavaScript는 전등 스위치처럼 생각할 수 있습니다. 비유는 이해를 돕기 위한 것이며 기술의 모든 역할을 설명하지는 않습니다.
 
-[Mermaid 그림 3개 + 화살표 설명 + 기본 용어 해설](STAGE-00-MERMAID-GUIDE.md)
+<ins>이 Mermaid는 교육용 개념도이며, 실제 B1-1 신규 구현의 확정 설계나 실행 증빙이 아닙니다.</ins> [상세 아키텍처 학습](ARCHITECTURE-INTRO.md)
 
-<a name="b11-stage00-reading"></a>
+<a name="b11-00-learning"></a>
 
-## ③ 처음 방문한 학습자의 추천 읽기 순서
+### ③ 필요한 학습자료 5개만 순서대로 읽어보세요
 
-아래 순서대로 읽으면 **그림으로 큰 흐름을 이해한 다음 세부 계획과 합격 기준**을 확인할 수 있습니다. 기술 용어·코드 학습은 ④의 **기술 학습 5개 문서**에서 이어집니다.
-
-| 순서 | 문서 | 이 파일을 읽는 이유 |
+| 순서 | 한 번에 하나씩 배우기 | 문서 |
 |---|---|---|
-| **1** | **이 README** | 미션·00단계 목적·현재 상태를 3분 안에 이해 |
-| **2** | [Mermaid 입문 설명서](STAGE-00-MERMAID-GUIDE.md) | 그림과 비유로 00단계 및 전체 진행 순서 이해 |
-| **3** | [STATUS.md](STATUS.md) | 완료된 일과 아직 시작하지 않은 일을 구분 |
-| **4** | [MASTER-PLAN.md](MASTER-PLAN.md) | 전체 목표, 필수·선택 기능, 00~09 일정 확인 |
-| **5** | [ACCEPTANCE-GATES.md](ACCEPTANCE-GATES.md) | 다음 단계로 넘어가기 위한 PASS/FAIL 기준 이해 |
+| **1** | 전체 학습 순서 | [LEARNING-MAP.md](LEARNING-MAP.md) |
+| **2** | HTML·CSS·JS·DOM·API의 뜻 | [TECHNICAL-GLOSSARY.md](TECHNICAL-GLOSSARY.md) |
+| **3** | 기술의 개념·원리·비유 | [CORE-CONCEPTS.md](CORE-CONCEPTS.md) |
+| **4** | Mermaid 구성도·데이터 흐름 | [ARCHITECTURE-INTRO.md](ARCHITECTURE-INTRO.md) |
+| **5** | 코드 해설·예측·PRIMM | [CODE-LEARNING-ROADMAP.md](CODE-LEARNING-ROADMAP.md) |
 
-<a name="b11-stage00-files"></a>
+**학습 원칙:** 용어 → 개념 → 비유 → 아키텍처 → 주요 코드 → 실행 흐름 → 오류 해결 → 실습 → 평가. 한 번에 전부 외우지 않고, 한 개념을 이해한 뒤 다음으로 이동합니다.
 
-## ④ 필요할 때 찾아보는 상세 문서
+<a name="b11-00-mini"></a>
 
-| 문서 | 쉬운 용도 |
+### ④ 첫 번째 작은 코드 — 버튼을 누르면 어떻게 될까요?
+
+다음은 **교육용 짧은 예시**입니다. 기존 신규 소스에 저장되거나 실행된 코드가 아닙니다.
+
+```javascript
+const button = document.querySelector("#hello-button");
+const message = document.querySelector("#message");
+
+if (button && message) {
+  button.addEventListener("click", () => {
+    message.textContent = "안녕하세요!";
+  });
+}
+```
+
+- **DOM 요소 찾기:** `querySelector`로 버튼과 문단을 찾습니다.
+- **클릭 감지:** `addEventListener("click", ...)`은 클릭할 때 함수를 실행하도록 등록합니다.
+- **결과 예측:** 실제 버튼과 문단이 존재한다면 클릭 후 문단 글자가 “안녕하세요!”로 변경되도록 작성한 코드입니다.
+
+**생각할 질문:** 클릭은 ‘사건(Event)’일까요, ‘현재 상태(State)’일까요? 버튼이 없는 HTML에선 어떻게 될까요?
+
+해설과 다른 예제는 [주요 코드 학습자료](CODE-LEARNING-ROADMAP.md#event)에 있습니다. <ins>실제 코드 실행·테스트·독립 실습은 아직 수행하지 않았습니다.</ins>
+
+<a name="b11-00-status"></a>
+
+## C. 진행 확인하기
+
+### ⑤ 무엇이 완료됐고 다음은 무엇인가요?
+
+| 단계·항목 | 실제 상태 |
 |---|---|
-| [SOURCE-REGISTER.md](SOURCE-REGISTER.md) | 공식 미션 PDF·평가표와 참고 자료의 **출처 목록** |
-| [SLIDE-PACKAGE-PLAN.md](SLIDE-PACKAGE-PLAN.md) | 발표 16장·학습 45장·심화 15~25장·복습 1~2장의 **제작 계획** |
-| [LEARNING-SYSTEM-PLAN.md](LEARNING-SYSTEM-PLAN.md) | 용어·코드·실습·복습·AI 튜터·L1~L5를 이용한 **학습 설계** |
-| [LEARNING-MAP.md](LEARNING-MAP.md) | 학습 순서·선행 개념·9요소 체계 |
-| [TECHNICAL-GLOSSARY.md](TECHNICAL-GLOSSARY.md) | HTML·CSS·JS·DOM·API 필수 기술 용어 |
-| [CORE-CONCEPTS.md](CORE-CONCEPTS.md) | 개념·원리·비유·반례·Mermaid |
-| [ARCHITECTURE-INTRO.md](ARCHITECTURE-INTRO.md) | 브라우저 구성·상태·API·보안 경계 Mermaid |
-| [CODE-LEARNING-ROADMAP.md](CODE-LEARNING-ROADMAP.md) | 주요 코드·줄별 해설·가상 오류·PRIMM 실습 |
-| [LEGACY-SOURCE-INVENTORY.md](LEGACY-SOURCE-INVENTORY.md) | 이전 Round 01~03 자료를 **어디에 왜 보존했는지** 확인 |
-| [VISUAL-QA-20261026.md](VISUAL-QA-20261026.md) | 형광펜·밑줄 **화면 QA 시도 결과와 미검증 항목** 확인 |
+| **00 계획·기초 교육 문서 작성** | **PASS — 문서 준비·GitHub 확인 범위** |
+| **01 공식 미션 PDF·평가 15문항 분석** | **NOT_STARTED** |
+| **03 신규 웹 구조 상세 설계** | **NOT_STARTED** |
+| **04 HTML·CSS·JavaScript 신규 개발** | **NOT_STARTED / 승인 PENDING** |
+| **실행·테스트·배포·학습 숙달** | **NOT_VERIFIED** |
+| **4종 슬라이드 실물(PPTX/PDF)** | **NOT_STARTED** |
 
-이 폴더의 **총 15개 Markdown 문서**는 계획·근거·기술 교육·검증 기록을 역할별로 분리한 것입니다. <ins>처음부터 15개를 모두 읽을 필요는 없습니다.</ins> 핵심 기술 학습은 **[학습지도](LEARNING-MAP.md) → [용어](TECHNICAL-GLOSSARY.md) → [개념](CORE-CONCEPTS.md) → [아키텍처](ARCHITECTURE-INTRO.md) → [주요 코드](CODE-LEARNING-ROADMAP.md)** 순서를 권장합니다.
+**반드시 기억:** <mark>00단계 PASS는 계획·교육자료의 기록에 대한 판정</mark>이며, 앱 개발 PASS 또는 학습자의 MASTER가 아닙니다. 과거 Round 01~03 소스와 증빙은 보존·참고만 합니다.
 
-**기술 학습 9요소:** <mark>용어 → 개념 → 비유 → 아키텍처 → 주요 코드 → 실행 흐름 → 오류 해결 → 실습 → 평가</mark>. 00단계의 코드와 아키텍처는 **교육용 예시·개념도**이며 실제 신규 앱의 구현·검증이 아닙니다.
+**다음 작업:** [01단계 공식 요구사항 분석](../01-requirements/README.md). 공식 미션 PDF·평가표를 요구별로 구분하고 학습 목표·실습·검증 기준과 연결합니다.
 
-<a name="b11-stage00-glossary"></a>
+<a name="b11-00-check"></a>
 
-## ⑤ 처음 보는 용어 빠르게 이해하기
+### ⑥ 스스로 확인하는 질문 3개
 
-> **강조 표시 읽는 법:** <mark>형광펜</mark>은 기억할 핵심 개념, <ins>밑줄</ins>은 반드시 지킬 규칙, **굵은 글씨**는 주요 용어를 뜻합니다. GitHub 테마에 따라 형광펜 색상은 다를 수 있습니다.
+1. HTML, CSS, JavaScript는 각각 무엇을 담당하나요?
+2. 클릭 사건(Event)과 클릭 후의 메뉴 상태(State)는 같은 말인가요?
+3. 00단계 계획 PASS는 실제 웹페이지 완성을 뜻하나요?
 
-| 용어 | 쉬운 설명 |
+**정답:** ① 구조·디자인·동작 ② 아닙니다. 사건과 현재 값은 다릅니다 ③ 아닙니다. 신규 구현과 실제 시험은 미시작입니다.
+
+<a name="b11-00-glossary"></a>
+
+## D. 상세 자료와 쉬운 용어
+
+### ⑦ 처음 나오는 용어
+
+| 기술·표현 | 한 줄 설명 |
 |---|---|
-| **README** | 폴더를 처음 열었을 때 읽는 **안내서** |
-| **GitHub / main** | 파일과 변경 기록을 보관하는 장소 / 현재 확인하는 **기본 가지(브랜치)** |
-| **Mermaid** | 글로 작성한 순서도를 **그림으로 보여주는 형식** |
-| **Commit(커밋)** | 파일 변경 내용을 하나의 **이력**으로 남기는 행위 |
-| **SHA(해시 식별자)** | 커밋·파일 버전을 구별하기 위한 **식별값** |
-| **Gate(게이트)** | 다음 단계로 넘어가기 전에 확인하는 **통과 조건** |
-| **CORE / BONUS** | 필수로 충족할 **핵심 기능** / 하면 좋은 **추가 기능** |
-| **Runtime(런타임)** | 코드를 **실제로 실행하는 환경과 실행 상태** |
-| **DOM(문서 객체 모델)** | JavaScript가 웹페이지의 글자·버튼 등을 다루는 **구조** |
-| **API** | 다른 프로그램이나 서비스와 기능·데이터를 주고받는 **연결 규칙** |
-| **PRIMM** | 코드 **예측→실행→조사→수정→직접 만들기** 학습 방식 |
-| **PASS / FAIL / NOT_VERIFIED** | **증거로 확인된 충족 / 확인된 미충족 / 아직 확인하지 못함** |
-| **PENDING** | 필요한 **승인 또는 결정이 아직 없는 상태** |
+| **DOM** | 브라우저가 문서 요소를 객체로 표현한 구조 |
+| **API** | 다른 프로그램과 기능·데이터를 주고받는 연결 규칙 |
+| **Mermaid** | 글로 만든 다이어그램을 그림으로 표시하는 방식 |
+| **PRIMM** | 예측→실행→조사→수정→직접 만들기 학습 |
+| **README** | 이 폴더를 처음 보는 사람을 위한 안내 |
+| **PASS** | 실제 확인한 **해당 범위**의 기준 충족 |
+| **NOT_VERIFIED** | 아직 충분한 실제 증거로 검증하지 못함 |
+| **PENDING** | 필요한 승인이나 결정이 아직 없음 |
 
-더 자세한 설명은 [그림 설명서의 용어 해설](STAGE-00-MERMAID-GUIDE.md#6-자주-나오는-용어)을 참고하세요.
+더 많은 용어는 [기술 용어집](TECHNICAL-GLOSSARY.md)을 참고하세요.
 
-<a name="b11-stage00-quiz"></a>
+<a name="b11-00-reference"></a>
 
-## ⑥ 스스로 이해했는지 확인하기
+### ⑧ 모든 00단계 문서는 필요한 경우에만 확인하세요
 
-**문제를 먼저 생각하고, 아래 정답을 확인하세요.**
+| 문서 종류 | 어떤 자료인가요? |
+|---|---|
+| **처음 배우기** | [이 README](README.md), [Mermaid 흐름 안내](STAGE-00-MERMAID-GUIDE.md) |
+| **웹 기술 배우기** | [학습지도](LEARNING-MAP.md), [용어](TECHNICAL-GLOSSARY.md), [개념](CORE-CONCEPTS.md), [아키텍처](ARCHITECTURE-INTRO.md), [주요 코드](CODE-LEARNING-ROADMAP.md) |
+| **전체 계획·교육체계** | [MASTER-PLAN](MASTER-PLAN.md), [LEARNING-SYSTEM-PLAN](LEARNING-SYSTEM-PLAN.md), [SLIDE-PACKAGE-PLAN](SLIDE-PACKAGE-PLAN.md) |
+| **검증·진행 상태** | [ACCEPTANCE-GATES](ACCEPTANCE-GATES.md), [STATUS](STATUS.md) |
+| **공식 출처·과거 이력** | [SOURCE-REGISTER](SOURCE-REGISTER.md), [LEGACY-SOURCE-INVENTORY](LEGACY-SOURCE-INVENTORY.md) |
+| **실제 화면 검수 기록** | [VISUAL-QA-20261026](VISUAL-QA-20261026.md) |
 
-1. 00단계에서 실제 HTML 웹페이지를 만드는 것이 맞나요?
-2. 00단계 PASS와 B1-1 전체 미션 완료는 어떤 점이 다른가요?
-3. 새로 개발할 소스코드는 어느 폴더에 저장하나요?
-4. 현재 `PENDING` 상태인 승인은 무엇인가요?
-5. 다음 01단계에서 공식 PDF와 평가표를 가지고 무엇을 하나요?
+총 **15개 Markdown 문서**를 하나씩 모두 읽을 필요는 없습니다. 기존 문서는 삭제·이동하지 않았습니다.
 
-<a name="b11-stage00-answers"></a>
-
-### 정답·설명
-
-1. **아닙니다.** 00단계는 목표·순서·검증 기준을 정하는 계획 단계입니다.
-2. **다릅니다.** 00단계 PASS는 계획 문서 기준을 충족했다는 뜻이고, 미션 완료는 실제 개발·시험·증빙·평가가 필요합니다.
-3. **`training/round-04-agent/04-src/`**입니다. 현재는 안내 README만 있습니다.
-4. **신규 미션 코드 개발 승인**입니다. 아직 `PENDING`입니다.
-5. **공식 요구사항·평가 15문항을 항목별로 확인**하고 필수·선택, 실습, 테스트·증빙 기준과 연결합니다. 이것은 00단계에서 이미 완료했다고 주장하지 않습니다.
-
-<a name="b11-stage00-next"></a>
-
-## ⑦ 다음 단계는 무엇인가요?
-
-**01 — 공식 요구사항 분석**: [01단계 폴더 열기](../01-requirements/README.md)
-
-00단계의 계획·문서 확인은 **PASS**입니다. 다음 01단계에서는 공식 B1-1 미션 PDF와 평가 기준을 실제로 대조합니다. **01단계는 아직 NOT_STARTED**이며, <ins>사용자 승인 없는 신규 코드 작성·명령 실행·배포는 진행하지 않습니다.</ins>
-
-**이 단계의 핵심 한 문장:** *먼저 무엇을 만들고 어떻게 확인할지 결정한 뒤, 공식 요구사항부터 하나씩 분석한다.*
+**핵심 한 문장:** <mark>한 번에 하나를 이해하고, 짧은 예제로 예측하고, 질문으로 확인한 다음 다음 단계로 갑니다.</mark>
