@@ -88,6 +88,8 @@ flowchart TD
 
 **검증 제약:** 간이 괄호·문자열 검사는 Node의 `--check`, 브라우저 JavaScript 파싱·실행, 테스트 프레임워크와 동일하지 않습니다. 브라우저·API·키보드·접근성·반응형 실증은 05단계에서 별도로 기록해야 합니다.
 
+**후속 05-1 모의 실행 결과(2026-10-27):** [독립 모의 검사 결과](../05-tests/05-1-V8-MOCK-TEST-REPORT.md)에서 **V8 구문 PASS 및 모의 DOM·API 35개 PASS/FAIL 0**을 관찰했습니다. 실제 Node CLI·Chrome·WSL2·51개 정식 수용 시험은 여전히 **NOT_VERIFIED**입니다.
+
 **허위 PASS 금지:** 파일이 존재하더라도 런타임·API 응답·입문자 숙달은 실제 실행 증거를 수집한 뒤에만 판정합니다. 개발 브랜치의 코드 변경과 배포·병합을 별개로 승인합니다.
 
 [03 설계](../03-design/README.md) · [01 공식 요구](../01-requirements/REQUIREMENTS-CATALOG.md) · [미션 승인](../mission.yml)
