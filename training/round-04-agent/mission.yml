@@ -18,8 +18,8 @@ evaluation_root: training/round-04-agent/07-evaluation
 presentation_root: training/round-04-agent/08-presentation
 handoff_root: training/round-04-agent/09-handoff
 owner_path_directive: APPROVED_2026-10-25
-owner_mission_development_approval: PENDING
-mission_execution: NOT_STARTED
+owner_mission_development_approval: APPROVED_2026-10-27_STAGE_04_ONLY
+mission_execution: IN_PROGRESS_STAGE_04
 runtime: NOT_VERIFIED
 clear: NOT_VERIFIED
 legacy_rounds: REFERENCE_ONLY
@@ -31,3 +31,10 @@ learning_mastery_levels: 5
 learning_plan_root: training/round-04-agent/00-plan
 learning_activities_root: training/round-04-agent/08-presentation/06-learning-activities
 learning_system_standard: https://github.com/MetaStudy999/codyssey-basic/blob/main/standards/LEARNER-CENTERED-AI-LEARNING-STANDARD.md
+
+# 2026-10-27: Owner's follow-up "진행 부탁 드립니다" after explicit 04 approval-gate notice.
+# Scope: new files under 04-src, beginner explanations and static QA on this feature branch.
+# Not approved: production deployment, Pages publishing, main merge, previous Rounds, or mission CLEAR.
+stage_04_approval_scope: NEW_SOURCE_ONLY
+stage_04_deployment_approval: PENDING
+stage_04_merge_approval: PENDING
