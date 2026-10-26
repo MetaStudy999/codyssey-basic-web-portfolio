@@ -180,10 +180,11 @@
             <p class="field-error" id="message-error" aria-live="polite"></p>
           </div>
           <div class="form-footer">
-            <button class="button button-primary" type="submit">입력 확인하기 <span aria-hidden="true">↗</span></button>
+            <button class="button button-primary" type="submit" disabled>입력 확인하기 <span aria-hidden="true">↗</span></button>
             <p class="form-disclaimer">* 필수 입력 항목 · 전송되지 않는 데모</p>
           </div>
           <p class="form-status" id="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+          <noscript><p class="form-status">JavaScript가 비활성화되어 입력 검증을 실행할 수 없습니다. 메시지는 전송되지 않습니다.</p></noscript>
         </form>
       </div>
     </section>
