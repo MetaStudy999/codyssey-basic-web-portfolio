@@ -58,6 +58,7 @@ flowchart TD
 | [SLIDE-PACKAGE-PLAN.md](SLIDE-PACKAGE-PLAN.md) | 발표 16장·학습 45장·심화 15~25장·복습 1~2장의 **제작 계획** |
 | [LEARNING-SYSTEM-PLAN.md](LEARNING-SYSTEM-PLAN.md) | 용어·코드·실습·복습·AI 튜터·L1~L5를 이용한 **학습 설계** |
 | [LEGACY-SOURCE-INVENTORY.md](LEGACY-SOURCE-INVENTORY.md) | 이전 Round 01~03 자료를 **어디에 왜 보존했는지** 확인 |
+| [VISUAL-QA-20261026.md](VISUAL-QA-20261026.md) | 형광펜·밑줄 **화면 QA 시도 결과와 미검증 항목** 확인 |
 
 이 폴더의 **총 9개 Markdown 문서**는 같은 정보를 복사한 자료가 아니라 역할이 다른 안내·계획·기준·근거 문서입니다. <ins>처음부터 9개를 모두 읽을 필요는 없습니다.</ins>
 
