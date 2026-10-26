@@ -2,9 +2,9 @@
 
 > **00 계획 문서 PASS** · **01 공식 요구 분석 NOT_STARTED** · **신규 코드 개발 NOT_STARTED / 승인 PENDING**
 
-**용어 표기:** 하이퍼텍스트 마크업 언어(HyperText Markup Language, HTML) · 캐스케이딩 스타일 시트(Cascading Style Sheets, CSS) · 자바스크립트(JavaScript, JS).
-
 **30초 요약:** <mark>HTML은 웹페이지의 구조, CSS는 디자인, JavaScript는 동작</mark>을 담당합니다. 지금은 웹페이지를 만들기 전에 **목표·작업 순서·학습자료·검증 기준을 준비한 단계**입니다. <ins>실제 웹페이지 구현과 학습 성취를 완료한 것은 아닙니다.</ins>
+
+**읽는 길:** 10초에 미션 이해 → 1분에 그림으로 원리 파악 → 5분에 스스로 설명·종이 재현. 더 필요한 자료는 마지막 D에서 선택하세요.
 
 ## 현재 문서의 구조화된 목차
 
@@ -32,6 +32,9 @@
 <a name="b11-00-tech"></a>
 
 ## B. 기술 배우기
+
+**용어 표기:** 하이퍼텍스트 마크업 언어(HyperText Markup Language, HTML) · 캐스케이딩 스타일 시트(Cascading Style Sheets, CSS) · 자바스크립트(JavaScript, JS).
+
 
 ### ② 웹페이지의 세 기술을 그림으로 이해해요
 
