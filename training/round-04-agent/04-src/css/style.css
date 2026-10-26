@@ -109,13 +109,18 @@ strong { font-weight: 700; }
 .brand-name { font-size: .91rem; font-weight: 900; letter-spacing: .045em; }
 .brand-dot { color: var(--accent); }
 .site-nav {
-  display: none; position: absolute;
+  display: flex; position: absolute;
   left: 1rem; right: 1rem; top: calc(100% + .25rem);
   padding: 1rem; flex-direction: column; gap: .2rem;
   background: var(--surface); border: 1px solid var(--stroke);
   border-radius: 14px; box-shadow: var(--shadow);
 }
 .site-nav.is-open { display: flex; }
+/* Without JavaScript, mobile links remain available. Collapse only after successful init. */
+@media (max-width: 767px) {
+  .js-enhanced .site-nav { display: none; }
+  .js-enhanced .site-nav.is-open { display: flex; }
+}
 .site-nav a {
   padding: .65rem .85rem; border-radius: .5rem;
   font-weight: 650; font-size: .91rem; color: var(--muted);
