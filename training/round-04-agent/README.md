@@ -12,9 +12,9 @@
 
 ## 처음 방문한 학습자 — 00단계부터 시작하기
 
-현재 **00단계 계획 문서 PASS / 01단계 공식 요구 분석 문서 PASS**이며, 02단계 기존 환경 분석과 새 코드 개발은 **NOT_STARTED**입니다. 먼저 [00단계 3분 안내·Mermaid·읽기 순서·용어·확인 문제](00-plan/README.md)를 읽고, 필요하면 [그림 상세 설명](00-plan/STAGE-00-MERMAID-GUIDE.md)과 [현재 상태](00-plan/STATUS.md)를 확인하세요.
+현재 **00단계 계획 문서 PASS / 01단계 공식 요구 분석 문서 PASS / 02단계 이전 소스·환경 파일 비교 문서 PASS**이며, **03단계 설계와 신규 코드 개발은 NOT_STARTED**입니다. 현재 WSL2 실측은 **NOT_VERIFIED**입니다. 먼저 [00단계 3분 안내·Mermaid·읽기 순서·용어·확인 문제](00-plan/README.md)를 읽고, 필요하면 [그림 상세 설명](00-plan/STAGE-00-MERMAID-GUIDE.md)과 [현재 상태](00-plan/STATUS.md)를 확인하세요.
 
-[01단계 공식 요구 분석 결과와 평가 15문항 매핑](01-requirements/README.md) · [01단계 검증 보고](01-requirements/VALIDATION-REPORT.md).
+[01단계 공식 요구 분석](01-requirements/README.md) · [02단계 기존 자산·환경 비교](02-analysis/README.md) · [02단계 검증 보고](02-analysis/VALIDATION-REPORT.md).
 
 ## 새 작업 디렉터리
 

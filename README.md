@@ -4,12 +4,13 @@
 
 ## 입문자라면 여기부터 시작하세요
 
-**B1-1의 00단계 계획 문서와 01단계 공식 요구 분석 문서가 각각 PASS입니다.** 새 웹페이지 구현과 **실제 발표·학습 슬라이드(PPTX/PDF)**는 아직 미작성입니다. **00단계에는 용어·개념·아키텍처·주요 코드 등 교육용 기술 교안 5개가 작성돼 있습니다.**
+**B1-1의 00단계 계획·01단계 요구 분석·02단계 기존 자산 비교가 각각 문서 기준 PASS입니다.** 새 웹페이지 구현과 **실제 발표·학습 슬라이드(PPTX/PDF)**는 아직 미작성입니다. **00단계에는 용어·개념·아키텍처·주요 코드 등 교육용 기술 교안 5개가 작성돼 있습니다.**
 
 - [① 3분 요약·그림·추천 학습 순서·쉬운 용어·확인 문제](training/round-04-agent/00-plan/README.md)
 - [② 00단계 Mermaid 입문 설명서](training/round-04-agent/00-plan/STAGE-00-MERMAID-GUIDE.md)
 - [③ 현재 완료/미완료 표](training/round-04-agent/00-plan/STATUS.md)
 - [④ 01단계 공식 요구·평가 15문항과 검증 결과](training/round-04-agent/01-requirements/README.md)
+- [⑤ 02단계 이전 코드·개발환경·차이 분석과 검증 결과](training/round-04-agent/02-analysis/README.md)
 
 ## 1. 현재 미션 (새로운 작업)
 
