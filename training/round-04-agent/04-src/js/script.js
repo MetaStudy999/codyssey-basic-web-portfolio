@@ -202,7 +202,11 @@ function renderProjects() {
   elements.retry.hidden = !(status === "error" || status === "forbidden");
   elements.retry.disabled = status === "loading";
   elements.projects.setAttribute("aria-busy", String(status === "loading"));
-  elements.projectStatus.classList.toggle("is-error", status === "error" || status === "forbidden");
+  // Explicit add/remove make the error state easy for beginners to trace.
+  elements.projectStatus.classList.remove("is-error");
+  if (status === "error" || status === "forbidden") {
+    elements.projectStatus.classList.add("is-error");
+  }
   elements.projects.replaceChildren();
 
   if (status === "loading") {
