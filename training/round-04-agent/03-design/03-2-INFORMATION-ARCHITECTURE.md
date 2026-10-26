@@ -21,7 +21,7 @@ flowchart TD
  G --> H["03-3으로 인계(03-2 완료 당시)"]
 ```
 
-**이번 단계 제한:** [고정 00~09 계획](../00-plan/MASTER-PLAN.md), [03-1 설계 범위](README.md), [01 공식 요구](../01-requirements/REQUIREMENTS-CATALOG.md), [공식 평가 15문항](../01-requirements/EVALUATION-15-MAPPING.md), [02 과거 자산 검토](../02-analysis/LEGACY-ASSET-MATRIX.md)를 기준으로 합니다. 기존 Round 01~03 자료·이력은 변경하지 않습니다. `04-src/` 신규 소스 작성·실행·배포는 금지합니다.
+**이번 단계 제한:** [고정 00~09 계획](../00-plan/MASTER-PLAN.md), [03-1 설계 범위](03-1-REQUIREMENTS-AND-SCOPE.md), [01 공식 요구](../01-requirements/REQUIREMENTS-CATALOG.md), [공식 평가 15문항](../01-requirements/EVALUATION-15-MAPPING.md), [02 과거 자산 검토](../02-analysis/LEGACY-ASSET-MATRIX.md)를 기준으로 합니다. 기존 Round 01~03 자료·이력은 변경하지 않습니다. `04-src/` 신규 소스 작성·실행·배포는 금지합니다.
 
 ## B. 기획 프롬프트 — 초안 → 검토 → 보완·확정
 
