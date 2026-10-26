@@ -35,6 +35,7 @@ flowchart TD
 | Task 05-03 | `20261027000000000000000000000503` — 외부 Git clone DNS 실패, **실제 셸 exit `128`**, 코드 시험 **미실시** |
 | Task 05-04 | `20261027000000000000000000000504` — 파일 SHA 대조 및 로컬 Node 실행 **exit `0`** |
 | Task 05-05 | `20261027000000000000000000000505` — WSL/Windows 브라우저 경로 읽기 조사 exit `0`, 실행 자체는 미실시 |
+| Task 05-06 | `20261027000000000000000000000506` — Windows Chrome `--version` 1회 시도: **Chrome 실행 exit `1`**, WSL `UtilGetPpid` 관련 오류. 외부 페이지·웹서버 실행 없음 |
 
 ### Task 05-04의 핵심 표준 출력
 
@@ -61,7 +62,7 @@ WSL2_NODE_MOCK_TEST=PASS
 | WSL-03 | Agent Codyssey 파일 전송 9개 조각 → Git Blob SHA 2개 일치 | **PASS — 소스 무결성** |
 | WSL-04 | `node --check` 2개 + 모의 시험 35개, exit `0` | **PASS — Node 및 Mock 범위** |
 | WSL-05 | WSL Linux Chrome/Chromium/Firefox 실행 파일 발견되지 않음 | **NOT_AVAILABLE — 해당 경로에서의 브라우저 검사** |
-| WSL-06 | Windows Chrome·Edge 실행 파일은 `/mnt/c/...` 경로에서 발견되지만 WSLInterop 항목이 없음 | **브라우저 실행 가능 여부 NOT_VERIFIED**, 실행 시도·설치·권한 변경 안 함 |
+| WSL-06 | Windows Chrome·Edge 실행 파일은 `/mnt/c/...` 경로에 존재, WSLInterop 항목은 없음. 이후 **Chrome `--version`만 1회 시도해 종료 코드 `1` 및 `UtilGetPpid ... Failed to parse /proc/1/stat` 오류** 확인 | **FAIL — 현재 MCP/Codex 환경의 Windows Chrome 버전 실행**, 화면 렌더·브라우저 기능 시험 **NOT_VERIFIED** |
 | WSL-07 | 51개 정식 RES/A11Y/INT/FLOW/API/FORM/SEC/PUB 시험과 실제 배포 미실시 | **NOT_VERIFIED**, 05 전체·CLEAR PASS 금지 |
 
 ## 입문자용 검사 의미와 보존 정책
@@ -70,6 +71,7 @@ WSL2_NODE_MOCK_TEST=PASS
 
 - **기존 로컬 체크아웃·Git 브랜치, 원본 Round 01~03, 운영 `main`, 배포·서비스·토큰은 변경하지 않았습니다.**
 - **임시 파일만** 사용자 WSL2의 `/tmp/b1-1-r04-qa-20261027-0504`와 Agent Codyssey의 `codyssey_test/b1-1-round04-qa-20261027-0504/`에 생성됐습니다. 원본 자료는 삭제하지 않았습니다.
+- **Windows Chrome 실행 제약:** `/mnt/c` 실행 파일을 찾았지만, 버전 조회가 WSL 프로세스 정보 파싱 오류로 실패했습니다. **Chrome의 실제 작동/페이지 렌더를 확인하지 못했으며**, Windows 바이너리나 WSL 시스템 설정을 변경하지 않았습니다.
 - **다음 필요 단계:** 실제 Chrome/Edge 실행 가능한 별도 검증 환경 준비 또는 연결 → 새 Round 04 HTML/CSS/JS/SVG 전체 소스 확인 → 03-6의 공식 51개 시험을 수행하고 시점·SHA·캡처·PASS/FAIL을 사례별로 기록.
 - **실행 승인 경계:** `main` 병합·Pages 공개 배포·기존 운영 변경은 별도 승인 전 금지.
 
