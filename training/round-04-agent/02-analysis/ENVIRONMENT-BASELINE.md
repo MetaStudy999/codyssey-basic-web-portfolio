@@ -26,6 +26,20 @@
 
 **범위 구분:** `.github/workflows/`에는 기존 배포·검증 워크플로가 저장되어 있으나, 이를 지금 실행하거나 이전 배포 기록을 새로운 Round 04 결과로 승격하지 않았습니다.
 
+## 1-1. 현재 MCP 읽기 전용 연결 확인 — 2026-10-26
+
+> 이 단락은 위의 **과거 GitHub 설정 파일 검사**와 별개의 **ChatGPT에서 직접 호출한 도구 응답**입니다. 새 명령·개발·배포를 수행하지 않았습니다.
+
+| 확인 대상 | 직접 사용한 방법 | 실제 응답 | 판정 |
+|---|---|---|---|
+| Agent Codyssey MCP 상태 조회 | `get_task_status`, 과거 작업 ID `20261023190500000000000000000000` | `state=COMPLETED`, `process_running=false`, `exit_code=0` | **PASS — 기존 작업 상태 읽기** |
+| Agent Codyssey MCP 파일 읽기 | `read_file`, 기존 검증 파일 `codyssey_test/step5_4_roundtrip_20261024.txt` | `ok=true`, UTF-8 41 bytes, 기존 예상 2줄 및 SHA-256 `99a96d10956e0bc07f07219c954dabc166ef044ba8b9dace490e4b80b504f602` 일치 | **PASS — 읽기 기능** |
+| 현재 로컬 WSL2 세부 환경 | 운영체제·현재 작업 트리·도구 버전·포트·브라우저 실행 명령 **미실시** | 실제 설치 및 실행 정보 없음 | **NOT_VERIFIED** |
+| 현재 Codex 신규 작업 가능 여부 | `run_command` 미호출, 새 Task 미발행 | 현시점의 신규 작업 실행 증거 없음 | **NOT_VERIFIED** |
+| 대상 B1-1 저장소의 WSL2 로컬 복제본 | GitHub 원격 저장소와 별도로 로컬 경로·HEAD 조회 **미실시** | 동일 환경 여부 확인 안 됨 | **NOT_VERIFIED** |
+
+**읽는 법:** MCP(Model Context Protocol, 모델 문맥 프로토콜) 도구 두 개가 응답했다는 사실은 **연결의 읽기 경로만 검증**합니다. 현재 WSL2 Ubuntu의 OS/버전·Codex CLI(명령줄 인터페이스)·포트 정상·프로젝트 로컬 HEAD까지 자동으로 PASS가 되는 것은 아닙니다. 기존 테스트 파일은 **B1-1 Round 04 소스가 아니며** 새 구현 증거로 재사용하지 않습니다. 토큰·비밀키 원문은 요청하거나 출력하지 않았습니다.
+
 ## 2. 쉬운 그림
 
 ```mermaid
