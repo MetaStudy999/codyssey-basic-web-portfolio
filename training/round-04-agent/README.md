@@ -10,6 +10,10 @@
 - 개발 주도: ChatGPT; 명령 실행·시험: Agent Codyssey MCP → WSL2 Ubuntu → Codex
 - 새 미션 개발: 사용자 명시적 승인 이후에만 시작
 
+## 처음 방문한 학습자 — 00단계부터 시작하기
+
+지금은 **00단계 계획 문서만 PASS**, 01단계 공식 요구 분석 및 새 코드 개발은 **NOT_STARTED**입니다. 먼저 [00단계 3분 안내·Mermaid·읽기 순서·용어·확인 문제](00-plan/README.md)를 읽고, 필요하면 [그림 상세 설명](00-plan/STAGE-00-MERMAID-GUIDE.md)과 [현재 상태](00-plan/STATUS.md)를 확인하세요.
+
 ## 새 작업 디렉터리
 
 | 경로 | 역할 |

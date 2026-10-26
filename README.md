@@ -2,6 +2,14 @@
 
 > **현재 신규 미션: `training/round-04-agent/` (2026-10-25 지정).** 이 저장소의 루트 웹페이지는 **현재 미션 상태를 알리는 안내 페이지**입니다. 실제 신규 B1-1 구현 코드는 아직 작성하지 않았으며, 사용자 별도 개발 승인 전까지 PLAN_ONLY / NOT_STARTED입니다.
 
+## 입문자라면 여기부터 시작하세요
+
+**B1-1의 현재 신규 작업은 00단계 계획 문서 PASS, 01단계 미시작입니다.** 새 웹페이지 구현과 실제 교육자료는 아직 작성하지 않았습니다.
+
+- [① 3분 요약·그림·추천 학습 순서·쉬운 용어·확인 문제](training/round-04-agent/00-plan/README.md)
+- [② 00단계 Mermaid 입문 설명서](training/round-04-agent/00-plan/STAGE-00-MERMAID-GUIDE.md)
+- [③ 현재 완료/미완료 표](training/round-04-agent/00-plan/STATUS.md)
+
 ## 1. 현재 미션 (새로운 작업)
 
 - 미션 번호: **B1-1**
