@@ -4,7 +4,7 @@
 >
 > **Owner 적용:** [B1-1~B7-2 전체 15개 미션 공통 필수 프로세스](https://github.com/MetaStudy999/codyssey-basic/blob/main/standards/ROUND-04-AGENT-MISSION-PROCESS-STANDARD.md)를 따릅니다. 모든 미션에 적용되는 것은 *프로세스*이며, B1-1의 HTML/CSS/JS 필수 기능은 다른 미션에 그대로 적용하지 않습니다.
 >
-> **현재 판정:** 03-1~03-7 `PASS(DOC_ONLY)`, 03-8 `DESIGN_AUDIT_RUNNING`, 04 구현 승인 `PENDING`, 실제 코드·브라우저·API·출력·배포·학습 숙달·CLEAR `NOT_VERIFIED`. 종합 문서 검증을 마친 뒤 03-8 **문서 기준** 판정을 갱신합니다.
+> **현재 판정:** 03-1~03-7 `PASS(DOC_ONLY)`, 03-8 `PASS(설계 문서 정적 검증 기준)`, 04 구현 승인 `PENDING`, 실제 코드·브라우저·API·출력·배포·학습 숙달·CLEAR `NOT_VERIFIED`. 종합 문서 검증을 마친 뒤 03-8 **문서 기준** 판정을 갱신합니다.
 
 ## 처음 5분 — 입문자 Quick Start
 
@@ -296,6 +296,28 @@ flowchart TD
 | Q11 | 중앙 15개 미션 표준 참조 | 공통 절차 적용·미션별 요건 분리 |
 | Q12 | 독립 QA·오류 수정·재조회 이력 | 검사 당시 HEAD/SHA·오류 0 및 재검증 기록 |
 
-**검증 결과는 실제 GitHub 재조회 후 이 문서의 J절에 추가합니다.** 검증할 근거가 존재하지 않는 대상은 `NOT_VERIFIED`로 유지하고 허위 PASS를 기록하지 않습니다.
+### J-1. 실제 GitHub 재조회 결과 — 2026-10-27
+
+**1차 종합 검사 기준 커밋:** `92f577a9e04543c048f2ebd6acf43c40d76874c3`. 아래는 해당 커밋에서 재조회한 결과이며, 이후 본 보고서·README 상태 갱신은 별도 커밋으로 기록합니다.
+
+| 실제 확인 | 검사 범위와 관찰 결과 | 판정 |
+|---|---|---|
+| R01~R12 공식 73개 요구 | 원본 [카탈로그](../01-requirements/REQUIREMENTS-CATALOG.md) **73개/고유 73개**, 이 문서 H절 **73행/고유 73개**, 누락·추가 **0**. CORE **59개** 등 기존 분류 보존 | **PASS — 설계 추적** |
+| 공식 평가·목표·쟁점 | [평가 E01~E15](../01-requirements/EVALUATION-15-MAPPING.md), [학습목표 LO01~LO14](../01-requirements/LEARNING-OBJECTIVES.md), [D01~D10](../01-requirements/SOURCE-CONFLICTS-AND-DECISIONS.md)의 연결 문서 확인 | **PASS — 자료 존재·범위**, 평가 실행 아님 |
+| 03-1~03-8 독립 파일 | 독립 MD **8개** 및 `03-design/README.md` **1개**, 총 **9개** 설계 파일 확인 | **PASS — 경로·구성** |
+| 미래 시험 ID | [03-6 시험 문서](03-6-QUALITY-ACCESSIBILITY-TEST-PLAN.md) **RES8/A11Y11/INT6/FLOW5/API7/FORM4/SEC4/PUB6=51개**, ID 누락 없음 | **PASS — 계획 ID**, 실제 실행 0건 |
+| 누락·과거 상태 | 03-1 본문·과거 검증 원문 분리 보존, 03-2의 과거 단계 상태 오류 수정, 최신 README와 과거 스냅샷 구분 | **PASS — 문서 정합성** |
+| 단계 전체 링크/구문 | 9개 설계 MD 내부 상대 링크 **191개**, 대상 누락 **0개**, Mermaid 코드 블록 **21개**, 닫히지 않은 코드 펜스 **0개** | **PASS — 정적 파일·구문**, 실제 렌더 미확인 |
+| 신규 소스·이전 Round | `04-src/`에 `README.md`만 존재, 기존 Round 01/03 대표 HTML blob SHA 각각 `99435474b6a593cad6fbc0901fecd9a0acefe9b8` / `2a751ab1e5dcf89eb90758fa209d6f3c6bc7292c` 보존 | **PASS — 미작성·원본 보존** |
+| 승인·미션 상태 | `mission.yml` blob `11cb53446b0065c7d44ccffe78d9fed30b5c3673`; `owner_mission_development_approval=PENDING`, `mission_execution=NOT_STARTED` | **PASS — 승인 보존** |
+| 변경 범위 | 이 1차 종합 검증 전 B1-1 변경은 **03-2·03-8·03 README의 문서 3개만** | **PASS — 설계 파일만 변경** |
+| 입문자 구성 | 5분 한 개념, A~G 우선, 73개 상세 추적 H, 기획·독립 검증 I~J 분리, Mermaid·종이 답 | **PASS — 문서 구성**, 실제 초보자 관찰 NOT_VERIFIED |
+| 기능·배포·학습·CLEAR | 신규 웹 실행·Chrome·API·폼·접근성 51개 실제 시험·Pages URL/캡처·07 평가·08 실물 PPTX/PDF·09 CLEAR 미실시 | **NOT_VERIFIED / NOT_STARTED** |
+
+**03-8 판정:** `STAGE_03_8_DOC_AUDIT=PASS`. **03 설계 문서 단계의 종합 정적 게이트는 PASS**이나, **04~09 신규 코드/시험/증빙/평가/학습자 MASTER/최종 CLEAR에는 PASS를 부여하지 않습니다.** 공통 프로세스를 전 미션에 반영한 것도 B1-1 설계 결과를 타 미션에 전이하는 근거가 아닙니다.
+
+**04 인계:** 사용자 개발 승인 `PENDING`이므로 **차기 소스 작업 자동 착수 금지**. 승인 시 이 설계·시험·교육 문서를 고정 기준으로 사용하고, 실제 코드 SHA·테스트 증거를 새로 확보해야 합니다.
+
+
 
 [03단계 전체 README](README.md) · [중앙 15개 미션 표준](https://github.com/MetaStudy999/codyssey-basic/blob/main/standards/ROUND-04-AGENT-MISSION-PROCESS-STANDARD.md) · [04 개발 승인 상태](../mission.yml)
