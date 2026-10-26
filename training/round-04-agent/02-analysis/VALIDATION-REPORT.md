@@ -49,6 +49,27 @@
 
 **미실시:** 신규 앱 코드, 명령 실행, 설치·환경 변경, 테스트·배포, 학습자 답안/구술 평가, 서비스/브랜치 변경. 위 항목은 **NOT_STARTED / NOT_VERIFIED**입니다.
 
+## 4-1. 독립 재검증 보충 (2026-10-26)
+
+아래 내용은 기존 보고서의 문서 PASS 범위를 넘지 않으면서, 원격 GitHub 파일 및 Agent Codyssey MCP의 읽기 경로를 **별도로 재확인한 증거**입니다.
+
+| 재확인 항목 | 직접 검사 결과 | 판정 |
+|---|---|---|
+| 공식 문서 ID | [요구사항](../01-requirements/REQUIREMENTS-CATALOG.md) 고유 73개, [평가문항](../01-requirements/EVALUATION-15-MAPPING.md) E01~E15 15개, [학습목표](../01-requirements/LEARNING-OBJECTIVES.md) LO01~LO14 14개 | **PASS — 문서 ID 수** |
+| 기존 HTML/CSS/JS | Round 01 참조 3파일, Round 03 3파일을 GitHub에서 실제 읽어 원본 Blob SHA를 자산 목록과 대조 | **PASS — 정적 소스·SHA 대조** |
+| 이전 파일 보존 | GitHub 기준 커밋 `936a25d266487d6bf6d8a43ed8bfbe26ac298207`부터 `8feb264580208016028da0dae594442be4d8936f`까지 비교: 6개 커밋, 변경 범위는 `02-analysis/` 6개 파일에 한정 | **PASS — 지정 구간 Git diff** |
+| 현재 파일 트리 | 기준 HEAD `8feb264580208016028da0dae594442be4d8936f`: 추적 파일 154개, `02-analysis/` 문서 6개, `04-src/`는 README 한 개 | **PASS — 트리·신규 소스 미작성** |
+| 중복 자산 | 전체 파일의 Git Blob SHA 기준 중복 묶음 6개(각 2경로); 공식 원본/아카이브 및 루트/legacy 호환 파일 포함 | **PASS — 중복 식별**, 삭제 없음 |
+| 문서 경로 링크 | 위 기준 HEAD에서 02단계 6개 Markdown 내부 상대 파일 링크 50개 검사, 대상 경로 누락 0개 | **PASS — 파일 경로 정적 검사**. 외부 URL·브라우저 클릭은 미검증 |
+| 현재 MCP 상태 읽기 | 기존 작업 ID의 `get_task_status` → `COMPLETED`, `exit_code=0` | **PASS — 상태 조회 응답** |
+| 현재 MCP 파일 읽기 | 기존 진단 파일 `codyssey_test/step5_4_roundtrip_20261024.txt`: 41 bytes, 2줄, SHA-256 일치 | **PASS — 읽기 응답** |
+| 현재 WSL2·Codex 신규 작업·VS Code/Chrome/Live Server | 셸 또는 새 실행 명령 없이 직접 설치·실행·작업 트리 검증하지 않음 | **NOT_VERIFIED** |
+| 실제 학습자 진단·숙달 | 문항·채점안만 작성, 학생 답안·점수·독립 구현 증거 없음 | **NOT_VERIFIED** |
+
+**검증 시점 구분:** HEAD/파일 수/중복/링크 검사 수치는 위에 고정한 기준 커밋의 스냅샷입니다. 이후 README·상태 문서의 최신 표시가 추가 수정될 수 있으므로 변경 후 새 HEAD를 기준으로 재조회해야 합니다. MCP의 상태 조회는 과거 작업을 **현재 읽을 수 있음**을 보여주지만 새 Codex 명령 성공 여부까지 증명하지 않습니다.
+
+**보안·보존:** 인증 토큰·비밀키 원문 미조회. 작업 실행·패키지 설치·로컬 파일 쓰기·구현 소스 수정·서비스 재시작·배포 없음. 기존의 이름이 같은 파일은 보존·링크 호환 목적이 있으므로 **삭제 없이 유지**합니다. 업데이트 범위는 02단계 분석 문서뿐입니다.
+
 ## 5. 최종 판정
 
 - `STAGE_00_PLAN_DOCS=PASS`
