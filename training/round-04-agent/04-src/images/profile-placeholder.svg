@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 460" role="img" aria-labelledby="placeholder-title placeholder-desc">
+  <title id="placeholder-title">교체 가능한 프로필 이미지 예시</title>
+  <desc id="placeholder-desc">실제 인물의 사진이나 신원을 표시하지 않는 추상 도형</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6f5e8"/>
+      <stop offset="1" stop-color="#9fcfba"/>
+    </linearGradient>
+    <linearGradient id="figure" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a8069"/>
+      <stop offset="1" stop-color="#125542"/>
+    </linearGradient>
+  </defs>
+  <rect width="460" height="460" rx="28" fill="url(#background)"/>
+  <circle cx="370" cy="93" r="105" fill="#c8edda" opacity=".65"/>
+  <circle cx="92" cy="381" r="132" fill="#c8edda" opacity=".7"/>
+  <path d="M0 369Q230 290 460 370V460H0Z" fill="#5c9d83" opacity=".27"/>
+  <circle cx="230" cy="180" r="78" fill="url(#figure)"/>
+  <path d="M71 418c9-85 67-139 159-139s150 54 159 139" fill="url(#figure)"/>
+  <circle cx="228" cy="180" r="104" fill="none" stroke="#fff" stroke-width="2" opacity=".25" stroke-dasharray="8 10"/>
+  <text x="230" y="438" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" letter-spacing="3" fill="#effaf1">PROFILE PLACEHOLDER</text>
+</svg>
