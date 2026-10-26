@@ -2,6 +2,8 @@
 
 > **01단계 문서 매핑:** 공식 [B1-1 PDF](https://drive.google.com/file/d/1YC6KKj-hCi54FzOhivZmetX0EQXFXXNy/view)와 [15개 평가표](https://drive.google.com/file/d/1tRJdh0a2cX8x3nAkpKYM9b6aVfPKed6q/view)에 따른 **학습목표·평가 계획**을 정했습니다. 실습 실행·신규 소스·독립 숙달 결과는 **NOT_STARTED / NOT_VERIFIED**입니다.
 
+**LO는 학습목표(Learning Objective)**의 추적 ID입니다. 예를 들어 **LO09**는 API 요청 중 로딩·성공·오류가 어떻게 달라지는지 설명할 수 있도록 배우자는 목표입니다. **14개 목표를 한꺼번에 외울 필요는 없습니다.**
+
 ## 초보자용 읽기 순서
 
 1. **공식 문항 보기:** [평가 E01~E15](EVALUATION-15-MAPPING.md)에서 무엇을 설명해야 하는지 확인.

@@ -14,6 +14,12 @@
 
 **분석 결과:** 총 **73개 원자 요구·제약·선택 항목** / 12개 영역. 분류: CORE 59 · RECOMMENDED 1 · BONUS 6 · GUIDANCE 1 · CONSTRAINT 4 · ALLOWED 1 · PRIORITY 1. 정확한 평가 문항 연결은 [E01~E15 매핑](EVALUATION-15-MAPPING.md), 쟁점은 [원문 우선·판단 기록](SOURCE-CONFLICTS-AND-DECISIONS.md)을 참조하세요.
 
+### 73개의 ID는 서로 다른 기능 73개를 의미하지 않습니다
+
+**73은 검증 가능한 세부 기록 수**입니다. PDF에서 언어별 필터링은 §4.7과 §5 등에서 다시 나오므로, 여러 번호가 같은 선택 기능을 가리킬 수도 있습니다. 처음에는 전체를 외우기보다 [01단계의 첫 사례](README.md#stage01-req)를 따라가세요.
+
+**R = 요구사항(Requirement)**의 추적 ID이며 원본 PDF에 원래 붙은 번호는 아닙니다.
+
 ## PDF §4.1 — 프로젝트 구성·개발 도구
 
 | 요구 ID | 분류 | 원문 의미의 세부 요구 | 미래 검증·증거 | 평가 문항 |
