@@ -1,5 +1,7 @@
 # B1-1 — 00단계 이행 상태
 
+> **최신 단계 현황(2026-10-26): 00 계획 문서 PASS / 01 공식 요구 분석 문서 PASS / 02 분석 NOT_STARTED / 신규 미션 코드 개발 승인 PENDING.** 아래의 과거 00단계 확인 기록에서 보이는 '01 NOT_STARTED'는 해당 시점의 *역사적 상태*이며, 최신 판정은 [01단계 검증 보고](../01-requirements/VALIDATION-REPORT.md)를 기준으로 합니다.
+
 - 작성일: 2026-10-26
 - 미션: B1-1 — 나를 소개하는 웹페이지 처음부터 만들기
 - 작업 저장소: `MetaStudy999/codyssey-basic-web-portfolio`
@@ -8,7 +10,7 @@
 - 초기 00단계 필수 계획 문서 5개: `README.md`, `MASTER-PLAN.md`, `ACCEPTANCE-GATES.md`, `SOURCE-REGISTER.md`, `STATUS.md`
 - 현재 00단계 문서: **총 16개**(기술 교안 5종·설명/종이 재현 활동 1종·계획/근거/검증 기록 등 포함). [현재 문서 목차](README.md)에서 선택하여 확인
 - 단계 00 문서 작성: **PASS — GitHub main 읽기 재검증 완료** (00단계 문서·경로·보존 확인에 한정)
-- 01 요구: **NOT_STARTED**
+- 01 요구: **PASS — 문서 분석 기준** (실제 코드·평가 NOT_VERIFIED)
 - 02 분석: **NOT_STARTED**
 - 03 설계: **NOT_STARTED**
 - 04 코드: **NOT_STARTED**
@@ -22,7 +24,7 @@
 | 구분 | 상태 | 무엇을 뜻하나요? |
 |---|---|---|
 | **00 계획** | **PASS** | 목표·목차·승인·검증 문서를 GitHub에 반영하고 실제 재조회함 |
-| **01 공식 요구 분석** | **NOT_STARTED** | PDF·평가 문항의 항목별 추적표는 아직 작성하지 않음 |
+| **01 공식 요구 분석** | **PASS — 문서 기준** | 공식 PDF 73개 세부 항목·평가 15개·학습목표 14개 연결 완료. 실제 구현·평가는 미확인 |
 | **04 신규 개발** | **NOT_STARTED / 승인 PENDING** | 새 코드 구현·실행은 아직 승인·착수하지 않음 |
 | **08 슬라이드 실물** | **NOT_STARTED** | 4종 계획은 있지만 PPTX/PDF 결과물은 없음 |
 | **신규 기능·학습 성취** | **NOT_VERIFIED** | 실제 테스트와 학습자 독립평가는 아직 확인되지 않음 |
@@ -31,7 +33,7 @@
 
 ## 다음 순서
 
-**01-requirements**를 한 단계로 따로 진행합니다. 공식 PDF·평가 15문항의 조항·필수/선택·수용·테스트·증빙 매핑을 작성하고, 검증 결과를 보고합니다. 사용자 승인 없는 신규 미션 개발은 시작하지 않습니다.
+**01-requirements는 문서 분석 PASS로 완료했습니다.** [01 검증 보고](../01-requirements/VALIDATION-REPORT.md)를 확인하고, 다음은 [02-analysis](../02-analysis/README.md)의 이전 소스·환경 읽기 분석을 별도 단계로 진행합니다. 사용자 승인 없는 신규 코드 개발·배포는 금지합니다.
 
 ## 00단계 최종 읽기 재검증 근거 (2026-10-26)
 
@@ -80,3 +82,9 @@
 - 01단계 공식 원본: [B1-1 Mission PDF](https://drive.google.com/file/d/1YC6KKj-hCi54FzOhivZmetX0EQXFXXNy/view), [15개 평가 항목 MD](https://drive.google.com/file/d/1tRJdh0a2cX8x3nAkpKYM9b6aVfPKed6q/view) — Drive 읽기 확인.
 - 01단계 분석 작업 착수와 01단계 PASS를 구분: **진입 가능 / 요구사항 항목별 분석 NOT_STARTED**. 미션 개발·실행 승인 PENDING, CLEAR NOT_VERIFIED.
 - 00단계 16개 파일은 목적별로 보존. 필수 삭제 파일 없음. 예전 차수 중복 복사본은 링크 호환·이력 보존 목적이므로 삭제하지 않음.
+
+## 2026-10-26: 01단계 문서 검증 PASS 후 현황 갱신
+
+- [01단계 요구 분석](../01-requirements/README.md): 미션 PDF §4.1~4.10와 제약·선택을 73개 단위로 분류, 공식 평가 E01~E15와 학습목표 LO01~LO14 매핑, 10개 해석 차이 기록.
+- [01 검증 보고](../01-requirements/VALIDATION-REPORT.md): 요구·문항·학습목표 문서 PASS. 00 계획 PASS 유지.
+- 실제 코드 작성·학습 수행·테스트·PPTX/PDF 실물·전체 CLEAR는 **NOT_STARTED 또는 NOT_VERIFIED**, 개발 승인 **PENDING** 유지.
