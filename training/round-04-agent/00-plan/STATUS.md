@@ -6,7 +6,7 @@
 - 고정 작성 루트: `training/round-04-agent/`
 - 이번 단계: **00 계획**
 - 초기 00단계 필수 계획 문서 5개: `README.md`, `MASTER-PLAN.md`, `ACCEPTANCE-GATES.md`, `SOURCE-REGISTER.md`, `STATUS.md`
-- 현재 00단계 문서: **총 16개**(학습 교안 5개·Mermaid 안내·검증 기록 등 포함). [현재 문서 목차](README.md)에서 선택하여 확인
+- 현재 00단계 문서: **총 16개**(기술 교안 5종·설명/종이 재현 활동 1종·계획/근거/검증 기록 등 포함). [현재 문서 목차](README.md)에서 선택하여 확인
 - 단계 00 문서 작성: **PASS — GitHub main 읽기 재검증 완료** (00단계 문서·경로·보존 확인에 한정)
 - 01 요구: **NOT_STARTED**
 - 02 분석: **NOT_STARTED**
@@ -58,7 +58,7 @@
 - 범위: B1-1~B7-2 15개 미션의 학습체계 계획·공통 표준·학습활동 폴더 구성 승인.
 - B1-1 교육계획: [LEARNING-SYSTEM-PLAN.md](LEARNING-SYSTEM-PLAN.md) 작성 및 저장소 반영.
 - PRIMM·16개 방법·QG-01~08·H1~H4·L1~L5 문서화: PLAN_ONLY.
-- 실제 콘텐츠 제작·학습자 성취 평가·미션 개발·코드 실행: NOT_STARTED / NOT_VERIFIED.
+- **기초 기술 교안 5종과 설명·종이 재현 활동 1종은 작성**했으며, 실제 PPTX/PDF·학습자 평가·신규 코드 구현/실행·실습 성과는 **NOT_STARTED / NOT_VERIFIED**.
 - **기존 00단계 계획 문서 PASS는 보존**, 새 학습 게이트의 실제 PASS는 미부여.
 
 ## 00단계 입문 기술 교육자료 보완 (2026-10-26)
@@ -73,3 +73,10 @@
 - [LEARNER-EXPLAIN-RECONSTRUCT.md](LEARNER-EXPLAIN-RECONSTRUCT.md) 추가: 쉬운 비유·두 문장 자기 설명·종이 코드 추적·가상 오류와 기대 답.
 - 기술 한글/영어/공식 약어 표기 보완; **교육용 설명 자료 존재**만 확인. 실제 학생의 설명·L4/L5 재현과 실사용 UI 검수는 **NOT_VERIFIED**.
 - 개발 승인 PENDING, 01 요구 분석 NOT_STARTED 및 기존 Round 보존 상태 유지.
+
+## 00 → 01 진입 준비 재확인 (2026-10-26)
+
+- 00단계 계획·문서 준비 게이트: **PASS (계획 문서 범위)**. 00~09 목차와 기존 소스 보존 유지.
+- 01단계 공식 원본: [B1-1 Mission PDF](https://drive.google.com/file/d/1YC6KKj-hCi54FzOhivZmetX0EQXFXXNy/view), [15개 평가 항목 MD](https://drive.google.com/file/d/1tRJdh0a2cX8x3nAkpKYM9b6aVfPKed6q/view) — Drive 읽기 확인.
+- 01단계 분석 작업 착수와 01단계 PASS를 구분: **진입 가능 / 요구사항 항목별 분석 NOT_STARTED**. 미션 개발·실행 승인 PENDING, CLEAR NOT_VERIFIED.
+- 00단계 16개 파일은 목적별로 보존. 필수 삭제 파일 없음. 예전 차수 중복 복사본은 링크 호환·이력 보존 목적이므로 삭제하지 않음.

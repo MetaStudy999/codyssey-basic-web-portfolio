@@ -1,6 +1,6 @@
 # B1-1 — 학습자 중심 AI 교육·학습체계 실행계획 V1.0
 
-> 승인: 2026-10-26 (15개 미션 공통). 이 문서는 **계획**, 실제 교육자료·문제·실습 결과·PPTX/PDF 제작은 NOT_STARTED / NOT_VERIFIED. 별도 미션 코드 개발 승인 PENDING 유지.
+> 승인: 2026-10-26 (15개 미션 공통). 본 문서는 **교육계획**입니다. **00단계 기초 기술 교안 5종 및 설명·종이 재현 안내 1종은 작성됐습니다.** 다만 실제 학습자 수행·평가 결과, 신규 미션 코드 실행·실습 증빙, PPTX/PDF 실물은 **NOT_STARTED / NOT_VERIFIED**입니다. 별도 미션 개발 승인 PENDING 유지.
 
 - 미션: B1-1, 기술 주제: **HTML/CSS/JavaScript·DOM 이벤트·반응형·GitHub API**
 - 기준: [중앙 표준](https://github.com/MetaStudy999/codyssey-basic/blob/main/standards/LEARNER-CENTERED-AI-LEARNING-STANDARD.md), 공식 해당 미션 PDF/평가 기준이 우선.
@@ -56,5 +56,6 @@ PASS는 실제 코드·시험·학습자 독립 수행·증빙 존재 시에만 
 | [CORE-CONCEPTS.md](CORE-CONCEPTS.md) | 개념·원리·비유·반례·Mermaid | 교육 설명 초안 작성 / 실제 운영 NOT_VERIFIED |
 | [ARCHITECTURE-INTRO.md](ARCHITECTURE-INTRO.md) | 브라우저 구성·상태·API·보안 경계 Mermaid | 교육 설명 초안 작성 / 실제 운영 NOT_VERIFIED |
 | [CODE-LEARNING-ROADMAP.md](CODE-LEARNING-ROADMAP.md) | 주요 코드·줄별 해설·가상 오류·PRIMM 실습 | 교육 설명 초안 작성 / 실제 운영 NOT_VERIFIED |
+| [LEARNER-EXPLAIN-RECONSTRUCT.md](LEARNER-EXPLAIN-RECONSTRUCT.md) | 두 문장 설명·종이 코드 추적·가상 오류·확인 질문 | 교육용 활동 초안 작성 / 학습자 재현 NOT_VERIFIED |
 
-이 5종은 **00단계 선행학습용**으로 작성한 문서입니다. 예시 코드는 실제 신규 코드가 아니며, 사전/사후 평가·코드 실행·정밀 요구 매핑·독립 숙달 검증은 아직 이루어지지 않았습니다. 중앙 [학습표준](https://github.com/MetaStudy999/codyssey-basic/blob/main/standards/LEARNER-CENTERED-AI-LEARNING-STANDARD.md)의 기술 학습 9요소를 따릅니다.
+위 **핵심 기술 교안 5종과 설명·종이 재현 활동 1종**은 **00단계 선행학습용**으로 작성한 문서입니다. 예시 코드는 실제 신규 코드가 아니며, 사전/사후 평가·코드 실행·정밀 요구 매핑·독립 숙달 검증은 아직 이루어지지 않았습니다. 중앙 [학습표준](https://github.com/MetaStudy999/codyssey-basic/blob/main/standards/LEARNER-CENTERED-AI-LEARNING-STANDARD.md)의 기술 학습 9요소를 따릅니다.

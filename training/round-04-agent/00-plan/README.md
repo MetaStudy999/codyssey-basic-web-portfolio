@@ -35,7 +35,6 @@
 
 **용어 표기:** 하이퍼텍스트 마크업 언어(HyperText Markup Language, HTML) · 캐스케이딩 스타일 시트(Cascading Style Sheets, CSS) · 자바스크립트(JavaScript, JS).
 
-
 ### ② 웹페이지의 세 기술을 그림으로 이해해요
 
 ```mermaid
@@ -53,7 +52,7 @@ flowchart TD
 
 <a name="b11-00-learning"></a>
 
-### ③ 필요한 학습자료 5개만 순서대로 읽어보세요
+### ③ 핵심 기술 교안 5개 + 설명·종이 재현 활동 1개
 
 | 순서 | 한 번에 하나씩 배우기 | 문서 |
 |---|---|---|
@@ -91,9 +90,9 @@ if (button && message) {
 
 해설과 다른 예제는 [주요 코드 학습자료](CODE-LEARNING-ROADMAP.md#event)에 있습니다. <ins>실제 코드 실행·테스트·독립 실습은 아직 수행하지 않았습니다.</ins>
 
-<a name="b11-00-status"></a>
-
 **설명과 재현 연습:** [두 문장으로 설명하고 눈으로 실행 과정을 따라 그리는 안내](LEARNER-EXPLAIN-RECONSTRUCT.md)를 읽어 보세요. 이는 실제 새 코드 실행이 아니라 **종이 재현(Dry-run)**입니다.
+
+<a name="b11-00-status"></a>
 
 ## C. 진행 확인하기
 
@@ -148,7 +147,7 @@ if (button && message) {
 | 문서 종류 | 어떤 자료인가요? |
 |---|---|
 | **처음 배우기** | [이 README](README.md), [Mermaid 흐름 안내](STAGE-00-MERMAID-GUIDE.md) |
-| **웹 기술 배우기** | [학습지도](LEARNING-MAP.md), [용어](TECHNICAL-GLOSSARY.md), [개념](CORE-CONCEPTS.md), [아키텍처](ARCHITECTURE-INTRO.md), [주요 코드](CODE-LEARNING-ROADMAP.md) |
+| **웹 기술 배우기** | [학습지도](LEARNING-MAP.md), [용어](TECHNICAL-GLOSSARY.md), [개념](CORE-CONCEPTS.md), [아키텍처](ARCHITECTURE-INTRO.md), [주요 코드](CODE-LEARNING-ROADMAP.md), [설명·종이 재현](LEARNER-EXPLAIN-RECONSTRUCT.md) |
 | **전체 계획·교육체계** | [MASTER-PLAN](MASTER-PLAN.md), [LEARNING-SYSTEM-PLAN](LEARNING-SYSTEM-PLAN.md), [SLIDE-PACKAGE-PLAN](SLIDE-PACKAGE-PLAN.md) |
 | **검증·진행 상태** | [ACCEPTANCE-GATES](ACCEPTANCE-GATES.md), [STATUS](STATUS.md) |
 | **공식 출처·과거 이력** | [SOURCE-REGISTER](SOURCE-REGISTER.md), [LEGACY-SOURCE-INVENTORY](LEGACY-SOURCE-INVENTORY.md) |
