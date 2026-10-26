@@ -9,13 +9,15 @@
 | 00 계획 | 고정 목표·00~09 목차·일정·승인·판정 기준의 GitHub 재조회 확인 | 필수 계획 누락·모순 | **PASS (계획 문서 기준)** — [검증 기록](STATUS.md) |
 | 01 요구 | 공식 미션 PDF·공식 평가 15문항을 근거와 함께 매핑 | 공식 필수 조항 빠짐/오인 | **PASS — 문서 분석 기준** ([01 검증](../01-requirements/VALIDATION-REPORT.md)); 실제 기능·평가 NOT_VERIFIED |
 | 02 분석 | 이전 차수·루트 원본과 현재 실제 상태·미완료 차이 구분 | 누락/역사적 PASS를 새 PASS로 오기 | **PASS — 읽기 전용 파일·차이 문서 기준** ([02 검증](../02-analysis/VALIDATION-REPORT.md)); 현 WSL2 실측 NOT_VERIFIED |
-| 03 설계 | 신규 구현과 상태·오류·반응형·시험 계획이 공식 필수항목을 모두 커버 | 공식 필수 기능 누락 | NOT_VERIFIED |
+| 03 설계 | 신규 구현과 상태·오류·반응형·시험 계획이 공식 필수항목을 모두 커버 | 공식 필수 기능 누락 | **PASS — 설계 문서 정적 검증에 한정** ([03-8 종합 감사](../03-design/03-8-COMPREHENSIVE-DESIGN-AUDIT-AND-HANDOFF.md)); 새 코드·실행·학습자 숙달은 NOT_VERIFIED |
 | 04 구현 | 승인된 새 HTML/CSS/JS 코드가 `04-src/`에 있고 필수 기능 실현 | 코드 부재/기능 누락/승인 없는 변경 | NOT_STARTED |
 | 05 시험 | 실제 Chrome/Chromium 화면, 반응형, 이벤트, API 오류, 폼, 테마, 회귀가 충족 | 재현된 테스트 실패 | NOT_VERIFIED |
 | 06 증빙 | 테스트·화면·공개 URL·커밋 SHA/실제 아티팩트 연결 | 누락·출처 불일치·공개 검증 실패 | NOT_VERIFIED |
 | 07 평가 | 공식 평가 문항 15개 설명과 구현 근거 연결 | 필수 문항 설명 불충분 | NOT_VERIFIED |
 | 08 학습·발표 | 발표 16장·학습 45장·기술 부록 15~25장·복습 1~2장의 실제 PPTX/PDF 구성·근거·가독성·학습 가치 검증 | 패키지 누락·실증 출처 오류·PPTX/PDF 불일치 | NOT_VERIFIED |
 | 09 인계 | 최종 코드·증빙·최종 판정·GitHub 상태·재현 절차 기록 | 누락·미확인 PASS 선언 | NOT_VERIFIED |
+
+**판정 구분(2026-10-27):** 00~03 문서 관련 검증은 실제 GitHub 정적 근거를 기준으로 각각 PASS로 보고하되, **04 구현·05 실제 기능 테스트·06 실제 증빙·07 실제 평가·08 실물 슬라이드·09 최종 인계는 미완료**입니다. 따라서 `owner_mission_development_approval=PENDING`, `mission_execution=NOT_STARTED`, `CLEAR=NOT_VERIFIED` 유지.
 
 **주의:** 위 표의 01~09는 *향후 단계의 통과 조건*을 정리한 것입니다. 실제 01~09 검증이 완료됐다는 뜻이 아닙니다.
 
