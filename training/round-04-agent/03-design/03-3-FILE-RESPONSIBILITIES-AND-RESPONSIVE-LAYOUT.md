@@ -143,21 +143,27 @@ flowchart TD
 **HTML — 내용과 다른 파일의 연결을 정의합니다.**
 
 ```html
-<link rel="stylesheet" href="css/style.css">
-<script src="js/script.js" defer></script>
-
-<main id="main">
-  <section id="projects">
-    <h2>프로젝트</h2>
-    <article><h3>프로젝트 카드 예시</h3></article>
-  </section>
-</main>
+<head>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <main id="main">
+    <section id="projects">
+      <h2>프로젝트</h2>
+      <div class="projects-grid">
+        <article><h3>프로젝트 카드 예시</h3></article>
+      </div>
+    </section>
+  </main>
+</body>
 ```
 
-- 첫째 줄: `css/style.css`에 적힌 꾸미기 규칙을 연결합니다.
-- 둘째 줄: `js/script.js`에 적힌 동작 지침을 연결하고 `defer`를 사용합니다.
+- `<head>` 안의 `link`: `css/style.css`에 적힌 꾸미기 규칙을 연결합니다.
+- `<head>` 안의 `script`: `js/script.js`에 적힌 동작 지침을 연결하고 `defer`를 사용합니다.
 - `main`: 페이지에서 핵심이 되는 내용을 감쌉니다.
 - `section id="projects"`: 상단 메뉴의 `#projects` 링크가 도착할 목적지입니다.
+- `div class="projects-grid"`: 아래 CSS의 `.projects-grid`와 같은 이름을 사용해 카드 묶음에 Grid를 적용할 위치를 지정합니다.
 - `article`: 개별 프로젝트 하나를 독립적인 정보 단위로 표현합니다.
 
 **CSS — 카드의 배치를 정의합니다.**
@@ -192,11 +198,9 @@ const projectSection = document.querySelector("#projects");
 - 해당 요소가 없으면 결과는 `null`일 수 있어 이후 코드에서 존재 여부 확인이 필요합니다.
 - 지금은 **코드를 실행하지 않으며**, 이것만으로 카드·메뉴·API가 동작하지 않습니다.
 
-**학습 예시와 최종 설계의 차이:** 위 HTML 일부에 `projects-grid` 래퍼는 생략되어 있습니다. 실제 Grid 적용을 위해서는 향후 HTML의 카드 부모에 같은 클래스가 있어야 합니다. 작은 코드 조각을 결합했다고 완성된 웹페이지가 되는 것은 아닙니다.
+**학습 예시와 최종 구현의 차이:** HTML의 `class="projects-grid"`와 CSS의 `.projects-grid`가 서로 대응하는 것을 확인하세요. 위 코드는 `<!doctype html>` 등 문서 전체 뼈대를 생략한 **교육용 부분 코드**이며, 이것만으로 완성된 웹페이지가 되지 않습니다.
 
-### D-3. 섹션과 파일 책임을 연결하기
-
-### D-3. 03-2 섹션 계약 그대로 유지
+### D-3. 03-2 섹션과 파일 책임을 연결하기
 
 | 표시 순서 | 문서 책임 | CSS 레이아웃 | JS 책임(상세 03-4/03-5로 인계) |
 |---|---|---|---|
