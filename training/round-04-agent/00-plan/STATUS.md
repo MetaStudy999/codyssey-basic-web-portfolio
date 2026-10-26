@@ -6,7 +6,7 @@
 - 고정 작성 루트: `training/round-04-agent/`
 - 이번 단계: **00 계획**
 - 초기 00단계 필수 계획 문서 5개: `README.md`, `MASTER-PLAN.md`, `ACCEPTANCE-GATES.md`, `SOURCE-REGISTER.md`, `STATUS.md`
-- 현재 00단계 문서: **총 15개**(학습 교안 5개·Mermaid 안내·검증 기록 등 포함). [현재 문서 목차](README.md)에서 선택하여 확인
+- 현재 00단계 문서: **총 16개**(학습 교안 5개·Mermaid 안내·검증 기록 등 포함). [현재 문서 목차](README.md)에서 선택하여 확인
 - 단계 00 문서 작성: **PASS — GitHub main 읽기 재검증 완료** (00단계 문서·경로·보존 확인에 한정)
 - 01 요구: **NOT_STARTED**
 - 02 분석: **NOT_STARTED**
@@ -67,3 +67,9 @@
 - 문서에 **용어·개념·비유·아키텍처·주요 코드·실행 흐름·오류 해결·실습·평가** 9요소를 연결한 *교육 설명 초안*을 기록함.
 - 이 단계 PASS의 의미: 기존 00단계의 **계획·문서 기록** 상태를 유지합니다. 새 기술 교안은 **학습자 이해도 측정·실제 코드 검증 전**이므로 실사용 교육 품질 및 학습자 숙달은 NOT_VERIFIED입니다.
 - 01 공식 요구 분석: NOT_STARTED; 03 상세 설계: NOT_STARTED; 04 신규 구현: NOT_STARTED / 승인 PENDING; 실제 테스트·실습·슬라이드 PPTX/PDF: NOT_VERIFIED 또는 NOT_STARTED.
+
+## 기술 설명·종이 재현 학습 강화 (2026-10-26)
+
+- [LEARNER-EXPLAIN-RECONSTRUCT.md](LEARNER-EXPLAIN-RECONSTRUCT.md) 추가: 쉬운 비유·두 문장 자기 설명·종이 코드 추적·가상 오류와 기대 답.
+- 기술 한글/영어/공식 약어 표기 보완; **교육용 설명 자료 존재**만 확인. 실제 학생의 설명·L4/L5 재현과 실사용 UI 검수는 **NOT_VERIFIED**.
+- 개발 승인 PENDING, 01 요구 분석 NOT_STARTED 및 기존 Round 보존 상태 유지.

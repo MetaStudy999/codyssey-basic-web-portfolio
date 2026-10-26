@@ -2,6 +2,22 @@
 
 > **입문 학습용** · 신뢰도와 최신 요구사항 정합성은 01단계 공식 자료 분석에서 확인합니다. 실제 기능 구현·평가 NOT_VERIFIED.
 
+## 한글·영어·약어를 함께 배우는 용어 표기
+
+처음 등장할 때는 **한글명(English Full Name, 공식 약어)**로 적습니다. 공식 약어가 없는 **상태(State)**, **함수(Function)** 등은 임의 약어를 만들지 않습니다.
+
+| 처음 배우는 정확한 명칭 | 쉽게 기억할 역할 |
+|---|---|
+| 하이퍼텍스트 마크업 언어(HyperText Markup Language, **HTML**) | 내용과 의미 |
+| 캐스케이딩 스타일 시트(Cascading Style Sheets, **CSS**) | 화면 모양 |
+| 자바스크립트(JavaScript, **JS**) | 화면 동작 |
+| 문서 객체 모델(Document Object Model, **DOM**) | 브라우저 문서 객체 |
+| 응용 프로그램 프로그래밍 인터페이스(Application Programming Interface, **API**) | 외부 데이터·기능 요청 |
+| 자바스크립트 객체 표기법(JavaScript Object Notation, **JSON**) | 데이터 교환 |
+| 하이퍼텍스트 전송 규약(Hypertext Transfer Protocol, **HTTP**) | 웹 요청·응답 |
+
+**개념을 직접 말하고 눈으로 재현:** [첫 활동](LEARNER-EXPLAIN-RECONSTRUCT.md)에서 설명·예상 순서·답을 확인합니다.
+
 ## 1. 웹 화면과 문서
 
 | 용어 | 영어·원명 | 한 문장 정의 | 간단한 예 |

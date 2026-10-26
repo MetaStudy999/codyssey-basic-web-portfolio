@@ -2,6 +2,8 @@
 
 > **00 계획 문서 PASS** · **01 공식 요구 분석 NOT_STARTED** · **신규 코드 개발 NOT_STARTED / 승인 PENDING**
 
+**용어 표기:** 하이퍼텍스트 마크업 언어(HyperText Markup Language, HTML) · 캐스케이딩 스타일 시트(Cascading Style Sheets, CSS) · 자바스크립트(JavaScript, JS).
+
 **30초 요약:** <mark>HTML은 웹페이지의 구조, CSS는 디자인, JavaScript는 동작</mark>을 담당합니다. 지금은 웹페이지를 만들기 전에 **목표·작업 순서·학습자료·검증 기준을 준비한 단계**입니다. <ins>실제 웹페이지 구현과 학습 성취를 완료한 것은 아닙니다.</ins>
 
 ## 현재 문서의 구조화된 목차
@@ -57,6 +59,7 @@ flowchart TD
 | **3** | 기술의 개념·원리·비유 | [CORE-CONCEPTS.md](CORE-CONCEPTS.md) |
 | **4** | Mermaid 구성도·데이터 흐름 | [ARCHITECTURE-INTRO.md](ARCHITECTURE-INTRO.md) |
 | **5** | 코드 해설·예측·PRIMM | [CODE-LEARNING-ROADMAP.md](CODE-LEARNING-ROADMAP.md) |
+| **6** | 자기 설명·종이 재현·오류 질문 | [LEARNER-EXPLAIN-RECONSTRUCT.md](LEARNER-EXPLAIN-RECONSTRUCT.md) |
 
 **학습 원칙:** 용어 → 개념 → 비유 → 아키텍처 → 주요 코드 → 실행 흐름 → 오류 해결 → 실습 → 평가. 한 번에 전부 외우지 않고, 한 개념을 이해한 뒤 다음으로 이동합니다.
 
@@ -86,6 +89,8 @@ if (button && message) {
 해설과 다른 예제는 [주요 코드 학습자료](CODE-LEARNING-ROADMAP.md#event)에 있습니다. <ins>실제 코드 실행·테스트·독립 실습은 아직 수행하지 않았습니다.</ins>
 
 <a name="b11-00-status"></a>
+
+**설명과 재현 연습:** [두 문장으로 설명하고 눈으로 실행 과정을 따라 그리는 안내](LEARNER-EXPLAIN-RECONSTRUCT.md)를 읽어 보세요. 이는 실제 새 코드 실행이 아니라 **종이 재현(Dry-run)**입니다.
 
 ## C. 진행 확인하기
 
@@ -146,6 +151,6 @@ if (button && message) {
 | **공식 출처·과거 이력** | [SOURCE-REGISTER](SOURCE-REGISTER.md), [LEGACY-SOURCE-INVENTORY](LEGACY-SOURCE-INVENTORY.md) |
 | **실제 화면 검수 기록** | [VISUAL-QA-20261026](VISUAL-QA-20261026.md) |
 
-총 **15개 Markdown 문서**를 하나씩 모두 읽을 필요는 없습니다. 기존 문서는 삭제·이동하지 않았습니다.
+총 **16개 Markdown 문서**를 하나씩 모두 읽을 필요는 없습니다. 기존 문서는 삭제·이동하지 않았습니다.
 
 **핵심 한 문장:** <mark>한 번에 하나를 이해하고, 짧은 예제로 예측하고, 질문으로 확인한 다음 다음 단계로 갑니다.</mark>
