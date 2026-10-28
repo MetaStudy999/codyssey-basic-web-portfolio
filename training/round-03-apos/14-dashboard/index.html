@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APOS Round 03 — B1-1 파일럿 관제</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Malgun Gothic",sans-serif;color:#172339;background:#f6f7fa}
+*{box-sizing:border-box}body{margin:0}main{max-width:1100px;margin:auto;padding:28px 18px}
+header{background:#182a48;color:white;padding:28px 18px}header>div{max-width:1064px;margin:auto}
+h1{font-size:clamp(1.4rem,3vw,2.1rem);margin:.3em 0}h2{font-size:1.2rem;margin:0 0 14px}p{line-height:1.6}
+.note{color:#4e5c72;font-size:.94rem}.panel{background:white;border:1px solid #dfe4eb;border-radius:12px;padding:20px;margin:16px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.stage{border:1px solid #dce3eb;border-radius:9px;padding:14px;background:#fbfcfe}
+.id{font-size:.8rem;color:#556276;font-weight:700}.status{display:inline-block;font-size:.79rem;border-radius:8px;background:#e8edf4;padding:5px 8px;font-weight:700}
+dl{margin:0}dt{font-size:.85rem;color:#546174}dd{margin:4px 0 14px;font-weight:650}button{font:inherit;border-radius:8px;border:1px solid #3d628d;background:white;padding:8px 12px;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #2458d6}
+footer{color:#647187;font-size:.82rem;padding:24px 0}
+</style>
+</head>
+<body>
+<header><div><small>APOS · B1-1 · Round 03</small><h1>미션 수행·학습·연구 관제</h1><p>저장소 안의 기록 스냅샷을 읽습니다. 실시간 상태·MCP 연결을 의미하지 않습니다.</p></div></header>
+<main>
+<section class="panel"><h2>관측 기준</h2><p class="note" id="snapshot-note" aria-live="polite">기록 스냅샷 불러오는 중</p><button id="reload" type="button">저장된 기록 다시 읽기</button></section>
+<section class="panel"><h2>단계별 현황 (P00~P07)</h2><div class="grid" id="stage-list"></div></section>
+<section class="panel"><h2>세 가지 독립 평가</h2><div class="grid" id="dimensions"></div></section>
+<section class="panel"><h2>검증 증거 및 사용법</h2><p>이 화면은 프로그램 동작을 실행하거나 계정에 접속하지 않습니다. 실제 판정은 <a href="../05-tests/VERIFY-PROCEDURE.md">검증 수행 계약</a>, <a href="../evidence/EVIDENCE-MAP.md">증빙 색인</a>, <a href="../13-harness/README.md">하네스 규칙</a>과 해당 SHA의 GitHub Actions 결과를 대조하십시오.</p><p class="note">PASS는 명시된 검증 범위에 한합니다. 학습 MASTER, 새로운 연구 성과, 범용 시스템의 성공을 암시하지 않습니다.</p></section>
+<footer>Read-only snapshot preview · No external credentials · No writes · Generated from mission-owned observations</footer>
+</main>
+<script>
+'use strict';
+function el(tag,text,cls){const x=document.createElement(tag);if(text!==undefined)x.textContent=String(text);if(cls)x.className=cls;return x;}
+function addCard(parent,title,value,details){
+ const card=el('article',undefined,'stage'); card.append(el('div',title,'id'),el('div',value,'status'),el('p',details||'','note'));parent.append(card);
+}
+async function load(){
+ const target=document.querySelector('#stage-list');
+ const metrics=document.querySelector('#dimensions');
+ target.replaceChildren();metrics.replaceChildren();
+ try{
+  const response=await fetch('../13-harness/observations.json',{cache:'no-store'});
+  if(!response.ok)throw new Error('HTTP '+response.status);
+  const data=await response.json();
+  if(data.schema_version!=='1.0'||data.mission_id!=='B1-1'||!Array.isArray(data.stages)||data.stages.length!==8)throw new Error('기록 계약 불일치');
+  document.querySelector('#snapshot-note').textContent='기록 날짜: '+data.recorded_at+' · 독립 CORE 후보: '+data.known_source_candidate.slice(0,12)+'… · 원격 실시간 확인 아님';
+  data.stages.forEach(s=>addCard(target,s.id,s.status,s.reason));
+  addCard(metrics,'B1-1 최소 학습 설명',data.learning.minimum_explanation,'독립 재현: '+data.learning.independent_reproduction);
+  addCard(metrics,'새로운 연구 검증',data.research.status,'재현성: '+data.research.reproducibility);
+  addCard(metrics,'성능 비교',data.performance.elapsed_ms===null?'NOT_MEASURED':'측정값 존재','기준선: '+(data.performance.baseline_ref||'없음'));
+ }catch(err){document.querySelector('#snapshot-note').textContent='읽기 실패: '+err.message+' — HTTP 서버에서 열거나 기록 파일을 확인하세요.';}
+}
+document.querySelector('#reload').addEventListener('click',load);
+load();
+</script></body></html>
